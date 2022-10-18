@@ -5,7 +5,7 @@ import 'package:pdf/widgets.dart';
 import 'dart:io';
 import 'package:flutter/services.dart' show Color, rootBundle;
 
-Future<Uint8List> makePdf(Patient patient) async {
+Future<Uint8List> makePdfMedical(Patient patient) async {
   final pdf = Document();
   final imageLogo = MemoryImage(
       (await rootBundle.load('assets/images/jsw.png')).buffer.asUint8List());
