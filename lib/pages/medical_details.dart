@@ -1,13 +1,20 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ohctech/pages/medical_pdf_preview_page.dart';
+
+import '../models/patient.dart';
 
 void main() {
-  runApp(const MedicalExam());
+  runApp(MedicalExam());
 }
 
 class MedicalExam extends StatelessWidget {
-  const MedicalExam({key});
+  final Patient patient;
+
+  const MedicalExam({Key key, @required this.patient})
+      : assert(patient != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +28,17 @@ class MedicalExam extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           backgroundColor: Colors.lightBlue,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => MedicalPdfPreviewPage(patient: patient),
+              ),
+            );
+          },
+          backgroundColor: Colors.green,
+          child: const Icon(Icons.picture_as_pdf),
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
