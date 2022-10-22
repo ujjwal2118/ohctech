@@ -12,9 +12,7 @@ void main() {
 class MedicalExam extends StatelessWidget {
   final Patient patient;
 
-  const MedicalExam({Key key, @required this.patient})
-      : assert(patient != null),
-        super(key: key);
+  const MedicalExam({Key key, @required this.patient}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

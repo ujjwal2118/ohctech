@@ -87,7 +87,7 @@ Future<Uint8List> makePdf(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("OPD-1234-2022",
+                          Text(patient.ticket_no,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
