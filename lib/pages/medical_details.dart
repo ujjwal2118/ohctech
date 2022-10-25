@@ -12,7 +12,9 @@ void main() {
 class MedicalExam extends StatelessWidget {
   final Patient patient;
 
-  const MedicalExam({Key key, @required this.patient}) : super(key: key);
+  const MedicalExam({Key key, @required this.patient})
+      : assert(patient == null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class MedicalExam extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -55,14 +57,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("Name"),
+                        child: const Text("Name"),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -81,7 +83,8 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -100,7 +103,8 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -119,7 +123,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -129,7 +133,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text("Blood Group"),
                       ),
@@ -138,7 +142,8 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -148,7 +153,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "NaN",
@@ -159,7 +164,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -178,7 +183,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -197,7 +202,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -258,7 +263,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -268,7 +273,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text("Marital Status"),
                       ),
@@ -277,7 +282,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -287,7 +292,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(12, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
                         child: Text("No. Of Children"),
                       ),
@@ -296,7 +301,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -306,7 +311,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text("Addiction"),
                       ),
@@ -315,7 +320,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -325,7 +330,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(38, 0, 0, 0),
                       child: Container(
                         child: Text("Habits"),
                       ),
@@ -334,7 +339,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -344,7 +349,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
                         child: Text("Drug allergy"),
                       ),
@@ -353,7 +358,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -363,7 +368,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
                         child: Text("Take Any Medication"),
                       ),
@@ -441,13 +446,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Diabetes Mellitus",
@@ -456,7 +461,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -475,13 +480,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(79, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Hypertension",
@@ -509,13 +514,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(38, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Epilepsy",
@@ -524,7 +529,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(75, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -543,13 +548,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(35, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "sychiatric Illness",
@@ -558,7 +563,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -582,7 +587,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Heart Disease",
@@ -591,7 +596,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -616,7 +621,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(22, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Night Blindness",
@@ -625,7 +630,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(32, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -650,7 +655,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Thyroid",
@@ -659,7 +664,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -678,7 +683,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(80, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(83, 0, 0, 0),
                       child: Container(
                         child: Text("✔"),
                       ),
@@ -870,19 +875,64 @@ class MedicalExam extends StatelessWidget {
                 children: [
                   TableRow(children: [
                     Column(children: [
-                      Text('Trade during last employment',
-                          style: TextStyle(fontSize: 15.0))
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 2,
+                            bottom: 5,
+                            right: 2,
+                            top: 5), //apply padding to some sides only
+                        child: Text(
+                          "Trade during last employment",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ]),
                     Column(children: [
-                      Text('Organization', style: TextStyle(fontSize: 15.0))
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 2,
+                            bottom: 5,
+                            right: 2,
+                            top: 5), //apply padding to some sides only
+                        child: Text(
+                          "Organization",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ]),
                     Column(children: [
-                      Text('Period of service',
-                          style: TextStyle(fontSize: 15.0))
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 2,
+                            bottom: 5,
+                            right: 2,
+                            top: 5), //apply padding to some sides only
+                        child: Text(
+                          "Period of service",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ]),
                     Column(children: [
-                      Text('Past occupational illness if any',
-                          style: TextStyle(fontSize: 15.0))
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 2,
+                            bottom: 5,
+                            right: 2,
+                            top: 5), //apply padding to some sides only
+                        child: Text(
+                          "Past occupational illness if any",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ]),
                   ]),
                   TableRow(children: [
@@ -958,7 +1008,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -977,13 +1027,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "Built & Nutrition:",
@@ -992,7 +1042,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1118,21 +1168,7 @@ class MedicalExam extends StatelessWidget {
                         child: Text("NaN"),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Chest:",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
+                  
                   ],
                 ),
               ),
@@ -1175,7 +1211,7 @@ class MedicalExam extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                       child: Container(
                         child: Text(
-                          "Weight:",
+                          "Chest:",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -1249,7 +1285,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1402,7 +1438,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1421,7 +1457,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(63, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1484,7 +1520,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "RBS :",
@@ -1518,7 +1554,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "PPBS :",
@@ -1527,7 +1563,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1552,7 +1588,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(34, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "HIV :",
@@ -1561,7 +1597,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1580,13 +1616,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(34, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "HCV :",
@@ -1614,13 +1650,13 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(22, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(34, 0, 0, 0),
                       child: Container(
                         child: Text(
                           "HbsAg :",
@@ -1629,7 +1665,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1648,7 +1684,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1685,7 +1721,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1697,7 +1733,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1706,7 +1742,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1718,7 +1754,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(75, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1727,7 +1763,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1739,7 +1775,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(52, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1748,7 +1784,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1760,7 +1796,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(29, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -1769,7 +1805,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1790,7 +1826,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1811,7 +1847,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1860,7 +1896,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1881,7 +1917,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1902,7 +1938,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1923,7 +1959,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1944,7 +1980,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1965,7 +2001,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1986,7 +2022,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2007,7 +2043,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2019,7 +2055,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(43, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2028,7 +2064,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2040,7 +2076,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(42, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2077,7 +2113,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2098,7 +2134,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2110,7 +2146,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2119,7 +2155,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+             margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2140,7 +2176,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2152,7 +2188,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2161,7 +2197,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2173,7 +2209,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(43, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2226,7 +2262,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 10, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2247,7 +2283,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2268,7 +2304,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2289,7 +2325,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2301,7 +2337,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(38, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2326,7 +2362,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0,8, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2336,22 +2372,30 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(67, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Blood :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                   
+                  ],
+                ),
+              ),
+
+Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Blood",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(59, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2360,7 +2404,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2370,22 +2414,29 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Chyle :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                   
+                  ],
+                ),
+              ),
+              Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Chyle",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(59, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2394,7 +2445,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2404,22 +2455,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Phosphates :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(34, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2427,8 +2463,31 @@ class MedicalExam extends StatelessWidget {
                   ],
                 ),
               ),
+Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Phosphates :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2438,22 +2497,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Leucocytes :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2461,8 +2505,31 @@ class MedicalExam extends StatelessWidget {
                   ],
                 ),
               ),
+
+Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Leucocytes :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2472,22 +2539,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Nitrite :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(31, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2496,7 +2548,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Nitrite :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(52, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2506,22 +2579,28 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Urobilinogen :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                  ],
+                ),
+              ),
+              Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Urobilinogen :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -2842,7 +2921,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3259,7 +3338,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3269,22 +3348,29 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(53, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Higher Function :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+
+                  ],
+                ),
+              ),
+              Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Higher Function :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3293,7 +3379,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3303,22 +3389,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Vertigo :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3327,7 +3398,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Vertigo :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3337,7 +3429,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3346,7 +3438,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3356,7 +3448,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3393,7 +3485,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3403,7 +3495,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3412,7 +3504,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3422,22 +3514,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Throat :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(23, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3446,7 +3523,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Throat :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3456,7 +3554,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3540,7 +3638,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3550,22 +3648,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "any other sound :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3574,7 +3657,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "any other sound :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3584,7 +3688,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3668,7 +3772,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3678,22 +3782,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Spleen :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3702,7 +3791,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Spleen",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3712,7 +3822,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3721,7 +3831,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3768,7 +3878,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3778,22 +3888,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Hydrocele :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3802,7 +3897,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Hydrocele :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3812,22 +3928,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                      child: Container(
-                        child: Text(
-                          "Piles :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3836,7 +3937,28 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Piles :",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(33, 0, 0, 0),
+                      child: Container(
+                        child: Text("NaN"),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3846,7 +3968,7 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
                       child: Container(
                         child: Text("NaN"),
                       ),
@@ -3855,7 +3977,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3874,7 +3996,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(

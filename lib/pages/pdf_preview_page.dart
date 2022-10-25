@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ohctech/models/patient.dart';
-import 'package:ohctech/pages/pdf_export.dart';
+import 'package:ohctech/pages/opd_pdf.dart';
 
 import 'package:printing/printing.dart';
 

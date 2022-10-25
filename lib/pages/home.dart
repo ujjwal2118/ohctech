@@ -16,6 +16,16 @@ class HomePage extends StatelessWidget {
     await Navigator.pushNamed(context, MyRoutes.medExamRoute);
   }
 
+  moveToReports(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.reportsRoute);
+  }
+
+  moveToSickness(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.sicknessRoute);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,96 +192,100 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 1,
-                  child: Container(
-                    width: 106,
-                    height: 100,
-                    margin: EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                "assets/images/fittt.png",
-                                fit: BoxFit.contain,
-                                height: 50,
-                                width: 70,
+                    flex: 1,
+                    child: InkWell(
+                      onTap: () => moveToSickness(context),
+                      child: Container(
+                        width: 106,
+                        height: 100,
+                        margin: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(25.0),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/fittt.png",
+                                    fit: BoxFit.contain,
+                                    height: 50,
+                                    width: 70,
+                                  ),
+                                  SizedBox(width: 30),
+                                  Text(
+                                    "FITNESS",
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                        fontSize: 25, color: Colors.white),
+                                  ),
+                                ],
                               ),
-                              SizedBox(width: 30),
-                              Text(
-                                "FITNESS",
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                    fontSize: 25, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x3f000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
+                            )
+                          ],
                         ),
-                      ],
-                      color: Color.fromARGB(255, 25, 170, 17),
-                    ),
-                  ),
-                ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x3f000000),
+                              blurRadius: 4,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                          color: Color.fromARGB(255, 25, 170, 17),
+                        ),
+                      ),
+                    )),
               ],
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 2,
-                  child: Container(
-                    width: 300,
-                    height: 100,
-                    margin: EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                "assets/images/report.png",
-                                fit: BoxFit.contain,
-                                height: 50,
-                                width: 70,
+                    flex: 2,
+                    child: InkWell(
+                      onTap: () => moveToReports(context),
+                      child: Container(
+                        width: 300,
+                        height: 100,
+                        margin: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(25.0),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/report.png",
+                                    fit: BoxFit.contain,
+                                    height: 50,
+                                    width: 70,
+                                  ),
+                                  SizedBox(width: 30),
+                                  Text(
+                                    "REPORTING",
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                        fontSize: 25, color: Colors.white),
+                                  ),
+                                ],
                               ),
-                              SizedBox(width: 30),
-                              Text(
-                                "REPORTING",
-                                textAlign: TextAlign.right,
-                                style: TextStyle(
-                                    fontSize: 25, color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x3f000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
+                            )
+                          ],
                         ),
-                      ],
-                      color: Color.fromARGB(255, 9, 61, 5),
-                    ),
-                  ),
-                ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x3f000000),
+                              blurRadius: 4,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                          color: Color.fromARGB(255, 9, 61, 5),
+                        ),
+                      ),
+                    )),
               ],
             ),
           ],

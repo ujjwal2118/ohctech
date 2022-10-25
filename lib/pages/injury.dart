@@ -9,17 +9,18 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/opd_form.dart';
+import 'package:ohctech/pages/patient_details_injury.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget.dart';
 
-class OpdPage extends StatefulWidget {
+class InjuryPage extends StatefulWidget {
   @override
-  _OpdPageState createState() => _OpdPageState();
+  _InjuryPageState createState() => _InjuryPageState();
 }
 
-class _OpdPageState extends State<OpdPage> {
-  final url = "https://ohctech.000webhostapp.com/index.php/user/listOpd";
+class _InjuryPageState extends State<InjuryPage> {
+  final url = "https://ohctech.000webhostapp.com/index.php/user/listInjury";
 
   @override
   void initState() {
@@ -49,7 +50,7 @@ class _OpdPageState extends State<OpdPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("OPD LIST"),
+        title: Text("INJURY LIST"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -64,7 +65,7 @@ class _OpdPageState extends State<OpdPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      PatientDetailsOpd(patient: patient))),
+                                      PatientDetailsInjury(patient: patient))),
                           child: PatientWidget(
                             patient: patient,
                           ));

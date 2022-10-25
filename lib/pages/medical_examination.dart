@@ -8,17 +8,18 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
+import 'package:ohctech/pages/medical_details.dart';
 import 'package:ohctech/pages/opd_form.dart';
-import 'package:ohctech/pages/patient_details.dart';
+import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget.dart';
 
-class OpdPage extends StatefulWidget {
+class MedicalPage extends StatefulWidget {
   @override
-  _OpdPageState createState() => _OpdPageState();
+  _MedicalPageState createState() => _MedicalPageState();
 }
 
-class _OpdPageState extends State<OpdPage> {
+class _MedicalPageState extends State<MedicalPage> {
   final url = "https://ohctech.000webhostapp.com/index.php/user/list/10";
 
   @override
@@ -64,7 +65,7 @@ class _OpdPageState extends State<OpdPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      PatientDetails(patient: patient))),
+                                      MedicalExam(patient: patient))),
                           child: PatientWidget(
                             patient: patient,
                           ));

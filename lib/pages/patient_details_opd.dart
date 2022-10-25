@@ -8,13 +8,13 @@ import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
 
 void main() {
-  runApp(PatientDetails());
+  runApp(PatientDetailsOpd());
 }
 
-class PatientDetails extends StatelessWidget {
+class PatientDetailsOpd extends StatelessWidget {
   final Patient patient;
 
-  const PatientDetails({Key key, @required this.patient})
+  const PatientDetailsOpd({Key key, @required this.patient})
       : assert(patient != null),
         super(key: key);
   @override
