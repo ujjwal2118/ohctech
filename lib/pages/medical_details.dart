@@ -12,9 +12,7 @@ void main() {
 class MedicalExam extends StatelessWidget {
   final Patient patient;
 
-  const MedicalExam({Key key, @required this.patient})
-      : assert(patient == null),
-        super(key: key);
+  const MedicalExam({Key key, @required this.patient}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +55,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: const Text("Name"),
+                        child: Text(patient.patient_name),
                       ),
                     ),
                   ],
@@ -76,7 +74,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Father’S Name"),
+                        child: Text(patient.father_name),
                       ),
                     ),
                   ],
@@ -84,7 +82,6 @@ class MedicalExam extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -103,8 +100,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -142,8 +138,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -156,7 +151,7 @@ class MedicalExam extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text(
-                          "NaN",
+                          patient.designation_name,
                         ),
                       ),
                     ),
@@ -176,7 +171,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("E-mail ID"),
+                        child: Text(patient.email_id),
                       ),
                     ),
                   ],
@@ -195,7 +190,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Mobile No"),
+                        child: Text(patient.primary_phone),
                       ),
                     ),
                   ],
@@ -214,7 +209,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Identification Mark."),
+                        child: Text(patient.identi_mark),
                       ),
                     ),
                   ],
@@ -995,7 +990,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.height),
                       ),
                     ),
                     Padding(
@@ -1010,7 +1005,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.weight),
                       ),
                     ),
                   ],
@@ -1029,7 +1024,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.bmi),
                       ),
                     ),
                     Padding(
@@ -1146,7 +1141,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.bp),
                       ),
                     ),
                   ],
@@ -1165,10 +1160,9 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.pulse),
                       ),
                     ),
-                  
                   ],
                 ),
               ),
@@ -1185,7 +1179,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.chest_in),
                       ),
                     ),
                   ],
@@ -1204,7 +1198,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.chest_exp),
                       ),
                     ),
                     Padding(
@@ -1219,7 +1213,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.chest),
                       ),
                     ),
                   ],
@@ -1238,7 +1232,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.skin),
                       ),
                     ),
                     Padding(
@@ -1253,7 +1247,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.musculo_skeletal),
                       ),
                     ),
                   ],
@@ -1306,7 +1300,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.spo2),
                       ),
                     ),
                     Padding(
@@ -1374,7 +1368,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.deformities),
                       ),
                     ),
                   ],
@@ -1421,7 +1415,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hb),
                       ),
                     ),
                   ],
@@ -1433,38 +1427,38 @@ class MedicalExam extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       child: Text(
-                        "Total Leucocyte : ",
+                        "Total Leucocyte Count: ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.tlc),
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Count : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(63, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Container(
+              //         child: Text(
+              //           "Count : ",
+              //           style: TextStyle(fontWeight: FontWeight.bold),
+              //         ),
+              //       ),
+              //       Padding(
+              //         padding: EdgeInsets.fromLTRB(63, 0, 0, 0),
+              //         child: Container(
+              //           child: Text("NaN"),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                 child: Row(
@@ -1475,12 +1469,12 @@ class MedicalExam extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                      child: Container(
-                        child: Text("NaN"),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                    //   child: Container(
+                    //     child: Text("NaN"),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -1497,7 +1491,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.blood_sugar_fbs),
                       ),
                     ),
                   ],
@@ -1516,7 +1510,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dlc_n),
                       ),
                     ),
                     Padding(
@@ -1531,7 +1525,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.blood_sugar_rbs),
                       ),
                     ),
                   ],
@@ -1550,7 +1544,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dlc_l),
                       ),
                     ),
                     Padding(
@@ -1565,7 +1559,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.blood_sugar_ppbs),
                       ),
                     ),
                   ],
@@ -1584,7 +1578,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dlc_m),
                       ),
                     ),
                     Padding(
@@ -1599,7 +1593,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hiv),
                       ),
                     ),
                   ],
@@ -1618,7 +1612,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dlc_e),
                       ),
                     ),
                     Padding(
@@ -1633,7 +1627,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hcv),
                       ),
                     ),
                   ],
@@ -1652,7 +1646,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(22, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dlc_b),
                       ),
                     ),
                     Padding(
@@ -1667,7 +1661,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hbsag),
                       ),
                     ),
                   ],
@@ -1686,7 +1680,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.esr),
                       ),
                     ),
                   ],
@@ -1721,7 +1715,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1735,14 +1729,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.uric_acid),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1756,7 +1750,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.s_urea),
                       ),
                     ),
                   ],
@@ -1777,7 +1771,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(52, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.s_creatinine),
                       ),
                     ),
                   ],
@@ -1798,7 +1792,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(29, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.sodium),
                       ),
                     ),
                   ],
@@ -1819,7 +1813,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.potassium),
                       ),
                     ),
                   ],
@@ -1840,7 +1834,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.phosphate),
                       ),
                     ),
                   ],
@@ -1861,7 +1855,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hco3),
                       ),
                     ),
                   ],
@@ -1910,7 +1904,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.total_bilirubin),
                       ),
                     ),
                   ],
@@ -1931,14 +1925,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.conj),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1952,7 +1946,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.uniconj),
                       ),
                     ),
                   ],
@@ -1973,14 +1967,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.sgop),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -1994,14 +1988,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.sgpt),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2015,14 +2009,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.alk_phosphatase),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2036,14 +2030,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.total_protein),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2057,7 +2051,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(43, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.albumin),
                       ),
                     ),
                   ],
@@ -2078,7 +2072,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(42, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.globulin),
                       ),
                     ),
                   ],
@@ -2113,7 +2107,7 @@ class MedicalExam extends StatelessWidget {
                 endIndent: 5,
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2127,14 +2121,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.total_cholestrol),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2148,14 +2142,14 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.ldl),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-             margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2169,7 +2163,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.vldl),
                       ),
                     ),
                   ],
@@ -2190,7 +2184,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(13, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hdl),
                       ),
                     ),
                   ],
@@ -2211,7 +2205,7 @@ class MedicalExam extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(43, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.triglycerides),
                       ),
                     ),
                   ],
@@ -2362,7 +2356,7 @@ class MedicalExam extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0,8, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 8, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2377,13 +2371,11 @@ class MedicalExam extends StatelessWidget {
                         child: Text("NaN"),
                       ),
                     ),
-                   
                   ],
                 ),
               ),
-
-Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2404,7 +2396,7 @@ Container(
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2419,12 +2411,11 @@ Container(
                         child: Text("NaN"),
                       ),
                     ),
-                   
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2445,7 +2436,7 @@ Container(
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2463,8 +2454,8 @@ Container(
                   ],
                 ),
               ),
-Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2484,10 +2475,8 @@ Container(
                   ],
                 ),
               ),
-
-
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2505,9 +2494,8 @@ Container(
                   ],
                 ),
               ),
-
-Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2527,7 +2515,6 @@ Container(
                   ],
                 ),
               ),
-
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
@@ -2548,7 +2535,7 @@ Container(
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2588,7 +2575,7 @@ Container(
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -2986,7 +2973,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dis_without_right_eye),
                       ),
                     ),
                     Padding(
@@ -3001,7 +2988,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.dis_without_left_eye),
                       ),
                     ),
                   ],
@@ -3020,7 +3007,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.near_without_right_eye),
                       ),
                     ),
                     Padding(
@@ -3035,7 +3022,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.near_without_left_eye),
                       ),
                     ),
                   ],
@@ -3350,15 +3337,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(53, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.speech),
                       ),
                     ),
-
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3372,14 +3358,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.higher_function),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3391,14 +3377,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.motor_function),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3412,14 +3398,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.vertigo),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3431,7 +3417,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.reflexes),
                       ),
                     ),
                   ],
@@ -3450,7 +3436,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.vibration_syndrome),
                       ),
                     ),
                   ],
@@ -3485,7 +3471,7 @@ Container(
                 endIndent: 5,
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3497,7 +3483,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.conversational_hearing),
                       ),
                     ),
                   ],
@@ -3516,14 +3502,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(23, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.nose),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3537,7 +3523,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.throat),
                       ),
                     ),
                   ],
@@ -3556,7 +3542,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.audio_findings_left),
                       ),
                     ),
                   ],
@@ -3603,7 +3589,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.teeth_n_gum),
                       ),
                     ),
                   ],
@@ -3650,14 +3636,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.s1),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3671,14 +3657,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.any_other_sound),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3690,7 +3676,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.ecg_findings),
                       ),
                     ),
                   ],
@@ -3737,7 +3723,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.spiro_remarks),
                       ),
                     ),
                   ],
@@ -3772,7 +3758,7 @@ Container(
                 endIndent: 5,
               ),
               Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3784,14 +3770,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(48, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.liver),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3805,14 +3791,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.speen),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3824,14 +3810,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.tenderness),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3843,7 +3829,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.any_other_abnormality),
                       ),
                     ),
                   ],
@@ -3878,7 +3864,7 @@ Container(
                 endIndent: 5,
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3890,14 +3876,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hernia_details),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3911,7 +3897,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.hydrocele_details),
                       ),
                     ),
                   ],
@@ -3930,14 +3916,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.phimosis),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3951,7 +3937,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(33, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.piles),
                       ),
                     ),
                   ],
@@ -3970,14 +3956,14 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.fistula),
                       ),
                     ),
                   ],
                 ),
               ),
               Container(
-               margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -3989,7 +3975,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.xray_findings),
                       ),
                     ),
                   ],
@@ -4008,7 +3994,7 @@ Container(
                     Padding(
                       padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                       child: Container(
-                        child: Text("NaN"),
+                        child: Text(patient.other_findings),
                       ),
                     ),
                   ],
@@ -4090,7 +4076,7 @@ Container(
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Text("NaN"),
+                    Text(patient.remarks),
                   ],
                 ),
               ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ohctech/pages/home.dart';
+import 'package:ohctech/pages/injury.dart';
 import 'package:ohctech/pages/login.dart';
 import 'package:ohctech/pages/medical_details.dart';
 import 'package:ohctech/pages/medical_examination.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.opdRoute: (context) => OpdPage(),
-        // MyRoutes.opdFormRoute: (context) => OpdForm(),
+        MyRoutes.injuryRoute: (context) => InjuryPage(),
         MyRoutes.medExamRoute: (context) => MedicalPage(),
         MyRoutes.sicknessRoute: (context) => SicknessPage(),
         MyRoutes.reportsRoute: (context) => Osi()

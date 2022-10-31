@@ -48,14 +48,14 @@ class PatientWidget extends StatelessWidget {
         // onTap: () => moveToOpdForm(context),
         leading: Image.asset("assets/images/user.png"),
         title: Text(
-          patient.patient_name ?? "NA",
+          patient.patient_name,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text("Appointment Date:${patient.appointment_date}",
+        subtitle: Text("",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
         trailing: Text(
-          patient.emp_code ?? "NA",
+          patient.emp_code,
           textScaleFactor: 1,
           style: TextStyle(
             color: Color.fromARGB(255, 19, 18, 20),

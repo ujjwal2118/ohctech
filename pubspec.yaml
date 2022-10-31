@@ -57,6 +57,7 @@ dependencies:
   pdf: ^3.8.3
   printing: ^5.9.3
   syncfusion_flutter_charts: ^20.3.50
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:

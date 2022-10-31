@@ -52,7 +52,7 @@ class PatientWidget extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text("Appointment Date:${patient.appointment_date}",
+        subtitle: Text("Sickness Date:${patient.sickness_date}",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
         trailing: Text(
           patient.emp_code ?? "NA",

@@ -31,7 +31,7 @@ class _OpdPageState extends State<OpdPage> {
   loadData() async {
     var response = await http.get(Uri.parse(url));
 
-    var patientJson = response.body;
+    var patientJson = response.body.toString();
 
     var decodedData = jsonDecode(patientJson);
     var patientsData = decodedData;

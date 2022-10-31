@@ -20,7 +20,7 @@ class MedicalPage extends StatefulWidget {
 }
 
 class _MedicalPageState extends State<MedicalPage> {
-  final url = "https://ohctech.000webhostapp.com/index.php/user/list/10";
+  final url = "https://ohctech.000webhostapp.com/index.php/user/listMedical/10";
 
   @override
   void initState() {
@@ -50,7 +50,7 @@ class _MedicalPageState extends State<MedicalPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("OPD LIST"),
+        title: Text("MEDICAL EXAMINATION LIST"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
