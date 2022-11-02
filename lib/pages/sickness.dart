@@ -14,6 +14,7 @@ import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/pages/patient_details_sickness.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget.dart';
+import 'package:ohctech/widgets/patient_widget_sickness.dart';
 
 class SicknessPage extends StatefulWidget {
   @override
@@ -67,7 +68,7 @@ class _SicknessPageState extends State<SicknessPage> {
                           MaterialPageRoute(
                               builder: (context) =>
                                   PatientDetailsSickness(patient: patient))),
-                      child: PatientWidget(
+                      child: PatientWidgetSickness(
                         patient: patient,
                       ));
                 },

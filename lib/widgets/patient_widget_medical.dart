@@ -23,7 +23,7 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 
-class PatientWidget extends StatelessWidget {
+class PatientWidgetMedical extends StatelessWidget {
   final Patient patient;
 
   // moveToOpdForm(BuildContext context) async {
@@ -37,7 +37,7 @@ class PatientWidget extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidget({Key key, @required this.patient})
+  const PatientWidgetMedical({Key key, @required this.patient})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -52,7 +52,7 @@ class PatientWidget extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text("",
+        subtitle: Text("Medical Examination Date:${patient.medical_entry_date}",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
         trailing: Text(
           patient.emp_code,

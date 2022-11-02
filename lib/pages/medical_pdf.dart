@@ -71,7 +71,7 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                       child: Text(
                         "Name : ",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.bold,
                           fontSize: 17,
                         ),
                       ),
@@ -79,7 +79,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Name",
+                        child: Text(
+                          patient.patient_name,
                           style: TextStyle(
                             fontSize: 17,
                           ),
@@ -96,15 +97,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Father Name : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Father Name",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          patient.father_name,
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -117,15 +124,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Age : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("Age",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          "Age",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -138,15 +151,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Sex : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("Sex",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          "Sex",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -159,15 +178,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Blood Group : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Blood Group",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          "Blood Group",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -180,14 +205,17 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Appointed for the Post of : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
                         child: Text(
-                          "NaN",
+                          patient.designation_name,
                           style: TextStyle(
                             fontSize: 17,
                           ),
@@ -204,15 +232,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "E-mail ID : ",
-                        style: TextStyle(fontWeight: FontWeight.bold ,  fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("E-mail ID",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          patient.email_id,
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -225,15 +259,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Mobile No : ",
-                        style: TextStyle(fontWeight: FontWeight.bold ,  fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Mobile No" ,   style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          patient.primary_phone,
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -246,15 +286,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Identification Mark. : ",
-                        style: TextStyle(fontWeight: FontWeight.bold ,  fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Identification Mark." ,  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          patient.identi_mark,
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -267,12 +313,18 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Permanent Address : ",
-                        style: TextStyle(fontWeight: FontWeight.bold ,  fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
-                    Text("Permanent Address",   style: TextStyle(
-  fontSize: 17,
-  ),),
+                    Text(
+                      "Permanent Address",
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -303,15 +355,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Marital Status : ",
-                        style: TextStyle(fontWeight: FontWeight.bold,  fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("Marital Status",  style: TextStyle(
-  fontSize: 17,
-  ),),
+                        child: Text(
+                          "Marital Status",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -324,15 +382,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "No. Of Children : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
                       child: Container(
-                        child: Text("No. Of Children",  style: TextStyle(
-  fontSize: 17,
-  ),),
+                        child: Text(
+                          "No. Of Children",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -345,15 +409,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Addiction : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
-                        child: Text("Addiction",  style: TextStyle(
-  fontSize: 17,
-  ),),
+                        child: Text(
+                          "Addiction",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -366,15 +436,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Habits : ",
-                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text("Habits",  style: TextStyle(
-  fontSize: 17,
-  ),),
+                        child: Text(
+                          "Habits",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -387,15 +463,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Drug allergy : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text("Drug allergy",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          "Drug allergy",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -408,15 +490,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Take Any Medication : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
                       child: Container(
-                        child: Text("Take Any Medication",  style: TextStyle(
-                          fontSize: 17,
-                        ),),
+                        child: Text(
+                          "Take Any Medication",
+                          style: TextStyle(
+                            fontSize: 17,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -429,10 +517,12 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Whether Adopting Any Method of Family Planning : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -471,7 +561,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Asthma : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
@@ -485,7 +578,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                       child: Container(
                         child: Text(
                           "Diabetes Mellitus",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
@@ -505,7 +601,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "TB : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
@@ -519,7 +618,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                       child: Container(
                         child: Text(
                           "Hypertension",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
@@ -539,7 +641,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Jaundice : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
@@ -553,7 +658,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                       child: Container(
                         child: Text(
                           "Epilepsy",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
@@ -573,7 +681,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Piles/Fistula : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Padding(
@@ -587,7 +698,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                       child: Container(
                         child: Text(
                           "sychiatric Illness",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
@@ -607,7 +721,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     Container(
                       child: Text(
                         "Hernia/Hydrocele : ",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Container(
@@ -620,7 +737,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                       child: Container(
                         child: Text(
                           "Heart Disease",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
@@ -642,7 +762,6 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
   pdf.addPage(MultiPage(
     pageFormat: PdfPageFormat.a4,
     build: (Context context) => <Widget>[
-
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -650,7 +769,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Typhoid : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -664,7 +786,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Night Blindness",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -684,7 +809,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Leprosy : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -698,7 +826,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Thyroid",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -718,7 +849,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "STD : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -732,7 +866,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Any other disease",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -752,7 +889,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Major Injury/Fracture/Operation : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -764,7 +904,6 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
           ],
         ),
       ),
-
       SizedBox(
         height: 10,
       ),
@@ -775,8 +914,7 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "C) Family History : ",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
           ],
@@ -792,7 +930,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Asthma : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -806,7 +947,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Diabetes Mellitus:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -826,7 +970,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "TB : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -840,7 +987,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Hypertension:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -860,7 +1010,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Any Others Diseases : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
@@ -879,7 +1032,6 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
         defaultColumnWidth: const FixedColumnWidth(85),
         border: TableBorder.all(style: BorderStyle.solid, width: 2),
         children: [
-
           TableRow(children: [
             Column(children: [
               Text('Trade during last employment',
@@ -938,15 +1090,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Height : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.height.toString(),
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -954,16 +1112,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Weight:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.weight.toString(),
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -976,15 +1140,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "BMI : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.bmi.toString(),
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -992,16 +1162,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Built & Nutrition:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1014,15 +1190,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "General Inspection: A : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1030,16 +1212,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "CY:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1052,15 +1240,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "I : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1068,16 +1262,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "CI:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1090,15 +1290,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "E : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1106,16 +1312,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "BP:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.bp,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1128,15 +1340,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Pulse : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.pulse.toString(),
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1144,16 +1362,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Chest:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.pulse.toString(),
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1166,15 +1390,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Chest Inspiration : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.chest_in,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1187,15 +1417,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Chest Expiration : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.chest_exp,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1203,16 +1439,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Weight:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1225,15 +1467,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Skin : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.skin,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1241,16 +1489,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Muscular Skeletal:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.musculo_skeletal,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1263,15 +1517,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "LI Like Symptoms : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1279,16 +1539,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Temp:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1301,15 +1567,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Spo2 : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1317,16 +1589,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Cold & Cough:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1339,15 +1617,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "General Weakness : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1355,16 +1639,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Smell:",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1377,15 +1667,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Deformities: congenital/ acquired : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.deformities,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1401,8 +1697,7 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "F) BLOOD ROUTINE EXAMINATION",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
           ],
@@ -1418,15 +1713,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Hemoglobin : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.hb,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1439,15 +1740,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Total Leucocyte : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.tlc,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1460,15 +1767,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Count : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1481,17 +1794,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Differential Leucocyte Count : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-              child: Container(
-                child: Text("NaN",  style: TextStyle(
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 17,
-                ),),
+                ),
               ),
             ),
+            // Padding(
+            //   padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+            //   child: Container(
+            //     child: Text("NaN",  style: TextStyle(
+            //       fontSize: 17,
+            //     ),),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -1502,15 +1818,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "FBS : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.blood_sugar_fbs,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1523,15 +1845,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Neutrophils : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.dlc_n,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1539,16 +1867,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "RBS :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.blood_sugar_rbs,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1561,15 +1895,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Lymphocytes : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.dlc_l,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1577,16 +1917,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "PPBS :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.blood_sugar_ppbs,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1599,15 +1945,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Monocytes : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.dlc_m,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1615,16 +1967,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "HIV :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.hiv,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1637,15 +1995,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Eosinophil : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.dlc_e,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1653,16 +2017,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "HCV :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.hcv,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1675,15 +2045,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Basophils : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.dlc_b,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -1691,16 +2067,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "HbsAg :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.hbsag,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1713,20 +2095,27 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "ESR : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.esr,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),   SizedBox(
+      ),
+      SizedBox(
         height: 10,
       ),
       Container(
@@ -1736,13 +2125,13 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "G) RENAL FUNCTION TEST",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
           ],
         ),
-      ),   SizedBox(
+      ),
+      SizedBox(
         height: 10,
       ),
       Container(
@@ -1753,16 +2142,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Uric Acid",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.uric_acid,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1776,16 +2169,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Urea",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(75, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.s_urea,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1799,16 +2196,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Creatinine",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.s_creatinine,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1822,16 +2223,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Sodium (Na+)",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.sodium,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1845,16 +2250,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Potassium (K+):",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.potassium,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1868,16 +2277,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Phosphate",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.phosphate,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1891,16 +2304,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Bi-Carbonate (Hco3)",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.hco3,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1916,8 +2333,7 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "H) LIVER FUNCTION TEST",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
           ],
@@ -1934,16 +2350,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Total Bilirubin",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",  style: TextStyle(
-                  fontSize: 17,
-                ),),
+                child: Text(
+                  patient.total_bilirubin,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1957,14 +2377,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Conj",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.conj,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1978,14 +2404,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Unconj",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.uniconj,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -1999,14 +2431,19 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "SGOT",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.sgop,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -2021,14 +2458,19 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "SGPT",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.sgpt,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -2043,14 +2485,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Alkaline Phosphatase",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.alk_phosphatase,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2064,14 +2512,19 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Total Protein",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.total_protein,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -2086,14 +2539,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Albumin",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.albumin,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2107,19 +2566,28 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Globulin",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.globulin,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -2127,13 +2595,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "I) LIPID PROFILE",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -2142,14 +2612,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Total cholesterol",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.total_cholestrol,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2163,15 +2639,19 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "(LDL) cholesterol",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
-
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.ldl,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -2186,14 +2666,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "(VLDL) cholesterol",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.vldl,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2207,14 +2693,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "(HDL) cholesterol",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.hdl,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2228,19 +2720,28 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Triglycerides",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.triglycerides,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -2248,13 +2749,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "J) EXAMINATION OF URINE ROUTINE ANALYSIS",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -2279,14 +2782,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Quantity",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2300,14 +2809,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Colour",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2321,14 +2836,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Specific Gravity",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2342,14 +2863,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Appearance",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2378,13 +2905,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Ph : ",
-                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -2393,14 +2927,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Blood :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2413,13 +2955,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Protein : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2427,14 +2977,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Chyle :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2447,13 +3005,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Glucose : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2461,14 +3027,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Phosphates :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2481,13 +3055,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Ketone Body  : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2495,14 +3077,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Leucocytes :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2515,13 +3105,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Bile Salt  : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2529,14 +3127,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Nitrite :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2549,13 +3155,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Bile Pigment  : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2563,14 +3177,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Urobilinogen :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2600,14 +3222,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "R.B.C. :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2621,14 +3249,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Pus Corpuscles :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2642,14 +3276,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Epithelial Cell :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(25, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2663,14 +3303,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Bacteria :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2700,14 +3346,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Cellular :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2721,14 +3373,19 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Hyaline :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -2743,14 +3400,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Fatty :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2764,14 +3427,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Granular :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2801,14 +3470,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Calcium Oxalate :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2822,14 +3497,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Tripple :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2843,14 +3524,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Phosphates :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2864,14 +3551,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Amorphous :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2885,19 +3578,28 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Text(
                 "Others :",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -2905,13 +3607,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "K) EYE",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         child: Row(
@@ -2935,13 +3639,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Without Glass: R.E: 6/  : ",
-                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.dis_without_right_eye,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2949,14 +3661,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "L.E: 6/ :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.dis_without_left_eye,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -2969,13 +3689,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "With Glass: R.E: 6/  : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.near_without_right_eye,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -2983,14 +3711,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "LE: 6/ :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.near_without_left_eye,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -3037,7 +3772,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     child: Text(
                       "Right eye",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
                       ),
                     ),
                   ),
@@ -3054,7 +3790,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                 child: Text(
                   "Distance",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
                   ),
                 ),
               ),
@@ -3069,7 +3806,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                 child: Text(
                   "Near(reading)",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
                   ),
                 ),
               ),
@@ -3160,7 +3898,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                     child: Text(
                       "Left eye",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
                       ),
                     ),
                   ),
@@ -3177,7 +3916,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                 child: Text(
                   "Distance",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
                   ),
                 ),
               ),
@@ -3192,7 +3932,8 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
                 child: Text(
                   "Near(reading)",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
                   ),
                 ),
               ),
@@ -3262,7 +4003,10 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             ]),
           ]),
         ],
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3270,8 +4014,7 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "L) CNS",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
@@ -3284,13 +4027,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Speech : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.speech,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -3298,14 +4049,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Higher Function :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.higher_function,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3318,13 +4077,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Motor Function : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.motor_function,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -3332,14 +4099,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Vertigo :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.vertigo,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3352,13 +4127,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Reflexes (Superficial & Deep) : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.reflexes,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3371,18 +4154,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Vibration Syndrome : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.vibration_syndrome,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3390,13 +4184,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "M) ENT",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3404,13 +4200,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Conversational Hearing : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.conversational_hearing,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3423,13 +4227,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Nose : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.nose,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -3437,14 +4249,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Throat :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.throat,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3457,19 +4277,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Audiometry : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.audio_findings_left,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3477,13 +4307,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "N) Dental",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3491,18 +4323,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Teeth & Gum : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.teeth_n_gum,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3510,13 +4353,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "O) CVS",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3524,13 +4369,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "S1 & S2 : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.s1,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -3538,14 +4391,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "any other sound :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.any_other_sound,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3558,18 +4419,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "ECG Finding : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.ecg_findings,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3577,13 +4449,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "P) Respiratory System",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3591,18 +4465,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Spirometry Findings : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.spiro_remarks,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3610,13 +4495,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Q) ABDOMEN",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3624,13 +4511,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Liver : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.liver,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -3638,14 +4533,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Spleen :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.speen,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3658,13 +4561,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Tenderness : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.tenderness,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3677,19 +4588,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Any Other Abnormality : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.any_other_abnormality,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
       ),
-      SizedBox(height: 10,),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3697,14 +4618,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "R) Genito-Urinary System",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
       ),
-      SizedBox(height: 10,),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3712,13 +4634,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Hernia : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.hernia_details,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
             Padding(
@@ -3726,14 +4656,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Hydrocele :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.hydrocele_details,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -3747,13 +4684,20 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Phimosis : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),
+                child: Text(
+                  patient.phimosis,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
@@ -3762,14 +4706,22 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               child: Container(
                 child: Text(
                   "Piles :",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.piles,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3782,13 +4734,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Fistula : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.fistula,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3801,13 +4761,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Chest X-Ray (PA view) : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.xray_findings,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3820,18 +4788,29 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Any Other Findings : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  patient.other_findings,
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
@@ -3839,13 +4818,15 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Advice and Recommendations",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
           ],
         ),
-      ),SizedBox(height: 10,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
       Container(
         margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
         child: Row(
@@ -3853,13 +4834,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Health advices : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3872,13 +4861,21 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Health risks : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
               child: Container(
-                child: Text("NaN",style: TextStyle(fontSize: 17,),),
+                child: Text(
+                  "NaN",
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
             ),
           ],
@@ -3891,10 +4888,18 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
             Container(
               child: Text(
                 "Remarks : ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
               ),
             ),
-            Text("NaN",style: TextStyle(fontSize: 17,),),
+            Text(
+              patient.remarks,
+              style: TextStyle(
+                fontSize: 17,
+              ),
+            ),
           ],
         ),
       ),

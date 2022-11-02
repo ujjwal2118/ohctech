@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:typed_data';
-
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +56,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.patient_name),
+                        child: Text(patient.patient_name ?? "NA"),
                       ),
                     ),
                   ],
@@ -76,7 +75,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.sickness_date),
+                        child: Text(patient.sickness_date ?? "NA"),
                       ),
                     ),
                   ],
@@ -95,7 +94,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.date_absent),
+                        child: Text(patient.date_absent ?? "NA"),
                       ),
                     ),
                   ],
@@ -114,7 +113,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.date_absent_to),
+                        child: Text(patient.date_absent_to ?? "NA"),
                       ),
                     ),
                   ],
@@ -133,7 +132,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.date_return),
+                        child: Text(patient.date_return ?? "NA"),
                       ),
                     ),
                   ],
@@ -152,7 +151,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ticket_no),
+                        child: Text(patient.ticket_no ?? "NA"),
                       ),
                     ),
                   ],
@@ -171,7 +170,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(63, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.des),
+                        child: Text(patient.des ?? "NA"),
                       ),
                     ),
                   ],
@@ -210,7 +209,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailment_systems_new),
+                        child: Text(patient.ailment_systems_new ?? "NA"),
                       ),
                     ),
                   ],
@@ -229,7 +228,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailment_name),
+                        child: Text(patient.ailment_name ?? "NA"),
                       ),
                     ),
                   ],
@@ -248,7 +247,7 @@ class PatientDetailsSickness extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.fitness_status),
+                        child: Text(patient.fitness_status ?? "NA"),
                       ),
                     ),
                   ],
