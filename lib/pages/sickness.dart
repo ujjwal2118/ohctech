@@ -56,27 +56,22 @@ class _SicknessPageState extends State<SicknessPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: (PatientModel.patients != null &&
-                PatientModel.patients.isNotEmpty)
-            ? ListView.builder(
-                itemCount: PatientModel.patients.length,
-                itemBuilder: (context, index) {
-                  final patient = PatientModel.patients[index];
-                  return InkWell(
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  PatientDetailsSickness(patient: patient))),
-                      child: PatientWidgetSickness(
+        child:
+            (PatientModel.patients != null && PatientModel.patients.isNotEmpty)
+                ? ListView.builder(
+                    itemCount: PatientModel.patients.length,
+                    itemBuilder: (context, index) {
+                      final patient = PatientModel.patients[index];
+                      return InkWell(
+                          child: PatientWidgetSickness(
                         patient: patient,
                       ));
-                },
-              )
-            // ignore: prefer_const_constructors
-            : Center(
-                child: CircularProgressIndicator(),
-              ),
+                    },
+                  )
+                // ignore: prefer_const_constructors
+                : Center(
+                    child: CircularProgressIndicator(),
+                  ),
       ),
       drawer: MyDrawer(
         text: '',

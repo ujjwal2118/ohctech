@@ -6,6 +6,9 @@ class PatientModel {
 
 class Patient {
   final int id;
+  final int appointment_id;
+  final int medical_exam_id;
+  final int sickness_id;
   final String patient_name;
   final String emp_code;
   final String ticket_no;
@@ -13,6 +16,7 @@ class Patient {
   final String ailment_systems_new;
   final String complaints;
   final String ailments_new;
+  final String remarks_rece;
   final String examination_remarks;
   final String incident_location;
   final String injury_procedure;
@@ -29,6 +33,7 @@ class Patient {
   final String fitness_status;
   final String ailment_system;
   final String ailment_name;
+  final String agency;
   final String medical_entry_date;
   final int height;
   final int weight;
@@ -122,9 +127,13 @@ class Patient {
   final String other_findings;
   final String remarks;
   final String dlc_b;
+  final String drug_allergy;
 
   Patient({
     this.id,
+    this.appointment_id,
+    this.medical_exam_id,
+    this.sickness_id,
     this.patient_name,
     this.emp_code,
     this.ticket_no,
@@ -132,6 +141,7 @@ class Patient {
     this.ailment_systems_new,
     this.complaints,
     this.ailments_new,
+    this.remarks_rece,
     this.examination_remarks,
     this.incident_location,
     this.injury_procedure,
@@ -148,6 +158,7 @@ class Patient {
     this.fitness_status,
     this.ailment_system,
     this.ailment_name,
+    this.agency,
     this.medical_entry_date,
     this.height,
     this.weight,
@@ -241,129 +252,138 @@ class Patient {
     this.other_findings,
     this.remarks,
     this.dlc_b,
+    this.drug_allergy,
   });
 
-  Patient copyWith({
-    int id,
-    String patient_name,
-    String emp_code,
-    String ticket_no,
-    String appointment_date,
-    String ailment_systems_new,
-    String complaints,
-    String ailments_new,
-    String examination_remarks,
-    String incident_location,
-    String injury_procedure,
-    String injury_parts_new,
-    String injury_classes_new,
-    String injury_types_new,
-    String sickness_name,
-    String des,
-    String sickness_date,
-    String approval_date,
-    String date_absent,
-    String date_absent_to,
-    String date_return,
-    String fitness_status,
-    String ailment_system,
-    String ailment_name,
-    String medical_entry_date,
-    int height,
-    int weight,
-    dynamic bmi,
-    String pulse,
-    String bp,
-    String s1,
-    String any_other_sound,
-    String ecg_findings,
-    String father_name,
-    String designation_name,
-    String primary_phone,
-    String email_id,
-    String identi_mark,
-    String village,
-    String post,
-    String tehsil,
-    String district,
-    String state,
-    String pin_code,
-    String chest,
-    String chest_in,
-    String chest_exp,
-    String skin,
-    String musculo_skeletal,
-    String hb,
-    String tlc,
-    String dlc_n,
-    String dlc_l,
-    String dlc_m,
-    String dlc_e,
-    String esr,
-    String blood_sugar_fbs,
-    String blood_sugar_rbs,
-    String uric_acid,
-    String s_urea,
-    String s_creatinine,
-    String total_bilirubin,
-    String sgop,
-    String sgpt,
-    String total_cholestrol,
-    String ldl,
-    String triglycerides,
-    String urine_re_me,
-    String urine_re_me_comments,
-    String dis_without_right_eye,
-    String dis_without_left_eye,
-    String near_without_right_eye,
-    String near_without_left_eye,
-    String deformities,
-    String cns,
-    String nose,
-    String throat,
-    String ear,
-    String audio_findings_left,
-    String blood_sugar_ppbs,
-    String hiv,
-    String hcv,
-    String hbsag,
-    String sodium,
-    String potassium,
-    String phosphate,
-    String hco3,
-    String conj,
-    String uniconj,
-    String alk_phosphatase,
-    String total_protein,
-    String albumin,
-    String globulin,
-    String vldl,
-    String hdl,
-    String speech,
-    String higher_function,
-    String motor_function,
-    String vertigo,
-    String reflexes,
-    String vibration_syndrome,
-    String conversational_hearing,
-    String teeth_n_gum,
-    String spiro_remarks,
-    String liver,
-    String speen,
-    String tenderness,
-    String any_other_abnormality,
-    String hernia_details,
-    String hydrocele_details,
-    String phimosis,
-    String piles,
-    String fistula,
-    String xray_findings,
-    String other_findings,
-    String remarks,
-    String dlc_b,
-  }) {
+  Patient copyWith(
+      {int id,
+      int appointment_id,
+      int medical_exam_id,
+      int sickness_id,
+      String patient_name,
+      String emp_code,
+      String ticket_no,
+      String appointment_date,
+      String ailment_systems_new,
+      String complaints,
+      String ailments_new,
+      String remarks_rece,
+      String examination_remarks,
+      String incident_location,
+      String injury_procedure,
+      String injury_parts_new,
+      String injury_classes_new,
+      String injury_types_new,
+      String sickness_name,
+      String des,
+      String sickness_date,
+      String approval_date,
+      String date_absent,
+      String date_absent_to,
+      String date_return,
+      String fitness_status,
+      String ailment_system,
+      String ailment_name,
+      String agency,
+      String medical_entry_date,
+      int height,
+      int weight,
+      dynamic bmi,
+      String pulse,
+      String bp,
+      String s1,
+      String any_other_sound,
+      String ecg_findings,
+      String father_name,
+      String designation_name,
+      String primary_phone,
+      String email_id,
+      String identi_mark,
+      String village,
+      String post,
+      String tehsil,
+      String district,
+      String state,
+      String pin_code,
+      String chest,
+      String chest_in,
+      String chest_exp,
+      String skin,
+      String musculo_skeletal,
+      String hb,
+      String tlc,
+      String dlc_n,
+      String dlc_l,
+      String dlc_m,
+      String dlc_e,
+      String esr,
+      String blood_sugar_fbs,
+      String blood_sugar_rbs,
+      String uric_acid,
+      String s_urea,
+      String s_creatinine,
+      String total_bilirubin,
+      String sgop,
+      String sgpt,
+      String total_cholestrol,
+      String ldl,
+      String triglycerides,
+      String urine_re_me,
+      String urine_re_me_comments,
+      String dis_without_right_eye,
+      String dis_without_left_eye,
+      String near_without_right_eye,
+      String near_without_left_eye,
+      String deformities,
+      String cns,
+      String nose,
+      String throat,
+      String ear,
+      String audio_findings_left,
+      String blood_sugar_ppbs,
+      String hiv,
+      String hcv,
+      String hbsag,
+      String sodium,
+      String potassium,
+      String phosphate,
+      String hco3,
+      String conj,
+      String uniconj,
+      String alk_phosphatase,
+      String total_protein,
+      String albumin,
+      String globulin,
+      String vldl,
+      String hdl,
+      String speech,
+      String higher_function,
+      String motor_function,
+      String vertigo,
+      String reflexes,
+      String vibration_syndrome,
+      String conversational_hearing,
+      String teeth_n_gum,
+      String spiro_remarks,
+      String liver,
+      String speen,
+      String tenderness,
+      String any_other_abnormality,
+      String hernia_details,
+      String hydrocele_details,
+      String phimosis,
+      String piles,
+      String fistula,
+      String xray_findings,
+      String other_findings,
+      String remarks,
+      String dlc_b,
+      String drug_allergy}) {
     return Patient(
         id: id ?? this.id,
+        appointment_id: appointment_id ?? this.appointment_id,
+        medical_exam_id: medical_exam_id ?? this.medical_exam_id,
+        sickness_id: sickness_id ?? this.sickness_id,
         patient_name: patient_name ?? this.patient_name,
         emp_code: emp_code ?? this.emp_code,
         ticket_no: ticket_no ?? this.ticket_no,
@@ -371,6 +391,7 @@ class Patient {
         ailment_systems_new: ailment_systems_new ?? this.ailment_systems_new,
         complaints: complaints ?? this.complaints,
         ailments_new: ailments_new ?? this.ailments_new,
+        remarks_rece: remarks_rece ?? this.remarks_rece,
         examination_remarks: examination_remarks ?? this.examination_remarks,
         incident_location: incident_location ?? this.incident_location,
         injury_procedure: injury_procedure ?? this.injury_procedure,
@@ -387,6 +408,7 @@ class Patient {
         fitness_status: fitness_status ?? this.fitness_status,
         ailment_system: ailment_system ?? this.ailment_system,
         ailment_name: ailment_name ?? this.ailment_name,
+        agency: agency ?? this.agency,
         medical_entry_date: medical_entry_date ?? this.medical_entry_date,
         height: height ?? this.height,
         weight: weight ?? this.weight,
@@ -484,12 +506,16 @@ class Patient {
         xray_findings: xray_findings ?? this.xray_findings,
         other_findings: other_findings ?? this.other_findings,
         remarks: remarks ?? this.remarks,
-        dlc_b: dlc_b ?? this.dlc_b);
+        dlc_b: dlc_b ?? this.dlc_b,
+        drug_allergy: drug_allergy ?? this.drug_allergy);
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
+      'appointment_id': appointment_id,
+      'medical_exam_id': medical_exam_id,
+      'sickness_id': sickness_id,
       'patient_name': patient_name,
       'emp_code': emp_code,
       'ticket_no': ticket_no,
@@ -497,6 +523,7 @@ class Patient {
       'ailment_systems_new': ailment_systems_new,
       'ailments_new': ailments_new,
       'complaints': complaints,
+      'remarks_rece': remarks_rece,
       'examination_remarks': examination_remarks,
       'incident_location': incident_location,
       'injury_procedure': injury_procedure,
@@ -513,6 +540,7 @@ class Patient {
       'fitness_status': fitness_status,
       'ailment_system': ailment_system,
       'ailment_name': ailment_name,
+      'agency': agency,
       'medical_entry_date': medical_entry_date,
       'height': height,
       'weight': weight,
@@ -606,6 +634,7 @@ class Patient {
       'other_findings': other_findings,
       'remarks': remarks,
       'dlc_b': dlc_b,
+      'drug_allergy': drug_allergy,
     };
   }
 
@@ -614,6 +643,9 @@ class Patient {
 
     return Patient(
         id: map['id'],
+        appointment_id: map['appointment_id'],
+        medical_exam_id: map['medical_exam_id'],
+        sickness_id: map['sickness_id'],
         patient_name: map['patient_name'],
         emp_code: map['emp_code'],
         ticket_no: map['ticket_no'],
@@ -621,6 +653,7 @@ class Patient {
         ailment_systems_new: map['ailment_systems_new'],
         ailments_new: map['ailments_new'],
         complaints: map['complaints'],
+        remarks_rece: map['remarks_rece'],
         examination_remarks: map['examination_remarks'],
         incident_location: map['incident_location'],
         injury_procedure: map['injury_procedure'],
@@ -637,6 +670,7 @@ class Patient {
         fitness_status: map['fitness_status'],
         ailment_system: map['ailment_system'],
         ailment_name: map['ailment_name'],
+        agency: map['agency'],
         medical_entry_date: map['medical_entry_date'],
         height: map['height'],
         weight: map['weight'],
@@ -729,7 +763,8 @@ class Patient {
         xray_findings: map['xray_findings'],
         other_findings: map['other_findings'],
         remarks: map['remarks'],
-        dlc_b: map['dlc_b']);
+        dlc_b: map['dlc_b'],
+        drug_allergy: map['drug_allergy']);
   }
 
   String toJson() => json.encode(toMap());
@@ -739,7 +774,7 @@ class Patient {
 
   @override
   String toString() {
-    return 'Patient(id: $id, name: $patient_name, emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b)';
+    return 'Patient(id: $id,appointment_id: $appointment_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name, emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy)';
   }
 
   @override
@@ -748,6 +783,9 @@ class Patient {
 
     return o is Patient &&
         o.id == id &&
+        o.appointment_id == appointment_id &&
+        o.medical_exam_id == medical_exam_id &&
+        o.sickness_id == sickness_id &&
         o.patient_name == patient_name &&
         o.emp_code == emp_code &&
         o.ticket_no == ticket_no &&
@@ -755,6 +793,7 @@ class Patient {
         o.ailment_systems_new == ailment_systems_new &&
         o.ailments_new == ailments_new &&
         o.complaints == complaints &&
+        o.remarks_rece == remarks_rece &&
         o.examination_remarks == examination_remarks &&
         o.incident_location == incident_location &&
         o.injury_procedure == injury_procedure &&
@@ -771,6 +810,7 @@ class Patient {
         o.fitness_status == fitness_status &&
         o.ailment_system == ailment_system &&
         o.ailment_name == ailment_name &&
+        o.agency == agency &&
         o.medical_entry_date == medical_entry_date &&
         o.height == height &&
         o.weight == weight &&
@@ -863,12 +903,16 @@ class Patient {
         o.xray_findings == xray_findings &&
         o.other_findings == other_findings &&
         o.remarks == remarks &&
-        o.dlc_b == dlc_b;
+        o.dlc_b == dlc_b &&
+        o.drug_allergy == drug_allergy;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
+        appointment_id.hashCode ^
+        medical_exam_id.hashCode ^
+        appointment_id.hashCode ^
         patient_name.hashCode ^
         emp_code.hashCode ^
         ticket_no.hashCode ^
@@ -876,6 +920,7 @@ class Patient {
         ailment_systems_new.hashCode ^
         ailments_new.hashCode ^
         complaints.hashCode ^
+        remarks_rece.hashCode ^
         examination_remarks.hashCode ^
         incident_location.hashCode ^
         injury_procedure.hashCode ^
@@ -892,6 +937,7 @@ class Patient {
         fitness_status.hashCode ^
         ailment_system.hashCode ^
         ailment_name.hashCode ^
+        agency.hashCode ^
         medical_entry_date.hashCode ^
         height.hashCode ^
         weight.hashCode ^
@@ -984,6 +1030,7 @@ class Patient {
         xray_findings.hashCode ^
         other_findings.hashCode ^
         remarks.hashCode ^
-        dlc_b.hashCode;
+        dlc_b.hashCode ^
+        drug_allergy.hashCode;
   }
 }
