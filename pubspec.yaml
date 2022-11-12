@@ -60,6 +60,8 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
   dropdown_button2: ^1.8.9
   awesome_dialog: ^3.0.2
+  multi_select_flutter: ^4.1.2
+  custom_radio_grouped_button: ^2.1.2+2
 
 dev_dependencies:
   flutter_test:

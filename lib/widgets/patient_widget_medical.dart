@@ -2,7 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
-import 'package:ohctech/pages/opd_form.dart';
+import 'package:ohctech/pages/medical_details.dart';
+import 'package:ohctech/pages/medical_update.dart';
+import 'package:ohctech/pages/opd_update.dart';
+import 'package:ohctech/pages/patient_details_opd.dart';
+import 'package:ohctech/pages/patient_details_sickness.dart';
+import 'package:ohctech/pages/sickness_update.dart';
 import 'package:ohctech/utils/routes.dart';
 import 'package:day_night_time_picker/lib/constants.dart';
 import 'package:http/http.dart' as http;
@@ -43,25 +48,58 @@ class PatientWidgetMedical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emp_code_p = patient.emp_code;
     return Card(
       child: ListTile(
         // onTap: () => moveToOpdForm(context),
         leading: Image.asset("assets/images/user.png"),
         title: Text(
           patient.patient_name,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text("Medical Examination Date:${patient.medical_entry_date}",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
-        trailing: Text(
-          patient.emp_code,
-          textScaleFactor: 1,
-          style: TextStyle(
-            color: Color.fromARGB(255, 19, 18, 20),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        subtitle: Text(patient.emp_code),
+
+        trailing: PopupMenuButton(
+            // add icon, by default "3 dot" icon
+            // icon: Icon(Icons.book)
+            //  iconSize :30,
+            tooltip: "More Option",
+            //  color : Colors.grey,
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem<int>(
+                  value: 0,
+                  child: Icon(Icons.edit),
+                ),
+                PopupMenuItem<int>(
+                  value: 1,
+                  child: Icon(Icons.search),
+                ),
+              ];
+            },
+            onSelected: (value) {
+              if (value == 0) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => medicalUpdate(patient: patient)));
+              } else if (value == 1) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MedicalExam(patient: patient)));
+              }
+            }),
+
+        // trailing: Text(
+        //   patient.emp_code,
+        //   textScaleFactor: 1,
+        //   style: TextStyle(
+        //     color: Color.fromARGB(255, 19, 18, 20),
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
       ),
       color: Color.fromARGB(255, 148, 204, 242),
       elevation: 5,
@@ -83,4 +121,3 @@ class PatientWidgetMedical extends StatelessWidget {
 //     );
 //   }
 // }
-

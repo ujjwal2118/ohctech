@@ -103,7 +103,7 @@ class _opdFormState extends State<opdForm> {
   String bodySystemValue = 'Select Body System';
 
   Future<dynamic> insertOPD(BuildContext context) async {
-    var url = 'http://192.168.0.119/tatametaliks_new/opd_update.php';
+    var url = 'https://ohctech.000webhostapp.com/opd_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
       "ailments_new": bodySystemValue,

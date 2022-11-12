@@ -40,7 +40,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   TextEditingController des = TextEditingController();
   TextEditingController agency = TextEditingController();
   TextEditingController ailment_system = TextEditingController();
-  TextEditingController approval_remarks = TextEditingController();
+  // TextEditingController approval_remarks = TextEditingController();
   TextEditingController visitdate = TextEditingController();
 
   @override
@@ -129,15 +129,16 @@ class _sicknessEditState extends State<sicknessEdit> {
   String approvalStatus = "Select an option";
 
   Future<dynamic> insertOPD(BuildContext context) async {
-    var url = 'http://dushant-mali.great-site.net/mobile/opd.php';
+    var url = 'https://ohctech.000webhostapp.com/sickness_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
+      "ticket_no": ticketNo.text,
       "name": patientName.text,
       "des": des.text,
       "ailment_system": ailment_system.text,
       "ailment_name": bodySystemValue,
       "approval_status": approvalStatus,
       "agency": agency.text,
-      "approval_remarks": approval_remarks.text,
+      // "approval_remarks": approval_remarks.text,
     });
     var map;
     try {
@@ -151,7 +152,7 @@ class _sicknessEditState extends State<sicknessEdit> {
         context: context,
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
-        title: 'Update Successfully',
+        title: 'Updated Successfully',
         btnOkOnPress: () {},
       ).show();
     } else {
