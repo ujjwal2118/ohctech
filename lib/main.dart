@@ -13,7 +13,7 @@ import 'package:ohctech/pages/sickness.dart';
 import 'package:ohctech/utils/routes.dart';
 import 'package:ohctech/widgets/themes.dart';
 
-import 'widgets/patient_widget.dart';
+import 'widgets/patient_widget_opd.dart';
 
 void main() {
   runApp(MyApp());

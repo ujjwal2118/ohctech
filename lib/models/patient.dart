@@ -18,6 +18,9 @@ class Patient {
   final String ailments_new;
   final String remarks_rece;
   final String examination_remarks;
+  final String injury_time;
+  final String injury_cause;
+  final String branch_area;
   final String incident_location;
   final String injury_procedure;
   final String injury_parts_new;
@@ -143,6 +146,9 @@ class Patient {
     this.ailments_new,
     this.remarks_rece,
     this.examination_remarks,
+    this.injury_time,
+    this.injury_cause,
+    this.branch_area,
     this.incident_location,
     this.injury_procedure,
     this.injury_parts_new,
@@ -269,6 +275,9 @@ class Patient {
       String ailments_new,
       String remarks_rece,
       String examination_remarks,
+      String injury_time,
+      String injury_cause,
+      String branch_area,
       String incident_location,
       String injury_procedure,
       String injury_parts_new,
@@ -394,6 +403,9 @@ class Patient {
         remarks_rece: remarks_rece ?? this.remarks_rece,
         examination_remarks: examination_remarks ?? this.examination_remarks,
         incident_location: incident_location ?? this.incident_location,
+        injury_time: injury_time ?? this.injury_time,
+        injury_cause: injury_cause ?? this.injury_cause,
+        branch_area: branch_area ?? this.branch_area,
         injury_procedure: injury_procedure ?? this.injury_procedure,
         injury_parts_new: injury_parts_new ?? this.injury_parts_new,
         injury_classes_new: injury_classes_new ?? this.injury_classes_new,
@@ -525,6 +537,9 @@ class Patient {
       'complaints': complaints,
       'remarks_rece': remarks_rece,
       'examination_remarks': examination_remarks,
+      'injury_time': injury_time,
+      'injury_cause': injury_cause,
+      'branch_area': branch_area,
       'incident_location': incident_location,
       'injury_procedure': injury_procedure,
       'injury_parts_new': injury_parts_new,
@@ -655,6 +670,9 @@ class Patient {
         complaints: map['complaints'],
         remarks_rece: map['remarks_rece'],
         examination_remarks: map['examination_remarks'],
+        injury_time: map['injury_time'],
+        injury_cause: map['injury_cause'],
+        branch_area: map['branch_area'],
         incident_location: map['incident_location'],
         injury_procedure: map['injury_procedure'],
         injury_parts_new: map['injury_parts_new'],
@@ -774,7 +792,7 @@ class Patient {
 
   @override
   String toString() {
-    return 'Patient(id: $id,appointment_id: $appointment_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name, emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy)';
+    return 'Patient(id: $id,appointment_id: $appointment_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name, emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy)';
   }
 
   @override
@@ -795,6 +813,9 @@ class Patient {
         o.complaints == complaints &&
         o.remarks_rece == remarks_rece &&
         o.examination_remarks == examination_remarks &&
+        o.injury_cause == injury_cause &&
+        o.branch_area == branch_area &&
+        o.injury_time == injury_time &&
         o.incident_location == incident_location &&
         o.injury_procedure == injury_procedure &&
         o.injury_parts_new == injury_parts_new &&
@@ -922,6 +943,9 @@ class Patient {
         complaints.hashCode ^
         remarks_rece.hashCode ^
         examination_remarks.hashCode ^
+        injury_time.hashCode ^
+        injury_cause.hashCode ^
+        branch_area.hashCode ^
         incident_location.hashCode ^
         injury_procedure.hashCode ^
         injury_classes_new.hashCode ^

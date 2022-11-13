@@ -12,7 +12,7 @@ import 'package:ohctech/pages/medical_details.dart';
 import 'package:ohctech/pages/opd_form.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/patient_widget.dart';
+import 'package:ohctech/widgets/patient_widget_opd.dart';
 import 'package:ohctech/widgets/patient_widget_medical.dart';
 
 class MedicalPage extends StatefulWidget {
