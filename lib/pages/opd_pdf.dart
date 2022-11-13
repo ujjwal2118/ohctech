@@ -92,7 +92,7 @@ Future<Uint8List> makePdf(Patient patient) async {
                           Spacer(
                             flex: 1,
                           ),
-                          Text("EMP CODE:",
+                          Text("EMP CODE:" + patient.emp_code,
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -101,12 +101,12 @@ Future<Uint8List> makePdf(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("PATIENT NAME:",
+                          Text("PATIENT NAME:" + patient.patient_name,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("FATHER'S NAME:",
+                          Text("FATHER'S NAME:" + patient.father_name,
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -120,7 +120,7 @@ Future<Uint8List> makePdf(Patient patient) async {
                           Spacer(
                             flex: 1,
                           ),
-                          Text("GENDER:",
+                          Text("GENDER:" + patient.gender,
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -148,7 +148,7 @@ Future<Uint8List> makePdf(Patient patient) async {
                           Spacer(
                             flex: 1,
                           ),
-                          Text("OHC REPORTING TIME:",
+                          Text("OHC REPORTING TIME:" + patient.appointment_date,
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -163,43 +163,43 @@ Future<Uint8List> makePdf(Patient patient) async {
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("BP:",
+                    child: Text("BP: +${patient.bp_sbp}/${patient.bp_dbp}",
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("PULSE:",
+                    child: Text("PULSE:" + patient.pulse,
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("TEMP:",
+                    child: Text("TEMP:" + patient.temperature,
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("SPO2%:",
+                    child: Text("SPO2%:" + patient.spo2_percent,
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("RBS:",
+                    child: Text("RBS:" + patient.blood_sugar_rbs,
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("FBS:",
+                    child: Text("FBS:" + patient.blood_sugar_fbs,
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("PPBS:",
+                    child: Text("PPBS:" + patient.blood_sugar_ppbs,
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(height: 20),
               ],
@@ -222,12 +222,14 @@ Future<Uint8List> makePdf(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("Complaints:",
+                          Text("Complaints:" + patient.complaints,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("Examination:",
+                          Text(
+                              "Examination Findings:" +
+                                  patient.examination_remarks,
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -236,7 +238,9 @@ Future<Uint8List> makePdf(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("Remarks/Follow-up Investigation Details:",
+                          Text(
+                              "Remarks/Follow-up Investigation Details:" +
+                                  patient.remarks_rece,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
@@ -245,30 +249,30 @@ Future<Uint8List> makePdf(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("Diagnosis:",
+                          Text("Diagnosis:" + patient.ailment_systems_new,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("Ailment System:",
+                          Text("Ailment System:" + patient.ailment_system,
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
-                      child: Row(
-                        children: [
-                          Text("IS EMERGENCY?:",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Spacer(
-                            flex: 1,
-                          ),
-                          Text("OHC REPORTING TIME:",
-                              style: TextStyle(fontWeight: FontWeight.bold))
-                        ],
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
+                    //   child: Row(
+                    //     children: [
+                    //       Text("IS EMERGENCY?:",
+                    //           style: TextStyle(fontWeight: FontWeight.bold)),
+                    //       Spacer(
+                    //         flex: 1,
+                    //       ),
+                    //       Text("OHC REPORTING TIME:" +patient.appointment_date,
+                    //           style: TextStyle(fontWeight: FontWeight.bold))
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               )

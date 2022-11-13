@@ -10,6 +10,7 @@ class Patient {
   final int medical_exam_id;
   final int sickness_id;
   final String patient_name;
+  final String gender;
   final String emp_code;
   final String ticket_no;
   final String appointment_date;
@@ -18,6 +19,8 @@ class Patient {
   final String ailments_new;
   final String remarks_rece;
   final String examination_remarks;
+  final String temperature;
+  final String spo2_percent;
   final String injury_time;
   final String injury_cause;
   final String branch_area;
@@ -43,6 +46,8 @@ class Patient {
   final dynamic bmi;
   final String pulse;
   final String bp;
+  final String bp_sbp;
+  final String bp_dbp;
   final String s1;
   final String any_other_sound;
   final String ecg_findings;
@@ -137,12 +142,15 @@ class Patient {
     this.appointment_id,
     this.medical_exam_id,
     this.sickness_id,
+    this.gender,
     this.patient_name,
     this.emp_code,
     this.ticket_no,
     this.appointment_date,
     this.ailment_systems_new,
     this.complaints,
+    this.spo2_percent,
+    this.temperature,
     this.ailments_new,
     this.remarks_rece,
     this.examination_remarks,
@@ -171,6 +179,8 @@ class Patient {
     this.bmi,
     this.pulse,
     this.bp,
+    this.bp_sbp,
+    this.bp_dbp,
     this.s1,
     this.any_other_sound,
     this.ecg_findings,
@@ -266,12 +276,15 @@ class Patient {
       int appointment_id,
       int medical_exam_id,
       int sickness_id,
+      String gender,
       String patient_name,
       String emp_code,
       String ticket_no,
       String appointment_date,
       String ailment_systems_new,
       String complaints,
+      String temperature,
+      String spo2_percent,
       String ailments_new,
       String remarks_rece,
       String examination_remarks,
@@ -300,6 +313,8 @@ class Patient {
       dynamic bmi,
       String pulse,
       String bp,
+      String bp_sbp,
+      String bp_dbp,
       String s1,
       String any_other_sound,
       String ecg_findings,
@@ -394,11 +409,13 @@ class Patient {
         medical_exam_id: medical_exam_id ?? this.medical_exam_id,
         sickness_id: sickness_id ?? this.sickness_id,
         patient_name: patient_name ?? this.patient_name,
+        gender: gender ?? this.gender,
         emp_code: emp_code ?? this.emp_code,
         ticket_no: ticket_no ?? this.ticket_no,
         appointment_date: appointment_date ?? this.appointment_date,
         ailment_systems_new: ailment_systems_new ?? this.ailment_systems_new,
         complaints: complaints ?? this.complaints,
+        temperature: temperature ?? this.temperature,
         ailments_new: ailments_new ?? this.ailments_new,
         remarks_rece: remarks_rece ?? this.remarks_rece,
         examination_remarks: examination_remarks ?? this.examination_remarks,
@@ -427,6 +444,9 @@ class Patient {
         bmi: bmi ?? this.bmi,
         pulse: pulse ?? this.pulse,
         bp: bp ?? this.bp,
+        bp_sbp: bp_sbp ?? this.bp_sbp,
+        bp_dbp: bp_dbp ?? this.bp_dbp,
+        spo2_percent: spo2_percent ?? this.spo2_percent,
         s1: s1 ?? this.s1,
         any_other_sound: any_other_sound ?? this.any_other_sound,
         ecg_findings: ecg_findings ?? this.ecg_findings,
@@ -529,12 +549,14 @@ class Patient {
       'medical_exam_id': medical_exam_id,
       'sickness_id': sickness_id,
       'patient_name': patient_name,
+      'gender': gender,
       'emp_code': emp_code,
       'ticket_no': ticket_no,
       'appointment_date': appointment_date,
       'ailment_systems_new': ailment_systems_new,
       'ailments_new': ailments_new,
       'complaints': complaints,
+      'temperature': temperature,
       'remarks_rece': remarks_rece,
       'examination_remarks': examination_remarks,
       'injury_time': injury_time,
@@ -562,7 +584,10 @@ class Patient {
       'bmi': bmi,
       'pulse': pulse,
       'bp': bp,
+      'bp_sbp': bp_sbp,
+      'bp_dbp': bp_dbp,
       's1': s1,
+      'spo2_percent': spo2_percent,
       'any_other_sound': any_other_sound,
       'ecg_findings': ecg_findings,
       'father_name': father_name,
@@ -662,12 +687,15 @@ class Patient {
         medical_exam_id: map['medical_exam_id'],
         sickness_id: map['sickness_id'],
         patient_name: map['patient_name'],
+        gender: map['gender'],
         emp_code: map['emp_code'],
         ticket_no: map['ticket_no'],
         appointment_date: map['appointment_date'],
         ailment_systems_new: map['ailment_systems_new'],
         ailments_new: map['ailments_new'],
         complaints: map['complaints'],
+        temperature: map['temperature'],
+        spo2_percent: map['spo2_percent'],
         remarks_rece: map['remarks_rece'],
         examination_remarks: map['examination_remarks'],
         injury_time: map['injury_time'],
@@ -695,6 +723,8 @@ class Patient {
         bmi: map['bmi'],
         pulse: map['pulse'],
         bp: map['bp'],
+        bp_sbp: map['bp_sbp'],
+        bp_dbp: map['bp_dbp'],
         s1: map['s1'],
         any_other_sound: map['any_other_sound'],
         ecg_findings: map['ecg_findings'],
@@ -792,7 +822,7 @@ class Patient {
 
   @override
   String toString() {
-    return 'Patient(id: $id,appointment_id: $appointment_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name, emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy)';
+    return 'Patient(id: $id,appointment_id: $appointment_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy)';
   }
 
   @override
@@ -805,12 +835,15 @@ class Patient {
         o.medical_exam_id == medical_exam_id &&
         o.sickness_id == sickness_id &&
         o.patient_name == patient_name &&
+        o.gender == gender &&
         o.emp_code == emp_code &&
         o.ticket_no == ticket_no &&
         o.appointment_date == appointment_date &&
         o.ailment_systems_new == ailment_systems_new &&
         o.ailments_new == ailments_new &&
         o.complaints == complaints &&
+        o.temperature == temperature &&
+        o.spo2_percent == spo2_percent &&
         o.remarks_rece == remarks_rece &&
         o.examination_remarks == examination_remarks &&
         o.injury_cause == injury_cause &&
@@ -838,6 +871,8 @@ class Patient {
         o.bmi == bmi &&
         o.pulse == pulse &&
         o.bp == bp &&
+        o.bp_sbp == bp_sbp &&
+        o.bp_dbp == bp_dbp &&
         o.s1 == s1 &&
         o.any_other_sound == any_other_sound &&
         o.ecg_findings == ecg_findings &&
@@ -935,12 +970,15 @@ class Patient {
         medical_exam_id.hashCode ^
         appointment_id.hashCode ^
         patient_name.hashCode ^
+        gender.hashCode ^
         emp_code.hashCode ^
         ticket_no.hashCode ^
         appointment_date.hashCode ^
         ailment_systems_new.hashCode ^
         ailments_new.hashCode ^
         complaints.hashCode ^
+        temperature.hashCode ^
+        spo2_percent.hashCode ^
         remarks_rece.hashCode ^
         examination_remarks.hashCode ^
         injury_time.hashCode ^
@@ -968,6 +1006,8 @@ class Patient {
         bmi.hashCode ^
         pulse.hashCode ^
         bp.hashCode ^
+        bp_sbp.hashCode ^
+        bp_dbp.hashCode ^
         s1.hashCode ^
         any_other_sound.hashCode ^
         ecg_findings.hashCode ^
