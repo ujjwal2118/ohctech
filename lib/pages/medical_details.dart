@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:ohctech/pages/medical_pdf_preview_page.dart';
@@ -6,6 +6,7 @@ import 'package:ohctech/pages/medical_pdf_preview_page.dart';
 import '../models/patient.dart';
 
 void main() {
+  // ignore: missing_required_param
   runApp(MedicalExam());
 }
 
@@ -16,6 +17,7 @@ class MedicalExam extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     Orientation deviceOrientation = MediaQuery.of(context).orientation;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -40,7 +42,8 @@ class MedicalExam extends StatelessWidget {
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(10, 30, 10, 0),
-          child: ListView(
+          child:  OrientationBuilder(
+                builder: (context, orientation) => ListView(
             children: <Widget>[
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
@@ -371,37 +374,27 @@ class MedicalExam extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Whether Adopting Any Method of Family Planning : ",
+              
+                
+                   
+                      OrientationBuilder(
+                builder: (context, orientation) => Center(
+                   child: Text(
+                        "Whether Adopting Any Method of Family Planning :",
                         style: TextStyle(fontWeight: FontWeight.bold),
-                        softWrap: false,
-                        maxLines: 1,
-                        overflow: TextOverflow.visible,
                       ),
-                    ),
-                  ],
+                )
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Whether Adopting Any Method of Family Planning : ",
-                        softWrap: false,
-                        maxLines: 1,
-                        overflow: TextOverflow.visible,
+                     
+                   OrientationBuilder(
+                builder: (context, orientation) => Center(
+                   child: Text(
+                        "Whether Adopting Any Method of Family Planning :",
                       ),
-                    ),
-                  ],
+                )
                 ),
-              ),
+                   
+ 
               Divider(
                 color: Colors.black,
                 height: 25,
@@ -4169,6 +4162,7 @@ class MedicalExam extends StatelessWidget {
               //   ),
               // ),
             ],
+          ),
           ),
         ),
       ),

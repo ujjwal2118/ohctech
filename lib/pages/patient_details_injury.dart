@@ -19,6 +19,7 @@ class PatientDetailsInjury extends StatelessWidget {
         super(key: key);
   @override
   Widget build(BuildContext context) {
+    Orientation deviceOrientation = MediaQuery.of(context).orientation;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -101,25 +102,57 @@ class PatientDetailsInjury extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Incident Location: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+
+              OrientationBuilder(
+                builder: (context, orientation) => RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(63, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.incident_location),
-                      ),
-                    ),
-                  ],
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Incident Location: ',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: patient.incident_location),
+                    ],
+                  ),
                 ),
               ),
+
+//  OrientationBuilder(
+//                 builder: (context, orientation) =>
+//                     Text(
+//                         "Incident Location: "+ patient.incident_location,
+//                       ),
+
+//                 ),
+              SizedBox(
+                height: 10,
+              ),
+
+//               Container(
+//                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+//                 child: Row(
+//                   children: <Widget>[
+
+//                   Text(
+//                         "Incident Location: ",
+//                         style: TextStyle(fontWeight: FontWeight.bold),
+//                       ),
+
+//  OrientationBuilder(
+//                 builder: (context, orientation) =>  Text(
+//                         patient.incident_location,
+//                       ),
+
+//                 ),
+
+//                   ],
+//                 ),
+//               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
                 child: Row(
@@ -150,7 +183,7 @@ class PatientDetailsInjury extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text(patient.injury_classes_new),
                       ),
@@ -169,7 +202,7 @@ class PatientDetailsInjury extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
                         child: Text(patient.injury_types_new),
                       ),
@@ -177,46 +210,89 @@ class PatientDetailsInjury extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Injury Procedure: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Container(
+              //         child: Text(
+              //           "Injury Procedure: ",
+              //           style: TextStyle(fontWeight: FontWeight.bold),
+              //         ),
+              //       ),
+              //       Padding(
+              //         padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
+              //         child: Container(
+              //           child: Text(patient.injury_procedure),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+
+              OrientationBuilder(
+                builder: (context, orientation) => RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.injury_procedure),
-                      ),
-                    ),
-                  ],
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Injury Procedure: ',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: patient.injury_procedure),
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Complaints : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+              OrientationBuilder(
+                builder: (context, orientation) => RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.complaints),
-                      ),
-                    ),
-                  ],
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Complaints :',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: patient.complaints),
+                    ],
+                  ),
                 ),
               ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Container(
+              //         child: Text(
+              //           "Complaints : ",
+              //           style: TextStyle(fontWeight: FontWeight.bold),
+              //         ),
+              //       ),
+              //       Padding(
+              //         padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+              //         child: Container(
+              //           child: Text(patient.complaints),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Row(
                   children: <Widget>[
                     Container(
@@ -234,25 +310,43 @@ class PatientDetailsInjury extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Examination Findings : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+
+              OrientationBuilder(
+                builder: (context, orientation) => RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.examination_remarks),
-                      ),
-                    ),
-                  ],
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Examination Findings :',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: patient.examination_remarks),
+                    ],
+                  ),
                 ),
               ),
+
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Container(
+              //         child: Text(
+              //           "Examination Findings : ",
+              //           style: TextStyle(fontWeight: FontWeight.bold),
+              //         ),
+              //       ),
+              //       Padding(
+              //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              //         child: Container(
+              //           child: Text(patient.examination_remarks),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               // Container(
               //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
               //   child: Row(
