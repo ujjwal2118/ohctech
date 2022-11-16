@@ -19,7 +19,7 @@ class OpdPage extends StatefulWidget {
 }
 
 class _OpdPageState extends State<OpdPage> {
-  final url = "https://ohctech.000webhostapp.com/index.php/user/listOpd";
+  final url = "https://tatametaliks.techsyneric.com/opd_list.php";
 
   @override
   void initState() {

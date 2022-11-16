@@ -1,12 +1,22 @@
 import 'dart:convert';
 
+import 'package:flutter/src/widgets/framework.dart';
+
 class PatientModel {
   static List<Patient> patients;
 }
 
 class Patient {
   final int id;
-  final int appointment_id;
+  final String item_id;
+  final String frequency_id;
+  final String for_days;
+  final String item_qty;
+  final String issued_qty;
+  final String dosage;
+  final String dosage_category_id;
+  final String timing_id;
+  final String appointment_id;
   final int medical_exam_id;
   final int sickness_id;
   final String patient_name;
@@ -136,144 +146,173 @@ class Patient {
   final String remarks;
   final String dlc_b;
   final String drug_allergy;
+  final String followup_to_opd;
+  final String followup;
+  final String external_treatments;
+  final String dob;
+  final String ans;
+  final String employer_contractor;
+  final String dept;
 
-  Patient({
-    this.id,
-    this.appointment_id,
-    this.medical_exam_id,
-    this.sickness_id,
-    this.gender,
-    this.patient_name,
-    this.emp_code,
-    this.ticket_no,
-    this.appointment_date,
-    this.ailment_systems_new,
-    this.complaints,
-    this.spo2_percent,
-    this.temperature,
-    this.ailments_new,
-    this.remarks_rece,
-    this.examination_remarks,
-    this.injury_time,
-    this.injury_cause,
-    this.branch_area,
-    this.incident_location,
-    this.injury_procedure,
-    this.injury_parts_new,
-    this.injury_classes_new,
-    this.injury_types_new,
-    this.sickness_name,
-    this.des,
-    this.sickness_date,
-    this.approval_date,
-    this.date_absent,
-    this.date_absent_to,
-    this.date_return,
-    this.fitness_status,
-    this.ailment_system,
-    this.ailment_name,
-    this.agency,
-    this.medical_entry_date,
-    this.height,
-    this.weight,
-    this.bmi,
-    this.pulse,
-    this.bp,
-    this.bp_sbp,
-    this.bp_dbp,
-    this.s1,
-    this.any_other_sound,
-    this.ecg_findings,
-    this.father_name,
-    this.designation_name,
-    this.primary_phone,
-    this.email_id,
-    this.identi_mark,
-    this.village,
-    this.post,
-    this.tehsil,
-    this.district,
-    this.state,
-    this.pin_code,
-    this.chest,
-    this.chest_in,
-    this.chest_exp,
-    this.skin,
-    this.musculo_skeletal,
-    this.hb,
-    this.tlc,
-    this.dlc_n,
-    this.dlc_l,
-    this.dlc_m,
-    this.dlc_e,
-    this.esr,
-    this.blood_sugar_fbs,
-    this.blood_sugar_rbs,
-    this.uric_acid,
-    this.s_urea,
-    this.s_creatinine,
-    this.total_bilirubin,
-    this.sgop,
-    this.sgpt,
-    this.total_cholestrol,
-    this.ldl,
-    this.triglycerides,
-    this.urine_re_me,
-    this.urine_re_me_comments,
-    this.dis_without_right_eye,
-    this.dis_without_left_eye,
-    this.near_without_right_eye,
-    this.near_without_left_eye,
-    this.deformities,
-    this.cns,
-    this.nose,
-    this.throat,
-    this.ear,
-    this.audio_findings_left,
-    this.blood_sugar_ppbs,
-    this.hiv,
-    this.hcv,
-    this.hbsag,
-    this.sodium,
-    this.potassium,
-    this.phosphate,
-    this.hco3,
-    this.conj,
-    this.uniconj,
-    this.alk_phosphatase,
-    this.total_protein,
-    this.albumin,
-    this.globulin,
-    this.vldl,
-    this.hdl,
-    this.speech,
-    this.higher_function,
-    this.motor_function,
-    this.vertigo,
-    this.reflexes,
-    this.vibration_syndrome,
-    this.conversational_hearing,
-    this.teeth_n_gum,
-    this.spiro_remarks,
-    this.liver,
-    this.speen,
-    this.tenderness,
-    this.any_other_abnormality,
-    this.hernia_details,
-    this.hydrocele_details,
-    this.phimosis,
-    this.piles,
-    this.fistula,
-    this.xray_findings,
-    this.other_findings,
-    this.remarks,
-    this.dlc_b,
-    this.drug_allergy,
-  });
+  Patient(
+      {this.id,
+      this.item_id,
+      this.frequency_id,
+      this.for_days,
+      this.item_qty,
+      this.issued_qty,
+      this.dosage,
+      this.dosage_category_id,
+      this.timing_id,
+      this.appointment_id,
+      this.medical_exam_id,
+      this.sickness_id,
+      this.gender,
+      this.patient_name,
+      this.emp_code,
+      this.ticket_no,
+      this.appointment_date,
+      this.ailment_systems_new,
+      this.complaints,
+      this.spo2_percent,
+      this.temperature,
+      this.ailments_new,
+      this.remarks_rece,
+      this.examination_remarks,
+      this.injury_time,
+      this.injury_cause,
+      this.branch_area,
+      this.incident_location,
+      this.injury_procedure,
+      this.injury_parts_new,
+      this.injury_classes_new,
+      this.injury_types_new,
+      this.sickness_name,
+      this.des,
+      this.sickness_date,
+      this.approval_date,
+      this.date_absent,
+      this.date_absent_to,
+      this.date_return,
+      this.fitness_status,
+      this.ailment_system,
+      this.ailment_name,
+      this.agency,
+      this.medical_entry_date,
+      this.height,
+      this.weight,
+      this.bmi,
+      this.pulse,
+      this.bp,
+      this.bp_sbp,
+      this.bp_dbp,
+      this.s1,
+      this.any_other_sound,
+      this.ecg_findings,
+      this.father_name,
+      this.designation_name,
+      this.primary_phone,
+      this.email_id,
+      this.identi_mark,
+      this.village,
+      this.post,
+      this.tehsil,
+      this.district,
+      this.state,
+      this.pin_code,
+      this.chest,
+      this.chest_in,
+      this.chest_exp,
+      this.skin,
+      this.musculo_skeletal,
+      this.hb,
+      this.tlc,
+      this.dlc_n,
+      this.dlc_l,
+      this.dlc_m,
+      this.dlc_e,
+      this.esr,
+      this.blood_sugar_fbs,
+      this.blood_sugar_rbs,
+      this.uric_acid,
+      this.s_urea,
+      this.s_creatinine,
+      this.total_bilirubin,
+      this.sgop,
+      this.sgpt,
+      this.total_cholestrol,
+      this.ldl,
+      this.triglycerides,
+      this.urine_re_me,
+      this.urine_re_me_comments,
+      this.dis_without_right_eye,
+      this.dis_without_left_eye,
+      this.near_without_right_eye,
+      this.near_without_left_eye,
+      this.deformities,
+      this.cns,
+      this.nose,
+      this.throat,
+      this.ear,
+      this.audio_findings_left,
+      this.blood_sugar_ppbs,
+      this.hiv,
+      this.hcv,
+      this.hbsag,
+      this.sodium,
+      this.potassium,
+      this.phosphate,
+      this.hco3,
+      this.conj,
+      this.uniconj,
+      this.alk_phosphatase,
+      this.total_protein,
+      this.albumin,
+      this.globulin,
+      this.vldl,
+      this.hdl,
+      this.speech,
+      this.higher_function,
+      this.motor_function,
+      this.vertigo,
+      this.reflexes,
+      this.vibration_syndrome,
+      this.conversational_hearing,
+      this.teeth_n_gum,
+      this.spiro_remarks,
+      this.liver,
+      this.speen,
+      this.tenderness,
+      this.any_other_abnormality,
+      this.hernia_details,
+      this.hydrocele_details,
+      this.phimosis,
+      this.piles,
+      this.fistula,
+      this.xray_findings,
+      this.other_findings,
+      this.remarks,
+      this.dlc_b,
+      this.drug_allergy,
+      this.followup_to_opd,
+      this.followup,
+      this.external_treatments,
+      this.dob,
+      this.ans,
+      this.employer_contractor,
+      this.dept});
 
   Patient copyWith(
       {int id,
-      int appointment_id,
+      String item_id,
+      String frequency_id,
+      String for_days,
+      String item_qty,
+      String issued_qty,
+      String dosage,
+      String dosage_category_id,
+      String timing_id,
+      String appointment_id,
       int medical_exam_id,
       int sickness_id,
       String gender,
@@ -402,9 +441,23 @@ class Patient {
       String other_findings,
       String remarks,
       String dlc_b,
-      String drug_allergy}) {
+      String drug_allergy,
+      String followup_to_opd,
+      String followup,
+      String external_treatments,
+      String dob,
+      String ans,
+      String employer_contractor,
+      String dept}) {
     return Patient(
         id: id ?? this.id,
+        item_id: item_id ?? this.item_id,
+        frequency_id: frequency_id ?? this.frequency_id,
+        item_qty: item_qty ?? this.item_qty,
+        issued_qty: issued_qty ?? this.issued_qty,
+        dosage: dosage ?? this.dosage,
+        dosage_category_id: dosage_category_id ?? this.dosage_category_id,
+        timing_id: timing_id ?? this.timing_id,
         appointment_id: appointment_id ?? this.appointment_id,
         medical_exam_id: medical_exam_id ?? this.medical_exam_id,
         sickness_id: sickness_id ?? this.sickness_id,
@@ -539,13 +592,27 @@ class Patient {
         other_findings: other_findings ?? this.other_findings,
         remarks: remarks ?? this.remarks,
         dlc_b: dlc_b ?? this.dlc_b,
-        drug_allergy: drug_allergy ?? this.drug_allergy);
+        drug_allergy: drug_allergy ?? this.drug_allergy,
+        followup_to_opd: followup_to_opd ?? this.followup_to_opd,
+        followup: followup ?? this.followup,
+        external_treatments: external_treatments ?? this.external_treatments,
+        dob: dob ?? this.dob,
+        ans: ans ?? this.ans,
+        employer_contractor: employer_contractor ?? this.employer_contractor,
+        dept: dept ?? this.dept);
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'appointment_id': appointment_id,
+      'item_id': item_id,
+      'frequency_id': frequency_id,
+      'for_days': for_days,
+      'issued_qty': issued_qty,
+      'item_qty': item_qty,
+      'dosage': dosage,
+      'dosage_category_id': dosage_category_id,
+      'timing_id': timing_id,
       'medical_exam_id': medical_exam_id,
       'sickness_id': sickness_id,
       'patient_name': patient_name,
@@ -675,6 +742,13 @@ class Patient {
       'remarks': remarks,
       'dlc_b': dlc_b,
       'drug_allergy': drug_allergy,
+      'followup_to_opd': followup_to_opd,
+      'followup': followup,
+      'external_treatments': external_treatments,
+      'dob': dob,
+      'ans': ans,
+      'employer_contractor': employer_contractor,
+      'dept': dept,
     };
   }
 
@@ -683,7 +757,14 @@ class Patient {
 
     return Patient(
         id: map['id'],
-        appointment_id: map['appointment_id'],
+        item_id: map['item_id'],
+        frequency_id: map['frequency_id'],
+        for_days: map['for_days'],
+        item_qty: map['item_qty'],
+        issued_qty: map['issued_qty'],
+        dosage: map['dosage'],
+        dosage_category_id: map['dosage_category_id'],
+        timing_id: map['timing_id'],
         medical_exam_id: map['medical_exam_id'],
         sickness_id: map['sickness_id'],
         patient_name: map['patient_name'],
@@ -812,7 +893,14 @@ class Patient {
         other_findings: map['other_findings'],
         remarks: map['remarks'],
         dlc_b: map['dlc_b'],
-        drug_allergy: map['drug_allergy']);
+        drug_allergy: map['drug_allergy'],
+        followup_to_opd: map['followup_to_opd'],
+        followup: map['followup'],
+        external_treatments: map['external_treatments'],
+        dob: map['dob'],
+        ans: map['ans'],
+        employer_contractor: map['employer_contractor'],
+        dept: map['dept']);
   }
 
   String toJson() => json.encode(toMap());
@@ -822,7 +910,7 @@ class Patient {
 
   @override
   String toString() {
-    return 'Patient(id: $id,appointment_id: $appointment_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy)';
+    return 'Patient(id: $id,appointment_id: $appointment_id,item_id: $item_id,frequency_id: $frequency_id,for_days: $for_days,item_qty: $item_qty,issued_qty: $issued_qty,dosage: $dosage,dosage_category_id: $dosage_category_id,timing_id:$timing_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_findings :$other_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy,followup_to_opd:$followup_to_opd,followup:$followup,external_treatments:$external_treatments,dob:$dob,ans:$ans,employer_contractor:$employer_contractor,dept:$dept)';
   }
 
   @override
@@ -832,6 +920,14 @@ class Patient {
     return o is Patient &&
         o.id == id &&
         o.appointment_id == appointment_id &&
+        o.item_id == item_id &&
+        o.frequency_id == frequency_id &&
+        o.item_qty == item_qty &&
+        o.issued_qty == issued_qty &&
+        o.for_days == for_days &&
+        o.dosage == dosage &&
+        o.dosage_category_id == dosage_category_id &&
+        o.timing_id == timing_id &&
         o.medical_exam_id == medical_exam_id &&
         o.sickness_id == sickness_id &&
         o.patient_name == patient_name &&
@@ -960,13 +1056,28 @@ class Patient {
         o.other_findings == other_findings &&
         o.remarks == remarks &&
         o.dlc_b == dlc_b &&
-        o.drug_allergy == drug_allergy;
+        o.drug_allergy == drug_allergy &&
+        o.followup_to_opd == followup_to_opd &&
+        o.followup == followup &&
+        o.external_treatments == external_treatments &&
+        o.dob == dob &&
+        o.ans == ans &&
+        o.employer_contractor == employer_contractor &&
+        o.dept == dept;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
         appointment_id.hashCode ^
+        item_id.hashCode ^
+        frequency_id.hashCode ^
+        item_qty.hashCode ^
+        issued_qty.hashCode ^
+        for_days.hashCode ^
+        dosage.hashCode ^
+        dosage_category_id.hashCode ^
+        timing_id.hashCode ^
         medical_exam_id.hashCode ^
         appointment_id.hashCode ^
         patient_name.hashCode ^
@@ -1095,6 +1206,103 @@ class Patient {
         other_findings.hashCode ^
         remarks.hashCode ^
         dlc_b.hashCode ^
-        drug_allergy.hashCode;
+        drug_allergy.hashCode ^
+        followup_to_opd.hashCode ^
+        followup.hashCode ^
+        external_treatments.hashCode ^
+        dob.hashCode ^
+        ans.hashCode ^
+        employer_contractor.hashCode ^
+        dept.hashCode;
+  }
+}
+
+// class Medicine {
+//   String item_id,
+//       frequency_id,
+//       for_days,
+//       item_qty,
+//       issued_qty,
+//       dosage,
+//       dosage_category_id;
+
+//   Medicine(
+//       {this.item_id,
+//       this.frequency_id,
+//       this.for_days,
+//       this.item_qty,
+//       this.issued_qty,
+//       this.dosage,
+//       this.dosage_category_id});
+//   //constructor
+
+//   factory Medicine.fromJSON(Map<String, dynamic> json) {
+//     return Medicine(
+//         item_id: int.parse(json["item_id"]),
+//         frequency_id: json["frequency_id"],
+//         for_days: json["for_days"],
+//         item_qty: json["item_qty"],
+//         issued_qty: json["issued_qty"],
+//         dosage: json["dosage"],
+//         dosage_category_id: json["dosage_category_id"]);
+//   }
+// }
+
+class Medicine {
+  String item_id,
+      frequency_id,
+      for_days,
+      item_qty,
+      issued_qty,
+      dosage,
+      dosage_category_id,
+      timing_id;
+
+  Medicine(
+      {this.item_id,
+      this.frequency_id,
+      this.for_days,
+      this.item_qty,
+      this.issued_qty,
+      this.dosage,
+      this.dosage_category_id,
+      this.timing_id});
+  factory Medicine.fromJSON(Map<String, dynamic> jsonMap) {
+    return Medicine(
+        item_id: jsonMap['item_id'] as String,
+        frequency_id: jsonMap['frequency_id'] as String,
+        for_days: jsonMap['for_days'] as String,
+        item_qty: jsonMap['item_qty'] as String,
+        issued_qty: jsonMap['issued_qty'] as String,
+        dosage: jsonMap['dosage'] as String,
+        dosage_category_id: jsonMap['dosage_category_id'] as String,
+        timing_id: jsonMap['timing_id'] as String);
+  }
+
+  Map toMap() {
+    var map = new Map<String, dynamic>();
+    map["item_id"] = item_id;
+    map["frequency_id"] = frequency_id;
+    map["for_days"] = for_days;
+    map["item_qty"] = item_qty;
+    map["issued_qty"] = issued_qty;
+    map["dosage"] = dosage;
+    map["dosage_category_id"] = dosage_category_id;
+    map["timing_id"] = timing_id;
+    return map;
+  }
+
+  @override
+  String toString() {
+    var map = this.toMap();
+    map["item_id"] = this.item_id;
+    // map["frequency_id"] = this.frequency_id;
+    // map["for_days"] = this.for_days;
+    // map["item_qty"] = this.item_qty;
+    // map["issued_qty"] = this.issued_qty;
+    // map["dosage"] = this.dosage;
+    // map["dosage_category_id"] = this.dosage_category_id;
+    // map["timing_id"] = this.timing_id;
+    return map.toString();
   }
 }

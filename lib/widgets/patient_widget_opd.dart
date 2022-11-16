@@ -26,6 +26,7 @@ import 'package:day_night_time_picker/day_night_time_picker.dart';
 
 class PatientWidget extends StatelessWidget {
   final Patient patient;
+  final Medicine medicine;
 
   // moveToOpdForm(BuildContext context) async {
   //   await Future.delayed(Duration(seconds: 1));
@@ -38,7 +39,7 @@ class PatientWidget extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidget({Key key, @required this.patient})
+  const PatientWidget({Key key, @required this.patient, this.medicine})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -79,7 +80,8 @@ class PatientWidget extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => opdForm(patient: patient)));
+                        builder: (context) =>
+                            opdForm(patient: patient, medicine: medicine)));
               } else if (value == 1) {
                 Navigator.push(
                     context,

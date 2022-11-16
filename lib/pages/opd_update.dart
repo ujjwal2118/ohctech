@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:date_time_picker/date_time_picker.dart';
@@ -9,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
-
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -20,8 +18,9 @@ void main() {
 
 class opdForm extends StatefulWidget {
   final Patient patient;
+  final Medicine medicine;
 
-  const opdForm({Key key, @required this.patient})
+  const opdForm({Key key, @required this.patient, @required this.medicine})
       : assert(patient != null),
         super(key: key);
 
@@ -38,8 +37,13 @@ class _opdFormState extends State<opdForm> {
   TextEditingController remarks_rece = TextEditingController();
   TextEditingController appointment_date = TextEditingController();
 
+  bool error = false, dataloaded = false;
+  var data;
+  String dataurl = "https://tatametaliks.techsyneric.com/opd_list.php";
+
   @override
   void initState() {
+    loaddata();
     super.initState();
     Patient dm;
     dm = widget.patient;
@@ -52,6 +56,28 @@ class _opdFormState extends State<opdForm> {
     remarks_rece.text = dm.remarks_rece;
     visitDate = dm.appointment_date;
     appointment_date.text = visitDate;
+  }
+
+  void loaddata() {
+    Future.delayed(Duration.zero, () async {
+      var res = await http.post(Uri.parse(dataurl));
+      if (res.statusCode == 200) {
+        setState(() {
+          data = json.decode(res.body);
+          dataloaded = true;
+          // we set dataloaded to true,
+          // so that we can build a list only
+          // on data load
+        });
+      } else {
+        //there is error
+        setState(() {
+          error = true;
+        });
+      }
+    });
+    // we use Future.delayed becuase there is
+    // async function inside it.
   }
 
   String gender;
@@ -102,7 +128,7 @@ class _opdFormState extends State<opdForm> {
   String caseTypeValue = 'Select Case Type';
   String bodySystemValue = 'Select Body System';
 
-  Future<dynamic> insertOPD(BuildContext context) async {
+  Future<dynamic> updateOPD(BuildContext context) async {
     var url = 'https://ohctech.000webhostapp.com/opd_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
@@ -195,180 +221,34 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
-              // const Padding(
-              //   padding: EdgeInsets.only(left: 10.0),
-              //   child: Text(
-              //     "\n\nDISEASE TYPE",
-              //     style: TextStyle(
-              //         color: Colors.grey, fontWeight: FontWeight.w500),
-              //   ),
-              // ),
-              // DropdownButtonHideUnderline(
-              //   child: DropdownButton2(
-              //     isExpanded: true,
-              //     hint: Row(
-              //       children: const [
-              //         Icon(
-              //           Icons.list,
-              //           size: 16,
-              //           color: Colors.yellow,
-              //         ),
-              //         SizedBox(
-              //           width: 4,
-              //         ),
-              //         Expanded(
-              //           child: Text(
-              //             'Select Item',
-              //             style: TextStyle(
-              //               fontSize: 14,
-              //               fontWeight: FontWeight.bold,
-              //               color: Colors.yellow,
-              //             ),
-              //             overflow: TextOverflow.ellipsis,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //     items: iteams
-              //         .map((iteams) => DropdownMenuItem<String>(
-              //               value: iteams,
-              //               child: Text(
-              //                 iteams,
-              //                 style: const TextStyle(
-              //                   fontSize: 14,
-              //                   fontWeight: FontWeight.bold,
-              //                   color: Colors.white,
-              //                 ),
-              //                 overflow: TextOverflow.ellipsis,
-              //               ),
-              //             ))
-              //         .toList(),
-              //     value: dropdownValue,
-              //     onChanged: (value) {
-              //       setState(() {
-              //         dropdownValue = value as String;
-              //       });
-              //     },
-              //     icon: const Icon(
-              //       Icons.arrow_circle_down_outlined,
-              //     ),
-              //     iconSize: 14,
-              //     iconEnabledColor: Colors.black,
-              //     iconDisabledColor: Colors.grey,
-              //     buttonHeight: 50,
-              //     buttonWidth: 160,
-              //     buttonPadding: const EdgeInsets.only(left: 14, right: 14),
-              //     buttonDecoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(14),
-              //       border: Border.all(
-              //         color: Colors.black26,
-              //       ),
-              //       color: Colors.lightBlue,
-              //     ),
-              //     buttonElevation: 2,
-              //     itemHeight: 40,
-              //     itemPadding: const EdgeInsets.only(left: 30, right: 14),
-              //     dropdownMaxHeight: 200,
-              //     dropdownWidth: 300,
-              //     dropdownPadding: null,
-              //     dropdownDecoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(14),
-              //       color: Colors.lightBlueAccent,
-              //     ),
-              //     dropdownElevation: 8,
-              //     scrollbarRadius: const Radius.circular(40),
-              //     scrollbarThickness: 6,
-              //     scrollbarAlwaysShow: true,
-              //     offset: const Offset(20, 0),
-              //   ),
-              // ),
-              // const Padding(
-              //   padding: EdgeInsets.only(left: 10.0),
-              //   child: Text(
-              //     "\n\nCase TYPE",
-              //     style: TextStyle(
-              //         color: Colors.grey, fontWeight: FontWeight.w500),
-              //   ),
-              // ),
-              // DropdownButtonHideUnderline(
-              //   child: DropdownButton2(
-              //     isExpanded: true,
-              //     hint: Row(
-              //       children: const [
-              //         Icon(
-              //           Icons.list,
-              //           size: 16,
-              //           color: Colors.yellow,
-              //         ),
-              //         SizedBox(
-              //           width: 4,
-              //         ),
-              //         Expanded(
-              //           child: Text(
-              //             'Select Item',
-              //             style: TextStyle(
-              //               fontSize: 14,
-              //               fontWeight: FontWeight.bold,
-              //               color: Colors.yellow,
-              //             ),
-              //             overflow: TextOverflow.ellipsis,
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //     items: caseType
-              //         .map((iteams) => DropdownMenuItem<String>(
-              //               value: iteams,
-              //               child: Text(
-              //                 iteams,
-              //                 style: const TextStyle(
-              //                   fontSize: 14,
-              //                   fontWeight: FontWeight.bold,
-              //                   color: Colors.white,
-              //                 ),
-              //                 overflow: TextOverflow.ellipsis,
-              //               ),
-              //             ))
-              //         .toList(),
-              //     value: caseTypeValue,
-              //     onChanged: (value) {
-              //       setState(() {
-              //         caseTypeValue = value as String;
-              //       });
-              //     },
-              //     icon: const Icon(
-              //       Icons.arrow_circle_down_outlined,
-              //     ),
-              //     iconSize: 14,
-              //     iconEnabledColor: Colors.black,
-              //     iconDisabledColor: Colors.grey,
-              //     buttonHeight: 50,
-              //     buttonWidth: 160,
-              //     buttonPadding: const EdgeInsets.only(left: 14, right: 14),
-              //     buttonDecoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(14),
-              //       border: Border.all(
-              //         color: Colors.black26,
-              //       ),
-              //       color: Colors.lightBlue,
-              //     ),
-              //     buttonElevation: 2,
-              //     itemHeight: 40,
-              //     itemPadding: const EdgeInsets.only(left: 30, right: 14),
-              //     dropdownMaxHeight: 200,
-              //     dropdownWidth: 300,
-              //     dropdownPadding: null,
-              //     dropdownDecoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(14),
-              //       color: Colors.lightBlueAccent,
-              //     ),
-              //     dropdownElevation: 8,
-              //     scrollbarRadius: const Radius.circular(40),
-              //     scrollbarThickness: 6,
-              //     scrollbarAlwaysShow: true,
-              //     offset: const Offset(20, 0),
-              //   ),
-              // ),
+              Text(
+                "\nVisit Date\n",
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              DateTimePicker(
+                enableSuggestions: true, cursorColor: Colors.redAccent,
+                controller: appointment_date,
+                type: DateTimePickerType.dateTimeSeparate,
+                dateMask: 'd MMM, yyyy',
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2500),
+                // use24HourFormat: false,
+                icon: Icon(Icons.event),
+                dateLabelText: 'Date',
+                timeLabelText: "Time",
+                selectableDayPredicate: (date) {
+                  // Disable weekend days to select from the calendar
+                  if (date.weekday == 6 || date.weekday == 7) {
+                    return false;
+                  }
+
+                  return true;
+                },
+
+                validator: (val) {
+                  return null;
+                },
+              ),
               const Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(
@@ -537,34 +417,6 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
-              Text(
-                "\nVisit Date\n",
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: appointment_date,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
-
-                  return true;
-                },
-
-                validator: (val) {
-                  return null;
-                },
-              ),
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
@@ -585,7 +437,7 @@ class _opdFormState extends State<opdForm> {
                 child: ElevatedButton(
                   child: const Text("SAVE"),
                   onPressed: () {
-                    insertOPD(context);
+                    updateOPD(context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.lightBlue,
@@ -596,8 +448,62 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
+              Container(
+                padding: EdgeInsets.all(15),
+                //check if data is loaded, if loaded then show datalist on child
+                child: dataloaded
+                    ? datalist()
+                    : Center(
+                        //if data is not loaded then show progress
+                        child: CircularProgressIndicator()),
+              ),
             ])),
       ),
+    );
+  }
+
+  Widget datalist() {
+    List<Medicine> namelist = List<Medicine>.from(data["medicines"].map((i) {
+      return Medicine.fromJSON(i);
+    })); //prasing data list to model
+
+    return Table(
+      //if data is loaded then show table
+      border: TableBorder.all(width: 1, color: Colors.black45),
+      children: namelist.map((medicine) {
+        return TableRow(//return table row in every loop
+            children: [
+          //table cells inside table row
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.item_id.toString()))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.frequency_id.toString()))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.for_days.toString()))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.dosage_category_id.toString()))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.dosage.toString()))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.item_qty.toString()))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.issued_qty.toString()))),
+        ]);
+      }).toList(),
     );
   }
 }

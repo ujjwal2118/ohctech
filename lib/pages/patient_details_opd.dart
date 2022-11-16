@@ -57,7 +57,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.patient_name),
+                        child: Text(patient.patient_name ?? "NA"),
                       ),
                     ),
                   ],
@@ -76,7 +76,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.appointment_date),
+                        child: Text(patient.appointment_date ?? "NA"),
                       ),
                     ),
                   ],
@@ -95,7 +95,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ticket_no),
+                        child: Text(patient.ticket_no ?? "NA"),
                       ),
                     ),
                   ],
@@ -171,7 +171,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailment_systems_new),
+                        child: Text(patient.ailment_systems_new ?? "NA"),
                       ),
                     ),
                   ],
@@ -190,7 +190,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.complaints),
+                        child: Text(patient.complaints ?? "NA"),
                       ),
                     ),
                   ],
@@ -209,7 +209,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailments_new),
+                        child: Text(patient.ailments_new ?? "NA"),
                       ),
                     ),
                   ],
@@ -228,7 +228,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.examination_remarks),
+                        child: Text(patient.examination_remarks ?? "NA"),
                       ),
                     ),
                   ],
