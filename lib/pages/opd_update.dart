@@ -62,6 +62,8 @@ class _opdFormState extends State<opdForm> {
     Future.delayed(Duration.zero, () async {
       var res = await http.post(Uri.parse(dataurl));
       if (res.statusCode == 200) {
+if (!mounted) return;
+
         setState(() {
           data = json.decode(res.body);
           dataloaded = true;

@@ -58,7 +58,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.patient_name),
+                        child: Text( patient.patient_name == null || patient.patient_name == "" ? "Please Select Patient" : patient.patient_name),
                       ),
                     ),
                   ],
@@ -77,7 +77,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.appointment_date),
+                        child: Text( patient.appointment_date == null || patient.appointment_date == "" ? "" : patient.appointment_date),
                       ),
                     ),
                   ],
@@ -96,7 +96,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ticket_no),
+                        child: Text( patient.ticket_no == null || patient.ticket_no == "" ? "" : patient.ticket_no),
                       ),
                     ),
                   ],
@@ -116,7 +116,7 @@ class PatientDetailsInjury extends StatelessWidget {
                       TextSpan(
                           text: 'Incident Location: ',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.incident_location),
+                      TextSpan(text:  patient.incident_location == null || patient.incident_location == "" ? "" : patient.incident_location),
                     ],
                   ),
                 ),
@@ -166,7 +166,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.injury_parts_new),
+                        child: Text( patient.injury_parts_new == null || patient.injury_parts_new == "" ? "" : patient.injury_parts_new),
                       ),
                     ),
                   ],
@@ -185,7 +185,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.injury_classes_new),
+                        child: Text( patient.injury_classes_new == null || patient.injury_classes_new == "" ? "" : patient.injury_classes_new),
                       ),
                     ),
                   ],
@@ -204,7 +204,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.injury_types_new),
+                        child: Text( patient.injury_types_new == null || patient.injury_types_new == "" ? "" : patient.injury_types_new),
                       ),
                     ),
                   ],
@@ -241,7 +241,7 @@ class PatientDetailsInjury extends StatelessWidget {
                       TextSpan(
                           text: 'Injury Procedure: ',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.injury_procedure),
+                      TextSpan(text: patient.injury_procedure == null || patient.injury_procedure == "" ? "" : patient.injury_procedure  ),
                     ],
                   ),
                 ),
@@ -262,7 +262,7 @@ class PatientDetailsInjury extends StatelessWidget {
                       TextSpan(
                           text: 'Complaints :',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.complaints),
+                      TextSpan(text: patient.complaints == null ||  patient.complaints == "" ? "" :  patient.complaints ),
                     ],
                   ),
                 ),
@@ -304,7 +304,7 @@ class PatientDetailsInjury extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailments_new),
+                        child: Text(patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
                       ),
                     ),
                   ],
@@ -322,7 +322,7 @@ class PatientDetailsInjury extends StatelessWidget {
                       TextSpan(
                           text: 'Examination Findings :',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.examination_remarks),
+                      TextSpan(text: patient.examination_remarks == null ||  patient.examination_remarks == '' ? "" :  patient.examination_remarks ),
                     ],
                   ),
                 ),

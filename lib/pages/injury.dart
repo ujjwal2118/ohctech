@@ -41,7 +41,7 @@ class _InjuryPageState extends State<InjuryPage> {
     PatientModel.patients = List.from(patientsData)
         .map<Patient>((patient) => Patient.fromMap(patient))
         .toList();
-
+if (!mounted) return;
     setState(() {});
   }
 

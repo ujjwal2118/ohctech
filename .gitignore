@@ -42,3 +42,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+*.cmake
+*.h
+*.cc
+*.lock
+*.swift
+*.cmake
+*.h
+*.cc
+*.cc
+*.cmake
+*.yaml
+*.cmake

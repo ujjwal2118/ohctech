@@ -76,7 +76,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.appointment_date),
+                        child: Text( patient.appointment_date == null || patient.appointment_date == "" ? "" : patient.appointment_date),
                       ),
                     ),
                   ],
@@ -95,7 +95,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ticket_no),
+                        child: Text(patient.ticket_no == null || patient.ticket_no == "" ? "" : patient.ticket_no),
                       ),
                     ),
                   ],
@@ -171,7 +171,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailment_systems_new),
+                        child: Text(patient.ailment_systems_new == null || patient.ailment_systems_new == '' ? "" : patient.ailment_systems_new),
                       ),
                     ),
                   ],
@@ -189,7 +189,7 @@ class PatientDetailsOpd extends StatelessWidget {
                       TextSpan(
                           text: 'Complaints :',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.complaints),
+                      TextSpan(text: patient.complaints == null ||  patient.complaints == "" ? "" :  patient.complaints),
                     ],
                   ),
                 ),
@@ -231,7 +231,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailments_new),
+                        child: Text(patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
                       ),
                     ),
                   ],
@@ -249,7 +249,7 @@ class PatientDetailsOpd extends StatelessWidget {
                       TextSpan(
                           text: 'Examination Findings :',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.examination_remarks),
+                      TextSpan(text:patient.examination_remarks == null ||  patient.examination_remarks == '' ? "" :  patient.examination_remarks),
                     ],
                   ),
                 ),

@@ -32,19 +32,24 @@ class _MedicalPageState extends State<MedicalPage> {
 
   loadData() async {
     var response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      var patientJson = response.body;
 
-    var patientJson = response.body;
+      var decodedData = jsonDecode(patientJson);
+      var patientsData = decodedData;
 
-    var decodedData = jsonDecode(patientJson);
-    var patientsData = decodedData;
+      print(patientsData);
 
-    print(patientsData);
+      PatientModel.patients = List.from(patientsData)
+          .map<Patient>((patient) => Patient.fromMap(patient))
+          .toList();
 
-    PatientModel.patients = List.from(patientsData)
-        .map<Patient>((patient) => Patient.fromMap(patient))
-        .toList();
-
-    setState(() {});
+      if (!mounted) return;
+      setState(() {});
+      
+    }else {
+      throw Exception('Failed to load Data');
+    }
   }
 
   @override
