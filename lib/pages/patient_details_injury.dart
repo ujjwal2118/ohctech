@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
+import 'package:ohctech/pages/injury_pdf_preview.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class PatientDetailsInjury extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => PdfPreviewPage(patient: patient),
+                builder: (context) => InjurypdfPreview(patient: patient),
               ),
             );
           },
@@ -291,25 +292,44 @@ class PatientDetailsInjury extends StatelessWidget {
               //     ],
               //   ),
               // ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Diagnosis : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Container(
+              //         child: Text(
+              //           "Diagnosis : ",
+              //           style: TextStyle(fontWeight: FontWeight.bold),
+              //         ),
+              //       ),
+              //       Padding(
+              //         padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+              //         child: Container(
+              //           child: Text(patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+
+ OrientationBuilder(
+                builder: (context, orientation) => RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
-                      ),
-                    ),
-                  ],
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: 'Diagnosis : ',
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text:patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
+                    ],
+                  ),
                 ),
               ),
+
+SizedBox(height: 10,),
 
               OrientationBuilder(
                 builder: (context, orientation) => RichText(

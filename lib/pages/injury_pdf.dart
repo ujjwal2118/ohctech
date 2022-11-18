@@ -5,7 +5,8 @@ import 'package:pdf/widgets.dart';
 import 'dart:io';
 import 'package:flutter/services.dart' show Color, rootBundle;
 
-Future<Uint8List> makePdf(Patient patient) async {
+Future<Uint8List> makeInjuryPDF(Patient patient) async {
+  
   final pdf = Document();
   final imageLogo = MemoryImage(
       (await rootBundle.load('assets/images/jsw.png')).buffer.asUint8List());
@@ -106,7 +107,7 @@ Future<Uint8List> makePdf(Patient patient) async {
                           Spacer(
                             flex: 1,
                           ),
-                          Text("FATHER'S NAME: ${patient.father_name}",
+                          Text("FATHER'S NAME:${patient.father_name}",
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -343,7 +344,7 @@ Future<Uint8List> makePdf(Patient patient) async {
                       child: Row(
                         children: [
                           Text(
-                              "Additional Treatment Recommendations(if Any)${patient.external_treatments}",
+                              "Additional Treatment Recommendations(if Any) ${patient.external_treatments}",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),

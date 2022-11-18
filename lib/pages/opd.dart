@@ -13,6 +13,12 @@ import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_opd.dart';
 
+import 'package:internet_popup/internet_popup.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:internet_popup/src/custom_dialog.dart';
+
 class OpdPage extends StatefulWidget {
   @override
   _OpdPageState createState() => _OpdPageState();
@@ -23,9 +29,22 @@ class _OpdPageState extends State<OpdPage> {
 
   @override
   void initState() {
+      bool _isOnline = false;
+    bool _isDialogOn = false;
     // TODO: implement initState
     super.initState();
-    loadData();
+    final Connectivity _connectivity = Connectivity();
+    InternetPopup().initialize(context: context);
+    final navigator = Navigator.of(context);
+    _connectivity.checkConnectivity().then((result) async {
+      if (result != ConnectivityResult.none) {
+        _isOnline = await InternetConnectionChecker().hasConnection;
+      loadData();
+      } else {
+        _isOnline = false;
+      }
+
+    });
   }
 
   loadData() async {

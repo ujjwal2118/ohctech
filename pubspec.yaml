@@ -62,6 +62,9 @@ dependencies:
   awesome_dialog: ^3.0.2
   multi_select_flutter: ^4.1.2
   custom_radio_grouped_button: ^2.1.2+2
+  fl_chart: ^0.55.2
+  internet_popup: ^1.0.8+5
+  syncfusion_flutter_datagrid: ^20.3.57
 
 dev_dependencies:
   flutter_test:

@@ -13,6 +13,13 @@ import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_injury.dart';
 
+
+import 'package:internet_popup/internet_popup.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:internet_popup/src/custom_dialog.dart';
+
 class InjuryPage extends StatefulWidget {
   @override
   _InjuryPageState createState() => _InjuryPageState();
@@ -23,9 +30,22 @@ class _InjuryPageState extends State<InjuryPage> {
 
   @override
   void initState() {
+    bool _isOnline = false;
+    bool _isDialogOn = false;
     // TODO: implement initState
     super.initState();
-    loadData();
+    final Connectivity _connectivity = Connectivity();
+    InternetPopup().initialize(context: context);
+    final navigator = Navigator.of(context);
+    _connectivity.checkConnectivity().then((result) async {
+      if (result != ConnectivityResult.none) {
+        _isOnline = await InternetConnectionChecker().hasConnection;
+      loadData();
+      } else {
+        _isOnline = false;
+      }
+
+    });
   }
 
   loadData() async {
@@ -41,7 +61,7 @@ class _InjuryPageState extends State<InjuryPage> {
     PatientModel.patients = List.from(patientsData)
         .map<Patient>((patient) => Patient.fromMap(patient))
         .toList();
-if (!mounted) return;
+    if (!mounted) return;
     setState(() {});
   }
 

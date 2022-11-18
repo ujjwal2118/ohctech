@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // ignore: prefer_const_constructors
+        
         title: Text(
           "OHC TECH - Daily Statistics",
         ),
@@ -165,7 +165,7 @@ class HomePage extends StatelessWidget {
                                   "assets/images/medexam.png",
                                   fit: BoxFit.contain,
                                   height: 50,
-                                  width: 70,
+                                  width: 50,
                                 ),
                                 SizedBox(width: 20),
                                 Text(

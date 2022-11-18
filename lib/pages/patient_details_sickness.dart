@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
-import 'package:ohctech/pages/pdf_preview_page.dart';
-
+// import 'package:ohctech/pages/pdf_preview_page.dart';
+import './sickness_pdf_preview.dart';
 void main() {
   runApp(PatientDetailsSickness());
 }
@@ -32,7 +32,7 @@ class PatientDetailsSickness extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => PdfPreviewPage(patient: patient),
+                builder: (context) => SicknessPreview(patient: patient),
               ),
             );
           },

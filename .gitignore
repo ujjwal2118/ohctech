@@ -54,3 +54,14 @@ app.*.map.json
 *.cmake
 *.yaml
 *.cmake
+*.cc
+*.cc
+*.cmake
+*.lock
+*.cmake
+*.json
+*.cc
+*.cmake
+*.swift
+*.h
+*.cmake
