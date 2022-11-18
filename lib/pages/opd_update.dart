@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
@@ -463,9 +464,10 @@ class _opdFormState extends State<opdForm> {
   }
 
   Widget datalist() {
-    List<Medicine> namelist = List<Medicine>.from(data["medicines"].map((i) {
+    var list = List<Medicine>.from(data['medicines'].map((i) {
       return Medicine.fromJSON(i);
-    })); //prasing data list to model
+    }));
+    List<Medicine> namelist = list; //prasing data list to model
 
     return Table(
       //if data is loaded then show table
@@ -477,31 +479,35 @@ class _opdFormState extends State<opdForm> {
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.item_id.toString()))),
+                  child: Text(medicine.medicineName))),
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.frequency_id.toString()))),
+                  child: Text(medicine.medicineFrequency))),
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.for_days.toString()))),
+                  child: Text(medicine.medicineFordays))),
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.dosage_category_id.toString()))),
+                  child: Text(medicine.medicineAdminroute))),
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.dosage.toString()))),
+                  child: Text(medicine.medicineDosage))),
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.item_qty.toString()))),
+                  child: Text(medicine.medicineQty))),
           TableCell(
               child: Padding(
                   padding: EdgeInsets.all(5),
-                  child: Text(medicine.issued_qty.toString()))),
+                  child: Text(medicine.medicineIssuedqty))),
+          TableCell(
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(medicine.medicineTiming))),
         ]);
       }).toList(),
     );

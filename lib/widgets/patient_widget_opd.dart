@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, use_build_context_synchronously, unused_import, depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
+import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/opd_update.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
@@ -39,7 +40,8 @@ class PatientWidget extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidget({Key key, @required this.patient, this.medicine})
+  const PatientWidget(
+      {Key key, @required this.patient, @required this.medicine})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -86,8 +88,8 @@ class PatientWidget extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            PatientDetailsOpd(patient: patient)));
+                        builder: (context) => PatientDetailsOpd(
+                            patient: patient, medicine: medicine)));
               }
             }),
 

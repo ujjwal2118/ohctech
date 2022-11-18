@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
 
@@ -14,7 +15,7 @@ void main() {
 class PatientDetailsOpd extends StatelessWidget {
   final Patient patient;
 
-  const PatientDetailsOpd({Key key, @required this.patient})
+  const PatientDetailsOpd({Key key, @required this.patient, Medicine medicine})
       : assert(patient != null),
         super(key: key);
   @override
@@ -57,7 +58,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.patient_name),
+                        child: Text(patient.patient_name ?? "NA"),
                       ),
                     ),
                   ],
@@ -76,7 +77,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.appointment_date),
+                        child: Text(patient.appointment_date ?? "NA"),
                       ),
                     ),
                   ],
@@ -95,7 +96,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ticket_no),
+                        child: Text(patient.ticket_no ?? "NA"),
                       ),
                     ),
                   ],
@@ -171,7 +172,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailment_systems_new),
+                        child: Text(patient.ailment_systems_new ?? "NA"),
                       ),
                     ),
                   ],
@@ -189,7 +190,7 @@ class PatientDetailsOpd extends StatelessWidget {
                       TextSpan(
                           text: 'Complaints :',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.complaints),
+                      TextSpan(text: patient.complaints ?? "NA"),
                     ],
                   ),
                 ),
@@ -231,7 +232,7 @@ class PatientDetailsOpd extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
                       child: Container(
-                        child: Text(patient.ailments_new),
+                        child: Text(patient.ailments_new ?? "NA"),
                       ),
                     ),
                   ],
@@ -249,7 +250,7 @@ class PatientDetailsOpd extends StatelessWidget {
                       TextSpan(
                           text: 'Examination Findings :',
                           style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.examination_remarks),
+                      TextSpan(text: patient.examination_remarks ?? "NA"),
                     ],
                   ),
                 ),
