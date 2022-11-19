@@ -57,6 +57,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController patientName = TextEditingController();
   TextEditingController ticketNo = TextEditingController();
   TextEditingController medexamdate = TextEditingController();
+  TextEditingController approvalDate = TextEditingController();
   TextEditingController height = TextEditingController();
   TextEditingController weight = TextEditingController();
   TextEditingController bmi = TextEditingController();
@@ -206,6 +207,22 @@ class _medicalUpdateState extends State<medicalUpdate> {
     }
   }
 
+  var approvalStatusValue = [
+    "Select an option",
+    "FIT",
+    "UNFIT",
+  ];
+
+  List<Widget> _buildItems4() {
+    return approvalStatusValue
+        .map((val) => MySelectionItem(
+              title: val,
+            ))
+        .toList();
+  }
+
+  String approvalStatus = "Select an option";
+
   void initState() {
     super.initState();
     viewRisk(context);
@@ -217,7 +234,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
     medexamdate.text = me.medical_entry_date;
     height.text = me.height.toString();
     weight.text = me.weight.toString();
-    bmi.text = me.bmi;
+    bmi.text = me.bmi.toString();
     bp.text = me.bp;
     pulse.text = me.pulse;
     chest.text = me.chest;
@@ -316,30 +333,30 @@ class _medicalUpdateState extends State<medicalUpdate> {
     rd_axis.text = me.rd_axis;
     rd_dcyl.text = me.rd_dcyl;
     rd_dsph.text = me.rd_dsph;
-    lair_250.text = me.lair_250;
-    lair_500.text = me.lair_500;
-    lair_1000.text = me.lair_1000;
-    lair_2000.text = me.lair_2000;
-    lair_4000.text = me.lair_4000;
-    lair_8000.text = me.lair_8000;
-    lbone_250.text = me.lbone_250;
-    lbone_500.text = me.lbone_500;
-    lbone_1000.text = me.lbone_1000;
-    lbone_2000.text = me.lbone_2000;
-    lbone_4000.text = me.lbone_4000;
-    lbone_8000.text = me.lbone_8000;
-    rair_250.text = me.rair_250;
-    rair_500.text = me.rair_500;
-    rair_1000.text = me.rair_1000;
-    rair_2000.text = me.rair_2000;
-    rair_4000.text = me.rair_4000;
-    rair_8000.text = me.rair_8000;
-    rbone_250.text = me.rbone_250;
-    rbone_500.text = me.rbone_500;
-    rbone_1000.text = me.rbone_1000;
-    rbone_2000.text = me.rbone_2000;
-    rbone_4000.text = me.rbone_4000;
-    rbone_8000.text = me.rbone_8000;
+    lair_250.text = me.lair_250.toString();
+    lair_500.text = me.lair_500.toString();
+    lair_1000.text = me.lair_1000.toString();
+    lair_2000.text = me.lair_2000.toString();
+    lair_4000.text = me.lair_4000.toString();
+    lair_8000.text = me.lair_8000.toString();
+    lbone_250.text = me.lbone_250.toString();
+    lbone_500.text = me.lbone_500.toString();
+    lbone_1000.text = me.lbone_1000.toString();
+    lbone_2000.text = me.lbone_2000.toString();
+    lbone_4000.text = me.lbone_4000.toString();
+    lbone_8000.text = me.lbone_8000.toString();
+    rair_250.text = me.rair_250.toString();
+    rair_500.text = me.rair_500.toString();
+    rair_1000.text = me.rair_1000.toString();
+    rair_2000.text = me.rair_2000.toString();
+    rair_4000.text = me.rair_4000.toString();
+    rair_8000.text = me.rair_8000.toString();
+    rbone_250.text = me.rbone_250.toString();
+    rbone_500.text = me.rbone_500.toString();
+    rbone_1000.text = me.rbone_1000.toString();
+    rbone_2000.text = me.rbone_2000.toString();
+    rbone_4000.text = me.rbone_4000.toString();
+    rbone_8000.text = me.rbone_8000.toString();
     bn_findings.text = me.bn_findings;
     a.text = me.a;
     cy.text = me.cy;
@@ -441,7 +458,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               Text(
-                "\n Checkup Date",
+                "\n Medical Exam Date",
                 style: Theme.of(context).textTheme.headline6,
               ),
               DateTimePicker(
@@ -1245,6 +1262,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(height: 15),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -1426,6 +1444,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                     labelText: "Bi-Carbonate(HCO3)",
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 15,
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -1630,6 +1651,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -1645,7 +1669,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -1731,6 +1755,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -1746,7 +1773,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -1853,6 +1880,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -1889,7 +1919,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -1975,6 +2005,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -1990,7 +2023,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -2076,6 +2109,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -2112,7 +2148,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -2198,6 +2234,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -2213,7 +2252,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -2929,6 +2968,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -2965,7 +3007,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -3093,6 +3135,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -3108,7 +3153,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -3236,6 +3281,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -3272,7 +3320,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -3400,6 +3448,9 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
@@ -3415,7 +3466,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
@@ -3585,33 +3636,6 @@ class _medicalUpdateState extends State<medicalUpdate> {
                   ),
                 ),
               ),
-              Text(
-                "\n Program Status \n",
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              CustomRadioButton(
-                elevation: 0,
-                absoluteZeroSpacing: false,
-                unSelectedColor: Theme.of(context).canvasColor,
-                width: 150,
-                height: 40,
-                buttonLables: [
-                  'Complete',
-                  'In-Complete',
-                ],
-                buttonValues: [
-                  "Complete",
-                  "in-Complete",
-                ],
-                buttonTextStyle: ButtonTextStyle(
-                    selectedColor: Colors.white,
-                    unSelectedColor: Colors.black,
-                    textStyle: TextStyle(fontSize: 16)),
-                radioButtonValue: (value) {
-                  print(value);
-                },
-                selectedColor: Theme.of(context).accentColor,
-              ),
               SizedBox(height: 20),
               MultiSelectBottomSheetField(
                 chipDisplay: MultiSelectChipDisplay(
@@ -3691,13 +3715,13 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 ),
               ),
               Text(
-                "\n Valid Upto",
+                "\n Approval Date",
                 style: Theme.of(context).textTheme.headline6,
               ),
               DateTimePicker(
                 enableSuggestions: true,
                 cursorColor: Colors.redAccent,
-                controller: medexamdate,
+                controller: approvalDate,
                 dateMask: 'd MMM, yyyy',
                 firstDate: DateTime(2000),
                 lastDate: DateTime(2500),
@@ -3715,6 +3739,101 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 validator: (val) {
                   return null;
                 },
+              ),
+              SizedBox(height: 15),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        "Opinion of the MO",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              DropdownButtonHideUnderline(
+                child: DropdownButton2(
+                  isExpanded: true,
+                  hint: Row(
+                    children: const [
+                      Icon(
+                        Icons.list,
+                        size: 16,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Select Item',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.yellow,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  items: approvalStatusValue
+                      .map((items) => DropdownMenuItem<String>(
+                            value: items,
+                            child: Text(
+                              items,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ))
+                      .toList(),
+                  value: approvalStatus,
+                  onChanged: (value) {
+                    setState(() {
+                      approvalStatus = value as String;
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.arrow_circle_down_outlined,
+                  ),
+                  iconSize: 14,
+                  iconEnabledColor: Colors.black,
+                  iconDisabledColor: Colors.grey,
+                  buttonHeight: 50,
+                  buttonWidth: 160,
+                  buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                  buttonDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(
+                      color: Colors.black26,
+                    ),
+                    color: Colors.lightBlue,
+                  ),
+                  buttonElevation: 2,
+                  itemHeight: 40,
+                  itemPadding: const EdgeInsets.only(left: 30, right: 14),
+                  dropdownMaxHeight: 200,
+                  dropdownWidth: 300,
+                  dropdownPadding: null,
+                  dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    color: Colors.lightBlueAccent,
+                  ),
+                  dropdownElevation: 8,
+                  scrollbarRadius: const Radius.circular(40),
+                  scrollbarThickness: 6,
+                  scrollbarAlwaysShow: true,
+                  offset: const Offset(20, 0),
+                ),
               ),
               const SizedBox(height: 10),
               const Divider(),
@@ -3751,6 +3870,46 @@ class _medicalUpdateState extends State<medicalUpdate> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MySelectionItem extends StatelessWidget {
+  final String title;
+  final bool isForList;
+
+  const MySelectionItem({Key key, this.title, this.isForList = true})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60.0,
+      child: isForList
+          ? Padding(
+              child: _buildItem(context),
+              padding: const EdgeInsets.all(10.0),
+            )
+          : Card(
+              margin: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Stack(
+                children: <Widget>[
+                  _buildItem(context),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: Icon(Icons.arrow_drop_down),
+                  )
+                ],
+              ),
+            ),
+    );
+  }
+
+  _buildItem(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: Text(title),
     );
   }
 }

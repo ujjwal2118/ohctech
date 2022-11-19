@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
+import 'package:ohctech/pages/injury_pdf_preview.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class PatientDetailsInjury extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => PdfPreviewPage(patient: patient),
+                builder: (context) => InjurypdfPreview(patient: patient),
               ),
             );
           },
