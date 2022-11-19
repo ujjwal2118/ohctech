@@ -21,6 +21,13 @@ class PatientDetailsSickness extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon:Icon(Icons.arrow_back_ios),
+            //replace with our own icon data.
+          ),
           centerTitle: true,
           title: Text(
             "Patient Details",

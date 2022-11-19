@@ -65,3 +65,4 @@ app.*.map.json
 *.swift
 *.h
 *.cmake
+*.gradle

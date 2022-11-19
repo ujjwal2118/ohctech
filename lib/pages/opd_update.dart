@@ -174,6 +174,12 @@ if (!mounted) return;
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon:Icon(Icons.arrow_back_ios),
+          ),
           centerTitle: true,
           title: const Text(
             "Update Opd Details",
