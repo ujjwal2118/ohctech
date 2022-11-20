@@ -54,7 +54,7 @@ class Patient {
   final String peme_no;
   final int height;
   final int weight;
-  final double bmi;
+  final dynamic bmi;
   final String pulse;
   final String bp;
   final String bp_sbp;
@@ -1200,7 +1200,7 @@ class Patient {
         ans: map['ans'],
         employer_contractor: map['employer_contractor'],
         dept: map['dept'],
-        spo2: map['spo2'],
+        spo2: map['SpO2'],
         cold_cough: map['cold_cough'],
         general_weakness: map['general_weakness'],
         smell: map['smell'],

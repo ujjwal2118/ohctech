@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, unused_field, non_constant_identifier_names, prefer_final_fields, annotate_overrides
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
@@ -70,7 +71,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController musculo_skeletal = TextEditingController();
   TextEditingController temp = TextEditingController();
   TextEditingController spo2 = TextEditingController();
-  TextEditingController cold_n_cough = TextEditingController();
+  TextEditingController cold_cough = TextEditingController();
   TextEditingController general_weakness = TextEditingController();
   TextEditingController smell = TextEditingController();
   TextEditingController deformities = TextEditingController();
@@ -89,8 +90,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController hcv = TextEditingController();
   TextEditingController hbsag = TextEditingController();
   TextEditingController uric_acid = TextEditingController();
-  TextEditingController urea = TextEditingController();
-  TextEditingController creatinine = TextEditingController();
+  TextEditingController s_urea = TextEditingController();
+  TextEditingController s_creatinine = TextEditingController();
   TextEditingController sodium = TextEditingController();
   TextEditingController potassium = TextEditingController();
   TextEditingController calcium = TextEditingController();
@@ -99,14 +100,14 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController total_bilirubin = TextEditingController();
   TextEditingController conj = TextEditingController();
   TextEditingController uniconj = TextEditingController();
-  TextEditingController sgo2 = TextEditingController();
+  TextEditingController sgop = TextEditingController();
   TextEditingController sgpt = TextEditingController();
   TextEditingController alk_phosphatase = TextEditingController();
   TextEditingController total_protein = TextEditingController();
   TextEditingController albumin = TextEditingController();
   TextEditingController globulin = TextEditingController();
   TextEditingController speech = TextEditingController();
-  TextEditingController higher_fucntion = TextEditingController();
+  TextEditingController higher_function = TextEditingController();
   TextEditingController vertigo = TextEditingController();
   TextEditingController reflexes = TextEditingController();
   TextEditingController st_line_walking = TextEditingController();
@@ -117,16 +118,16 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController throat = TextEditingController();
   TextEditingController s1 = TextEditingController();
   TextEditingController any_other_sound = TextEditingController();
-  TextEditingController ecg_finding = TextEditingController();
+  TextEditingController ecg_findings = TextEditingController();
   TextEditingController teeth_n_gum = TextEditingController();
   TextEditingController spiro_remarks = TextEditingController();
   TextEditingController liver = TextEditingController();
-  TextEditingController spleen = TextEditingController();
+  TextEditingController speen = TextEditingController();
   TextEditingController tenderness = TextEditingController();
   TextEditingController any_other_abnormality = TextEditingController();
   TextEditingController xray_findings = TextEditingController();
   TextEditingController near_with_right_eye = TextEditingController();
-  TextEditingController near_without_right = TextEditingController();
+  TextEditingController near_without_right_eye = TextEditingController();
   TextEditingController dis_with_right_eye = TextEditingController();
   TextEditingController dis_without_right_eye = TextEditingController();
   TextEditingController dis_without_left_eye = TextEditingController();
@@ -134,8 +135,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController near_without_left_eye = TextEditingController();
   TextEditingController near_with_left_eye = TextEditingController();
   TextEditingController color_vision = TextEditingController();
-  TextEditingController hernia = TextEditingController();
-  TextEditingController hydrocele = TextEditingController();
+  TextEditingController hernia_details = TextEditingController();
+  TextEditingController hydrocele_details = TextEditingController();
   TextEditingController phimosis = TextEditingController();
   TextEditingController piles = TextEditingController();
   TextEditingController fistula = TextEditingController();
@@ -190,7 +191,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
   TextEditingController cl = TextEditingController();
   TextEditingController e = TextEditingController();
   TextEditingController motor_function = TextEditingController();
-  TextEditingController any_other_findings = TextEditingController();
+  TextEditingController other_findings = TextEditingController();
   TextEditingController triglycerides = TextEditingController();
 
   @override
@@ -244,7 +245,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
     musculo_skeletal.text = me.musculo_skeletal;
     temp.text = me.temperature;
     spo2.text = me.spo2;
-    cold_n_cough.text = me.cold_cough;
+    cold_cough.text = me.cold_cough;
     general_weakness.text = me.general_weakness;
     smell.text = me.smell;
     deformities.text = me.deformities;
@@ -263,8 +264,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
     hcv.text = me.hcv;
     hbsag.text = me.hbsag;
     uric_acid.text = me.uric_acid;
-    urea.text = me.s_urea;
-    creatinine.text = me.s_creatinine;
+    s_urea.text = me.s_urea;
+    s_creatinine.text = me.s_creatinine;
     sodium.text = me.sodium;
     potassium.text = me.potassium;
     calcium.text = me.calcium;
@@ -273,14 +274,14 @@ class _medicalUpdateState extends State<medicalUpdate> {
     total_bilirubin.text = me.total_bilirubin;
     conj.text = me.conj;
     uniconj.text = me.uniconj;
-    sgo2.text = me.sgop;
+    sgop.text = me.sgop;
     sgpt.text = me.sgpt;
     alk_phosphatase.text = me.alk_phosphatase;
     total_protein.text = me.total_protein;
     albumin.text = me.albumin;
     globulin.text = me.globulin;
     speech.text = me.speech;
-    higher_fucntion.text = me.higher_function;
+    higher_function.text = me.higher_function;
     vertigo.text = me.vertigo;
     reflexes.text = me.reflexes;
     st_line_walking.text = me.st_line_walking;
@@ -291,16 +292,16 @@ class _medicalUpdateState extends State<medicalUpdate> {
     throat.text = me.throat;
     s1.text = me.s1;
     any_other_sound.text = me.any_other_sound;
-    ecg_finding.text = me.ecg_findings;
+    ecg_findings.text = me.ecg_findings;
     teeth_n_gum.text = me.teeth_n_gum;
     spiro_remarks.text = me.spiro_remarks;
     liver.text = me.liver;
-    spleen.text = me.speen;
+    speen.text = me.speen;
     tenderness.text = me.tenderness;
     any_other_abnormality.text = me.any_other_abnormality;
     xray_findings.text = me.xray_findings;
     near_with_right_eye.text = me.near_with_right_eye;
-    near_without_right.text = me.near_without_right_eye;
+    near_without_right_eye.text = me.near_without_right_eye;
     dis_with_right_eye.text = me.dis_with_right_eye;
     dis_without_right_eye.text = me.dis_without_right_eye;
     dis_without_left_eye.text = me.dis_without_left_eye;
@@ -308,8 +309,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
     near_without_left_eye.text = me.near_without_left_eye;
     near_with_left_eye.text = me.near_with_left_eye;
     color_vision.text = me.color_vision;
-    hernia.text = me.hernia_details;
-    hydrocele.text = me.hydrocele_details;
+    hernia_details.text = me.hernia_details;
+    hydrocele_details.text = me.hydrocele_details;
     phimosis.text = me.phimosis;
     piles.text = me.piles;
     fistula.text = me.fistula;
@@ -364,7 +365,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
     cl.text = me.cl;
     e.text = me.e;
     motor_function.text = me.motor_function;
-    any_other_findings.text = me.other_findings;
+    other_findings.text = me.other_relevant_findings;
     triglycerides.text = me.triglycerides;
   }
 
@@ -398,6 +399,171 @@ class _medicalUpdateState extends State<medicalUpdate> {
   //List<Animal> _selectedAnimals4 = [];
   List<past> _selectedpast5 = [];
 
+  Future<dynamic> updateMedical(BuildContext context) async {
+    var url = 'https://ohctech.000webhostapp.com/medical_update.php';
+    http.Response response = await http.post(Uri.parse(url), body: {
+      "ticketNo": ticketNo.text,
+      "height": height.text,
+      "weight": weight.text,
+      "bmi": bmi.text,
+      "bp": bp.text,
+      "pulse": pulse.text,
+      "chest": chest.text,
+      "chest_in": chest_in.text,
+      "chest_exp": chest_exp.text,
+      "skin": skin.text,
+      "musculo_skeletal": musculo_skeletal.text,
+      "temp": temp.text,
+      "spo2": spo2.text,
+      "cold_cough": cold_cough.text,
+      "general_weakness": general_weakness.text,
+      "smell": smell.text,
+      "deformities": deformities.text,
+      "hb": hb.text,
+      "tlc": tlc.text,
+      "dlc_n": dlc_n.text,
+      "dlc_l": dlc_l.text,
+      "dlc_m": dlc_m.text,
+      "dlc_e": dlc_e.text,
+      "dlc_b": dlc_b.text,
+      "esr": esr.text,
+      "blood_sugar_fbs": blood_sugar_fbs.text,
+      "blood_sugar_rbs": blood_sugar_rbs.text,
+      "blood_sugar_ppbs": blood_sugar_ppbs.text,
+      "hiv": hiv.text,
+      "hcv": hcv.text,
+      "hbsag": hbsag.text,
+      "uric_acid": uric_acid.text,
+      "s_urea": s_urea.text,
+      "s_creatinine": s_creatinine.text,
+      "sodium": sodium.text,
+      "potassium": potassium.text,
+      "calcium": calcium.text,
+      "phosphate": phosphate.text,
+      "hco3": hco3.text,
+      "total_bilirubin": total_bilirubin.text,
+      "conj": conj.text,
+      "uniconj": uniconj.text,
+      "sgop": sgop.text,
+      "sgpt": sgpt.text,
+      "alk_phosphatase": alk_phosphatase.text,
+      "total_protein": total_protein.text,
+      "albumin": albumin.text,
+      "globulin": globulin.text,
+      "speech": speech.text,
+      "higher_function": higher_function.text,
+      "vertigo": vertigo.text,
+      "reflexes": reflexes.text,
+      "st_line_walking": st_line_walking.text,
+      "vibration_syndrome": vibration_syndrome.text,
+      "conversational_hearing": conversational_hearing.text,
+      "eac": eac.text,
+      "nose": nose.text,
+      "throat": throat.text,
+      "s1": s1.text,
+      "any_other_sound": any_other_sound.text,
+      "ecg_findings": ecg_findings.text,
+      "teeth_n_gum": teeth_n_gum.text,
+      "spiro_remarks": spiro_remarks.text,
+      "liver": liver.text,
+      "speen": speen.text,
+      "tenderness": tenderness.text,
+      "any_other_abnormality": any_other_abnormality.text,
+      "xray_findings": xray_findings.text,
+      "near_with_right_eye": near_with_right_eye.text,
+      "near_without_right_eye": near_without_right_eye.text,
+      "dis_with_right_eye": dis_with_right_eye.text,
+      "dis_without_right_eye": dis_without_right_eye.text,
+      "dis_without_left_eye": dis_without_left_eye.text,
+      "dis_with_left_eye": dis_with_left_eye.text,
+      "near_without_left_eye": near_without_left_eye.text,
+      "near_with_left_eye": near_with_left_eye.text,
+      "color_vision": color_vision.text,
+      "hernia_details": hernia_details.text,
+      "hydrocele_details": hydrocele_details.text,
+      "phimosis": phimosis.text,
+      "piles": piles.text,
+      "fistula": fistula.text,
+      "total_cholestrol": total_cholestrol.text,
+      "ldl": ldl.text,
+      "hdl": hdl.text,
+      "vldl": vldl.text,
+      "ln_v": ln_v.text,
+      "ln_axis": ln_axis.text,
+      "ln_dcyl": ln_dcyl.text,
+      "ln_dsph": ln_dsph.text,
+      "rn_v": rn_v.text,
+      "rn_axis": rn_axis.text,
+      "rn_dcyl": rn_dcyl.text,
+      "rn_dsph": rn_dsph.text,
+      "ld_v": ld_v.text,
+      "ld_axis": ld_axis.text,
+      "ld_dcyl": ld_dcyl.text,
+      "ld_dsph": ld_dsph.text,
+      "rd_v": rd_v.text,
+      "rd_axis": rd_axis.text,
+      "rd_dcyl": rd_dcyl.text,
+      "rd_dsph": rd_dsph.text,
+      "lair_250": lair_250.text,
+      "lair_500": lair_500.text,
+      "lair_1000": lair_1000.text,
+      "lair_2000": lair_2000.text,
+      "lair_4000": lair_4000.text,
+      "lair_8000": lair_8000.text,
+      "lbone_250": lbone_250.text,
+      "lbone_500": lbone_500.text,
+      "lbone_1000": lbone_1000.text,
+      "lbone_2000": lbone_2000.text,
+      "lbone_4000": lbone_4000.text,
+      "lbone_8000": lbone_8000.text,
+      "rair_250": rair_250.text,
+      "rair_500": rair_500.text,
+      "rair_1000": rair_1000.text,
+      "rair_2000": rair_2000.text,
+      "rair_4000": rair_4000.text,
+      "rair_8000": rair_8000.text,
+      "rbone_250": rbone_250.text,
+      "rbone_500": rbone_500.text,
+      "rbone_1000": rbone_1000.text,
+      "rbone_2000": rbone_2000.text,
+      "rbone_4000": rbone_4000.text,
+      "rbone_8000": rbone_8000.text,
+      "bn_findings": bn_findings.text,
+      "a": a.text,
+      "cy": cy.text,
+      "i": i.text,
+      "cl": cl.text,
+      "e": e.text,
+      "motor_function": motor_function.text,
+      "other_findings": other_findings.text,
+      "triglycerides": triglycerides.text,
+    });
+    var map;
+    try {
+      map = json.decode(response.body);
+    } catch (e) {
+      print(e);
+    }
+    if (map == 0) {
+      print(map);
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.success,
+        animType: AnimType.rightSlide,
+        title: 'Updated Successfully',
+        btnOkOnPress: () {},
+      ).show();
+    } else {
+      AwesomeDialog(
+        context: context,
+        dialogType: DialogType.error,
+        animType: AnimType.rightSlide,
+        title: 'Something Went Wrong',
+        btnCancelOnPress: () {},
+      ).show();
+    }
+  }
+
   final _multiSelectKey = GlobalKey<FormFieldState>();
 
   Widget build(BuildContext context) {
@@ -419,6 +585,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
+                  readOnly: true,
                   controller: patientName,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -439,7 +606,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ticketNo,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -509,7 +676,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: height,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -530,7 +697,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: weight,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -551,7 +718,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: bmi,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -572,7 +739,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: bn_findings,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -593,7 +760,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: bp,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -614,7 +781,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: pulse,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -635,7 +802,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: a,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -656,7 +823,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: cy,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -677,7 +844,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: i,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -698,7 +865,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: cl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -719,7 +886,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: e,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -740,7 +907,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: chest,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -761,7 +928,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: chest_in,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -782,7 +949,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: chest_exp,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -803,7 +970,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: skin,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -824,7 +991,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: musculo_skeletal,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -845,7 +1012,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: temp,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -866,7 +1033,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: spo2,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -887,8 +1054,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: cold_n_cough,
+                  readOnly: false,
+                  controller: cold_cough,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -908,7 +1075,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: general_weakness,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -929,7 +1096,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: smell,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -950,7 +1117,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: deformities,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -971,7 +1138,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: hb,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -992,7 +1159,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: tlc,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1013,7 +1180,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dlc_n,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1034,7 +1201,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dlc_l,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1055,7 +1222,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dlc_m,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1076,7 +1243,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dlc_e,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1097,7 +1264,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dlc_b,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1118,7 +1285,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: esr,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1139,7 +1306,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: blood_sugar_fbs,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1160,7 +1327,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: blood_sugar_rbs,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1181,7 +1348,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: blood_sugar_ppbs,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1202,7 +1369,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: hiv,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1223,7 +1390,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: hcv,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1244,7 +1411,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: hbsag,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1280,7 +1447,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: uric_acid,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1301,8 +1468,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: urea,
+                  readOnly: false,
+                  controller: s_urea,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -1322,8 +1489,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: creatinine,
+                  readOnly: false,
+                  controller: s_creatinine,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -1343,7 +1510,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: sodium,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1364,7 +1531,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: potassium,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1385,7 +1552,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: calcium,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1406,7 +1573,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: phosphate,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1427,7 +1594,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: hco3,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1465,7 +1632,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: total_bilirubin,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1486,7 +1653,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: conj,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1507,7 +1674,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: uniconj,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1528,8 +1695,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: sgo2,
+                  readOnly: false,
+                  controller: sgop,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -1549,7 +1716,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: sgpt,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1570,7 +1737,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: alk_phosphatase,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1591,7 +1758,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: total_protein,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1612,7 +1779,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: albumin,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1633,7 +1800,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: globulin,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1674,7 +1841,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dis_without_left_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1695,7 +1862,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: near_without_left_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1716,7 +1883,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dis_with_left_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1737,7 +1904,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: near_with_left_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1778,7 +1945,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dis_without_right_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1799,8 +1966,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: near_without_right,
+                  readOnly: false,
+                  controller: near_without_right_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -1820,7 +1987,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: dis_with_right_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1841,7 +2008,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: near_with_right_eye,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1862,7 +2029,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: color_vision,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1924,7 +2091,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ld_dsph,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1945,7 +2112,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ld_dcyl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1966,7 +2133,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ld_axis,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -1987,7 +2154,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ld_v,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2028,7 +2195,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ln_dsph,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2049,7 +2216,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ln_dcyl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2070,7 +2237,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ln_axis,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2091,7 +2258,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ln_v,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2153,7 +2320,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rd_dsph,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2174,7 +2341,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rd_dcyl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2195,7 +2362,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rd_axis,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2216,7 +2383,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rd_v,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2257,7 +2424,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rn_dsph,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2278,7 +2445,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rn_dcyl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2299,7 +2466,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rn_axis,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2320,7 +2487,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rn_v,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2341,7 +2508,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: speech,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2362,8 +2529,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: higher_fucntion,
+                  readOnly: false,
+                  controller: higher_function,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -2383,7 +2550,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: motor_function,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2404,7 +2571,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: vertigo,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2425,7 +2592,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: reflexes,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2446,7 +2613,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: vibration_syndrome,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2467,7 +2634,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: st_line_walking,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2488,7 +2655,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: conversational_hearing,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2509,7 +2676,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: eac,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2530,7 +2697,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: throat,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2551,7 +2718,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: nose,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2572,7 +2739,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: s1,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2593,7 +2760,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: any_other_sound,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2614,8 +2781,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: ecg_finding,
+                  readOnly: false,
+                  controller: ecg_findings,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -2635,7 +2802,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: teeth_n_gum,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2656,7 +2823,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: spiro_remarks,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2677,7 +2844,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: liver,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2698,8 +2865,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: spleen,
+                  readOnly: false,
+                  controller: speen,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -2719,7 +2886,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: tenderness,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2740,7 +2907,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: any_other_abnormality,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2761,8 +2928,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: hernia,
+                  readOnly: false,
+                  controller: hernia_details,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -2782,8 +2949,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: hydrocele,
+                  readOnly: false,
+                  controller: hydrocele_details,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -2803,7 +2970,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: phimosis,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2824,7 +2991,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: piles,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2845,7 +3012,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: fistula,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2866,7 +3033,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: total_cholestrol,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2887,7 +3054,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: ldl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2908,7 +3075,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: vldl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2929,7 +3096,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: hdl,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -2950,7 +3117,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: triglycerides,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3012,7 +3179,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lair_250,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3033,7 +3200,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lair_500,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3054,7 +3221,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lair_1000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3075,7 +3242,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lair_2000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3096,7 +3263,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lair_4000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3117,7 +3284,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lair_8000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3158,7 +3325,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rair_250,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3179,7 +3346,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rair_500,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3200,7 +3367,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rair_1000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3221,7 +3388,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rair_2000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3242,7 +3409,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rair_4000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3263,7 +3430,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rair_8000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3325,7 +3492,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lbone_250,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3346,7 +3513,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lbone_500,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3367,7 +3534,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lbone_1000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3388,7 +3555,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lbone_2000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3409,7 +3576,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lbone_4000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3430,7 +3597,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: lbone_8000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3471,7 +3638,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rbone_250,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3492,7 +3659,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rbone_500,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3513,7 +3680,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rbone_1000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3534,7 +3701,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rbone_2000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3555,7 +3722,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rbone_4000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3576,7 +3743,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: rbone_8000,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3597,7 +3764,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
+                  readOnly: false,
                   controller: xray_findings,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -3618,8 +3785,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(
-                  readOnly: true,
-                  controller: any_other_findings,
+                  readOnly: false,
+                  controller: other_findings,
                   decoration: const InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -3855,7 +4022,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 child: ElevatedButton(
                   child: const Text("SAVE"),
                   onPressed: () {
-                    print("pressed");
+                    updateMedical(context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.lightBlue,
