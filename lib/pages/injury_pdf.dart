@@ -6,7 +6,6 @@ import 'dart:io';
 import 'package:flutter/services.dart' show Color, rootBundle;
 
 Future<Uint8List> makeInjuryPDF(Patient patient) async {
-  
   final pdf = Document();
   final imageLogo = MemoryImage(
       (await rootBundle.load('assets/images/jsw.png')).buffer.asUint8List());
@@ -116,12 +115,12 @@ Future<Uint8List> makeInjuryPDF(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("AGE:${patient.dob}",
+                          Text("AGE: ${patient.dob}",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("GENDER:${patient.gender}",
+                          Text("GENDER: ${patient.gender}",
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -131,12 +130,12 @@ Future<Uint8List> makeInjuryPDF(Patient patient) async {
                       child: Row(
                         children: [
                           Text(
-                              "EMPLOYER/CONTRACTOR:${patient.employer_contractor}",
+                              "EMPLOYER/CONTRACTOR: ${patient.employer_contractor}",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("DEPARTMENT:${patient.dept}",
+                          Text("DEPARTMENT: ${patient.dept}",
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -145,12 +144,13 @@ Future<Uint8List> makeInjuryPDF(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("IS EMERGENCY?:${patient.ans}",
+                          Text("IS EMERGENCY?: ${patient.ans}",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("OHC REPORTING TIME:${patient.appointment_date}",
+                          Text(
+                              "OHC REPORTING TIME: ${patient.appointment_date}",
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),
@@ -165,7 +165,7 @@ Future<Uint8List> makeInjuryPDF(Patient patient) async {
                 SizedBox(
                     height: 10,
                     width: 50,
-                    child: Text("BP: +${patient.bp_sbp}/${patient.bp_dbp}",
+                    child: Text("BP: ${patient.bp_sbp}/${patient.bp_dbp}",
                         style: TextStyle(fontWeight: FontWeight.bold))),
                 SizedBox(width: 20),
                 // SizedBox(
@@ -259,20 +259,6 @@ Future<Uint8List> makeInjuryPDF(Patient patient) async {
                         ],
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
-                    //   child: Row(
-                    //     children: [
-                    //       Text("IS EMERGENCY?:",
-                    //           style: TextStyle(fontWeight: FontWeight.bold)),
-                    //       Spacer(
-                    //         flex: 1,
-                    //       ),
-                    //       Text("OHC REPORTING TIME:" +patient.appointment_date,
-                    //           style: TextStyle(fontWeight: FontWeight.bold))
-                    //     ],
-                    //   ),
-                    // ),
                   ],
                 ),
               )
