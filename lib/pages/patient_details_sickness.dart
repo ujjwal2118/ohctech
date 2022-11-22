@@ -184,26 +184,6 @@ class PatientDetailsSickness extends StatelessWidget {
                   ],
                 ),
               ),
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         child: Text(
-              //           "DISEASE TYPE : ",
-              //           style: TextStyle(fontWeight: FontWeight.bold),
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
-              //         child: Container(
-              //           child: Text("DISEASE TYPE"),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
                 child: Row(
