@@ -42,32 +42,35 @@ class _SicknessPageState extends State<SicknessPage> {
     _connectivity.checkConnectivity().then((result) async {
       if (result != ConnectivityResult.none) {
         _isOnline = await InternetConnectionChecker().hasConnection;
-      loadData();
+        loadData();
       } else {
         _isOnline = false;
       }
-
     });
   }
 
   loadData() async {
-    var response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      var patientJson = response.body;
+    try {
+      var response = await http.get(Uri.parse(url));
+      if (response.statusCode == 200) {
+        var patientJson = response.body;
 
-      var decodedData = jsonDecode(patientJson);
-      var patientsData = decodedData;
+        var decodedData = jsonDecode(patientJson);
+        var patientsData = decodedData;
 
-      print(patientsData);
+        print(patientsData);
 
-      PatientModel.patients = List.from(patientsData)
-          .map<Patient>((patient) => Patient.fromMap(patient))
-          .toList();
-          
-if (!mounted) return;
-      setState(() {});
-    }else {
-       throw Exception('Failed to load Data');
+        PatientModel.patients = List.from(patientsData)
+            .map<Patient>((patient) => Patient.fromMap(patient))
+            .toList();
+
+        if (!mounted) return;
+        setState(() {});
+      } else {
+        throw Exception('Failed to load Data');
+      }
+    } catch (e) {
+      print(e);
     }
   }
 

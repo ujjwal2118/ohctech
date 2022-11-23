@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:internet_popup/internet_popup.dart';
 import 'dart:convert';
 import 'package:mysql1/mysql1.dart';
 import 'package:ohctech/widgets/drawer.dart';
@@ -12,7 +13,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 import 'dart:async';
 import 'dart:io';
-
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import '../utils/routes.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -30,22 +31,27 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController password = TextEditingController();
   TextEditingController code = TextEditingController();
 
-  Future<dynamic> login(BuildContext context) async {
-    try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        Fluttertoast.showToast(
-          msg: 'You Are Online 👌',
-          backgroundColor: Colors.green,
-        );
+  void initState() {
+    bool _isOnline = false;
+    bool _isDialogOn = false;
+    // TODO: implement initState
+    super.initState();
+    final Connectivity _connectivity = Connectivity();
+    InternetPopup().initialize(context: context);
+    final navigator = Navigator.of(context);
+    _connectivity.checkConnectivity().then((result) async {
+      if (result != ConnectivityResult.none) {
+        _isOnline = await InternetConnectionChecker().hasConnection;
+      } else {
+        _isOnline = false;
       }
-    } on SocketException catch (_) {
-      Fluttertoast.showToast(
-        msg: 'You Are Offline 🤷‍♀️',
-        backgroundColor: Colors.red,
-      );
-      return;
-    }
+
+    });
+  }
+
+
+
+  Future<dynamic> login(BuildContext context) async {
 
     if (username.text == "" && password.text == "" && code.text == "") {
       Fluttertoast.showToast(
