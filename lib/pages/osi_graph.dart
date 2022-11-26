@@ -9,6 +9,7 @@ class Osi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Chart Sample',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -42,7 +43,15 @@ class _ChartSampleGalleryState extends State<ChartSampleGallery> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Daily Dashboards'),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
+          centerTitle: true,
+          elevation: 10,
+          title: Text('Daily Dashboards'),
         ),
         body: SfCartesianChart(
             primaryXAxis: CategoryAxis(),
