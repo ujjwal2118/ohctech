@@ -1,9 +1,12 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, prefer_interpolation_to_compose_strings
 
+import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:ohctech/utils/routes.dart';
 import 'package:ohctech/widgets/drawer.dart';
-
+import 'package:http/http.dart' as http;
+import '../models/casecount.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -38,11 +41,38 @@ class _HomePageState extends State<HomePage> {
     await Navigator.pushNamed(context, MyRoutes.sicknessRoute);
   }
 
+  var response;
+  Casecount countCase;
+
+  Future<Casecount> Countload(BuildContext context) async {
+    var url = "http://dushant-mali.great-site.net/mobile/table.php?i=1";
+
+    response = await http.post(
+      Uri.parse(url),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    );
+    var patientJson = response.body.toString();
+    // countData = ;
+    var decodedData = jsonDecode(patientJson);
+    CasecountModel.counter = List.from(decodedData)
+        .map<Casecount>((counter) => Casecount.fromMap(counter))
+        .toList();
+    // print(countCase.aopd);
+    print("DM");
+  }
+
+  void initState() {
+    super.initState();
+    Countload(context);
+    // print(countCase.aopd);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         title: Text(
           "OHC TECH - Daily Statistics",
         ),
@@ -50,14 +80,13 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-SizedBox(
+            SizedBox(
               height: 10,
             ),
 
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(
                   flex: 2,
                   child: Container(
@@ -88,9 +117,8 @@ SizedBox(
                               style:
                                   TextStyle(fontSize: 45, color: Colors.white),
                             ),
-                            subtitle: Text(
-                                ' ',
-                                style: TextStyle(fontSize: 18.0)),
+                            subtitle:
+                                Text(' ', style: TextStyle(fontSize: 18.0)),
                           ),
                           ButtonBar(
                             alignment: MainAxisAlignment.center,
@@ -102,7 +130,7 @@ SizedBox(
                                       Colors.greenAccent),
                                 ),
                                 child: Text(
-                                  'Approved ( 5 ) ',
+                                  'Approved (  15   ) ',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Colors.black,
@@ -134,14 +162,13 @@ SizedBox(
                     ),
                   ),
                 ),
-],
+              ],
             ),
             //
-          
+
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(
                   flex: 2,
                   child: Container(
@@ -171,9 +198,8 @@ SizedBox(
                               style:
                                   TextStyle(fontSize: 40, color: Colors.white),
                             ),
-                            subtitle: Text(
-                                ' ',
-                                style: TextStyle(fontSize: 18.0)),
+                            subtitle:
+                                Text(' ', style: TextStyle(fontSize: 18.0)),
                           ),
                           ButtonBar(
                             alignment: MainAxisAlignment.center,
@@ -217,15 +243,12 @@ SizedBox(
               ],
             ),
 
-        
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(
                   flex: 2,
                   child: Container(
-
                     width: 300,
                     height: 200,
                     padding: new EdgeInsets.all(10.0),
@@ -251,9 +274,8 @@ SizedBox(
                               style:
                                   TextStyle(fontSize: 30, color: Colors.white),
                             ),
-                            subtitle: Text(
-                                ' ',
-                                style: TextStyle(fontSize: 18.0)),
+                            subtitle:
+                                Text(' ', style: TextStyle(fontSize: 18.0)),
                           ),
                           ButtonBar(
                             alignment: MainAxisAlignment.center,
@@ -297,12 +319,9 @@ SizedBox(
               ],
             ),
 
-         
-
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(
                   flex: 2,
                   child: Container(
@@ -332,9 +351,8 @@ SizedBox(
                               style:
                                   TextStyle(fontSize: 35, color: Colors.white),
                             ),
-                            subtitle: Text(
-                                '',
-                                style: TextStyle(fontSize: 18.0)),
+                            subtitle:
+                                Text('', style: TextStyle(fontSize: 18.0)),
                           ),
                           ButtonBar(
                             alignment: MainAxisAlignment.center,
@@ -374,15 +392,13 @@ SizedBox(
                       ),
                     ),
                   ),
-
                 ),
               ],
             ),
 
-          Row(
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 Expanded(
                   flex: 2,
                   child: Container(
@@ -418,7 +434,6 @@ SizedBox(
                           ButtonBar(
                             alignment: MainAxisAlignment.center,
                             children: <Widget>[
-                            
                               ElevatedButton(
                                 style: ButtonStyle(
                                   elevation: MaterialStatePropertyAll(10),
