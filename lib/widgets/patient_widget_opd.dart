@@ -40,8 +40,7 @@ class PatientWidget extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidget(
-      {Key key, @required this.patient, @required this.medicine})
+  const PatientWidget({Key key, @required this.patient, this.medicine})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 

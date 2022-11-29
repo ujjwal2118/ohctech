@@ -55,14 +55,9 @@ class _OpdPageState extends State<OpdPage> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      PatientDetailsOpd(patient: patient))),
                           child: PatientWidget(
-                            patient: patient,
-                          ));
+                        patient: patient,
+                      ));
                     },
                   )
                 // ignore: prefer_const_constructors
