@@ -7,4 +7,5 @@ class MyRoutes {
   static String medExamRoute = "/medExam";
   static String opdFormRoute = "/opdform";
   static String reportsRoute = "/reports";
+  static String testRoute = "/test";
 }

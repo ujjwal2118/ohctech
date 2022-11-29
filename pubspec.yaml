@@ -62,9 +62,11 @@ dependencies:
   awesome_dialog: ^3.0.2
   multi_select_flutter: ^4.1.2
   custom_radio_grouped_button: ^2.1.2+2
-  fl_chart: ^0.55.2
+  pricing_cards: ^0.0.7
+  fluid_action_card: ^1.0.0+5
+  heroicons: ^0.7.0
   internet_popup: ^1.0.8+5
-  syncfusion_flutter_datagrid: ^20.3.57
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -105,7 +107,6 @@ flutter:
     - assets/images/fittt.png
     - assets/images/report.png
     - assets/images/jsw.png
-    - assets/images/medical.png
     - assets/files/
 
   # An image asset can refer to one or more resolution-specific "variants", see

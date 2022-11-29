@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.injuryRoute: (context) => InjuryPage(),
         MyRoutes.medExamRoute: (context) => MedicalPage(),
         MyRoutes.sicknessRoute: (context) => SicknessPage(),
-        MyRoutes.reportsRoute: (context) => Osi()
+        MyRoutes.reportsRoute: (context) => Osi(),
       },
     );
   }
