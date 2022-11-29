@@ -105,6 +105,7 @@ flutter:
     - assets/images/fittt.png
     - assets/images/report.png
     - assets/images/jsw.png
+    - assets/images/medical.png
     - assets/files/
 
   # An image asset can refer to one or more resolution-specific "variants", see

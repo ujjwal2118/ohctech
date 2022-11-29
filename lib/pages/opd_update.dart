@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import './medical_source.dart';
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -427,6 +428,13 @@ if (!mounted) return;
                 ),
               ),
               const SizedBox(height: 10),
+               Expanded(
+                  flex: 2,
+                  child: Container(
+                    child:  medecineDataGrid(),
+                  )),
+          
+             
               const Divider(),
               const SizedBox(height: 10),
               Container(
@@ -457,15 +465,7 @@ if (!mounted) return;
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(15),
-                //check if data is loaded, if loaded then show datalist on child
-                child: dataloaded
-                    ? datalist()
-                    : Center(
-                        //if data is not loaded then show progress
-                        child: CircularProgressIndicator()),
-              ),
+             
             ])),
       ),
     );
