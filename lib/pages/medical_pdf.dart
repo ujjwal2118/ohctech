@@ -4798,7 +4798,7 @@ Future<Uint8List> makePdfMedical(Patient patient) async {
               padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
               child: Container(
                 child: Text(
-                  patient.other_findings,
+                  patient.other_relevant_findings,
                   style: TextStyle(
                     fontSize: 17,
                   ),

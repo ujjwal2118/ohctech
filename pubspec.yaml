@@ -62,6 +62,11 @@ dependencies:
   awesome_dialog: ^3.0.2
   multi_select_flutter: ^4.1.2
   custom_radio_grouped_button: ^2.1.2+2
+  pricing_cards: ^0.0.7
+  fluid_action_card: ^1.0.0+5
+  heroicons: ^0.7.0
+  internet_popup: ^1.0.8+5
+  pull_to_refresh: ^2.0.0
 
 dev_dependencies:
   flutter_test:

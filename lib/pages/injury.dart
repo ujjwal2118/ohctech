@@ -19,7 +19,7 @@ class InjuryPage extends StatefulWidget {
 }
 
 class _InjuryPageState extends State<InjuryPage> {
-  final url = "https://tatametaliks.techsyneric.com/injury_list_new.php";
+  final url = "https://jswcement.techsyneric.com/injury_list_new.php";
 
   @override
   void initState() {
