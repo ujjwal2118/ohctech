@@ -59,39 +59,62 @@ class PatientWidget extends StatelessWidget {
         ),
         subtitle: Text(patient.emp_code ?? "NA"),
 
-        trailing: PopupMenuButton(
-            // add icon, by default "3 dot" icon
-            // icon: Icon(Icons.book)
-            //  iconSize :30,
-            tooltip: "More Option",
-            //  color : Colors.grey,
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem<int>(
-                  value: 0,
-                  child: Icon(Icons.edit),
-                ),
-                PopupMenuItem<int>(
-                  value: 1,
-                  child: Icon(Icons.search),
-                ),
-              ];
-            },
-            onSelected: (value) {
-              if (value == 0) {
+        // trailing: PopupMenuButton(
+        //     // add icon, by default "3 dot" icon
+        //     // icon: Icon(Icons.book)
+        //     //  iconSize :30,
+        //     tooltip: "More Option",
+        //     //  color : Colors.grey,
+        //     itemBuilder: (context) {
+        //       return [
+        //         PopupMenuItem<int>(
+        //           value: 0,
+        //           child: Icon(Icons.edit),
+        //         ),
+        //         PopupMenuItem<int>(
+        //           value: 1,
+        //           child: Icon(Icons.search),
+        //         ),
+        //       ];
+        //     },
+        //     onSelected: (value) {
+        //       if (value == 0) {
+        //         Navigator.push(
+        //             context,
+        //             MaterialPageRoute(
+        //                 builder: (context) =>
+        //                     opdForm(patient: patient, medicine: medicine)));
+        //       } else if (value == 1) {
+        //         Navigator.push(
+        //             context,
+        //             MaterialPageRoute(
+        //                 builder: (context) => PatientDetailsOpd(
+        //                     patient: patient, medicine: medicine)));
+        //       }
+        //     }),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+                onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
                             opdForm(patient: patient, medicine: medicine)));
-              } else if (value == 1) {
-                Navigator.push(
+                },
+                icon: Icon(Icons.edit)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => PatientDetailsOpd(
                             patient: patient, medicine: medicine)));
-              }
-            }),
+                },
+                icon: Icon(Icons.picture_as_pdf)),
+          ],
+        ),
 
         // trailing: Text(
         //   patient.emp_code,

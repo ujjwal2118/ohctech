@@ -3,10 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/utils/routes.dart';
-import 'package:pricing_cards/pricing_cards.dart';
+
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:fluid_action_card/FluidActionCard/fluid_action_card.dart';
-import 'package:heroicons/heroicons.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
