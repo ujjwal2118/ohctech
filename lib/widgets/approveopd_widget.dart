@@ -24,7 +24,8 @@ import 'package:calendar_appbar/calendar_appbar.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
-class PatientWidget extends StatelessWidget {
+
+class ApprovedopdWidget extends StatelessWidget {
   final Patient patient;
   final Medicine medicine;
 
@@ -39,7 +40,7 @@ class PatientWidget extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidget(
+  const ApprovedopdWidget(
       {Key key, @required this.patient, @required this.medicine})
       // ignore: unnecessary_null_comparison
       : super(key: key);
@@ -94,22 +95,22 @@ class PatientWidget extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
-                onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            opdForm(patient: patient, medicine: medicine)));
-                },
-                icon: Icon(Icons.edit)),
+            // IconButton(
+            //     onPressed: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) =>
+            //                 opdForm(patient: patient, medicine: medicine)));
+            //     },
+            //     icon: Icon(Icons.edit)),
             IconButton(
                 onPressed: () {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => PatientDetailsOpd(
-                            patient: patient, medicine: medicine)));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PatientDetailsOpd(
+                              patient: patient, medicine: medicine)));
                 },
                 icon: Icon(Icons.picture_as_pdf)),
           ],

@@ -6,6 +6,7 @@ import 'package:ohctech/utils/routes.dart';
 
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:http/http.dart' as http;
+import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -66,6 +67,21 @@ class _HomePageState extends State<HomePage> {
   moveToSickness(BuildContext context) async {
     await Future.delayed(Duration(seconds: 1));
     await Navigator.pushNamed(context, MyRoutes.sicknessRoute);
+  }
+
+  moveToapprovedInjury(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedINJURY);
+  }
+
+  moveToapprovedMEDICAL(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedMEDICAL);
+  }
+
+  moveToapprovedSick(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedSICK);
   }
 
   @override
@@ -136,6 +152,7 @@ class _HomePageState extends State<HomePage> {
                                   child: CircularProgressIndicator(),
                                 ),
                           ButtonBar(
+                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -147,6 +164,9 @@ class _HomePageState extends State<HomePage> {
                                   print("Approved Click");
                                   moveToTest(context);
                                 },
+                              ),
+                              SizedBox(
+                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',
@@ -221,6 +241,7 @@ class _HomePageState extends State<HomePage> {
                                   child: CircularProgressIndicator(),
                                 ),
                           ButtonBar(
+                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -230,7 +251,11 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Approved Click");
+                                  moveToapprovedInjury(context);
                                 },
+                              ),
+                              SizedBox(
+                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',
@@ -308,6 +333,7 @@ class _HomePageState extends State<HomePage> {
                             height: 10,
                           ),
                           ButtonBar(
+                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -317,7 +343,11 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Approved Click");
+                                  moveToapprovedMEDICAL(context);
                                 },
+                              ),
+                              SizedBox(
+                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',
@@ -392,6 +422,7 @@ class _HomePageState extends State<HomePage> {
                                   child: CircularProgressIndicator(),
                                 ),
                           ButtonBar(
+                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -401,7 +432,11 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Approved Click");
+                                  moveToapprovedSick(context);
                                 },
+                              ),
+                              SizedBox(
+                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',

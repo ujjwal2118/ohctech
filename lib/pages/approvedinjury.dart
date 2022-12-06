@@ -9,17 +9,17 @@ import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/patient_widget_opd.dart';
+import 'package:ohctech/widgets/approveopd_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
-class OpdPage extends StatefulWidget {
+class ApprovedInjury extends StatefulWidget {
   @override
-  _OpdPageState createState() => _OpdPageState();
+  _ApprovedInjuryState createState() => _ApprovedInjuryState();
 }
 
-class _OpdPageState extends State<OpdPage> {
+class _ApprovedInjuryState extends State<ApprovedInjury> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/opd_list.php';
+  final _baseUrl = 'http://192.168.22.229/api/appod.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -92,7 +92,7 @@ class _OpdPageState extends State<OpdPage> {
       PatientModel.patients = List.from(_posts)
           .map<Patient>((patient) => Patient.fromMap(patient))
           .toList();
-       setState(() {
+      setState(() {
         _isLoadMoreRunning = false;
       });
     }
@@ -118,7 +118,7 @@ class _OpdPageState extends State<OpdPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("OPD LIST"),
+        title: Text("APPROVED INJURY LIST"),
       ),
 
       // body: _isFirstLoadRunning
@@ -171,9 +171,9 @@ class _OpdPageState extends State<OpdPage> {
       //       ),
 
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: _isFirstLoadRunning
-          ?  Center(
+          padding: const EdgeInsets.all(16.0),
+          child: _isFirstLoadRunning
+              ? Center(
                   child: Shimmer.fromColors(
                     baseColor: Color.fromARGB(255, 148, 204, 242),
                     highlightColor: Colors.grey[100],
@@ -228,54 +228,89 @@ class _OpdPageState extends State<OpdPage> {
                       itemCount: 20,
                     ),
                   ),
-
-            )
-          :Column(children: [
-                    Expanded(
-                        child: ListView.builder(
-                           controller: _controller,
+                )
+              : Column(children: [
+                  Expanded(
+                      child: ListView.builder(
+                    controller: _controller,
                     itemCount: PatientModel.patients.length,
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                         
-                          child: PatientWidget(
-                            patient: patient,
-                          ));
+                          child: ApprovedopdWidget(
+                        patient: patient,
+                      ));
                     },
-                  )
-                ),
-                    if (_isLoadMoreRunning == true)
-                    SizedBox(
-                      width: 200.0,
-                      height: 100.0,
-                      child: Shimmer.fromColors(
-                        baseColor: Colors.red,
-                        highlightColor: Colors.yellow,
-                        child: Text(
-                          'Shimmer',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 40.0,
-                            fontWeight: FontWeight.bold,
+                  )),
+                  if (_isLoadMoreRunning == true)
+                    Shimmer.fromColors(
+                      baseColor: Color.fromARGB(255, 148, 204, 242),
+                      highlightColor: Colors.grey[100],
+                      direction: ShimmerDirection.ltr,
+                      child: ListView.builder(
+                        itemBuilder: (_, __) => Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                width: 48.0,
+                                height: 50.0,
+                                color: Colors.white,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      width: double.infinity,
+                                      height: 8.0,
+                                      color: Colors.white,
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 2.0),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 8.0,
+                                      color: Colors.white,
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 2.0),
+                                    ),
+                                    Container(
+                                      width: 40.0,
+                                      height: 10.0,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
+                        itemCount: 20,
                       ),
                     ),
 
-                    // When nothing else to load
-                    if (_hasNextPage == false)
-                      Container(
-                        padding: const EdgeInsets.only(top: 30, bottom: 40),
-                        color: Colors.amber,
-                        child: const Center(
-                          child: Text('You have fetched all of the content'),
-                        ),
+                  // When nothing else to load
+                  if (_hasNextPage == false)
+                    Container(
+                      padding: const EdgeInsets.only(top: 30, bottom: 40),
+                      color: Colors.amber,
+                      child: const Center(
+                        child: Text('You have fetched all of the content'),
                       ),
-                  ])
-                // ignore: prefer_const_constructors
-             
-      ),
+                    ),
+                ])
+          // ignore: prefer_const_constructors
+
+          ),
       drawer: MyDrawer(
         text: '',
       ),

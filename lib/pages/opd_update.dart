@@ -45,8 +45,9 @@ class _opdFormState extends State<opdForm> {
 
   @override
   void initState() {
-    loaddata();
+    // loaddata();
     super.initState();
+    getAllCategory();
     Patient dm;
     dm = widget.patient;
     var visitDate;
@@ -60,29 +61,29 @@ class _opdFormState extends State<opdForm> {
     appointment_date.text = visitDate;
   }
 
-  void loaddata() {
-    Future.delayed(Duration.zero, () async {
-      var res = await http.post(Uri.parse(dataurl));
-      if (res.statusCode == 200) {
-if (!mounted) return;
+//   void loaddata() {
+//     Future.delayed(Duration.zero, () async {
+//       var res = await http.post(Uri.parse(dataurl));
+//       if (res.statusCode == 200) {
+// if (!mounted) return;
 
-        setState(() {
-          data = json.decode(res.body);
-          dataloaded = true;
-          // we set dataloaded to true,
-          // so that we can build a list only
-          // on data load
-        });
-      } else {
-        //there is error
-        setState(() {
-          error = true;
-        });
-      }
-    });
-    // we use Future.delayed becuase there is
-    // async function inside it.
-  }
+//         setState(() {
+//           data = json.decode(res.body);
+//           dataloaded = true;
+//           // we set dataloaded to true,
+//           // so that we can build a list only
+//           // on data load
+//         });
+//       } else {
+//         //there is error
+//         setState(() {
+//           error = true;
+//         });
+//       }
+//     });
+//     // we use Future.delayed becuase there is
+//     // async function inside it.
+//   }
 
   String gender;
   var iteams = [
@@ -127,13 +128,28 @@ if (!mounted) return;
             ))
         .toList();
   }
+  List categoryItemlist = [];
 
+  Future getAllCategory() async {
+    var baseUrl = "http://192.168.22.229/jsw/bodysystemapi.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        categoryItemlist = jsonData;
+      });
+    }
+  }
+
+  var dropdownvalue;
   String dropdownValue = 'Select Disease Type';
   String caseTypeValue = 'Select Case Type';
   String bodySystemValue = 'Select Body System';
 
   Future<dynamic> updateOPD(BuildContext context) async {
-    var url = 'https://ohctech.000webhostapp.com/opd_update.php';
+    var url = 'http://192.168.22.229/api/updateopd.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
       "ailments_new": bodySystemValue,
@@ -262,7 +278,7 @@ if (!mounted) return;
               const Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(
-                  "\n\n AILMENT SYSTEM",
+                  "\n\n AILMENT SYSTEM \n",
                   style: TextStyle(
                       color: Colors.grey, fontWeight: FontWeight.w500),
                 ),
@@ -293,24 +309,16 @@ if (!mounted) return;
                       ),
                     ],
                   ),
-                  items: bodySystem
-                      .map((iteams) => DropdownMenuItem<String>(
-                            value: iteams,
-                            child: Text(
-                              iteams,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ))
-                      .toList(),
-                  value: bodySystemValue,
-                  onChanged: (value) {
+                  items: categoryItemlist.map((item) {
+                    return DropdownMenuItem(
+                      value: item['ailment_sys_name'].toString(),
+                      child: Text(item['ailment_sys_name'].toString()),
+                    );
+                  }).toList(),
+                  value: dropdownvalue,
+                  onChanged: (newVal) {
                     setState(() {
-                      bodySystemValue = value as String;
+                      dropdownvalue = newVal;
                     });
                   },
                   icon: const Icon(
