@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
+import 'package:ohctech/pages/injury_update.dart';
 import 'package:ohctech/pages/opd_update.dart';
+import 'package:ohctech/pages/patient_details_injury.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
-import 'package:ohctech/pages/patient_details_sickness.dart';
-import 'package:ohctech/pages/sickness_update.dart';
 import 'package:ohctech/utils/routes.dart';
 import 'package:day_night_time_picker/lib/constants.dart';
 import 'package:http/http.dart' as http;
@@ -26,7 +26,7 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 
-class PatientWidgetSickness extends StatelessWidget {
+class ApprovedInjuryWidget extends StatelessWidget {
   final Patient patient;
 
   // moveToOpdForm(BuildContext context) async {
@@ -40,7 +40,7 @@ class PatientWidgetSickness extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidgetSickness({Key key, @required this.patient})
+  const ApprovedInjuryWidget({Key key, @required this.patient})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -52,31 +52,30 @@ class PatientWidgetSickness extends StatelessWidget {
         // onTap: () => moveToOpdForm(context),
         leading: Image.asset("assets/images/user.png"),
         title: Text(
-          patient.patient_name,
+          patient.patient_name ?? "NA",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text(patient.emp_code),
+        subtitle: Text(patient.emp_code ?? "NA"),
 
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // IconButton(
+            //     onPressed: () {
+            //       Navigator.push(
+            //           context,
+            //           MaterialPageRoute(
+            //               builder: (context) => injuryForm(patient: patient)));
+            //     },
+            //     icon: Icon(Icons.edit)),
             IconButton(
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              sicknessEdit(patient: patient)));
-                },
-                icon: Icon(Icons.edit)),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              PatientDetailsSickness(patient: patient)));
+                              PatientDetailsInjury(patient: patient)));
                 },
                 icon: Icon(Icons.picture_as_pdf)),
           ],

@@ -40,7 +40,8 @@ class PatientWidget extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidget({Key key, @required this.patient, this.medicine})
+  const PatientWidget(
+      {Key key, @required this.patient, @required this.medicine})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -58,48 +59,29 @@ class PatientWidget extends StatelessWidget {
         ),
         subtitle: Text(patient.emp_code ?? "NA"),
 
-        trailing: PopupMenuButton(
-            // add icon, by default "3 dot" icon
-            // icon: Icon(Icons.book)
-            //  iconSize :30,
-            tooltip: "More Option",
-            //  color : Colors.grey,
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem<int>(
-                  value: 0,
-                  child: Icon(Icons.edit),
-                ),
-                PopupMenuItem<int>(
-                  value: 1,
-                  child: Icon(Icons.search),
-                ),
-              ];
-            },
-            onSelected: (value) {
-              if (value == 0) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            opdForm(patient: patient, medicine: medicine)));
-              } else if (value == 1) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => PatientDetailsOpd(
-                            patient: patient, medicine: medicine)));
-              }
-            }),
-
-        // trailing: Text(
-        //   patient.emp_code,
-        //   textScaleFactor: 1,
-        //   style: TextStyle(
-        //     color: Color.fromARGB(255, 19, 18, 20),
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              opdForm(patient: patient, medicine: medicine)));
+                },
+                icon: Icon(Icons.edit)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PatientDetailsOpd(
+                              patient: patient, medicine: medicine)));
+                },
+                icon: Icon(Icons.picture_as_pdf)),
+          ],
+        ),
       ),
       color: Color.fromARGB(255, 148, 204, 242),
       elevation: 5,
@@ -109,15 +91,3 @@ class PatientWidget extends StatelessWidget {
     );
   }
 }
-
-// class MyWidget extends StatelessWidget {
-//   final String patientName;
-//   const MyWidget({Key key, @required this.patientName}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(dsxgf
-//       child: Text(patientName),
-//     );
-//   }
-// }

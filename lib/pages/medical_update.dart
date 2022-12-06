@@ -400,7 +400,7 @@ class _medicalUpdateState extends State<medicalUpdate> {
   List<past> _selectedpast5 = [];
 
   Future<dynamic> updateMedical(BuildContext context) async {
-    var url = 'https://ohctech.000webhostapp.com/medical_update.php';
+    var url = 'http://103.196.222.49:85/jsw/medical_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticketNo": ticketNo.text,
       "height": height.text,

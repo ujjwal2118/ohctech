@@ -129,7 +129,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   String approvalStatus = "Select an option";
 
   Future<dynamic> insertOPD(BuildContext context) async {
-    var url = 'https://ohctech.000webhostapp.com/sickness_update.php';
+    var url = 'http://103.196.222.49:85/jsw/sickness_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticketNo.text,
       "name": patientName.text,

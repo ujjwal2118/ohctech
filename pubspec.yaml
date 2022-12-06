@@ -67,6 +67,7 @@ dependencies:
   heroicons: ^0.7.0
   internet_popup: ^1.0.8+5
   pull_to_refresh: ^2.0.0
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +91,13 @@ flutter_icons:
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 300
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var urlOPD = "https://jswcement.techsyneric.com/patient_count.php";
+  var urlOPD = "http://103.196.222.49:85/jsw/patient_count.php";
 
   void initState() {
     // TODO: implement initState
@@ -38,11 +38,6 @@ class _HomePageState extends State<HomePage> {
         .toList();
 
     setState(() {});
-  }
-
-  moveToTest(BuildContext context) async {
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.testRoute);
   }
 
   moveToOpd(BuildContext context) async {
@@ -70,6 +65,26 @@ class _HomePageState extends State<HomePage> {
     await Navigator.pushNamed(context, MyRoutes.sicknessRoute);
   }
 
+  moveToapprovedOpd(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedOpdRoute);
+  }
+
+  moveToapprovedInjury(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedInjuryRoute);
+  }
+
+  moveToapprovedMedical(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedMedicalRoute);
+  }
+
+  moveToapprovedSickness(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedSicknessRoute);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 2,
                   child: Container(
                     width: 300,
-                    height: 200,
+                    height: 215,
                     padding: new EdgeInsets.all(10.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -147,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Approved Click");
-                                  moveToTest(context);
+                                  moveToapprovedOpd(context);
                                 },
                               ),
                               ElevatedButton(
@@ -177,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 2,
                   child: Container(
                     width: 300,
-                    height: 200,
+                    height: 215,
                     padding: new EdgeInsets.all(10.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -231,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                                         color: Color.fromARGB(
                                             255, 239, 237, 237))),
                                 onPressed: () {
-                                  print("Approved Click");
+                                  moveToapprovedInjury(context);
                                 },
                               ),
                               ElevatedButton(
@@ -261,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 2,
                   child: Container(
                     width: 300,
-                    height: 200,
+                    height: 210,
                     padding: new EdgeInsets.all(10.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -318,7 +333,7 @@ class _HomePageState extends State<HomePage> {
                                         color: Color.fromARGB(
                                             255, 239, 237, 237))),
                                 onPressed: () {
-                                  print("Approved Click");
+                                  moveToapprovedMedical(context);
                                 },
                               ),
                               ElevatedButton(
@@ -402,7 +417,7 @@ class _HomePageState extends State<HomePage> {
                                         color: Color.fromARGB(
                                             255, 239, 237, 237))),
                                 onPressed: () {
-                                  print("Approved Click");
+                                  moveToapprovedSickness(context);
                                 },
                               ),
                               ElevatedButton(

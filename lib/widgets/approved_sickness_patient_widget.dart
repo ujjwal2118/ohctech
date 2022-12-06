@@ -26,7 +26,7 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 
-class PatientWidgetSickness extends StatelessWidget {
+class ApprovedSicknessWidget extends StatelessWidget {
   final Patient patient;
 
   // moveToOpdForm(BuildContext context) async {
@@ -40,7 +40,7 @@ class PatientWidgetSickness extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidgetSickness({Key key, @required this.patient})
+  const ApprovedSicknessWidget({Key key, @required this.patient})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -61,15 +61,6 @@ class PatientWidgetSickness extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              sicknessEdit(patient: patient)));
-                },
-                icon: Icon(Icons.edit)),
             IconButton(
                 onPressed: () {
                   Navigator.push(

@@ -1,6 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ohctech/pages/approved_injury.dart';
+import 'package:ohctech/pages/approved_medical.dart';
+import 'package:ohctech/pages/approved_opd.dart';
+import 'package:ohctech/pages/approved_sickness.dart';
 import 'package:ohctech/pages/home.dart';
 import 'package:ohctech/pages/injury.dart';
 import 'package:ohctech/pages/login.dart';
@@ -35,6 +39,10 @@ class MyApp extends StatelessWidget {
         MyRoutes.injuryRoute: (context) => InjuryPage(),
         MyRoutes.medExamRoute: (context) => MedicalPage(),
         MyRoutes.sicknessRoute: (context) => SicknessPage(),
+        MyRoutes.approvedOpdRoute: (context) => ApprovedOPD(),
+        MyRoutes.approvedInjuryRoute: (context) => ApprovedInjury(),
+        MyRoutes.approvedMedicalRoute: (context) => ApprovedMedical(),
+        MyRoutes.approvedSicknessRoute: (context) => ApprovedSickness(),
         MyRoutes.reportsRoute: (context) => Osi(),
       },
     );

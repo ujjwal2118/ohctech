@@ -9,17 +9,17 @@ import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/patient_widget_Sickness.dart';
+import 'package:ohctech/widgets/approved_medical_patient_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
-class SicknessPage extends StatefulWidget {
+class ApprovedMedical extends StatefulWidget {
   @override
-  _SicknessPageState createState() => _SicknessPageState();
+  _ApprovedMedicalState createState() => _ApprovedMedicalState();
 }
 
-class _SicknessPageState extends State<SicknessPage> {
+class _ApprovedMedicalState extends State<ApprovedMedical> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/pending_sickness_list.php';
+  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_medical_list.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -118,7 +118,7 @@ class _SicknessPageState extends State<SicknessPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SICKNESS LIST"),
+        title: Text("APPROVED Medical Exam. LIST"),
       ),
 
       // body: _isFirstLoadRunning
@@ -174,7 +174,61 @@ class _SicknessPageState extends State<SicknessPage> {
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
               ? Center(
-                  child: CircularProgressIndicator(),
+                  child: Shimmer.fromColors(
+                    baseColor: Color.fromARGB(255, 148, 204, 242),
+                    highlightColor: Colors.grey[100],
+                    direction: ShimmerDirection.ltr,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemBuilder: (_, __) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              width: 48.0,
+                              height: 50.0,
+                              color: Colors.white,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: double.infinity,
+                                    height: 8.0,
+                                    color: Colors.white,
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 2.0),
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 8.0,
+                                    color: Colors.white,
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 2.0),
+                                  ),
+                                  Container(
+                                    width: 40.0,
+                                    height: 10.0,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      itemCount: 20,
+                    ),
+                  ),
                 )
               : Column(children: [
                   Expanded(
@@ -184,7 +238,7 @@ class _SicknessPageState extends State<SicknessPage> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          child: PatientWidgetSickness(
+                          child: ApprovedMedicalWidget(
                         patient: patient,
                       ));
                     },
@@ -195,7 +249,6 @@ class _SicknessPageState extends State<SicknessPage> {
                       highlightColor: Colors.grey[100],
                       direction: ShimmerDirection.ltr,
                       child: ListView.builder(
-                        shrinkWrap: true,
                         itemBuilder: (_, __) => Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: Row(

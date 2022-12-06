@@ -58,47 +58,28 @@ class PatientWidget extends StatelessWidget {
         ),
         subtitle: Text(patient.emp_code ?? "NA"),
 
-        trailing: PopupMenuButton(
-            // add icon, by default "3 dot" icon
-            // icon: Icon(Icons.book)
-            //  iconSize :30,
-            tooltip: "More Option",
-            //  color : Colors.grey,
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem<int>(
-                  value: 0,
-                  child: Icon(Icons.edit),
-                ),
-                PopupMenuItem<int>(
-                  value: 1,
-                  child: Icon(Icons.search),
-                ),
-              ];
-            },
-            onSelected: (value) {
-              if (value == 0) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => injuryForm(patient: patient)));
-              } else if (value == 1) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            PatientDetailsInjury(patient: patient)));
-              }
-            }),
-
-        // trailing: Text(
-        //   patient.emp_code,
-        //   textScaleFactor: 1,
-        //   style: TextStyle(
-        //     color: Color.fromARGB(255, 19, 18, 20),
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => injuryForm(patient: patient)));
+                },
+                icon: Icon(Icons.edit)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              PatientDetailsInjury(patient: patient)));
+                },
+                icon: Icon(Icons.picture_as_pdf)),
+          ],
+        ),
       ),
       color: Color.fromARGB(255, 148, 204, 242),
       elevation: 5,
