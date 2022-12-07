@@ -251,13 +251,14 @@ class _OpdPageState extends State<OpdPage> {
                       child: Shimmer.fromColors(
                         baseColor: Colors.red,
                         highlightColor: Colors.yellow,
-                        child: Text(
-                          'Shimmer',
+                        child: Center(child:Text(
+                          'Loading...',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 40.0,
+                            fontSize: 30.0,
                             fontWeight: FontWeight.bold,
                           ),
+                        ),
                         ),
                       ),
                     ),

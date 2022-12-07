@@ -26,7 +26,7 @@ class SicknessPage extends StatefulWidget {
 }
 
 class _SicknessPageState extends State<SicknessPage> {
-  final url = "https://ohctech.000webhostapp.com/index.php/user/listSickness";
+  final url = "http://103.196.222.49:85/jsw/pending_sickness_list.php";
 
   @override
   void initState() {

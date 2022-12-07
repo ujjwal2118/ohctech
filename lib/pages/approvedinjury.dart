@@ -9,7 +9,8 @@ import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/approveopd_widget.dart';
+import 'package:ohctech/widgets/patient_widget_injury.dart';
+
 import 'package:shimmer/shimmer.dart';
 
 class ApprovedInjury extends StatefulWidget {
@@ -19,7 +20,7 @@ class ApprovedInjury extends StatefulWidget {
 
 class _ApprovedInjuryState extends State<ApprovedInjury> {
   Patient patient;
-  final _baseUrl = 'http://192.168.22.229/api/appod.php';
+  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_injury_list_new.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -237,66 +238,30 @@ class _ApprovedInjuryState extends State<ApprovedInjury> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          child: ApprovedopdWidget(
+                          child: PatientWidget(
                         patient: patient,
                       ));
                     },
                   )),
                   if (_isLoadMoreRunning == true)
-                    Shimmer.fromColors(
-                      baseColor: Color.fromARGB(255, 148, 204, 242),
-                      highlightColor: Colors.grey[100],
-                      direction: ShimmerDirection.ltr,
-                      child: ListView.builder(
-                        itemBuilder: (_, __) => Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                width: 48.0,
-                                height: 50.0,
-                                color: Colors.white,
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      width: double.infinity,
-                                      height: 8.0,
-                                      color: Colors.white,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 8.0,
-                                      color: Colors.white,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      width: 40.0,
-                                      height: 10.0,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                    SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(child:Text(
+                          'Loading...',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        itemCount: 20,
+                        ),
                       ),
                     ),
+
 
                   // When nothing else to load
                   if (_hasNextPage == false)

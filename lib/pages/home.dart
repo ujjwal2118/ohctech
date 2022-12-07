@@ -343,7 +343,7 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Approved Click");
-                                  moveToapprovedMEDICAL(context);
+                                  // moveToapprovedMEDICAL(context);
                                 },
                               ),
                               SizedBox(
@@ -357,7 +357,7 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Pending Click");
-                                  moveToMedExam(context);
+                                  // moveToMedExam(context);
                                 },
                               ),
                             ],

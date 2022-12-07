@@ -12,13 +12,13 @@ import 'package:ohctech/pages/patient_details_injury.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_injury.dart';
-
-
 import 'package:internet_popup/internet_popup.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:internet_popup/src/custom_dialog.dart';
+import 'package:shimmer/shimmer.dart';
+
 
 class InjuryPage extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class InjuryPage extends StatefulWidget {
 }
 
 class _InjuryPageState extends State<InjuryPage> {
-  final url = "https://jswcement.techsyneric.com/injury_list_new.php";
+  final url = "http://192.168.52.229/jsw/pending_injury_list_new.php";
 
   @override
   void initState() {
@@ -56,7 +56,9 @@ class _InjuryPageState extends State<InjuryPage> {
     var decodedData = jsonDecode(patientJson);
     var patientsData = decodedData;
 
-    print(patientsData);
+    if ( patientsData == []) {
+      print("Data Not Found");
+    }
 
     PatientModel.patients = List.from(patientsData)
         .map<Patient>((patient) => Patient.fromMap(patient))
@@ -92,8 +94,62 @@ class _InjuryPageState extends State<InjuryPage> {
                   )
                 // ignore: prefer_const_constructors
                 : Center(
-                    child: CircularProgressIndicator(),
+                  child: Shimmer.fromColors(
+                    baseColor: Color.fromARGB(255, 148, 204, 242),
+                    highlightColor: Colors.grey[100],
+                    direction: ShimmerDirection.ltr,
+                    child: ListView.builder(
+                      itemBuilder: (_, __) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              width: 48.0,
+                              height: 50.0,
+                              color: Colors.white,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    width: double.infinity,
+                                    height: 8.0,
+                                    color: Colors.white,
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 2.0),
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 8.0,
+                                    color: Colors.white,
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(vertical: 2.0),
+                                  ),
+                                  Container(
+                                    width: 40.0,
+                                    height: 10.0,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      itemCount: 20,
+                    ),
                   ),
+
+                )
       ),
       drawer: MyDrawer(
         text: '',
