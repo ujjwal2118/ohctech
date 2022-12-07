@@ -41,7 +41,7 @@ class _opdFormState extends State<opdForm> {
 
   bool error = false, dataloaded = false;
   var data;
-  String dataurl = "https://tatametaliks.techsyneric.com/opd_list.php";
+  String dataurl = "https://jswcement.techsyneric.com/opd_list.php";
 
   @override
   void initState() {

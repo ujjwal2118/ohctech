@@ -238,10 +238,9 @@ class _OpdPageState extends State<OpdPage> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                         
                           child: PatientWidget(
-                            patient: patient,
-                          ));
+                        patient: patient,
+                      ));
                     },
                   )
                 ),
