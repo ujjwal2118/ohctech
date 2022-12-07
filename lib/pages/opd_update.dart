@@ -40,7 +40,8 @@ class _opdFormState extends State<opdForm> {
 
   bool error = false, dataloaded = false;
   var data;
-  String dataurl = "https://jswcement.techsyneric.com/opd_list.php";
+
+  String dataurl = "http://103.196.222.49:85/jsw/pending_opd_list.php";
 
   @override
   void initState() {
@@ -102,6 +103,7 @@ class _opdFormState extends State<opdForm> {
     "Follow Up",
     "Medication",
   ];
+
   List<Widget> _buildItems2() {
     return caseType
         .map((val) => MySelectionItem(
@@ -449,69 +451,69 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(15),
-                //check if data is loaded, if loaded then show datalist on child
-                child: dataloaded
-                    ? datalist()
-                    : Center(
-                        //if data is not loaded then show progress
-                        child: CircularProgressIndicator()),
-              ),
+              // Container(
+              //   padding: EdgeInsets.all(15),
+              //   //check if data is loaded, if loaded then show datalist on child
+              //   child: dataloaded
+              //       ? datalist()
+              //       : Center(
+              //           //if data is not loaded then show progress
+              //           child: CircularProgressIndicator()),
+              // ),
             ])),
       ),
     );
   }
 
-  Widget datalist() {
-    var list = List<Medicine>.from(data['medicines'].map((i) {
-      return Medicine.fromJSON(i);
-    }));
-    List<Medicine> namelist = list; //prasing data list to model
+  // Widget datalist() {
+  //   var list = List<Medicine>.from(data['medicines'].map((i) {
+  //     return Medicine.fromJSON(i);
+  //   }));
+  //   List<Medicine> namelist = list; //prasing data list to model
 
-    return Table(
-      //if data is loaded then show table
-      border: TableBorder.all(width: 1, color: Colors.black45),
-      children: namelist.map((medicine) {
-        return TableRow(//return table row in every loop
-            children: [
-          //table cells inside table row
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineName))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineFrequency))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineFordays))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineAdminroute))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineDosage))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineQty))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineIssuedqty))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineTiming))),
-        ]);
-      }).toList(),
-    );
-  }
+  //   return Table(
+  //     //if data is loaded then show table
+  //     border: TableBorder.all(width: 1, color: Colors.black45),
+  //     children: namelist.map((medicine) {
+  //       return TableRow(//return table row in every loop
+  //           children: [
+  //         //table cells inside table row
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineName))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineFrequency))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineFordays))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineAdminroute))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineDosage))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineQty))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineIssuedqty))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineTiming))),
+  //       ]);
+  //     }).toList(),
+  //   );
+  // }
 }
 
 class MySelectionItem extends StatelessWidget {

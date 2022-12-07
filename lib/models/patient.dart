@@ -60,8 +60,8 @@ class Patient {
   final String agency;
   final String medical_entry_date;
   final String peme_no;
-  final int height;
-  final int weight;
+  final String height;
+  final String weight;
   final dynamic bmi;
   final String pulse;
   final String bp;
@@ -190,30 +190,30 @@ class Patient {
   final String rd_axis;
   final String rd_dcyl;
   final String rd_dsph;
-  final int lair_250;
-  final int lair_500;
-  final int lair_1000;
-  final int lair_2000;
-  final int lair_4000;
-  final int lair_8000;
-  final int lbone_250;
-  final int lbone_500;
-  final int lbone_1000;
-  final int lbone_2000;
-  final int lbone_4000;
-  final int lbone_8000;
-  final int rair_250;
-  final int rair_500;
-  final int rair_1000;
-  final int rair_2000;
-  final int rair_4000;
-  final int rair_8000;
-  final int rbone_250;
-  final int rbone_500;
-  final int rbone_1000;
-  final int rbone_2000;
-  final int rbone_4000;
-  final int rbone_8000;
+  final String lair_250;
+  final String lair_500;
+  final String lair_1000;
+  final String lair_2000;
+  final String lair_4000;
+  final String lair_8000;
+  final String lbone_250;
+  final String lbone_500;
+  final String lbone_1000;
+  final String lbone_2000;
+  final String lbone_4000;
+  final String lbone_8000;
+  final String rair_250;
+  final String rair_500;
+  final String rair_1000;
+  final String rair_2000;
+  final String rair_4000;
+  final String rair_8000;
+  final String rbone_250;
+  final String rbone_500;
+  final String rbone_1000;
+  final String rbone_2000;
+  final String rbone_4000;
+  final String rbone_8000;
   final String bn_findings;
   final String a;
   final String cy;
@@ -491,8 +491,8 @@ class Patient {
     String agency,
     String medical_entry_date,
     String peme_no,
-    int height,
-    int weight,
+    String height,
+    String weight,
     dynamic bmi,
     String pulse,
     String bp,
@@ -621,30 +621,30 @@ class Patient {
     String rd_axis,
     String rd_dcyl,
     String rd_dsph,
-    int lair_250,
-    int lair_500,
-    int lair_1000,
-    int lair_2000,
-    int lair_4000,
-    int lair_8000,
-    int lbone_250,
-    int lbone_500,
-    int lbone_1000,
-    int lbone_2000,
-    int lbone_4000,
-    int lbone_8000,
-    int rair_250,
-    int rair_500,
-    int rair_1000,
-    int rair_2000,
-    int rair_4000,
-    int rair_8000,
-    int rbone_250,
-    int rbone_500,
-    int rbone_1000,
-    int rbone_2000,
-    int rbone_4000,
-    int rbone_8000,
+    String lair_250,
+    String lair_500,
+    String lair_1000,
+    String lair_2000,
+    String lair_4000,
+    String lair_8000,
+    String lbone_250,
+    String lbone_500,
+    String lbone_1000,
+    String lbone_2000,
+    String lbone_4000,
+    String lbone_8000,
+    String rair_250,
+    String rair_500,
+    String rair_1000,
+    String rair_2000,
+    String rair_4000,
+    String rair_8000,
+    String rbone_250,
+    String rbone_500,
+    String rbone_1000,
+    String rbone_2000,
+    String rbone_4000,
+    String rbone_8000,
     String bn_findings,
     String a,
     String cy,

@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/approved_sickness_patient_widget.dart';
+import 'package:ohctech/widgets/patient_widget_sickness.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ApprovedSickness extends StatefulWidget {
@@ -179,7 +179,6 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
                     highlightColor: Colors.grey[100],
                     direction: ShimmerDirection.ltr,
                     child: ListView.builder(
-                      shrinkWrap: true,
                       itemBuilder: (_, __) => Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: Row(
@@ -238,74 +237,38 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          child: ApprovedSicknessWidget(
+                          child: PatientWidgetSickness(
                         patient: patient,
                       ));
                     },
                   )),
                   if (_isLoadMoreRunning == true)
-                    Shimmer.fromColors(
-                      baseColor: Color.fromARGB(255, 148, 204, 242),
-                      highlightColor: Colors.grey[100],
-                      direction: ShimmerDirection.ltr,
-                      child: ListView.builder(
-                        itemBuilder: (_, __) => Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                width: 48.0,
-                                height: 50.0,
-                                color: Colors.white,
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      width: double.infinity,
-                                      height: 8.0,
-                                      color: Colors.white,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 8.0,
-                                      color: Colors.white,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      width: 40.0,
-                                      height: 10.0,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                    SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(
+                          child: Text(
+                            'Loading...',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        itemCount: 20,
                       ),
                     ),
 
                   // When nothing else to load
                   if (_hasNextPage == false)
                     Container(
-                      padding: const EdgeInsets.only(top: 20, bottom: 20),
+                      padding: const EdgeInsets.only(top: 30, bottom: 40),
                       color: Colors.amber,
                       child: const Center(
-                        child: Text('You have fetched all of the content!'),
+                        child: Text('You have fetched all of the content'),
                       ),
                     ),
                 ])

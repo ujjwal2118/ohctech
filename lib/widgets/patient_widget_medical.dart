@@ -54,11 +54,11 @@ class PatientWidgetMedical extends StatelessWidget {
         // onTap: () => moveToOpdForm(context),
         leading: Image.asset("assets/images/user.png"),
         title: Text(
-          patient.patient_name,
+          patient.patient_name ?? "NA",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text(patient.emp_code),
+        subtitle: Text(patient.emp_code ?? "NA"),
 
         trailing: Row(
           mainAxisSize: MainAxisSize.min,

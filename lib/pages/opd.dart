@@ -19,7 +19,7 @@ class OpdPage extends StatefulWidget {
 
 class _OpdPageState extends State<OpdPage> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/pending_opd_list.php';
+  final _baseUrl = 'http://192.168.0.107/jsw/pending_opd_list.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -174,11 +174,63 @@ class _OpdPageState extends State<OpdPage> {
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
               ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Column(children: [
+                  child: Shimmer.fromColors(
+                  baseColor: Color.fromARGB(255, 148, 204, 242),
+                  highlightColor: Colors.grey[100],
+                  direction: ShimmerDirection.ltr,
+                  child: ListView.builder(
+                    itemBuilder: (_, __) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 48.0,
+                            height: 50.0,
+                            color: Colors.white,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: double.infinity,
+                                  height: 8.0,
+                                  color: Colors.white,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 2.0),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 8.0,
+                                  color: Colors.white,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 2.0),
+                                ),
+                                Container(
+                                  width: 40.0,
+                                  height: 10.0,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    itemCount: 20,
+                  ),
+                ))
+              : Expanded(
+                  child: Column(children: [
                   Expanded(
                       child: ListView.builder(
+                    shrinkWrap: true,
                     controller: _controller,
                     itemCount: PatientModel.patients.length,
                     itemBuilder: (context, index) {
@@ -255,7 +307,7 @@ class _OpdPageState extends State<OpdPage> {
                         child: Text('You have fetched all of the content!'),
                       ),
                     ),
-                ])
+                ]))
           // ignore: prefer_const_constructors
 
           ),

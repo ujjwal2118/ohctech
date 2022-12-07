@@ -174,8 +174,58 @@ class _InjuryPageState extends State<InjuryPage> {
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
               ? Center(
-                  child: CircularProgressIndicator(),
-                )
+                  child: Shimmer.fromColors(
+                  baseColor: Color.fromARGB(255, 148, 204, 242),
+                  highlightColor: Colors.grey[100],
+                  direction: ShimmerDirection.ltr,
+                  child: ListView.builder(
+                    itemBuilder: (_, __) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 48.0,
+                            height: 50.0,
+                            color: Colors.white,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: double.infinity,
+                                  height: 8.0,
+                                  color: Colors.white,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 2.0),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 8.0,
+                                  color: Colors.white,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 2.0),
+                                ),
+                                Container(
+                                  width: 40.0,
+                                  height: 10.0,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    itemCount: 20,
+                  ),
+                ))
               : Column(children: [
                   Expanded(
                       child: ListView.builder(
