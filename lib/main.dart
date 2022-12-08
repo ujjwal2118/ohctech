@@ -16,8 +16,6 @@ import 'package:ohctech/pages/osi_graph.dart';
 import 'package:ohctech/pages/sickness.dart';
 import 'package:ohctech/utils/routes.dart';
 import 'package:ohctech/widgets/themes.dart';
-import './pages/approvedopd.dart';
-import './pages/approvedinjury.dart';
 import './pages/approved_medical.dart';
 import './pages/approved_sickness.dart';
 import 'widgets/patient_widget_opd.dart';
@@ -47,10 +45,6 @@ class MyApp extends StatelessWidget {
         MyRoutes.approvedMedicalRoute: (context) => ApprovedMedical(),
         MyRoutes.approvedSicknessRoute: (context) => ApprovedSickness(),
         MyRoutes.reportsRoute: (context) => Osi(),
-        MyRoutes.testRoute: (context) => ApprovedOPD(),
-        MyRoutes.approvedINJURY: (context) => ApprovedInjury(),
-        MyRoutes.approvedMEDICAL: (context) => ApprovedMedical(),
-        MyRoutes.approvedSICK: (context) => ApprovedSickness(),
       },
     );
   }

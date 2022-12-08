@@ -21,16 +21,3 @@ class InjurypdfPreview extends StatelessWidget {
     );
   }
 }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('PDF Preview'),
-      ),
-      body: PdfPreview(
-        build: (context) => makeInjuryPDF(patient),
-      ),
-    );
-  }
-}
