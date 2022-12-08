@@ -119,7 +119,7 @@ class _ApprovedMedicalState extends State<ApprovedMedical> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("APPROVED Medical Exam. LIST"),
+        title: Text("APPROVED MEDICAL EXAM. LIST"),
       ),
 
       // body: _isFirstLoadRunning
@@ -244,24 +244,24 @@ class _ApprovedMedicalState extends State<ApprovedMedical> {
                     },
                   )),
                   if (_isLoadMoreRunning == true)
-                     SizedBox(
+                    SizedBox(
                       width: 200.0,
                       height: 100.0,
                       child: Shimmer.fromColors(
                         baseColor: Colors.red,
                         highlightColor: Colors.yellow,
-                        child: Center(child:Text(
-                          'Loading...',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
+                        child: Center(
+                          child: Text(
+                            'Loading...',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
                         ),
                       ),
                     ),
-
 
                   // When nothing else to load
                   if (_hasNextPage == false)

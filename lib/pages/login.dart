@@ -61,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
       return "enter";
     }
 
-    var url = 'http://dushant-mali.great-site.net/mobile/index.php';
+    var url = 'http://103.196.222.49:85/jsw/login.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "username": username.text,
       "password": password.text,

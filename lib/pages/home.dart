@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/utils/routes.dart';
-
+import 'package:pricing_cards/pricing_cards.dart';
 import 'package:ohctech/widgets/drawer.dart';
+import 'package:fluid_action_card/FluidActionCard/fluid_action_card.dart';
+import 'package:heroicons/heroicons.dart';
 import 'package:http/http.dart' as http;
-import 'package:shimmer/shimmer.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var urlOPD = "https://jswcement.techsyneric.com/patient_count.php";
+  var urlOPD = "http://103.196.222.49:85/jsw/patient_count.php";
 
   void initState() {
     // TODO: implement initState
@@ -37,11 +38,6 @@ class _HomePageState extends State<HomePage> {
         .toList();
 
     setState(() {});
-  }
-
-  moveToTest(BuildContext context) async {
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.testRoute);
   }
 
   moveToOpd(BuildContext context) async {
@@ -69,19 +65,24 @@ class _HomePageState extends State<HomePage> {
     await Navigator.pushNamed(context, MyRoutes.sicknessRoute);
   }
 
+  moveToapprovedOpd(BuildContext context) async {
+    await Future.delayed(Duration(seconds: 1));
+    await Navigator.pushNamed(context, MyRoutes.approvedOpdRoute);
+  }
+
   moveToapprovedInjury(BuildContext context) async {
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.approvedINJURY);
+    await Navigator.pushNamed(context, MyRoutes.approvedInjuryRoute);
   }
 
-  moveToapprovedMEDICAL(BuildContext context) async {
+  moveToapprovedMedical(BuildContext context) async {
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.approvedMEDICAL);
+    await Navigator.pushNamed(context, MyRoutes.approvedMedicalRoute);
   }
 
-  moveToapprovedSick(BuildContext context) async {
+  moveToapprovedSickness(BuildContext context) async {
     await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.approvedSICK);
+    await Navigator.pushNamed(context, MyRoutes.approvedSicknessRoute);
   }
 
   @override
@@ -105,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 2,
                   child: Container(
                     width: 300,
-                    height: 200,
+                    height: 215,
                     padding: new EdgeInsets.all(10.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -152,7 +153,6 @@ class _HomePageState extends State<HomePage> {
                                   child: CircularProgressIndicator(),
                                 ),
                           ButtonBar(
-                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -162,11 +162,8 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Approved Click");
-                                  moveToTest(context);
+                                  moveToapprovedOpd(context);
                                 },
-                              ),
-                              SizedBox(
-                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',
@@ -195,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 2,
                   child: Container(
                     width: 300,
-                    height: 200,
+                    height: 215,
                     padding: new EdgeInsets.all(10.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -241,7 +238,6 @@ class _HomePageState extends State<HomePage> {
                                   child: CircularProgressIndicator(),
                                 ),
                           ButtonBar(
-                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -250,12 +246,8 @@ class _HomePageState extends State<HomePage> {
                                         color: Color.fromARGB(
                                             255, 239, 237, 237))),
                                 onPressed: () {
-                                  print("Approved Click");
                                   moveToapprovedInjury(context);
                                 },
-                              ),
-                              SizedBox(
-                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',
@@ -284,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 2,
                   child: Container(
                     width: 300,
-                    height: 200,
+                    height: 210,
                     padding: new EdgeInsets.all(10.0),
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -333,7 +325,6 @@ class _HomePageState extends State<HomePage> {
                             height: 10,
                           ),
                           ButtonBar(
-                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -342,12 +333,8 @@ class _HomePageState extends State<HomePage> {
                                         color: Color.fromARGB(
                                             255, 239, 237, 237))),
                                 onPressed: () {
-                                  print("Approved Click");
-                                  // moveToapprovedMEDICAL(context);
+                                  moveToapprovedMedical(context);
                                 },
-                              ),
-                              SizedBox(
-                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',
@@ -357,7 +344,7 @@ class _HomePageState extends State<HomePage> {
                                             255, 239, 237, 237))),
                                 onPressed: () {
                                   print("Pending Click");
-                                  // moveToMedExam(context);
+                                  moveToMedExam(context);
                                 },
                               ),
                             ],
@@ -422,7 +409,6 @@ class _HomePageState extends State<HomePage> {
                                   child: CircularProgressIndicator(),
                                 ),
                           ButtonBar(
-                            alignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
                                 child: Text('Approved ',
@@ -431,12 +417,8 @@ class _HomePageState extends State<HomePage> {
                                         color: Color.fromARGB(
                                             255, 239, 237, 237))),
                                 onPressed: () {
-                                  print("Approved Click");
-                                  moveToapprovedSick(context);
+                                  moveToapprovedSickness(context);
                                 },
-                              ),
-                              SizedBox(
-                                width: 10,
                               ),
                               ElevatedButton(
                                 child: Text('Pending ',

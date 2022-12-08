@@ -9,17 +9,17 @@ import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/patient_widget_sickness.dart';
+import 'package:ohctech/widgets/patient_widget_opd.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ApprovedSickness extends StatefulWidget {
+class ApprovedOPD extends StatefulWidget {
   @override
-  _ApprovedSicknessState createState() => _ApprovedSicknessState();
+  _ApprovedOPDState createState() => _ApprovedOPDState();
 }
 
-class _ApprovedSicknessState extends State<ApprovedSickness> {
+class _ApprovedOPDState extends State<ApprovedOPD> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_sickness_list.php';
+  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_opd_list.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -118,7 +118,7 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Approved Sickness LIST"),
+        title: Text("APPROVED OPD LIST"),
       ),
 
       // body: _isFirstLoadRunning
@@ -237,7 +237,7 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          child: PatientWidgetSickness(
+                          child: PatientWidget(
                         patient: patient,
                       ));
                     },
@@ -264,11 +264,22 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
 
                   // When nothing else to load
                   if (_hasNextPage == false)
-                    Container(
-                      padding: const EdgeInsets.only(top: 30, bottom: 40),
-                      color: Colors.amber,
-                      child: const Center(
-                        child: Text('You have fetched all of the content'),
+                    SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(
+                          child: Text(
+                            'You Have Fetched All of The Content',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                 ])

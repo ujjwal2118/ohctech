@@ -9,7 +9,6 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
-import './medical_source.dart';
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -41,13 +40,13 @@ class _opdFormState extends State<opdForm> {
 
   bool error = false, dataloaded = false;
   var data;
-  String dataurl = "https://jswcement.techsyneric.com/opd_list.php";
+
+  String dataurl = "http://103.196.222.49:85/jsw/pending_opd_list.php";
 
   @override
   void initState() {
-    // loaddata();
+    loaddata();
     super.initState();
-    getAllCategory();
     Patient dm;
     dm = widget.patient;
     var visitDate;
@@ -61,29 +60,27 @@ class _opdFormState extends State<opdForm> {
     appointment_date.text = visitDate;
   }
 
-//   void loaddata() {
-//     Future.delayed(Duration.zero, () async {
-//       var res = await http.post(Uri.parse(dataurl));
-//       if (res.statusCode == 200) {
-// if (!mounted) return;
-
-//         setState(() {
-//           data = json.decode(res.body);
-//           dataloaded = true;
-//           // we set dataloaded to true,
-//           // so that we can build a list only
-//           // on data load
-//         });
-//       } else {
-//         //there is error
-//         setState(() {
-//           error = true;
-//         });
-//       }
-//     });
-//     // we use Future.delayed becuase there is
-//     // async function inside it.
-//   }
+  void loaddata() {
+    Future.delayed(Duration.zero, () async {
+      var res = await http.post(Uri.parse(dataurl));
+      if (res.statusCode == 200) {
+        setState(() {
+          data = json.decode(res.body);
+          dataloaded = true;
+          // we set dataloaded to true,
+          // so that we can build a list only
+          // on data load
+        });
+      } else {
+        //there is error
+        setState(() {
+          error = true;
+        });
+      }
+    });
+    // we use Future.delayed becuase there is
+    // async function inside it.
+  }
 
   String gender;
   var iteams = [
@@ -106,6 +103,7 @@ class _opdFormState extends State<opdForm> {
     "Follow Up",
     "Medication",
   ];
+
   List<Widget> _buildItems2() {
     return caseType
         .map((val) => MySelectionItem(
@@ -128,28 +126,13 @@ class _opdFormState extends State<opdForm> {
             ))
         .toList();
   }
-  List categoryItemlist = [];
 
-  Future getAllCategory() async {
-    var baseUrl = "http://192.168.22.229/jsw/bodysystemapi.php";
-
-    http.Response response = await http.get(Uri.parse(baseUrl));
-
-    if (response.statusCode == 200) {
-      var jsonData = json.decode(response.body);
-      setState(() {
-        categoryItemlist = jsonData;
-      });
-    }
-  }
-
-  var dropdownvalue;
   String dropdownValue = 'Select Disease Type';
   String caseTypeValue = 'Select Case Type';
   String bodySystemValue = 'Select Body System';
 
   Future<dynamic> updateOPD(BuildContext context) async {
-    var url = 'http://192.168.22.229/api/updateopd.php';
+    var url = 'http://103.196.222.49:85/jsw/opd_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
       "ailments_new": bodySystemValue,
@@ -191,12 +174,6 @@ class _opdFormState extends State<opdForm> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: (){
-              Navigator.pop(context);
-            },
-            icon:Icon(Icons.arrow_back_ios),
-          ),
           centerTitle: true,
           title: const Text(
             "Update Opd Details",
@@ -278,7 +255,7 @@ class _opdFormState extends State<opdForm> {
               const Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(
-                  "\n\n AILMENT SYSTEM \n",
+                  "\n\n AILMENT SYSTEM",
                   style: TextStyle(
                       color: Colors.grey, fontWeight: FontWeight.w500),
                 ),
@@ -309,16 +286,24 @@ class _opdFormState extends State<opdForm> {
                       ),
                     ],
                   ),
-                  items: categoryItemlist.map((item) {
-                    return DropdownMenuItem(
-                      value: item['ailment_sys_name'].toString(),
-                      child: Text(item['ailment_sys_name'].toString()),
-                    );
-                  }).toList(),
-                  value: dropdownvalue,
-                  onChanged: (newVal) {
+                  items: bodySystem
+                      .map((iteams) => DropdownMenuItem<String>(
+                            value: iteams,
+                            child: Text(
+                              iteams,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ))
+                      .toList(),
+                  value: bodySystemValue,
+                  onChanged: (value) {
                     setState(() {
-                      dropdownvalue = newVal;
+                      bodySystemValue = value as String;
                     });
                   },
                   icon: const Icon(
@@ -436,13 +421,6 @@ class _opdFormState extends State<opdForm> {
                 ),
               ),
               const SizedBox(height: 10),
-               Expanded(
-                  flex: 2,
-                  child: Container(
-                    child:  medecineDataGrid(),
-                  )),
-          
-             
               const Divider(),
               const SizedBox(height: 10),
               Container(
@@ -473,61 +451,69 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
-             
+              // Container(
+              //   padding: EdgeInsets.all(15),
+              //   //check if data is loaded, if loaded then show datalist on child
+              //   child: dataloaded
+              //       ? datalist()
+              //       : Center(
+              //           //if data is not loaded then show progress
+              //           child: CircularProgressIndicator()),
+              // ),
             ])),
       ),
     );
   }
 
-  Widget datalist() {
-    var list = List<Medicine>.from(data['medicines'].map((i) {
-      return Medicine.fromJSON(i);
-    }));
-    List<Medicine> namelist = list; //prasing data list to model
+  // Widget datalist() {
+  //   var list = List<Medicine>.from(data['medicines'].map((i) {
+  //     return Medicine.fromJSON(i);
+  //   }));
+  //   List<Medicine> namelist = list; //prasing data list to model
 
-    return Table(
-      //if data is loaded then show table
-      border: TableBorder.all(width: 1, color: Colors.black45),
-      children: namelist.map((medicine) {
-        return TableRow(//return table row in every loop
-            children: [
-          //table cells inside table row
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineName))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineFrequency))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineFordays))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineAdminroute))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineDosage))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineQty))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineIssuedqty))),
-          TableCell(
-              child: Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(medicine.medicineTiming))),
-        ]);
-      }).toList(),
-    );
-  }
+  //   return Table(
+  //     //if data is loaded then show table
+  //     border: TableBorder.all(width: 1, color: Colors.black45),
+  //     children: namelist.map((medicine) {
+  //       return TableRow(//return table row in every loop
+  //           children: [
+  //         //table cells inside table row
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineName))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineFrequency))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineFordays))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineAdminroute))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineDosage))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineQty))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineIssuedqty))),
+  //         TableCell(
+  //             child: Padding(
+  //                 padding: EdgeInsets.all(5),
+  //                 child: Text(medicine.medicineTiming))),
+  //       ]);
+  //     }).toList(),
+  //   );
+  // }
 }
 
 class MySelectionItem extends StatelessWidget {

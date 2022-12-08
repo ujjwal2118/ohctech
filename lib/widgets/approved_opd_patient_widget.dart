@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, use_build_context_synchronously, unused_import, depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
+import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/opd_update.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
-import 'package:ohctech/pages/patient_details_sickness.dart';
-import 'package:ohctech/pages/sickness_update.dart';
 import 'package:ohctech/utils/routes.dart';
 import 'package:day_night_time_picker/lib/constants.dart';
 import 'package:http/http.dart' as http;
@@ -26,8 +25,9 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 
-class PatientWidgetSickness extends StatelessWidget {
+class ApprovedopdWidget extends StatelessWidget {
   final Patient patient;
+  final Medicine medicine;
 
   // moveToOpdForm(BuildContext context) async {
   //   await Future.delayed(Duration(seconds: 1));
@@ -40,7 +40,8 @@ class PatientWidgetSickness extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidgetSickness({Key key, @required this.patient})
+  const ApprovedopdWidget(
+      {Key key, @required this.patient, @required this.medicine})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -52,35 +53,77 @@ class PatientWidgetSickness extends StatelessWidget {
         // onTap: () => moveToOpdForm(context),
         leading: Image.asset("assets/images/user.png"),
         title: Text(
-          patient.patient_name,
+          patient.patient_name ?? "NA",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text(patient.emp_code),
+        subtitle: Text(patient.emp_code ?? "NA"),
 
+        // trailing: PopupMenuButton(
+        //     // add icon, by default "3 dot" icon
+        //     // icon: Icon(Icons.book)
+        //     //  iconSize :30,
+        //     tooltip: "More Option",
+        //     //  color : Colors.grey,
+        //     itemBuilder: (context) {
+        //       return [
+        //         PopupMenuItem<int>(
+        //           value: 0,
+        //           child: Icon(Icons.edit),
+        //         ),
+        //         PopupMenuItem<int>(
+        //           value: 1,
+        //           child: Icon(Icons.search),
+        //         ),
+        //       ];
+        //     },
+        //     onSelected: (value) {
+        //       if (value == 0) {
+        //         Navigator.push(
+        //             context,
+        //             MaterialPageRoute(
+        //                 builder: (context) =>
+        //                     opdForm(patient: patient, medicine: medicine)));
+        //       } else if (value == 1) {
+        //         Navigator.push(
+        //             context,
+        //             MaterialPageRoute(
+        //                 builder: (context) => PatientDetailsOpd(
+        //                     patient: patient, medicine: medicine)));
+        //       }
+        //     }),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // IconButton(
+            //     onPressed: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) =>
+            //                 opdForm(patient: patient, medicine: medicine)));
+            //     },
+            //     icon: Icon(Icons.edit)),
             IconButton(
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              sicknessEdit(patient: patient)));
-                },
-                icon: Icon(Icons.edit)),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              PatientDetailsSickness(patient: patient)));
+                          builder: (context) => PatientDetailsOpd(
+                              patient: patient, medicine: medicine)));
                 },
                 icon: Icon(Icons.picture_as_pdf)),
           ],
         ),
+
+        // trailing: Text(
+        //   patient.emp_code,
+        //   textScaleFactor: 1,
+        //   style: TextStyle(
+        //     color: Color.fromARGB(255, 19, 18, 20),
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
       ),
       color: Color.fromARGB(255, 148, 204, 242),
       elevation: 5,

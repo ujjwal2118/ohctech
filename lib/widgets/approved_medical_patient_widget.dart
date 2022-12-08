@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
+import 'package:ohctech/pages/medical_details.dart';
+import 'package:ohctech/pages/medical_update.dart';
 import 'package:ohctech/pages/opd_update.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/pages/patient_details_sickness.dart';
@@ -26,7 +28,7 @@ import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 
-class PatientWidgetSickness extends StatelessWidget {
+class ApprovedMedicalWidget extends StatelessWidget {
   final Patient patient;
 
   // moveToOpdForm(BuildContext context) async {
@@ -40,7 +42,7 @@ class PatientWidgetSickness extends StatelessWidget {
   //   );
   // }
 
-  const PatientWidgetSickness({Key key, @required this.patient})
+  const ApprovedMedicalWidget({Key key, @required this.patient})
       // ignore: unnecessary_null_comparison
       : super(key: key);
 
@@ -66,17 +68,7 @@ class PatientWidgetSickness extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              sicknessEdit(patient: patient)));
-                },
-                icon: Icon(Icons.edit)),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              PatientDetailsSickness(patient: patient)));
+                          builder: (context) => MedicalExam(patient: patient)));
                 },
                 icon: Icon(Icons.picture_as_pdf)),
           ],

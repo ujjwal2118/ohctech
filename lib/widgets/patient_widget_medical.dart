@@ -54,52 +54,34 @@ class PatientWidgetMedical extends StatelessWidget {
         // onTap: () => moveToOpdForm(context),
         leading: Image.asset("assets/images/user.png"),
         title: Text(
-          patient.patient_name,
+          patient.patient_name ?? "NA",
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           textAlign: TextAlign.justify,
         ),
-        subtitle: Text(patient.emp_code),
+        subtitle: Text(patient.emp_code ?? "NA"),
 
-        trailing: PopupMenuButton(
-            // add icon, by default "3 dot" icon
-            // icon: Icon(Icons.book)
-            //  iconSize :30,
-            tooltip: "More Option",
-            //  color : Colors.grey,
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem<int>(
-                  value: 0,
-                  child: Icon(Icons.edit),
-                ),
-                PopupMenuItem<int>(
-                  value: 1,
-                  child: Icon(Icons.search),
-                ),
-              ];
-            },
-            onSelected: (value) {
-              if (value == 0) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => medicalUpdate(patient: patient)));
-              } else if (value == 1) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MedicalExam(patient: patient)));
-              }
-            }),
-
-        // trailing: Text(
-        //   patient.emp_code,
-        //   textScaleFactor: 1,
-        //   style: TextStyle(
-        //     color: Color.fromARGB(255, 19, 18, 20),
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              medicalUpdate(patient: patient)));
+                },
+                icon: Icon(Icons.edit)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MedicalExam(patient: patient)));
+                },
+                icon: Icon(Icons.picture_as_pdf)),
+          ],
+        ),
       ),
       color: Color.fromARGB(255, 148, 204, 242),
       elevation: 5,

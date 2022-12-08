@@ -7,8 +7,8 @@ class MyRoutes {
   static String medExamRoute = "/medExam";
   static String opdFormRoute = "/opdform";
   static String reportsRoute = "/reports";
-  static String testRoute = "/test";
-  static String approvedINJURY = "/approvedinjury";
-  static String approvedMEDICAL = "/approvedmedi";
-  static String approvedSICK = "/approvedsick";
+  static String approvedOpdRoute = "/approvedOpd";
+  static String approvedInjuryRoute = "/approvedInjury";
+  static String approvedMedicalRoute = "/approvedMedical";
+  static String approvedSicknessRoute = "/approvedSickness";
 }

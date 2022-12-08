@@ -57,29 +57,29 @@ class PatientWidget extends StatelessWidget {
           textAlign: TextAlign.justify,
         ),
         subtitle: Text(patient.emp_code ?? "NA"),
-trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(onPressed: () {
- Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => injuryForm(patient: patient)));
-                    }, icon: const Icon(Icons.edit)),
-                
-              
-                    IconButton(
-                        onPressed: () {
-        Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            PatientDetailsInjury(patient: patient)));
-                        }, icon: const Icon(Icons.picture_as_pdf)),
-                  ],
-                ),
 
-     
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => injuryForm(patient: patient)));
+                },
+                icon: Icon(Icons.edit)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              PatientDetailsInjury(patient: patient)));
+                },
+                icon: Icon(Icons.picture_as_pdf)),
+          ],
+        ),
       ),
       color: Color.fromARGB(255, 148, 204, 242),
       elevation: 5,

@@ -193,7 +193,7 @@ class _injuryFormState extends State<injuryForm> {
   final _multiSelectKey = GlobalKey<FormFieldState>();
 
   Future<dynamic> updateInjury(BuildContext context) async {
-    var url = 'https://ohctech.000webhostapp.com/injury_update.php';
+    var url = 'http://103.196.222.49:85/jsw/injury_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
       "complaints": complaints.text,

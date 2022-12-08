@@ -9,17 +9,18 @@ import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
-import 'package:ohctech/widgets/patient_widget_sickness.dart';
+import 'package:ohctech/widgets/patient_widget_injury.dart';
+
 import 'package:shimmer/shimmer.dart';
 
-class ApprovedSickness extends StatefulWidget {
+class ApprovedInjury extends StatefulWidget {
   @override
-  _ApprovedSicknessState createState() => _ApprovedSicknessState();
+  _ApprovedInjuryState createState() => _ApprovedInjuryState();
 }
 
-class _ApprovedSicknessState extends State<ApprovedSickness> {
+class _ApprovedInjuryState extends State<ApprovedInjury> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_sickness_list.php';
+  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_injury_list_new.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -118,7 +119,7 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Approved Sickness LIST"),
+        title: Text("APPROVED INJURY LIST"),
       ),
 
       // body: _isFirstLoadRunning
@@ -237,7 +238,7 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          child: PatientWidgetSickness(
+                          child: PatientWidget(
                         patient: patient,
                       ));
                     },
