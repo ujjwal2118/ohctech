@@ -47,6 +47,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   void initState() {
     super.initState();
     Patient dm;
+    getAllCategory();
     dm = widget.patient;
     print(dm);
     // var visitDate;
@@ -165,13 +166,34 @@ class _sicknessEditState extends State<sicknessEdit> {
       ).show();
     }
   }
+  List categoryItemlist = [];
 
+  Future getAllCategory() async {
+    var baseUrl = "http://192.168.43.21/jsw/bodysystemapi.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        categoryItemlist = jsonData;
+      });
+    }
+  }
+
+  var dropdownvalue;
   Widget build(BuildContext context) {
     var vdate;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon:Icon(Icons.arrow_back_ios),
+          ),
           centerTitle: true,
           title: const Text(
             "Update Fitness Details",
@@ -344,7 +366,7 @@ class _sicknessEditState extends State<sicknessEdit> {
                   style: TextStyle(
                       color: Colors.grey, fontWeight: FontWeight.w500),
                 ),
-              ),
+              ), 
               DropdownButtonHideUnderline(
                 child: DropdownButton2(
                   isExpanded: true,
@@ -353,7 +375,7 @@ class _sicknessEditState extends State<sicknessEdit> {
                       Icon(
                         Icons.list,
                         size: 16,
-                        color: Colors.yellow,
+                        color: Colors.white,
                       ),
                       SizedBox(
                         width: 4,
@@ -364,31 +386,23 @@ class _sicknessEditState extends State<sicknessEdit> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.yellow,
+                            color: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
-                  items: bodySystem
-                      .map((items) => DropdownMenuItem<String>(
-                            value: items,
-                            child: Text(
-                              items,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ))
-                      .toList(),
-                  value: bodySystemValue,
-                  onChanged: (value) {
+                  items: categoryItemlist.map((item) {
+                    return DropdownMenuItem(
+                      value: item['ailment_sys_name'].toString(),
+                      child: Text(item['ailment_sys_name'].toString()),
+                    );
+                  }).toList(),
+                  value: dropdownvalue,
+                  onChanged: (newVal) {
                     setState(() {
-                      bodySystemValue = value as String;
+                      dropdownvalue = newVal;
                     });
                   },
                   icon: const Icon(
@@ -451,7 +465,7 @@ class _sicknessEditState extends State<sicknessEdit> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.yellow,
+                            color: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),

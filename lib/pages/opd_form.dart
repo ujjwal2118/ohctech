@@ -28,7 +28,25 @@ import 'package:day_night_time_picker/day_night_time_picker.dart';
 
 class OpdForm extends StatelessWidget {
   final Patient patient;
+  
+// Future<List> fetchData() async {
+//   var teacher_id = await AppUtils.getStringFromPref("teacher_id");
+//   final data = await http
+//       .post(AppUtils.teacherHomeLink, body: {"teacher_id": teacher_id});
+//   var responseBody = data.body;
+//   print(responseBody);
+//   final parsed = json.decode(data.body).cast<Map<String, dynamic>>();
 
+//   List<TeacherHomeData> parentSigninList = parsed
+//       .map<TeacherHomeData>((json) => TeacherHomeData.fromJson(json))
+//       .toList();
+
+//   for (int i = 0; i < parentSigninList.length; i++) {
+//     courseNameList.add(parentSigninList[i].course_name);
+//     batchNameList.add(parentSigninList[i].batch_name);
+//   }
+//   return courseNameList;
+// }
   const OpdForm({Key key, @required this.patient})
       : assert(patient != null),
         super(key: key);
