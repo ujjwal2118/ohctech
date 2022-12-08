@@ -294,71 +294,71 @@ class PatientDetailsOpd extends StatelessWidget {
               //     ],
               //   ),
               // ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                color: Colors.lightBlue,
-                child: Center(
-                  child: Text(
-                    "Medicine",
-                    style: TextStyle(
-                      fontSize: 18,
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              //   padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+              //   color: Colors.lightBlue,
+              //   child: Center(
+              //     child: Text(
+              //       "Medicine",
+              //       style: TextStyle(
+              //         fontSize: 18,
 
-                      color: Colors.black, //font color
-                      letterSpacing: 2, //letter spacing
-                      decorationStyle:
-                          TextDecorationStyle.double, //double underline
-                      decorationColor:
-                          Colors.brown, //text decoration 'underline' color
-                      decorationThickness: 2, //decoration 'underline' thickness
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Row(
-                  children: <Widget>[
-                    Table(
-                      defaultColumnWidth: FixedColumnWidth(85),
-                      border: TableBorder.all(
-                          color: Colors.black,
-                          style: BorderStyle.solid,
-                          width: 2),
-                      children: [
-                        TableRow(children: [
-                          Column(children: [
-                            Text('Medicine', style: TextStyle(fontSize: 15.0))
-                          ]),
-                          Column(children: [
-                            Text('Frequency', style: TextStyle(fontSize: 15.0))
-                          ]),
-                          Column(children: [
-                            Text('DURATION', style: TextStyle(fontSize: 15.0))
-                          ]),
-                          Column(children: [
-                            Text('Qty issued', style: TextStyle(fontSize: 15.0))
-                          ]),
-                        ]),
-                        TableRow(children: [
-                          Column(children: [
-                            Text('NaN', style: TextStyle(fontSize: 15.0))
-                          ]),
-                          Column(children: [
-                            Text('NaN', style: TextStyle(fontSize: 15.0))
-                          ]),
-                          Column(children: [
-                            Text('NaN', style: TextStyle(fontSize: 15.0))
-                          ]),
-                          Column(children: [
-                            Text('NaN', style: TextStyle(fontSize: 15.0))
-                          ]),
-                        ]),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              //         color: Colors.black, //font color
+              //         letterSpacing: 2, //letter spacing
+              //         decorationStyle:
+              //             TextDecorationStyle.double, //double underline
+              //         decorationColor:
+              //             Colors.brown, //text decoration 'underline' color
+              //         decorationThickness: 2, //decoration 'underline' thickness
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // Container(
+              //   margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              //   child: Row(
+              //     children: <Widget>[
+              //       Table(
+              //         defaultColumnWidth: FixedColumnWidth(85),
+              //         border: TableBorder.all(
+              //             color: Colors.black,
+              //             style: BorderStyle.solid,
+              //             width: 2),
+              //         children: [
+              //           TableRow(children: [
+              //             Column(children: [
+              //               Text('Medicine', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //             Column(children: [
+              //               Text('Frequency', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //             Column(children: [
+              //               Text('DURATION', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //             Column(children: [
+              //               Text('Qty issued', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //           ]),
+              //           TableRow(children: [
+              //             Column(children: [
+              //               Text('NaN', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //             Column(children: [
+              //               Text('NaN', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //             Column(children: [
+              //               Text('NaN', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //             Column(children: [
+              //               Text('NaN', style: TextStyle(fontSize: 15.0))
+              //             ]),
+              //           ]),
+              //         ],
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, unused_import
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
@@ -62,20 +62,22 @@ class _opdFormState extends State<opdForm> {
 
   void loaddata() {
     Future.delayed(Duration.zero, () async {
-      var res = await http.post(Uri.parse(dataurl));
-      if (res.statusCode == 200) {
-        setState(() {
-          data = json.decode(res.body);
-          dataloaded = true;
-          // we set dataloaded to true,
-          // so that we can build a list only
-          // on data load
-        });
-      } else {
-        //there is error
-        setState(() {
-          error = true;
-        });
+      var res;
+      try {
+        res = await http.post(Uri.parse(dataurl));
+        if (res.statusCode == 200) {
+          setState(() {
+            data = json.decode(res.body);
+            dataloaded = true;
+          });
+        } else {
+          //there is error
+          setState(() {
+            error = true;
+          });
+        }
+      } catch (e) {
+        print(e);
       }
     });
     // we use Future.delayed becuase there is
@@ -155,7 +157,10 @@ class _opdFormState extends State<opdForm> {
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
-        btnOkOnPress: () {},
+        btnOkOnPress: () {
+          Navigator.pop(context);
+          Navigator.pop(context);
+        },
       ).show();
     } else {
       AwesomeDialog(
