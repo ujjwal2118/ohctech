@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    var response = await http.get(Uri.parse(urlOPD));
+  var response = await http.get(Uri.parse(urlOPD));
 
     var patientJson = response.body.toString();
 

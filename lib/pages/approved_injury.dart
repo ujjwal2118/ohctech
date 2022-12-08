@@ -122,55 +122,6 @@ class _ApprovedInjuryState extends State<ApprovedInjury> {
         title: Text("APPROVED INJURY LIST"),
       ),
 
-      // body: _isFirstLoadRunning
-      //     ? const Center(
-      //         child: CircularProgressIndicator(),
-      //       )
-      //     : Column(
-      //         children: [
-      //           Expanded(
-      //             child: InkWell(
-      //               onTap: () => Navigator.push(
-      //                   context,
-      //                   MaterialPageRoute(
-      //                       builder: (context) =>
-      //                           PatientDetailsOpd(patient: patient))),
-      //               child: ListView.builder(
-      //                 controller: _controller,
-      //                 itemCount: _posts.length,
-      //                 itemBuilder: (_, index) => Card(
-      //                   margin: const EdgeInsets.symmetric(
-      //                       vertical: 8, horizontal: 10),
-      //                   child: ListTile(
-      //                     title: Text(_posts[index]['patient_name']),
-      //                     subtitle: Text(_posts[index]['emp_code']),
-      //                   ),
-      //                 ),
-      //               ),
-      //             ),
-      //           ),
-
-      //           // when the _loadMore function is running
-      //           if (_isLoadMoreRunning == true)
-      //             const Padding(
-      //               padding: EdgeInsets.only(top: 10, bottom: 40),
-      //               child: Center(
-      //                 child: CircularProgressIndicator(),
-      //               ),
-      //             ),
-
-      //           // When nothing else to load
-      //           if (_hasNextPage == false)
-      //             Container(
-      //               padding: const EdgeInsets.only(top: 30, bottom: 40),
-      //               color: Colors.amber,
-      //               child: const Center(
-      //                 child: Text('You have fetched all of the content'),
-      //               ),
-      //             ),
-      //         ],
-      //       ),
-
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
@@ -265,11 +216,22 @@ class _ApprovedInjuryState extends State<ApprovedInjury> {
 
                   // When nothing else to load
                   if (_hasNextPage == false)
-                    Container(
-                      padding: const EdgeInsets.only(top: 30, bottom: 40),
-                      color: Colors.amber,
-                      child: const Center(
-                        child: Text('You have fetched all of the content'),
+                    SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(
+                          child: Text(
+                            'You Have Fetched All of The Content',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                 ])

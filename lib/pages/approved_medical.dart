@@ -265,11 +265,22 @@ class _ApprovedMedicalState extends State<ApprovedMedical> {
 
                   // When nothing else to load
                   if (_hasNextPage == false)
-                    Container(
-                      padding: const EdgeInsets.only(top: 30, bottom: 40),
-                      color: Colors.amber,
-                      child: const Center(
-                        child: Text('You have fetched all of the content'),
+                    SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(
+                          child: Text(
+                            'You Have Fetched All of The Content',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                 ])

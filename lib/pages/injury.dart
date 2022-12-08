@@ -240,69 +240,43 @@ class _InjuryPageState extends State<InjuryPage> {
                     },
                   )),
                   if (_isLoadMoreRunning == true)
-                    Shimmer.fromColors(
-                      baseColor: Color.fromARGB(255, 148, 204, 242),
-                      highlightColor: Colors.grey[100],
-                      direction: ShimmerDirection.ltr,
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemBuilder: (_, __) => Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                width: 48.0,
-                                height: 50.0,
-                                color: Colors.white,
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      width: double.infinity,
-                                      height: 8.0,
-                                      color: Colors.white,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: 8.0,
-                                      color: Colors.white,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(vertical: 2.0),
-                                    ),
-                                    Container(
-                                      width: 40.0,
-                                      height: 10.0,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                   SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(
+                          child: Text(
+                            'Loading...',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        itemCount: 20,
                       ),
                     ),
 
                   // When nothing else to load
                   if (_hasNextPage == false)
-                    Container(
-                      padding: const EdgeInsets.only(top: 20, bottom: 20),
-                      color: Colors.amber,
-                      child: const Center(
-                        child: Text('You have fetched all of the content!'),
+                    SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.red,
+                        highlightColor: Colors.yellow,
+                        child: Center(
+                          child: Text(
+                            'You Have Fetched All of The Content',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                 ])
