@@ -117,132 +117,156 @@ class _OpdPageState extends State<OpdPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Sizer(builder: ((context, orientation, deviceType) {
+    if (_posts.isNotEmpty) {
+      return Sizer(builder: ((context, orientation, deviceType) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text("OPD LIST"),
+          ),
+          body: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: _isFirstLoadRunning
+                  ? Center(
+                      child: Shimmer.fromColors(
+                      baseColor: Color.fromARGB(255, 148, 204, 242),
+                      highlightColor: Colors.grey[100],
+                      direction: ShimmerDirection.ltr,
+                      child: ListView.builder(
+                        itemBuilder: (_, __) => Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                width: 40.0.w,
+                                height: 10.0.h,
+                                color: Colors.white,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      width: double.infinity,
+                                      height: 8.0.h,
+                                      color: Colors.white,
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 2.0),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 8.0.h,
+                                      color: Colors.white,
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 2.0),
+                                    ),
+                                    Container(
+                                      width: 40.0.w,
+                                      height: 10.0.h,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        itemCount: 20,
+                      ),
+                    ))
+                  : Expanded(
+                      child: Column(children: [
+                      Expanded(
+                          child: ListView.builder(
+                        shrinkWrap: true,
+                        controller: _controller,
+                        itemCount: PatientModel.patients.length,
+                        itemBuilder: (context, index) {
+                          final patient = PatientModel.patients[index];
+                          return InkWell(
+                              child: PatientWidget(
+                            patient: patient,
+                          ));
+                        },
+                      )),
+                      if (_isLoadMoreRunning == true)
+                        SizedBox(
+                          width: 40.w,
+                          height: 10.h,
+                          child: Shimmer.fromColors(
+                            baseColor: Colors.red,
+                            highlightColor: Colors.yellow,
+                            child: Center(
+                              child: Text(
+                                'Loading...',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                      // When nothing else to load
+                      if (_hasNextPage == false)
+                        SizedBox(
+                          width: 40.w,
+                          height: 10.h,
+                          child: Shimmer.fromColors(
+                            baseColor: Colors.red,
+                            highlightColor: Colors.yellow,
+                            child: Center(
+                              child: Text(
+                                'You Have Fetched All of The Content',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ]))
+              // ignore: prefer_const_constructors
+
+              ),
+          drawer: MyDrawer(
+            text: '',
+          ),
+        );
+      }));
+    } else {
       return Scaffold(
         appBar: AppBar(
           title: Text("OPD LIST"),
         ),
-        body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: _isFirstLoadRunning
-                ? Center(
-                    child: Shimmer.fromColors(
-                    baseColor: Color.fromARGB(255, 148, 204, 242),
-                    highlightColor: Colors.grey[100],
-                    direction: ShimmerDirection.ltr,
-                    child: ListView.builder(
-                      itemBuilder: (_, __) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              width: 40.0.w,
-                              height: 10.0.h,
-                              color: Colors.white,
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    width: double.infinity,
-                                    height: 8.0.h,
-                                    color: Colors.white,
-                                  ),
-                                  const Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 2.0),
-                                  ),
-                                  Container(
-                                    width: double.infinity,
-                                    height: 8.0.h,
-                                    color: Colors.white,
-                                  ),
-                                  const Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 2.0),
-                                  ),
-                                  Container(
-                                    width: 40.0.w,
-                                    height: 10.0.h,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      itemCount: 20,
-                    ),
-                  ))
-                : Expanded(
-                    child: Column(children: [
-                    Expanded(
-                        child: ListView.builder(
-                      shrinkWrap: true,
-                      controller: _controller,
-                      itemCount: PatientModel.patients.length,
-                      itemBuilder: (context, index) {
-                        final patient = PatientModel.patients[index];
-                        return InkWell(
-                            child: PatientWidget(
-                          patient: patient,
-                        ));
-                      },
-                    )),
-                    if (_isLoadMoreRunning == true)
-                      SizedBox(
-                        width: 40.w,
-                        height: 10.h,
-                        child: Shimmer.fromColors(
-                          baseColor: Colors.red,
-                          highlightColor: Colors.yellow,
-                          child: Center(
-                            child: Text(
-                              'Loading...',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                    // When nothing else to load
-                    if (_hasNextPage == false)
-                      SizedBox(
-                        width: 40.w,
-                        height: 10.h,
-                        child: Shimmer.fromColors(
-                          baseColor: Colors.red,
-                          highlightColor: Colors.yellow,
-                          child: Center(
-                            child: Text(
-                              'You Have Fetched All of The Content',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                  ]))
-            // ignore: prefer_const_constructors
-
+        body: Center(
+          child: Shimmer.fromColors(
+            baseColor: Colors.blue,
+            highlightColor: Colors.red,
+            child: Center(
+              child: Text(
+                'Data Not Found',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-        drawer: MyDrawer(
-          text: '',
+          ),
         ),
       );
-    }));
+    }
   }
 }

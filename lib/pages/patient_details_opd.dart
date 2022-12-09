@@ -23,6 +23,12 @@ class PatientDetailsOpd extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
           centerTitle: true,
           title: Text(
             "Patient Details",

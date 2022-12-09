@@ -10,6 +10,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
+import 'package:ohctech/pages/home.dart';
 
 void main() {
   runApp(medicalUpdate());
@@ -207,6 +208,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
       print(e);
     }
   }
+
+  DateTime _date = DateTime.now();
 
   var approvalStatusValue = [
     "Select an option",
@@ -551,7 +554,15 @@ class _medicalUpdateState extends State<medicalUpdate> {
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
-        btnOkOnPress: () {},
+        btnOkOnPress: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
+        },
       ).show();
     } else {
       AwesomeDialog(

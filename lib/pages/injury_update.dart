@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:ohctech/pages/home.dart';
 
 // import 'package:intl/intl.dart';
 
@@ -218,7 +219,15 @@ class _injuryFormState extends State<injuryForm> {
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
-        btnOkOnPress: () {},
+        btnOkOnPress: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
+        },
       ).show();
     } else {
       AwesomeDialog(
@@ -237,6 +246,12 @@ class _injuryFormState extends State<injuryForm> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
           centerTitle: true,
           title: const Text(
             "Update Injury Details",

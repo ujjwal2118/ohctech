@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:ohctech/pages/home.dart';
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -46,6 +47,7 @@ class _opdFormState extends State<opdForm> {
   @override
   void initState() {
     loaddata();
+    getAllCategory();
     super.initState();
     Patient dm;
     dm = widget.patient;
@@ -129,6 +131,23 @@ class _opdFormState extends State<opdForm> {
         .toList();
   }
 
+  List categoryItemlist = [];
+
+  Future getAllCategory() async {
+    var baseUrl = "http://192.168.22.229/jsw/bodysystemapi.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        categoryItemlist = jsonData;
+      });
+    }
+  }
+
+  var dropdownvalue;
+
   String dropdownValue = 'Select Disease Type';
   String caseTypeValue = 'Select Case Type';
   String bodySystemValue = 'Select Body System';
@@ -158,8 +177,13 @@ class _opdFormState extends State<opdForm> {
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
         btnOkOnPress: () {
-          Navigator.pop(context);
-          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
         },
       ).show();
     } else {
@@ -291,24 +315,16 @@ class _opdFormState extends State<opdForm> {
                       ),
                     ],
                   ),
-                  items: bodySystem
-                      .map((iteams) => DropdownMenuItem<String>(
-                            value: iteams,
-                            child: Text(
-                              iteams,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ))
-                      .toList(),
-                  value: bodySystemValue,
-                  onChanged: (value) {
+                  items: categoryItemlist.map((item) {
+                    return DropdownMenuItem(
+                      value: item['ailment_sys_name'].toString(),
+                      child: Text(item['ailment_sys_name'].toString()),
+                    );
+                  }).toList(),
+                  value: dropdownvalue,
+                  onChanged: (newVal) {
                     setState(() {
-                      bodySystemValue = value as String;
+                      dropdownvalue = newVal;
                     });
                   },
                   icon: const Icon(

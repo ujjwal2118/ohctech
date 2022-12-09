@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:ohctech/pages/home.dart';
 
 // import 'package:intl/intl.dart';
 
@@ -47,6 +48,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   void initState() {
     super.initState();
     Patient dm;
+    getAllCategory();
     dm = widget.patient;
     print(dm);
     // var visitDate;
@@ -153,7 +155,15 @@ class _sicknessEditState extends State<sicknessEdit> {
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
-        btnOkOnPress: () {},
+        btnOkOnPress: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
+        },
       ).show();
     } else {
       AwesomeDialog(
@@ -166,12 +176,34 @@ class _sicknessEditState extends State<sicknessEdit> {
     }
   }
 
+  List categoryItemlist = [];
+
+  Future getAllCategory() async {
+    var baseUrl = "http://103.196.222.49:85/jsw/bodysystemapi.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        categoryItemlist = jsonData;
+      });
+    }
+  }
+
+  var dropdownvalue;
   Widget build(BuildContext context) {
     var vdate;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
           centerTitle: true,
           title: const Text(
             "Update Fitness Details",
@@ -353,7 +385,7 @@ class _sicknessEditState extends State<sicknessEdit> {
                       Icon(
                         Icons.list,
                         size: 16,
-                        color: Colors.yellow,
+                        color: Colors.white,
                       ),
                       SizedBox(
                         width: 4,
@@ -364,31 +396,23 @@ class _sicknessEditState extends State<sicknessEdit> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.yellow,
+                            color: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
-                  items: bodySystem
-                      .map((items) => DropdownMenuItem<String>(
-                            value: items,
-                            child: Text(
-                              items,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ))
-                      .toList(),
-                  value: bodySystemValue,
-                  onChanged: (value) {
+                  items: categoryItemlist.map((item) {
+                    return DropdownMenuItem(
+                      value: item['ailment_sys_name'].toString(),
+                      child: Text(item['ailment_sys_name'].toString()),
+                    );
+                  }).toList(),
+                  value: dropdownvalue,
+                  onChanged: (newVal) {
                     setState(() {
-                      bodySystemValue = value as String;
+                      dropdownvalue = newVal;
                     });
                   },
                   icon: const Icon(
@@ -451,7 +475,7 @@ class _sicknessEditState extends State<sicknessEdit> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.yellow,
+                            color: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
