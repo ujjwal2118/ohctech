@@ -130,7 +130,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   String approvalStatus = "Select an option";
 
   Future<dynamic> insertOPD(BuildContext context) async {
-    var url = 'http://103.196.222.49:85/jsw/sickness_update.php';
+     var url = 'http://103.196.222.49:85/jsw/sickness_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticketNo.text,
       "name": patientName.text,
@@ -154,7 +154,10 @@ class _sicknessEditState extends State<sicknessEdit> {
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
-        btnOkOnPress: () {},
+        btnOkOnPress: () {
+             Navigator.pop(context);
+          Navigator.pop(context);
+        },
       ).show();
     } else {
       AwesomeDialog(
@@ -169,7 +172,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   List categoryItemlist = [];
 
   Future getAllCategory() async {
-    var baseUrl = "http://192.168.43.21/jsw/bodysystemapi.php";
+    var baseUrl = "http://192.168.94.229/jsw/bodysystemapi.php";
 
     http.Response response = await http.get(Uri.parse(baseUrl));
 

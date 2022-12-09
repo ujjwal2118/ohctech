@@ -218,7 +218,10 @@ class _injuryFormState extends State<injuryForm> {
         dialogType: DialogType.success,
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
-        btnOkOnPress: () {},
+        btnOkOnPress: () {
+             Navigator.pop(context);
+          Navigator.pop(context);
+        },
       ).show();
     } else {
       AwesomeDialog(

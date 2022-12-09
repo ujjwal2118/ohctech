@@ -116,6 +116,7 @@ class _MedicalPageState extends State<MedicalPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_posts.isNotEmpty) {
     return Scaffold(
       appBar: AppBar(
         title: Text("MEDICAL EXAMINATION LIST"),
@@ -237,5 +238,28 @@ class _MedicalPageState extends State<MedicalPage> {
         text: '',
       ),
     );
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Medical Exa. LIST"),
+        ),
+        body: Center(
+          child: Shimmer.fromColors(
+            baseColor: Colors.blue,
+            highlightColor: Colors.red,
+            child: Center(
+              child: Text(
+                'Data Not Found',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
   }
 }

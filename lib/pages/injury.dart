@@ -41,10 +41,11 @@ class _InjuryPageState extends State<InjuryPage> {
       setState(() {
         _posts = json.decode(res.body);
         print(_posts);
+        if (_posts.isEmpty) {}
       });
     } catch (err) {
       if (kDebugMode) {
-        print('Something went wrong');
+        // DatanotFound();
       }
     }
     setState(() {
@@ -116,6 +117,8 @@ class _InjuryPageState extends State<InjuryPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_posts.isNotEmpty) {
+      
     return Scaffold(
       appBar: AppBar(
         title: Text("INJURY LIST"),
@@ -287,5 +290,28 @@ class _InjuryPageState extends State<InjuryPage> {
         text: '',
       ),
     );
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("INJURY LIST"),
+        ),
+        body: Center(
+          child: Shimmer.fromColors(
+            baseColor: Colors.blue,
+            highlightColor: Colors.red,
+            child: Center(
+              child: Text(
+                'Data Not Found',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
   }
 }
