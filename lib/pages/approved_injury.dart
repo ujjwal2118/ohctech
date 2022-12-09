@@ -121,7 +121,6 @@ class _ApprovedInjuryState extends State<ApprovedInjury> {
       appBar: AppBar(
         title: Text("APPROVED INJURY LIST"),
       ),
-
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning

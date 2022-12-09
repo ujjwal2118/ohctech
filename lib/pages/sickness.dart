@@ -19,7 +19,7 @@ class SicknessPage extends StatefulWidget {
 
 class _SicknessPageState extends State<SicknessPage> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/pending_sickness_list.php';
+  final _baseUrl = 'http://192.168.94.229/jsw/pending_sickness_list.php';
   int _page = 0;
 
   final int _limit = 10;
@@ -120,7 +120,6 @@ class _SicknessPageState extends State<SicknessPage> {
       appBar: AppBar(
         title: Text("SICKNESS LIST"),
       ),
-
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
@@ -191,7 +190,7 @@ class _SicknessPageState extends State<SicknessPage> {
                     },
                   )),
                   if (_isLoadMoreRunning == true)
-                   SizedBox(
+                    SizedBox(
                       width: 200.0,
                       height: 100.0,
                       child: Shimmer.fromColors(

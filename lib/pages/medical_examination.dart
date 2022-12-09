@@ -120,7 +120,6 @@ class _MedicalPageState extends State<MedicalPage> {
       appBar: AppBar(
         title: Text("MEDICAL EXAMINATION LIST"),
       ),
-
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
@@ -190,7 +189,7 @@ class _MedicalPageState extends State<MedicalPage> {
                       ));
                     },
                   )),
-                 if (_isLoadMoreRunning == true)
+                  if (_isLoadMoreRunning == true)
                    SizedBox(
                       width: 200.0,
                       height: 100.0,

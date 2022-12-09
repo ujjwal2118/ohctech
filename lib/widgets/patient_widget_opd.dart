@@ -24,6 +24,7 @@ import 'package:calendar_appbar/calendar_appbar.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
+import 'package:sizer/sizer.dart';
 
 class PatientWidget extends StatelessWidget {
   final Patient patient;
@@ -47,47 +48,48 @@ class PatientWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var emp_code_p = patient.emp_code;
-    return Card(
-      child: ListTile(
-        // onTap: () => moveToOpdForm(context),
-        leading: Image.asset("assets/images/user.png"),
-        title: Text(
-          patient.patient_name ?? "NA",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-          textAlign: TextAlign.justify,
-        ),
-        subtitle: Text(patient.emp_code ?? "NA"),
+    return Sizer(builder: ((context, orientation, deviceType) {
+      return Card(
+        child: ListTile(
+          // onTap: () => moveToOpdForm(context),
+          leading: Image.asset("assets/images/user.png"),
+          title: Text(
+            patient.patient_name ?? "NA",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp),
+            textAlign: TextAlign.justify,
+          ),
+          subtitle: Text(patient.emp_code ?? "NA"),
 
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              opdForm(patient: patient, medicine: medicine)));
-                },
-                icon: Icon(Icons.edit)),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PatientDetailsOpd(
-                              patient: patient, medicine: medicine)));
-                },
-                icon: Icon(Icons.picture_as_pdf)),
-          ],
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                opdForm(patient: patient, medicine: medicine)));
+                  },
+                  icon: Icon(Icons.edit)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PatientDetailsOpd(
+                                patient: patient, medicine: medicine)));
+                  },
+                  icon: Icon(Icons.picture_as_pdf)),
+            ],
+          ),
         ),
-      ),
-      color: Color.fromARGB(255, 148, 204, 242),
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-      ),
-    );
+        color: Color.fromARGB(255, 148, 204, 242),
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+        ),
+      );
+    }));
   }
 }

@@ -264,7 +264,7 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
 
                   // When nothing else to load
                   if (_hasNextPage == false)
-                     SizedBox(
+                    SizedBox(
                       width: 200.0,
                       height: 100.0,
                       child: Shimmer.fromColors(

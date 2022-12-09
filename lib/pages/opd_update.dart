@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, unused_import
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
@@ -65,20 +65,21 @@ class _opdFormState extends State<opdForm> {
       var res;
       try {
         res = await http.post(Uri.parse(dataurl));
-         if (res.statusCode == 200) {
-        setState(() {
-          data = json.decode(res.body);
-          dataloaded = true;
-        });
-      } else {
-        //there is error
-        setState(() {
-          error = true;
-        });
-      }
+        if (res.statusCode == 200) {
+          setState(() {
+            data = json.decode(res.body);
+            dataloaded = true;
+          });
+        } else {
+          //there is error
+          setState(() {
+            error = true;
+          });
+        }
       } catch (e) {
         print(e);
       }
+   
     });
     // we use Future.delayed becuase there is
     // async function inside it.

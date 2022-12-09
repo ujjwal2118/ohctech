@@ -240,7 +240,7 @@ class _InjuryPageState extends State<InjuryPage> {
                     },
                   )),
                   if (_isLoadMoreRunning == true)
-                   SizedBox(
+                    SizedBox(
                       width: 200.0,
                       height: 100.0,
                       child: Shimmer.fromColors(
