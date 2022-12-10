@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/injury_pdf_preview.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
+import 'package:animated_flip_card/animated_flip_card.dart';
 
 void main() {
   runApp(PatientDetailsInjury());
@@ -53,345 +54,557 @@ class PatientDetailsInjury extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Patient Name : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                alignment: Alignment.center,
+                child: AnimatedFlipCard(
+                    front:
+                    Image.asset(
+                      'assets/images/user.png',
+                      width: 250,
+                      fit: BoxFit.contain,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      child: Container(
-                        child: Text( patient.patient_name == null || patient.patient_name == "" ? "Please Select Patient" : patient.patient_name),
+                    back: Image.asset(
+                      'assets/images/logo.jpeg',
+                      width: 250,
+                      fit: BoxFit.contain,
+                    )
+                ),
+              ),
+
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child:    Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Patient Name : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.patient_name ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
                       ),
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Visit Date : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text( patient.appointment_date == null || patient.appointment_date == "" ? "" : patient.appointment_date),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child:   Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Visit Date : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text( patient.appointment_date == null || patient.appointment_date == "" ? "" : patient.appointment_date),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
                       ),
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Ticket No. : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text( patient.ticket_no == null || patient.ticket_no == "" ? "" : patient.ticket_no),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child:   Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Ticket No. : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text( patient.ticket_no == null || patient.ticket_no == "" ? "" : patient.ticket_no),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
                       ),
                     ),
                   ],
                 ),
               ),
-
-              OrientationBuilder(
-                builder: (context, orientation) => RichText(
-                  text: TextSpan(
-                    // Note: Styles for TextSpans must be explicitly defined.
-                    // Child text spans will inherit styles from parent
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.black,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Incident Location: ',
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text:  patient.incident_location == null || patient.incident_location == "" ? "" : patient.incident_location),
-                    ],
-                  ),
-                ),
-              ),
-
-//  OrientationBuilder(
-//                 builder: (context, orientation) =>
-//                     Text(
-//                         "Incident Location: "+ patient.incident_location,
-//                       ),
-
-//                 ),
               SizedBox(
                 height: 10,
               ),
 
-//               Container(
-//                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-//                 child: Row(
-//                   children: <Widget>[
-
-//                   Text(
-//                         "Incident Location: ",
-//                         style: TextStyle(fontWeight: FontWeight.bold),
-//                       ),
-
-//  OrientationBuilder(
-//                 builder: (context, orientation) =>  Text(
-//                         patient.incident_location,
-//                       ),
-
-//                 ),
-
-//                   ],
-//                 ),
-//               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Injury Parts: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(17, 0, 0, 0),
-                      child: Container(
-                        child: Text( patient.injury_parts_new == null || patient.injury_parts_new == "" ? "" : patient.injury_parts_new),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child:     Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Injury Parts: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text( patient.injury_parts_new == null || patient.injury_parts_new == "" ? "" : patient.injury_parts_new),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
                       ),
                     ),
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Injury Classification: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Container(
-                        child: Text( patient.injury_classes_new == null || patient.injury_classes_new == "" ? "" : patient.injury_classes_new),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Injury Type: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Container(
-                        child: Text( patient.injury_types_new == null || patient.injury_types_new == "" ? "" : patient.injury_types_new),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         child: Text(
-              //           "Injury Procedure: ",
-              //           style: TextStyle(fontWeight: FontWeight.bold),
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
-              //         child: Container(
-              //           child: Text(patient.injury_procedure),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-
-              OrientationBuilder(
-                builder: (context, orientation) => RichText(
-                  text: TextSpan(
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.black,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Injury Procedure: ',
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.injury_procedure == null || patient.injury_procedure == "" ? "" : patient.injury_procedure  ),
-                    ],
-                  ),
-                ),
-              ),
-
               SizedBox(
                 height: 10,
               ),
 
-              OrientationBuilder(
-                builder: (context, orientation) => RichText(
-                  text: TextSpan(
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.black,
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child:     Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Injury Classification: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text( patient.injury_classes_new == null || patient.injury_classes_new == "" ? "" : patient.injury_classes_new),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ),
                     ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Complaints :',
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.complaints == null ||  patient.complaints == "" ? "" :  patient.complaints ),
-                    ],
-                  ),
+                  ],
                 ),
               ),
-
               SizedBox(
                 height: 10,
               ),
 
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         child: Text(
-              //           "Complaints : ",
-              //           style: TextStyle(fontWeight: FontWeight.bold),
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-              //         child: Container(
-              //           child: Text(patient.complaints),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         child: Text(
-              //           "Diagnosis : ",
-              //           style: TextStyle(fontWeight: FontWeight.bold),
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-              //         child: Container(
-              //           child: Text(patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
 
- OrientationBuilder(
-                builder: (context, orientation) => RichText(
-                  text: TextSpan(
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.black,
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child:    Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Injury Type: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text( patient.injury_types_new == null || patient.injury_types_new == "" ? "" : patient.injury_types_new),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ),
                     ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Diagnosis : ',
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text:patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
-                    ],
-                  ),
+                  ],
                 ),
               ),
-
-SizedBox(height: 10,),
-
-              OrientationBuilder(
-                builder: (context, orientation) => RichText(
-                  text: TextSpan(
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Colors.black,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: 'Examination Findings :',
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(text: patient.examination_remarks == null ||  patient.examination_remarks == '' ? "" :  patient.examination_remarks ),
-                    ],
-                  ),
-                ),
+              SizedBox(
+                height: 10,
               ),
 
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         child: Text(
-              //           "Examination Findings : ",
-              //           style: TextStyle(fontWeight: FontWeight.bold),
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              //         child: Container(
-              //           child: Text(patient.examination_remarks),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // Container(
-              //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-              //   child: Row(
-              //     children: <Widget>[
-              //       Container(
-              //         child: Text(
-              //           "History Of Drug Allergies : ",
-              //           style: TextStyle(fontWeight: FontWeight.bold),
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-              //         child: Container(
-              //           child: Text("History Of Drug Allergies"),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title:    OrientationBuilder(
+                          builder: (context, orientation) => RichText(
+                            text: TextSpan(
+                              // Note: Styles for TextSpans must be explicitly defined.
+                              // Child text spans will inherit styles from parent
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Incident Location: ',
+                                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text:  patient.incident_location == null || patient.incident_location == "" ? "" : patient.incident_location),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+
+
+
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title:     OrientationBuilder(
+                          builder: (context, orientation) => RichText(
+                            text: TextSpan(
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Injury Procedure: ',
+                                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: patient.injury_procedure == null || patient.injury_procedure == "" ? "" : patient.injury_procedure  ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+
+
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title:    OrientationBuilder(
+                          builder: (context, orientation) => RichText(
+                            text: TextSpan(
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Complaints :',
+                                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: patient.complaints == null ||  patient.complaints == "" ? "" :  patient.complaints ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title:
+                        OrientationBuilder(
+                          builder: (context, orientation) => RichText(
+                            text: TextSpan(
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Diagnosis : ',
+                                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text:patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+
+
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+
+                      elevation: 10.20,
+                      child: ListTile(
+                        title:
+                        OrientationBuilder(
+                          builder: (context, orientation) => RichText(
+                            text: TextSpan(
+                              style: const TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Examination Findings :',
+                                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: patient.examination_remarks == null ||  patient.examination_remarks == '' ? "" :  patient.examination_remarks ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+
+
+
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
