@@ -1,0 +1,118 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.ohctech"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:3:5-66
+11-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[:network_info_plus] C:\Users\Dushant Mali\Desktop\ohctech\build\network_info_plus\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-79
+12-->[:network_info_plus] C:\Users\Dushant Mali\Desktop\ohctech\build\network_info_plus\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-76
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->[:network_info_plus] C:\Users\Dushant Mali\Desktop\ohctech\build\network_info_plus\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-76
+13-->[:network_info_plus] C:\Users\Dushant Mali\Desktop\ohctech\build\network_info_plus\intermediates\merged_manifest\release\AndroidManifest.xml:10:22-73
+14
+15    <application
+16        android:name="android.app.Application"
+16-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:6:9-42
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.6.0] C:\Users\Dushant Mali\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+18        android:icon="@mipmap/ic_launcher"
+18-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:7:9-43
+19        android:label="ohctech"
+19-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:5:9-32
+20        android:usesCleartextTraffic="true" >
+20-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:8:10-45
+21        <activity
+21-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:9:9-29:20
+22            android:name="com.example.ohctech.MainActivity"
+22-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:10:13-41
+23            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+23-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:14:13-163
+24            android:exported="true"
+24-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:11:13-36
+25            android:hardwareAccelerated="true"
+25-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:15:13-47
+26            android:launchMode="singleTop"
+26-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:12:13-43
+27            android:theme="@style/LaunchTheme"
+27-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:13:13-47
+28            android:windowSoftInputMode="adjustResize" >
+28-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:16:13-55
+29
+30            <!--
+31                 Specifies an Android theme to apply to this Activity as soon as
+32                 the Android process has started. This theme is visible to the user
+33                 while the Flutter UI initializes. After that, this theme continues
+34                 to determine the Window background behind the Flutter UI.
+35            -->
+36            <meta-data
+36-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:21:13-24:17
+37                android:name="io.flutter.embedding.android.NormalTheme"
+37-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:22:15-70
+38                android:resource="@style/NormalTheme" />
+38-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:23:15-52
+39
+40            <intent-filter>
+40-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:25:13-28:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:26:17-68
+41-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:26:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:27:17-76
+43-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:27:27-74
+44            </intent-filter>
+45        </activity>
+46        <!--
+47             Don't delete the meta-data below.
+48             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+49        -->
+50        <meta-data
+50-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:32:9-34:33
+51            android:name="flutterEmbedding"
+51-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:33:13-44
+52            android:value="2" />
+52-->C:\Users\Dushant Mali\Desktop\ohctech\android\app\src\main\AndroidManifest.xml:34:13-30
+53
+54        <provider
+54-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
+55            android:name="net.nfet.flutter.printing.PrintFileProvider"
+55-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-71
+56            android:authorities="com.example.ohctech.flutter.printing"
+56-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-68
+57            android:exported="false"
+57-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-37
+58            android:grantUriPermissions="true" >
+58-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-47
+59            <meta-data
+59-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-17:71
+60                android:name="android.support.FILE_PROVIDER_PATHS"
+60-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:16:17-67
+61                android:resource="@xml/flutter_printing_file_paths" />
+61-->[:printing] C:\Users\Dushant Mali\Desktop\ohctech\build\printing\intermediates\merged_manifest\release\AndroidManifest.xml:17:17-68
+62        </provider>
+63
+64        <uses-library
+64-->[androidx.window:window:1.0.0-beta04] C:\Users\Dushant Mali\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+65            android:name="androidx.window.extensions"
+65-->[androidx.window:window:1.0.0-beta04] C:\Users\Dushant Mali\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+66            android:required="false" />
+66-->[androidx.window:window:1.0.0-beta04] C:\Users\Dushant Mali\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+67        <uses-library
+67-->[androidx.window:window:1.0.0-beta04] C:\Users\Dushant Mali\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+68            android:name="androidx.window.sidecar"
+68-->[androidx.window:window:1.0.0-beta04] C:\Users\Dushant Mali\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+69            android:required="false" />
+69-->[androidx.window:window:1.0.0-beta04] C:\Users\Dushant Mali\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+70    </application>
+71
+72</manifest>

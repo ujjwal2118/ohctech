@@ -70,6 +70,7 @@ dependencies:
   shimmer: ^2.0.0
   syncfusion_flutter_datagrid: ^20.3.60
   sizer: ^2.0.15
+  animated_flip_card: ^1.0.2
 
 dev_dependencies:
   flutter_test:
