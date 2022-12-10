@@ -31,8 +31,6 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController password = TextEditingController();
   TextEditingController code = TextEditingController();
 
-  Future<void> main() async {}
-
   Future<dynamic> login(BuildContext context) async {
     try {
       final result = await InternetAddress.lookup('google.com');
@@ -58,22 +56,22 @@ class _LoginPageState extends State<LoginPage> {
       return "enter";
     }
 
-    WidgetsFlutterBinding.ensureInitialized();
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var usrnm = prefs.getString("username");
-    var pass = prefs.getString("password");
-    var comp_code = prefs.getString("code");
-    print("USERNAME:" + usrnm);
-    print("PASSWORD:" + pass);
-    print("CODE:" + comp_code);
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              usrnm == null || pass == null || comp_code == null
-                  ? LoginPage()
-                  : HomePage(),
-        ));
+    // WidgetsFlutterBinding.ensureInitialized();
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // var usrnm = prefs.getString("username");
+    // var pass = prefs.getString("password");
+    // var comp_code = prefs.getString("code");
+    // // print("USERNAME:" + usrnm);
+    // // print("PASSWORD:" + pass);
+    // // print("CODE:" + comp_code);
+    // Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) =>
+    //           usrnm == null || pass == null || comp_code == null
+    //               ? LoginPage()
+    //               : HomePage(),
+    //     ));
 
     var url = 'http://103.196.222.49:85/jsw/login.php';
     http.Response response = await http.post(Uri.parse(url), body: {
@@ -88,13 +86,13 @@ class _LoginPageState extends State<LoginPage> {
       print(e);
     }
 
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString("username", username.text);
-    pref.setString("password", password.text);
-    pref.setString("code", code.text);
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
-      return HomePage();
-    }));
+    // SharedPreferences pref = await SharedPreferences.getInstance();
+    // pref.setString("username", username.text);
+    // pref.setString("password", password.text);
+    // pref.setString("code", code.text);
+    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
+    //   return HomePage();
+    // }));
 
     if (map == "success") {
       Fluttertoast.showToast(
@@ -135,8 +133,6 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
   }
-
-  moveToHome(BuildContext context) async {}
 
   @override
   Widget build(BuildContext context) {

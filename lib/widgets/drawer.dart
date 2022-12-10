@@ -17,14 +17,14 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_declarations
     logout(BuildContext context) async {
-      SharedPreferences pref = await SharedPreferences.getInstance();
-      pref.remove("username");
-      pref.remove("password");
-      pref.remove("code");
-      // ignore: use_build_context_synchronously
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
-        return LoginPage();
-      }));
+      // SharedPreferences pref = await SharedPreferences.getInstance();
+      // pref.remove("username");
+      // pref.remove("password");
+      // pref.remove("code");
+      // // ignore: use_build_context_synchronously
+      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
+      //   return LoginPage();
+      // }));
 
       Fluttertoast.showToast(
         msg: 'You are logged out!!',

@@ -317,15 +317,14 @@ class _injuryFormState extends State<injuryForm> {
                 icon: Icon(Icons.event),
                 dateLabelText: 'Date',
                 timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
+                // selectableDayPredicate: (date) {
+                //   // Disable weekend days to select from the calendar
+                //   if (date.weekday == 6 || date.weekday == 7) {
+                //     return false;
+                //   }
 
-                  return true;
-                },
-
+                //   return true;
+                // },
                 validator: (val) {
                   return null;
                 },
