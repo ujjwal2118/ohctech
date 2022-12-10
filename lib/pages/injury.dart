@@ -287,9 +287,7 @@ class _InjuryPageState extends State<InjuryPage> {
             // ignore: prefer_const_constructors
 
             ),
-        drawer: MyDrawer(
-          text: '',
-        ),
+        drawer: MyDrawer(),
       );
     } else {
       return Scaffold(

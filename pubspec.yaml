@@ -69,6 +69,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   shimmer: ^2.0.0
   sizer: ^2.0.15
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

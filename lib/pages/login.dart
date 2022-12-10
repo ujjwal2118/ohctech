@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:mysql1/mysql1.dart';
+import 'package:ohctech/pages/home.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:tap_debouncer/tap_debouncer.dart';
 import 'package:flutter_offline/flutter_offline.dart';
@@ -12,7 +13,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 import 'dart:async';
 import 'dart:io';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/routes.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -29,6 +30,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController code = TextEditingController();
+
+  Future<void> main() async {}
 
   Future<dynamic> login(BuildContext context) async {
     try {
@@ -55,6 +58,23 @@ class _LoginPageState extends State<LoginPage> {
       return "enter";
     }
 
+    WidgetsFlutterBinding.ensureInitialized();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var usrnm = prefs.getString("username");
+    var pass = prefs.getString("password");
+    var comp_code = prefs.getString("code");
+    print("USERNAME:" + usrnm);
+    print("PASSWORD:" + pass);
+    print("CODE:" + comp_code);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              usrnm == null || pass == null || comp_code == null
+                  ? LoginPage()
+                  : HomePage(),
+        ));
+
     var url = 'http://103.196.222.49:85/jsw/login.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "username": username.text,
@@ -67,6 +87,15 @@ class _LoginPageState extends State<LoginPage> {
     } catch (e) {
       print(e);
     }
+
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString("username", username.text);
+    pref.setString("password", password.text);
+    pref.setString("code", code.text);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
+      return HomePage();
+    }));
+
     if (map == "success") {
       Fluttertoast.showToast(
         msg: 'Login Successfully',

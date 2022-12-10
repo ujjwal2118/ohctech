@@ -240,9 +240,7 @@ class _OpdPageState extends State<OpdPage> {
               // ignore: prefer_const_constructors
 
               ),
-          drawer: MyDrawer(
-            text: '',
-          ),
+          drawer: MyDrawer(),
         );
       }));
     } else {

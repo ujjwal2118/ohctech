@@ -40,7 +40,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   TextEditingController ticketNo = TextEditingController();
   TextEditingController des = TextEditingController();
   TextEditingController agency = TextEditingController();
-  TextEditingController ailment_system = TextEditingController();
+  TextEditingController ailment_name = TextEditingController();
   // TextEditingController approval_remarks = TextEditingController();
   TextEditingController visitdate = TextEditingController();
 
@@ -90,7 +90,7 @@ class _sicknessEditState extends State<sicknessEdit> {
     }
     ticketNo.text = dm.ticket_no;
     des.text = dm.des;
-    ailment_system.text = dm.ailment_system;
+    ailment_name.text = dm.ailment_name;
     agency.text = dm.agency;
     // ExaminationFind.text = dm.examination_remarks;
     // HistoryDrug.text = dm.drug_allergy;
@@ -136,7 +136,7 @@ class _sicknessEditState extends State<sicknessEdit> {
       "ticket_no": ticketNo.text,
       "name": patientName.text,
       "des": des.text,
-      "ailment_system": ailment_system.text,
+      "ailment_name": ailment_name.text,
       "ailment_name": bodySystemValue,
       "approval_status": approvalStatus,
       "agency": agency.text,
@@ -352,7 +352,7 @@ class _sicknessEditState extends State<sicknessEdit> {
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
-                  controller: ailment_system,
+                  controller: ailment_name,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
