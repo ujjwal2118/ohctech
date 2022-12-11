@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
 import 'package:ohctech/pages/sickness_pdf_preview.dart';
+import 'package:animated_flip_card/animated_flip_card.dart';
+import 'package:ohctech/pages/unfit_pdf_preview.dart';
 
 void main() {
   runApp(PatientDetailsSickness());
@@ -22,6 +24,13 @@ class PatientDetailsSickness extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            //replace with our own icon data.
+          ),
           centerTitle: true,
           title: Text(
             "Patient Details",
@@ -31,11 +40,19 @@ class PatientDetailsSickness extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => SicknessPreview(patient: patient),
-              ),
-            );
+            if (patient.fitness_status != "APPROVED") {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SicknessPreviewUnfit(patient: patient),
+                ),
+              );
+            } else {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SicknessPreview(patient: patient),
+                ),
+              );
+            }
           },
           backgroundColor: Colors.green,
           child: const Icon(Icons.picture_as_pdf),
@@ -45,194 +62,479 @@ class PatientDetailsSickness extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Patient Name : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                alignment: Alignment.center,
+                child: AnimatedFlipCard(
+                    front: Image.asset(
+                      'assets/images/user.png',
+                      width: 250,
+                      fit: BoxFit.contain,
                     ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.patient_name ?? "NA"),
+                    back: Image.asset(
+                      'assets/images/logo.jpeg',
+                      width: 250,
+                      fit: BoxFit.contain,
+                    )),
+              ),
+              Container(
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
+                      ),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Patient Name : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.patient_name ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Sickness Date : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.sickness_date ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Sickness Date : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.sickness_date ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Absent From: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.date_absent ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Absent From: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.date_absent ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Absent To: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.date_absent_to ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Absent To: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.date_absent_to ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Date Of Return: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.date_return ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Date Of Return: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.date_return ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Ticket No. : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.ticket_no ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Ticket No. : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.ticket_no ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Description: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(63, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.des ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Description: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.des ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Ailment System : ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.ailment_systems_new ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Ailment System : ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child:
+                                      Text(patient.ailment_systems_new ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Ailment Name: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.ailment_name ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Ailment Name: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.ailment_name ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        "Fitness Status: ",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                decoration: new BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(.5),
+                      blurRadius: 20.0, // soften the shadow
+                      spreadRadius: 0.0, //extend the shadow
+                      offset: Offset(
+                        5.0, // Move to right 10  horizontally
+                        5.0, // Move to bottom 10 Vertically
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                      child: Container(
-                        child: Text(patient.fitness_status ?? "NA"),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Card(
+                      elevation: 10.20,
+                      child: ListTile(
+                        title: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Text(
+                                  "Fitness Status: ",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                child: Container(
+                                  child: Text(patient.fitness_status ?? "NA"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 20,
               ),
             ],
           ),

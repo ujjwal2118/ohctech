@@ -77,7 +77,7 @@ class ApprovedInjuryWidget extends StatelessWidget {
                           builder: (context) =>
                               PatientDetailsInjury(patient: patient)));
                 },
-                icon: Icon(Icons.picture_as_pdf)),
+                icon: Icon(Icons.remove_red_eye_rounded)),
           ],
         ),
       ),

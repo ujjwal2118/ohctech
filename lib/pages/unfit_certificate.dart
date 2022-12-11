@@ -4,8 +4,9 @@ import 'package:ohctech/models/patient.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:flutter/services.dart' show Color, rootBundle;
+import 'package:intl/intl.dart';
 
-Future<Uint8List> Sickpdf(Patient patient) async {
+Future<Uint8List> Unfitpdf(Patient patient) async {
   final pdf = Document();
   final imageLogo = MemoryImage(
       (await rootBundle.load('assets/images/jsw.png')).buffer.asUint8List());
@@ -66,7 +67,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                 height: 20,
               ),
               Center(
-                  child: Text("FITNESS CERTIFICATE",
+                  child: Text("UNFIT CERTIFICATE",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
@@ -99,7 +100,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       ),
                     ),
                     new TextSpan(
-                      text: patient.patient_name + ' ',
+                      text: patient.patient_name,
                     ),
                     new TextSpan(
                       text: 'P.No: ',
@@ -108,7 +109,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       ),
                     ),
                     new TextSpan(
-                      text: patient.emp_code + ' ',
+                      text: patient.emp_code,
                     ),
                     new TextSpan(
                       text: 'Design: ',
@@ -117,7 +118,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       ),
                     ),
                     new TextSpan(
-                      text: patient.designation + ' ',
+                      text: patient.designation,
                     ),
                     new TextSpan(
                       text: 'Dept: ',
@@ -129,27 +130,24 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       text: patient.dept,
                     ),
                     new TextSpan(
-                      text: 'was unfit for duty from : ',
+                      text: 'reported for medical treatment on ',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     new TextSpan(
-                      text: patient.date_absent + " To " + patient.date_absent,
+                      text: patient.sickness_date +
+                          " at " +
+                          patient.sickness_time,
                     ),
                     new TextSpan(
-                      text:
-                          'He/She is now fit to resume his/her normal duties from : ',
-                    ),
-                    new TextSpan(text: patient.approval_date + " "),
-                    new TextSpan(
-                      text: 'onwards. \n',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      text: ' He/She has been advised rest for days from : ',
                     ),
                     new TextSpan(
-                      text: 'Remark : ',
+                        text:
+                            patient.date_absent + " to " + patient.date_return),
+                    new TextSpan(
+                      text: ' Remark : ',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),

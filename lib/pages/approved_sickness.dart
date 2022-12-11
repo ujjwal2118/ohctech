@@ -8,6 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/patient_details_opd.dart';
+import 'package:ohctech/widgets/approved_sickness_patient_widget.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_sickness.dart';
 import 'package:shimmer/shimmer.dart';
@@ -237,7 +238,7 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
                     itemBuilder: (context, index) {
                       final patient = PatientModel.patients[index];
                       return InkWell(
-                          child: PatientWidgetSickness(
+                          child: ApprovedSicknessWidget(
                         patient: patient,
                       ));
                     },
