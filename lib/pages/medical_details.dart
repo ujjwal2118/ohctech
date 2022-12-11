@@ -96,7 +96,7 @@ class MedicalExam extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                         child: Container(
-                          child: Text("Age"),
+                          child: Text(patient.dob),
                         ),
                       ),
                     ],
@@ -115,7 +115,7 @@ class MedicalExam extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                         child: Container(
-                          child: Text("Sex"),
+                          child: Text(patient.gender),
                         ),
                       ),
                     ],
@@ -239,718 +239,718 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "A) Personal Information : ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Marital Status : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                        child: Container(
-                          child: Text("Marital Status"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "No. Of Children : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
-                        child: Container(
-                          child: Text("No. Of Children"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Addiction : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text("Addiction"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Habits : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(38, 0, 0, 0),
-                        child: Container(
-                          child: Text("Habits"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Drug allergy : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-                        child: Container(
-                          child: Text("Drug allergy"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Take Any Medication : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
-                        child: Container(
-                          child: Text("Take Any Medication"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "A) Personal Information : ",
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.bold, fontSize: 20),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Marital Status : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("Marital Status"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "No. Of Children : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("No. Of Children"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Addiction : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("Addiction"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Habits : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(38, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("Habits"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Drug allergy : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("Drug allergy"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Take Any Medication : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(3, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("Take Any Medication"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
 
-                OrientationBuilder(
-                    builder: (context, orientation) => Center(
-                          child: Text(
-                            "Whether Adopting Any Method of Family Planning :",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        )),
+                // OrientationBuilder(
+                //     builder: (context, orientation) => Center(
+                //           child: Text(
+                //             "Whether Adopting Any Method of Family Planning :",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         )),
 
-                OrientationBuilder(
-                    builder: (context, orientation) => Center(
-                          child: Text(
-                            "Whether Adopting Any Method of Family Planning :",
-                          ),
-                        )),
+                // OrientationBuilder(
+                //     builder: (context, orientation) => Center(
+                //           child: Text(
+                //             "Whether Adopting Any Method of Family Planning :",
+                //           ),
+                //         )),
 
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "B) Past and Present Ailment : ",
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.bold, fontSize: 20),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Asthma : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Diabetes Mellitus",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "TB : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Hypertension",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Jaundice : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Epilepsy",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(75, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Piles/Fistula : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(35, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "sychiatric Illness",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Hernia/Hydrocele : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Container(
+                //         child: Text(
+                //           "❌",
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Heart Disease",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Typhoid : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(22, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Night Blindness",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(32, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Leprosy : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Thyroid",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "STD : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(83, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Any other disease",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Major Injury/Fracture/Operation : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "C) Family History : ",
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.bold, fontSize: 20),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Asthma : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Diabetes Mellitus:",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "TB : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                //         child: Container(
+                //           child: Text(
+                //             "Hypertension:",
+                //             style: TextStyle(fontWeight: FontWeight.bold),
+                //           ),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "Any Others Diseases : ",
+                //           style: TextStyle(fontWeight: FontWeight.bold),
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                //         child: Container(
+                //           child: Text("✔"),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Container(
+                //   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         child: Text(
+                //           "D) Past Occupational History : ",
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.bold, fontSize: 20),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
+                // Table(
+                //   defaultColumnWidth: FixedColumnWidth(85),
+                //   border: TableBorder.all(
+                //       color: Colors.black, style: BorderStyle.solid, width: 2),
+                //   children: [
+                //     TableRow(children: [
+                //       Column(children: [
+                //         Padding(
+                //           padding: EdgeInsets.only(
+                //               left: 2,
+                //               bottom: 5,
+                //               right: 2,
+                //               top: 5), //apply padding to some sides only
+                //           child: Text(
+                //             "Trade during last employment",
+                //             style: TextStyle(
+                //               fontWeight: FontWeight.bold,
+                //             ),
+                //           ),
+                //         ),
+                //       ]),
+                //       Column(children: [
+                //         Padding(
+                //           padding: EdgeInsets.only(
+                //               left: 2,
+                //               bottom: 5,
+                //               right: 2,
+                //               top: 5), //apply padding to some sides only
+                //           child: Text(
+                //             "Organization",
+                //             style: TextStyle(
+                //               fontWeight: FontWeight.bold,
+                //             ),
+                //           ),
+                //         ),
+                //       ]),
+                //       Column(children: [
+                //         Padding(
+                //           padding: EdgeInsets.only(
+                //               left: 2,
+                //               bottom: 5,
+                //               right: 2,
+                //               top: 5), //apply padding to some sides only
+                //           child: Text(
+                //             "Period of service",
+                //             style: TextStyle(
+                //               fontWeight: FontWeight.bold,
+                //             ),
+                //           ),
+                //         ),
+                //       ]),
+                //       Column(children: [
+                //         Padding(
+                //           padding: EdgeInsets.only(
+                //               left: 2,
+                //               bottom: 5,
+                //               right: 2,
+                //               top: 5), //apply padding to some sides only
+                //           child: Text(
+                //             "Past occupational illness if any",
+                //             style: TextStyle(
+                //               fontWeight: FontWeight.bold,
+                //             ),
+                //           ),
+                //         ),
+                //       ]),
+                //     ]),
+                //     TableRow(children: [
+                //       Column(children: [
+                //         Text('NaN', style: TextStyle(fontSize: 15.0))
+                //       ]),
+                //       Column(children: [
+                //         Text('NaN', style: TextStyle(fontSize: 15.0))
+                //       ]),
+                //       Column(children: [
+                //         Text('NaN', style: TextStyle(fontSize: 15.0))
+                //       ]),
+                //       Column(children: [
+                //         Text('NaN', style: TextStyle(fontSize: 15.0))
+                //       ]),
+                //     ]),
+                //   ],
+                // ),
+                // Text(
+                //   "\nI hereby declared that the particulars given by me in the foregoing are true, complete and correct to the best of my knowledge and belief, and if any of these information are found to be false/ incomplete/ incorrect, the organization is free to take appropriate action",
+                // ),
+                // Divider(
+                //   color: Colors.black,
+                //   height: 25,
+                //   thickness: 2,
+                //   indent: 5,
+                //   endIndent: 5,
+                // ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Row(
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "B) Past and Present Ailment : ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Asthma : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Diabetes Mellitus",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "TB : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(100, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(18, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Hypertension",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Jaundice : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(58, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Epilepsy",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(75, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Piles/Fistula : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(35, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "sychiatric Illness",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Hernia/Hydrocele : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          "❌",
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Heart Disease",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Typhoid : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(22, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Night Blindness",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(32, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Leprosy : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Thyroid",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "STD : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(83, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Any other disease",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Major Injury/Fracture/Operation : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "C) Family History : ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Asthma : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Diabetes Mellitus:",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "TB : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-                        child: Container(
-                          child: Text(
-                            "Hypertension:",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "Any Others Diseases : ",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                        child: Container(
-                          child: Text("✔"),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "D) Past Occupational History : ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Table(
-                  defaultColumnWidth: FixedColumnWidth(85),
-                  border: TableBorder.all(
-                      color: Colors.black, style: BorderStyle.solid, width: 2),
-                  children: [
-                    TableRow(children: [
-                      Column(children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: 2,
-                              bottom: 5,
-                              right: 2,
-                              top: 5), //apply padding to some sides only
-                          child: Text(
-                            "Trade during last employment",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ]),
-                      Column(children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: 2,
-                              bottom: 5,
-                              right: 2,
-                              top: 5), //apply padding to some sides only
-                          child: Text(
-                            "Organization",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ]),
-                      Column(children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: 2,
-                              bottom: 5,
-                              right: 2,
-                              top: 5), //apply padding to some sides only
-                          child: Text(
-                            "Period of service",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ]),
-                      Column(children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                              left: 2,
-                              bottom: 5,
-                              right: 2,
-                              top: 5), //apply padding to some sides only
-                          child: Text(
-                            "Past occupational illness if any",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ]),
-                    ]),
-                    TableRow(children: [
-                      Column(children: [
-                        Text('NaN', style: TextStyle(fontSize: 15.0))
-                      ]),
-                      Column(children: [
-                        Text('NaN', style: TextStyle(fontSize: 15.0))
-                      ]),
-                      Column(children: [
-                        Text('NaN', style: TextStyle(fontSize: 15.0))
-                      ]),
-                      Column(children: [
-                        Text('NaN', style: TextStyle(fontSize: 15.0))
-                      ]),
-                    ]),
-                  ],
-                ),
-                Text(
-                  "\nI hereby declared that the particulars given by me in the foregoing are true, complete and correct to the best of my knowledge and belief, and if any of these information are found to be false/ incomplete/ incorrect, the organization is free to take appropriate action",
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 25,
-                  thickness: 2,
-                  indent: 5,
-                  endIndent: 5,
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          "E) CLINICAL EXAMINATION : ",
+                          "CLINICAL EXAMINATION : ",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -1375,7 +1375,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "F) BLOOD ROUTINE EXAMINATION",
+                          "BLOOD ROUTINE EXAMINATION",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -1687,7 +1687,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "G) RENAL FUNCTION TEST",
+                          " RENAL FUNCTION TEST",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -1862,7 +1862,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "H) LIVER FUNCTION TEST",
+                          " LIVER FUNCTION TEST",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -2079,7 +2079,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "I) LIPID PROFILE",
+                          " LIPID PROFILE",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -2212,7 +2212,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "J) EXAMINATION OF URINE\n ROUTINE ANALYSIS",
+                          " EXAMINATION OF URINE\n ROUTINE ANALYSIS",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -2233,7 +2233,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "(i) PHYSICAL EXAMINATION",
+                          "( PHYSICAL EXAMINATION",
                           style: TextStyle(
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.bold,
@@ -2917,7 +2917,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "K) EYE",
+                          " EYE",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3297,7 +3297,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "L) CNS",
+                          " CNS",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3443,7 +3443,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "M) ENT",
+                          " ENT",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3549,7 +3549,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "N) Dental",
+                          " Dental",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3596,7 +3596,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "O) CVS",
+                          " CVS",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3683,7 +3683,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "P) Respiratory System",
+                          " Respiratory System",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3730,7 +3730,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "Q) ABDOMEN",
+                          " ABDOMEN",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
@@ -3836,7 +3836,7 @@ class MedicalExam extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "R) Genito-Urinary System",
+                          " Genito-Urinary System",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
