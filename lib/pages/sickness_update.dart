@@ -35,7 +35,7 @@ class _sicknessEditState extends State<sicknessEdit> {
   TextEditingController patientName = TextEditingController();
   TextEditingController sickDate = TextEditingController();
   TextEditingController absentDate = TextEditingController();
-  TextEditingController absenttoDate = TextEditingController();
+  TextEditingController absentToDate = TextEditingController();
   TextEditingController returnDate = TextEditingController();
   TextEditingController ticketNo = TextEditingController();
   TextEditingController des = TextEditingController();
@@ -57,37 +57,37 @@ class _sicknessEditState extends State<sicknessEdit> {
     patientName.text = dm.patient_name;
     String todaydate = DateFormat("yyyy-MM-dd hh:mm:ss").format(DateTime.now());
     String sicd = dm.sickness_date;
-    if (sicd == '0000-00-00 00:00:00' || sicd == '0000-00-00') {
-      print('if');
-      sickDate.text = todaydate;
-    } else {
-      print('else');
-      sickDate.text = dm.sickness_date;
-    }
-    String ad = dm.date_absent;
-    if (ad == '0000-00-00' || ad == '0000-00-00 00:00:00') {
-      print('if');
-      absentDate.text = todaydate;
-    } else {
-      print('else');
-      absentDate.text = dm.date_absent;
-    }
-    String abt = dm.date_absent_to;
-    if (abt == '0000-00-00 00:00:00' || abt == '0000-00-00') {
-      print('if');
-      absenttoDate.text = todaydate;
-    } else {
-      print('else');
-      absenttoDate.text = dm.date_absent;
-    }
-    String dr = dm.date_return;
-    if (dr == '0000-00-00 00:00:00' || dr == '0000-00-00') {
-      print('if');
-      returnDate.text = todaydate;
-    } else {
-      print('else');
-      returnDate.text = dm.date_return;
-    }
+    // if (sicd == '0000-00-00 00:00:00' || sicd == '0000-00-00') {
+    //   print('if');
+    //   sickDate.text = todaydate;
+    // } else {
+    //   print('else');
+    sickDate.text = dm.sickness_date;
+    //}
+
+    // if (ad == '0000-00-00' || ad == '0000-00-00 00:00:00') {
+    //   print('if');
+    //   absentDate.text = todaydate;
+    // } else {
+    //print('else');
+    absentDate.text = dm.date_absent;
+    //}
+    // String abt = dm.date_absent_to;
+    // if (abt == '0000-00-00 00:00:00' || abt == '0000-00-00') {
+    //   print('if');
+    //   absenttoDate.text = todaydate;
+    // } else {
+    //   print('else');
+    absentToDate.text = dm.date_absent_to;
+    // }
+    // String dr = dm.date_return;
+    // if (dr == '0000-00-00 00:00:00' || dr == '0000-00-00') {
+    //   print('if');
+    //   returnDate.text = todaydate;
+    // } else {
+    //   print('else');
+    returnDate.text = dm.date_return;
+    // }
     ticketNo.text = dm.ticket_no;
     des.text = dm.des;
     ailment_name.text = dm.ailment_name;
@@ -255,58 +255,151 @@ class _sicknessEditState extends State<sicknessEdit> {
                   ),
                 ),
               ),
-              DateTimePicker(
-                icon: Icon(Icons.event),
-                controller: sickDate,
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
-                dateLabelText: 'Sickness Date',
-                onChanged: (val) => print(val),
-                validator: (val) {
-                  print(val);
-                  return null;
-                },
-                onSaved: (val) => print(val),
-              ),
-              DateTimePicker(
-                icon: Icon(Icons.date_range_outlined),
-                controller: absentDate,
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
-                dateLabelText: 'Absent From Date',
-                onChanged: (val) => print(val),
-                validator: (val) {
-                  print(val);
-                  return null;
-                },
-                onSaved: (val) => print(val),
-              ),
-              DateTimePicker(
-                icon: Icon(Icons.date_range_rounded),
-                controller: absenttoDate,
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
-                dateLabelText: 'Absent To Date',
-                onChanged: (val) => print(val),
-                validator: (val) {
-                  print(val);
-                  return null;
-                },
-                onSaved: (val) => print(val),
-              ),
-              DateTimePicker(
-                icon: Icon(Icons.date_range_rounded),
-                controller: returnDate,
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
-                dateLabelText: 'Date Of Return',
-                onChanged: (val) => print(val),
-                validator: (val) {
-                  print(val);
-                  return null;
-                },
-                onSaved: (val) => print(val),
-              ),
+              Container(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                  child: TextField(
+                    controller: sickDate, //editing controller of this TextField
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: "Sickness Date" //label text of field
+                        ),
+                    //set it true, so that user will not able to edit text
+                    onTap: () async {
+                      DateTime pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
+
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
+
+                        setState(() {
+                          sickDate.text =
+                              formattedDate; //set output date to TextField value.
+                        });
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  )),
+              Container(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                  child: TextField(
+                    controller:
+                        absentDate, //editing controller of this TextField
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: "Absent From Date" //label text of field
+                        ),
+                    //set it true, so that user will not able to edit text
+                    onTap: () async {
+                      DateTime pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
+
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
+
+                        setState(() {
+                          absentDate.text =
+                              formattedDate; //set output date to TextField value.
+                        });
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  )),
+              Container(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                  child: TextField(
+                    controller:
+                        absentToDate, //editing controller of this TextField
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: "Absent To Date" //label text of field
+                        ),
+                    // readOnly:
+                    //     true, //set it true, so that user will not able to edit text
+                    onTap: () async {
+                      DateTime pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
+
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
+
+                        setState(() {
+                          absentToDate.text =
+                              formattedDate; //set output date to TextField value.
+                        });
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  )),
+              Container(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                  child: TextField(
+                    controller:
+                        returnDate, //editing controller of this TextField
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: "Date of Return" //label text of field
+                        ),
+                    // readOnly:
+                    //     true, //set it true, so that user will not able to edit text
+                    onTap: () async {
+                      DateTime pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
+
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
+
+                        setState(() {
+                          returnDate.text =
+                              formattedDate; //set output date to TextField value.
+                        });
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  )),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 20, 10, 0),
                 child: TextField(

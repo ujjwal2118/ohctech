@@ -132,6 +132,7 @@ class _OpdPageState extends State<OpdPage> {
                       highlightColor: Colors.grey[100],
                       direction: ShimmerDirection.ltr,
                       child: ListView.builder(
+                        shrinkWrap: true,
                         itemBuilder: (_, __) => Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),
                           child: Row(
