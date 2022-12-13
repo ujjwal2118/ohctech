@@ -22,6 +22,12 @@ class MedicalExam extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios),
+          ),
           centerTitle: true,
           title: Text(
             "Medical",
@@ -45,8 +51,27 @@ class MedicalExam extends StatelessWidget {
           child: OrientationBuilder(
             builder: (context, orientation) => ListView(
               children: <Widget>[
+
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    decoration: new BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(.5),
+                          blurRadius: 20.0, // soften the shadow
+                          spreadRadius: 0.0, //extend the shadow
+                          offset: Offset(
+                            5.0, // Move to right 10  horizontally
+                            5.0, // Move to bottom 10 Vertically
+                          ),
+                        )
+                      ],
+                    ),
+                    child: Column(children: [
+                      Card(
+                          elevation: 10.20,
+                          child: Column(children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -65,7 +90,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -84,7 +109,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -103,7 +128,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -122,7 +147,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -140,8 +165,8 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -162,7 +187,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -181,7 +206,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -200,7 +225,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -219,7 +244,7 @@ class MedicalExam extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: Row(
                     children: <Widget>[
                       Container(
@@ -232,6 +257,11 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                          ])),
+                    ])),
+
+             
+              
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -261,6 +291,30 @@ class MedicalExam extends StatelessWidget {
                   endIndent: 5,
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -298,7 +352,8 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
+
+Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -389,6 +444,17 @@ class MedicalExam extends StatelessWidget {
                             "Whether Adopting Any Method of Family Planning :",
                           ),
                         )),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+               
+                
 
                 Divider(
                   color: Colors.black,
@@ -418,7 +484,33 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -708,6 +800,17 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -736,6 +839,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
+                Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
@@ -823,6 +952,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -851,7 +990,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
-                Table(
+
+                Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Table(
                   defaultColumnWidth: FixedColumnWidth(85),
                   border: TableBorder.all(
                       color: Colors.black, style: BorderStyle.solid, width: 2),
@@ -864,13 +1028,15 @@ class MedicalExam extends StatelessWidget {
                               bottom: 5,
                               right: 2,
                               top: 5), //apply padding to some sides only
-                          child: Text(
+                                            child: Center(
+                                              child: Text(
                             "Trade during last employment",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
+                                            ),
+                                          ),
                       ]),
                       Column(children: [
                         Padding(
@@ -879,13 +1045,15 @@ class MedicalExam extends StatelessWidget {
                               bottom: 5,
                               right: 2,
                               top: 5), //apply padding to some sides only
-                          child: Text(
+                                            child: Center(
+                                              child: Text(
                             "Organization",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
+                                            ),
+                                          ),
                       ]),
                       Column(children: [
                         Padding(
@@ -894,13 +1062,15 @@ class MedicalExam extends StatelessWidget {
                               bottom: 5,
                               right: 2,
                               top: 5), //apply padding to some sides only
-                          child: Text(
+                                            child: Center(
+                                              child: Text(
                             "Period of service",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
+                                            ),
+                                          ),
                       ]),
                       Column(children: [
                         Padding(
@@ -909,13 +1079,15 @@ class MedicalExam extends StatelessWidget {
                               bottom: 5,
                               right: 2,
                               top: 5), //apply padding to some sides only
-                          child: Text(
+                                            child: Center(
+                                              child: Text(
                             "Past occupational illness if any",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
+                                            ),
+                                          ),
                       ]),
                     ]),
                     TableRow(children: [
@@ -937,6 +1109,17 @@ class MedicalExam extends StatelessWidget {
                 Text(
                   "\nI hereby declared that the particulars given by me in the foregoing are true, complete and correct to the best of my knowledge and belief, and if any of these information are found to be false/ incomplete/ incorrect, the organization is free to take appropriate action",
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -944,6 +1127,7 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+                
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Row(
@@ -966,6 +1150,30 @@ class MedicalExam extends StatelessWidget {
                   endIndent: 5,
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -1362,6 +1570,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -1390,6 +1608,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
+                Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
@@ -1674,6 +1918,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -1702,7 +1956,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -1849,6 +2128,17 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+              
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -1878,6 +2168,30 @@ class MedicalExam extends StatelessWidget {
                   endIndent: 5,
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -2066,6 +2380,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -2095,6 +2419,30 @@ class MedicalExam extends StatelessWidget {
                   endIndent: 5,
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -2199,6 +2547,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -2227,7 +2585,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -2903,7 +3286,18 @@ class MedicalExam extends StatelessWidget {
                       ),
                     ],
                   ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+
+                
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -2911,6 +3305,7 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+                
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Row(
@@ -2932,7 +3327,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -3284,6 +3704,17 @@ class MedicalExam extends StatelessWidget {
                     ]),
                   ],
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3312,7 +3743,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -3430,6 +3886,17 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+              
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3458,7 +3925,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -3536,6 +4028,17 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3565,6 +4068,30 @@ class MedicalExam extends StatelessWidget {
                   endIndent: 5,
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -3583,6 +4110,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3611,7 +4148,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -3670,6 +4232,18 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+
+              
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3699,6 +4273,30 @@ class MedicalExam extends StatelessWidget {
                   endIndent: 5,
                 ),
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -3717,6 +4315,16 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3745,7 +4353,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -3823,6 +4456,18 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+
+               
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3851,7 +4496,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                   child: Row(
                     children: <Widget>[
@@ -3988,6 +4658,17 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+             
                 Divider(
                   color: Colors.black,
                   height: 25,
@@ -3995,6 +4676,8 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
+                
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Row(
@@ -4016,7 +4699,32 @@ class MedicalExam extends StatelessWidget {
                   indent: 5,
                   endIndent: 5,
                 ),
+
                 Container(
+                  decoration: new BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        blurRadius: 20.0, // soften the shadow
+                        spreadRadius: 0.0, //extend the shadow
+                        offset: Offset(
+                          5.0, // Move to right 10  horizontally
+                          5.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 10.20,
+                        child: Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(10, 0, 0, 5),
+                              child: Column(
+                                children: [
+                                  Container(
                   margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
                   child: Row(
                     children: <Widget>[
@@ -4068,6 +4776,21 @@ class MedicalExam extends StatelessWidget {
                     ],
                   ),
                 ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+              
                 // Container(
                 //   margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                 //   child: Row(
