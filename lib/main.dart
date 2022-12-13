@@ -10,7 +10,7 @@ import 'package:ohctech/pages/injury.dart';
 import 'package:ohctech/pages/login.dart';
 import 'package:ohctech/pages/medical_details.dart';
 import 'package:ohctech/pages/medical_examination.dart';
-import 'package:ohctech/pages/opd.dart';
+import 'package:ohctech/pages/pending_opd.dart';
 import 'package:ohctech/pages/opd_form.dart';
 import 'package:ohctech/pages/osi_graph.dart';
 import 'package:ohctech/pages/sickness.dart';
