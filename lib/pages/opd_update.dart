@@ -50,6 +50,10 @@ class _opdFormState extends State<opdForm> {
   void initState() {
     loaddata();
     getAllCategory();
+    getAllMedicines();
+    getAllFrequency();
+    getAllTimings();
+    getAllAdminroute();
     super.initState();
     Patient dm;
     dm = widget.patient;
@@ -209,12 +213,16 @@ class _opdFormState extends State<opdForm> {
   }
 
   var dropdownvalue;
+  var dropdownValueMedicine;
+  var dropdownValueFrequency;
+  var dropdownValueTiming;
+  var dropdownValueAdminroute;
 
   String dropdownValue = 'Select Disease Type';
-  String dropdownValueMedicine = 'Select Medicine';
-  String dropdownValueFrequency = 'Select Frequency';
-  String dropdownValueTiming = 'Select Timing';
-  String dropdownValueAdminroute = 'Select Admin. Route';
+  // String dropdownValueMedicine = 'Select Medicine';
+  // String dropdownValueFrequency = 'Select Frequency';
+  // String dropdownValueTiming = 'Select Timing';
+  // String dropdownValueAdminroute = 'Select Admin. Route';
   String caseTypeValue = 'Select Case Type';
   String bodySystemValue = 'Select Body System';
 
