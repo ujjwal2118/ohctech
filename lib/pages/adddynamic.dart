@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class _View4 extends StatefulWidget {
+class dynamicMedicine extends StatefulWidget {
   @override
-  _View4State createState() => _View4State();
+  dynamicMedicineState createState() => dynamicMedicineState();
 }
 
 class _GroupControllers {
@@ -17,7 +17,7 @@ class _GroupControllers {
   }
 }
 
-class _View4State extends State<_View4> {
+class dynamicMedicineState extends State<dynamicMedicine> {
   List<_GroupControllers> _groupControllers = [];
   List<TextField> _nameFields = [];
   List<TextField> _telFields = [];

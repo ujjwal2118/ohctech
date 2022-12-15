@@ -615,13 +615,13 @@
     },
     {
       "name": "syncfusion_flutter_core",
-      "rootUri": "file:///C:/Users/Dushant%20Mali/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/syncfusion_flutter_core-20.3.60",
+      "rootUri": "file:///C:/Users/Dushant%20Mali/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/syncfusion_flutter_core-20.3.61",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "syncfusion_flutter_datagrid",
-      "rootUri": "file:///C:/Users/Dushant%20Mali/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/syncfusion_flutter_datagrid-20.3.60",
+      "rootUri": "file:///C:/Users/Dushant%20Mali/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/syncfusion_flutter_datagrid-20.3.61",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -698,7 +698,7 @@
       "languageVersion": "2.11"
     }
   ],
-  "generated": "2022-12-14T15:47:40.459416Z",
+  "generated": "2022-12-15T05:46:59.447013Z",
   "generator": "pub",
   "generatorVersion": "2.18.5"
 }
