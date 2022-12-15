@@ -20,7 +20,7 @@ class OpdPage extends StatefulWidget {
 
 class _OpdPageState extends State<OpdPage> {
   Patient patient;
-  final _baseUrl = 'http://192.168.0.107/jsw/pending_opd_list.php';
+  final _baseUrl = 'http://103.196.222.49:85/jsw/pending_opd_list.php';
   int _page = 0;
 
   final int _limit = 10;

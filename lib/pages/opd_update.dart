@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, unused_import
+// ignore_for_file: use_build_context_synchronously, unused_import, non_constant_identifier_names, unused_local_variable, prefer_const_constructors, duplicate_ignore, unnecessary_brace_in_string_interps, sort_child_properties_last, prefer_interpolation_to_compose_strings
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
@@ -10,7 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:ohctech/pages/home.dart';
-import 'package:intl/intl.dart';
+// import 'adddynamic.dart';
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -31,21 +31,47 @@ class opdForm extends StatefulWidget {
   State<opdForm> createState() => _opdFormState();
 }
 
+class _GroupControllers {
+  TextEditingController duration = TextEditingController();
+  TextEditingController frequency = TextEditingController();
+  TextEditingController doseqty = TextEditingController();
+  void dispose() {
+    duration.dispose();
+    frequency.dispose();
+    doseqty.dispose();
+  }
+}
+
 class _opdFormState extends State<opdForm> {
   TextEditingController patientName = TextEditingController();
   TextEditingController ticket_no = TextEditingController();
   TextEditingController complaints = TextEditingController();
-  TextEditingController diagnosis = TextEditingController();
+  TextEditingController ailment_systems_new = TextEditingController();
   TextEditingController examination_remarks = TextEditingController();
   TextEditingController remarks_rece = TextEditingController();
   TextEditingController appointment_date = TextEditingController();
   TextEditingController duration = TextEditingController();
   TextEditingController dose_qty = TextEditingController();
-
+  List<_GroupControllers> _groupControllers = [];
+  // List<TextField> _medicineFields = [];
+  List<TextField> _DurationFields = [];
+  List<TextField> _DoseQTYFields = [];
+  List<dynamic> _TimingFieldsDrop = [];
+  List<dynamic> _MedicineFieldsDrop = [];
+  List<dynamic> _FrequencyFieldsDrop = [];
+  List<dynamic> _AdminRouteFieldsDrop = [];
   bool error = false, dataloaded = false;
   var data;
 
   String dataurl = "http://103.196.222.49:85/jsw/pending_opd_list.php";
+  @override
+  void dispose() {
+    for (final controller in _groupControllers) {
+      controller.dispose();
+    }
+    _okController.dispose();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -62,7 +88,7 @@ class _opdFormState extends State<opdForm> {
     ticket_no.text = dm.ticket_no;
     patientName.text = dm.patient_name;
     complaints.text = dm.complaints;
-    diagnosis.text = dm.diagnosis;
+    ailment_systems_new.text = dm.diagnosis;
     examination_remarks.text = dm.examination_remarks;
     remarks_rece.text = dm.remarks_rece;
     visitDate = dm.appointment_date;
@@ -228,12 +254,12 @@ class _opdFormState extends State<opdForm> {
   String bodySystemValue = 'Select Body System';
 
   Future<dynamic> updateOPD(BuildContext context) async {
-    var url = 'http://192.168.0.107/jsw/opd_update.php';
+    var url = 'http://103.196.222.49:85/jsw/opd_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
-      "body_system": dropdownvalue,
+      "ailments_new": bodySystemValue,
       "complaints": complaints.text,
-      "diagnosis": diagnosis.text,
+      "ailment_systems_new": ailment_systems_new.text,
       "examination_remarks": examination_remarks.text,
       "remarks_rece": remarks_rece.text,
       "appointment_date": appointment_date.text
@@ -332,43 +358,28 @@ class _opdFormState extends State<opdForm> {
                 "\nVisit Date\n",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              Container(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
-                  child: TextField(
-                    controller:
-                        appointment_date, //editing controller of this TextField
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.calendar_today), //icon of text field
-                      // labelText: "Date of Return" //label text of field
-                    ),
-                    // readOnly:
-                    //     true, //set it true, so that user will not able to edit text
-                    onTap: () async {
-                      DateTime pickedDate = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(
-                              2000), //DateTime.now() - not to allow to choose before today.
-                          lastDate: DateTime(2101));
-
-                      if (pickedDate != null) {
-                        print(
-                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-                        String formattedDate =
-                            DateFormat('yyyy-MM-dd').format(pickedDate);
-                        print(
-                            formattedDate); //formatted date output using intl package =>  2021-03-16
-                        //you can implement different kind of Date Format here according to your requirement
-
-                        setState(() {
-                          appointment_date.text =
-                              formattedDate; //set output date to TextField value.
-                        });
-                      } else {
-                        print("Date is not selected");
-                      }
-                    },
-                  )),
+              DateTimePicker(
+                enableSuggestions: true, cursorColor: Colors.redAccent,
+                controller: appointment_date,
+                type: DateTimePickerType.dateTimeSeparate,
+                dateMask: 'd MMM, yyyy',
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2500),
+                // use24HourFormat: false,
+                icon: Icon(Icons.event),
+                dateLabelText: 'Date',
+                timeLabelText: "Time",
+                // selectableDayPredicate: (date) {
+                //   // Disable weekend days to select from the calendar
+                //   if (date.weekday == 6 || date.weekday == 7) {
+                //     return false;
+                //   }
+                //   return true;
+                // },
+                validator: (val) {
+                  return null;
+                },
+              ),
               const Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(
@@ -385,7 +396,7 @@ class _opdFormState extends State<opdForm> {
                       Icon(
                         Icons.list,
                         size: 16,
-                        color: Colors.yellow,
+                        color: Colors.white,
                       ),
                       SizedBox(
                         width: 4,
@@ -396,7 +407,7 @@ class _opdFormState extends State<opdForm> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.yellow,
+                            color: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -471,7 +482,7 @@ class _opdFormState extends State<opdForm> {
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
-                  controller: diagnosis,
+                  controller: ailment_systems_new,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -488,6 +499,9 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
+              _addTile(),
+              Expanded(child: _listView()),
+              _okButton(context),
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
@@ -931,69 +945,210 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
-              // Container(
-              //   padding: EdgeInsets.all(15),
-              //   //check if data is loaded, if loaded then show datalist on child
-              //   child: dataloaded
-              //       ? datalist()
-              //       : Center(
-              //           //if data is not loaded then show progress
-              //           child: CircularProgressIndicator()),
-              // ),
             ])),
       ),
     );
   }
 
-  // Widget datalist() {
-  //   var list = List<Medicine>.from(data['medicines'].map((i) {
-  //     return Medicine.fromJSON(i);
-  //   }));
-  //   List<Medicine> namelist = list; //prasing data list to model
+  Widget _addTile() {
+    return ListTile(
+      title: Icon(Icons.add),
+      onTap: () {
+        final group = _GroupControllers();
 
-  //   return Table(
-  //     //if data is loaded then show table
-  //     border: TableBorder.all(width: 1, color: Colors.black45),
-  //     children: namelist.map((medicine) {
-  //       return TableRow(//return table row in every loop
-  //           children: [
-  //         //table cells inside table row
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineName))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineFrequency))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineFordays))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineAdminroute))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineDosage))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineQty))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineIssuedqty))),
-  //         TableCell(
-  //             child: Padding(
-  //                 padding: EdgeInsets.all(5),
-  //                 child: Text(medicine.medicineTiming))),
-  //       ]);
-  //     }).toList(),
-  //   );
-  // }
+        final DurationField = _generateTextField(group.duration, "Duration");
+        final frequencyField = _generateTextField(group.frequency, "Frequency");
+        final DoseQTYField = _generateTextField(group.doseqty, "Dose QTY");
+        final TimingDrop = _generateDropForTimingField(
+            'Timing', timingslist, 'medicine_timing');
+        final MedicineDrop =
+            _generateDropForTimingField('Medicine', medicinelist, 'item_name');
+        final FrequencyDrop = _generateDropForTimingField(
+            'Frequency', frequencylist, 'medicine_frequency');
+        final AdminRouteDrop = _generateDropForTimingField(
+            'Admin Route', adminRoutelist, 'dosage_category');
+
+        setState(() {
+          _groupControllers.add(group);
+          // _medicineFields.add(medicineField);
+          _DurationFields.add(DurationField);
+          _DoseQTYFields.add(DoseQTYField);
+          _TimingFieldsDrop.add(TimingDrop);
+          _MedicineFieldsDrop.add(MedicineDrop);
+          _FrequencyFieldsDrop.add(FrequencyDrop);
+          _AdminRouteFieldsDrop.add(AdminRouteDrop);
+        });
+      },
+    );
+  }
+
+  TextField _generateTextField(TextEditingController controller, String hint) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: hint,
+      ),
+    );
+  }
+
+  DropdownButton2 _generateDropForTimingField(
+      String titleDrop, List itemData, String itemValue) {
+    return DropdownButton2(
+      isExpanded: true,
+      hint: Row(
+        children: [
+          // ignore: prefer_const_constructors
+          Icon(
+            Icons.list,
+            size: 16,
+            color: Color.fromARGB(255, 249, 248, 244),
+          ),
+          SizedBox(
+            width: 4,
+          ),
+          Expanded(
+            child: Text(
+              "Select  ${titleDrop}",
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 240, 240, 238),
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+      items: itemData.map((item) {
+        return DropdownMenuItem(
+          value: item[itemValue],
+          child: Text(
+            item[itemValue],
+            style: TextStyle(color: Color.fromARGB(255, 240, 240, 238)),
+          ),
+        );
+      }).toList(),
+      value: dropdownValueTiming,
+      onChanged: (newVal) {
+        setState(() {
+          dropdownValueTiming = newVal;
+        });
+      },
+      icon: const Icon(
+        Icons.arrow_circle_down_outlined,
+      ),
+      iconSize: 14,
+      iconEnabledColor: Colors.black,
+      iconDisabledColor: Colors.grey,
+      buttonHeight: 50,
+      // buttonWidth: 160,
+      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+      buttonDecoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: Colors.black26,
+        ),
+        color: Colors.lightBlue,
+      ),
+      buttonElevation: 2,
+      itemHeight: 40,
+      itemPadding: const EdgeInsets.only(left: 30, right: 14),
+      dropdownMaxHeight: 200,
+      dropdownWidth: 300,
+      dropdownPadding: null,
+      dropdownDecoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: Colors.lightBlueAccent,
+      ),
+      dropdownElevation: 8,
+      scrollbarRadius: const Radius.circular(40),
+      scrollbarThickness: 6,
+      scrollbarAlwaysShow: true,
+      offset: const Offset(20, 0),
+    );
+  }
+
+  Widget _listView() {
+    final children = [
+      for (var i = 0; i < _groupControllers.length; i++)
+        Container(
+          margin: EdgeInsets.all(5),
+          child: InputDecorator(
+            child: Column(
+              children: [
+                // _TimingFields[i],
+                _TimingFieldsDrop[i],
+                SizedBox(
+                  height: 10,
+                ),
+                _MedicineFieldsDrop[i],
+                SizedBox(
+                  height: 10,
+                ),
+                _FrequencyFieldsDrop[i],
+                SizedBox(
+                  height: 10,
+                ),
+                _AdminRouteFieldsDrop[i],
+                SizedBox(
+                  height: 10,
+                ),
+                _DoseQTYFields[i],
+                SizedBox(
+                  height: 10,
+                ),
+                _DurationFields[i],
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+            decoration: InputDecoration(
+              labelText: i.toString(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+            ),
+          ),
+        )
+    ];
+    return SingleChildScrollView(
+      child: Column(
+        children: children,
+      ),
+    );
+  }
+
+  final _okController = TextEditingController();
+  Widget _okButton(BuildContext context) {
+    final textField = TextField(
+      controller: _okController,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+      ),
+    );
+
+    final button = ElevatedButton(
+      onPressed: () async {
+        final index = int.parse(_okController.text);
+        String text = "Duration: ${_groupControllers[index].duration.text}\n" +
+            "Frequency: ${_groupControllers[index].frequency.text}\n" +
+            "Dose: ${_groupControllers[index].doseqty.text}\n";
+        await print(text);
+      },
+      child: Text("OK"),
+    );
+
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        button,
+      ],
+    );
+  }
 }
 
 class MySelectionItem extends StatelessWidget {

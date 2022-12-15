@@ -21,7 +21,7 @@ class ApprovedInjury extends StatefulWidget {
 
 class _ApprovedInjuryState extends State<ApprovedInjury> {
   Patient patient;
-  final _baseUrl = 'http://192.168.0.107/jsw/approved_injury_list_new.php';
+  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_injury_list_new.php';
   int _page = 0;
 
   final int _limit = 10;
