@@ -332,7 +332,7 @@ packages:
     source: hosted
     version: "3.2.0"
   internet_connection_checker:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: internet_connection_checker
       url: "https://pub.dartlang.org"
@@ -603,7 +603,7 @@ packages:
       name: shared_preferences_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.13"
+    version: "2.0.14"
   shared_preferences_ios:
     dependency: transitive
     description:
@@ -713,14 +713,7 @@ packages:
       name: syncfusion_flutter_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "20.3.60"
-  syncfusion_flutter_datagrid:
-    dependency: "direct main"
-    description:
-      name: syncfusion_flutter_datagrid
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "20.3.60"
+    version: "20.3.50"
   syncfusion_flutter_datepicker:
     dependency: "direct main"
     description:
@@ -776,7 +769,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.2"
   xdg_directories:
     dependency: transitive
     description:
