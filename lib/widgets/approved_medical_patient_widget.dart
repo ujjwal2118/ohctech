@@ -70,7 +70,7 @@ class ApprovedMedicalWidget extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => MedicalExam(patient: patient)));
                 },
-                icon: Icon(Icons.picture_as_pdf)),
+                icon: Icon(Icons.remove_red_eye_rounded)),
           ],
         ),
       ),

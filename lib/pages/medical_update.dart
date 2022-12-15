@@ -10,6 +10,7 @@ import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
+import 'package:ohctech/pages/home.dart';
 
 void main() {
   runApp(medicalUpdate());
@@ -207,6 +208,8 @@ class _medicalUpdateState extends State<medicalUpdate> {
       print(e);
     }
   }
+
+  DateTime _date = DateTime.now();
 
   var approvalStatusValue = [
     "Select an option",
@@ -552,8 +555,13 @@ class _medicalUpdateState extends State<medicalUpdate> {
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
         btnOkOnPress: () {
-           Navigator.pop(context);
-          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
         },
       ).show();
     } else {
@@ -3898,14 +3906,14 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 icon: Icon(Icons.event),
                 dateLabelText: 'Date',
                 timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
+                // selectableDayPredicate: (date) {
+                //   // Disable weekend days to select from the calendar
+                //   if (date.weekday == 6 || date.weekday == 7) {
+                //     return false;
+                //   }
 
-                  return true;
-                },
+                //   return true;
+                // },
                 validator: (val) {
                   return null;
                 },

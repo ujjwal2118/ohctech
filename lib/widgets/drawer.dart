@@ -3,7 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ohctech/pages/login.dart';
 import 'package:ohctech/utils/routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyDrawer extends StatelessWidget {
   final String text;
@@ -15,6 +17,15 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_declarations
     logout(BuildContext context) async {
+      // SharedPreferences pref = await SharedPreferences.getInstance();
+      // pref.remove("username");
+      // pref.remove("password");
+      // pref.remove("code");
+      // // ignore: use_build_context_synchronously
+      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) {
+      //   return LoginPage();
+      // }));
+
       Fluttertoast.showToast(
         msg: 'You are logged out!!',
         backgroundColor: Colors.black,
@@ -22,6 +33,11 @@ class MyDrawer extends StatelessWidget {
 
       await Future.delayed(Duration(seconds: 1));
       await Navigator.pushNamed(context, MyRoutes.loginRoute);
+    }
+
+    moveToHome(BuildContext context) async {
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
     }
 
     return Drawer(
@@ -46,6 +62,7 @@ class MyDrawer extends StatelessWidget {
                   currentAccountPicture: Image.asset("assets/images/user.png"),
                 )),
             ListTile(
+              onTap: () => moveToHome(context),
               leading: Icon(
                 CupertinoIcons.home,
                 color: Colors.white,
@@ -56,17 +73,17 @@ class MyDrawer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            ListTile(
-              leading: Icon(
-                CupertinoIcons.profile_circled,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Account",
-                textScaleFactor: 1.2,
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
+            // ListTile(
+            //   leading: Icon(
+            //     CupertinoIcons.profile_circled,
+            //     color: Colors.white,
+            //   ),
+            //   title: Text(
+            //     "Account",
+            //     textScaleFactor: 1.2,
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ),
             ListTile(
               onTap: () => logout(context),
               leading: Icon(

@@ -343,7 +343,7 @@ class _HomePageState extends State<HomePage> {
                                           'EXAMINATION',
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                              fontSize: 23.sp,
+                                              fontSize: 22.sp,
                                               color: Colors.white),
                                         ),
                                         subtitle: Text(
@@ -501,62 +501,56 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                      flex: 2,
-                      child: InkWell(
-                        onTap: () => moveToReports(context),
-                        child: Container(
-                          width: 30.w,
-                          height: 20.h,
-                          margin: EdgeInsets.all(20),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Image.asset(
-                                        "assets/images/report.png",
-                                        fit: BoxFit.contain,
-                                        height: 8.h,
-                                        width: 5.w,
-                                      ),
-                                    ),
-                                    SizedBox(width: 8.w),
-                                    Text(
-                                      "REPORTING",
-                                      textAlign: TextAlign.left,
-                                      style: TextStyle(
-                                          fontSize: 25.sp, color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0x3f000000),
-                                blurRadius: 4,
-                                offset: Offset(0, 4),
-                              ),
-                            ],
-                            color: Color.fromARGB(255, 9, 61, 5),
-                          ),
-                        ),
-                      )),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              // Row(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Expanded(
+              //         flex: 2,
+              //         child: InkWell(
+              //           onTap: () => moveToReports(context),
+              //           child: Container(
+              //             width: 30.w,
+              //             height: 20.h,
+              //             margin: EdgeInsets.all(20),
+              //             child: Column(
+              //               children: [
+              //                 Padding(
+              //                   padding: const EdgeInsets.all(20.0),
+              //                   child: Row(
+              //                     children: [
+              //                       Image.asset(
+              //                         "assets/images/report.png",
+              //                         fit: BoxFit.contain,
+              //                         height: 15.h,
+              //                         width: 15.w,
+              //                       ),
+              //                       SizedBox(width: 8.w),
+              //                       Text(
+              //                         "REPORTING",
+              //                         textAlign: TextAlign.right,
+              //                         style: TextStyle(
+              //                             fontSize: 25.sp, color: Colors.white),
+              //                       ),
+              //                     ],
+              //                   ),
+              //                 )
+              //               ],
+              //             ),
+              //             decoration: BoxDecoration(
+              //               borderRadius: BorderRadius.circular(15),
+              //               boxShadow: [
+              //                 BoxShadow(
+              //                   color: Color(0x3f000000),
+              //                   blurRadius: 4,
+              //                   offset: Offset(0, 4),
+              //                 ),
+              //               ],
+              //               color: Color.fromARGB(255, 9, 61, 5),
+              //             ),
+              //           ),
+              //         )),
+              //   ],
+              // ),
             ],
           ),
         ),

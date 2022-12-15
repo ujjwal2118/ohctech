@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:ohctech/pages/home.dart';
 
 // import 'package:intl/intl.dart';
 
@@ -219,8 +220,13 @@ class _injuryFormState extends State<injuryForm> {
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
         btnOkOnPress: () {
-             Navigator.pop(context);
-          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
         },
       ).show();
     } else {
@@ -241,10 +247,10 @@ class _injuryFormState extends State<injuryForm> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
-            icon:Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios),
           ),
           centerTitle: true,
           title: const Text(
@@ -311,15 +317,14 @@ class _injuryFormState extends State<injuryForm> {
                 icon: Icon(Icons.event),
                 dateLabelText: 'Date',
                 timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
+                // selectableDayPredicate: (date) {
+                //   // Disable weekend days to select from the calendar
+                //   if (date.weekday == 6 || date.weekday == 7) {
+                //     return false;
+                //   }
 
-                  return true;
-                },
-
+                //   return true;
+                // },
                 validator: (val) {
                   return null;
                 },

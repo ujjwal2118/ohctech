@@ -1,5 +1,4 @@
 // ignore_for_file: unnecessary_new, prefer_const_constructors, prefer_interpolation_to_compose_strings
-
 import 'dart:typed_data';
 import 'package:ohctech/models/patient.dart';
 import 'package:pdf/pdf.dart';
@@ -117,15 +116,17 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    // new TextSpan(text: patient.designation_name + ' ',),
+                    new TextSpan(
+                      text: patient.designation + ' ',
+                    ),
                     new TextSpan(
                       text: 'Dept: ',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const TextSpan(
-                      text: 'Department ',
+                    new TextSpan(
+                      text: patient.dept,
                     ),
                     new TextSpan(
                       text: 'was unfit for duty from : ',
@@ -153,7 +154,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    new TextSpan(text: " remark/here "),
+                    new TextSpan(text: patient.comments),
                   ],
                 ),
               ),
@@ -194,26 +195,26 @@ Future<Uint8List> Sickpdf(Patient patient) async {
               ),
               // SizedBox(height:6),
 
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  child: Text(
-                    "Form No. : ",
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
-              SizedBox(height: 6),
+              // Align(
+              //   alignment: Alignment.bottomLeft,
+              //   child: Container(
+              //     child: Text(
+              //       "Form No. : ",
+              //       textAlign: TextAlign.left,
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(height: 6),
 
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  child: Text(
-                    "Rev. : ",
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
+              // Align(
+              //   alignment: Alignment.bottomLeft,
+              //   child: Container(
+              //     child: Text(
+              //       "Rev. : ",
+              //       textAlign: TextAlign.left,
+              //     ),
+              //   ),
+              // ),
             ]),
           ],
         );

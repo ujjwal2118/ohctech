@@ -80,7 +80,7 @@ class PatientWidget extends StatelessWidget {
                             builder: (context) => PatientDetailsOpd(
                                 patient: patient, medicine: medicine)));
                   },
-                  icon: Icon(Icons.picture_as_pdf)),
+                  icon: Icon(Icons.remove_red_eye_rounded)),
             ],
           ),
         ),

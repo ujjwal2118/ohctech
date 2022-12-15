@@ -7,6 +7,7 @@ import 'package:ohctech/models/patient.dart';
 import 'package:ohctech/pages/pdf_preview_page.dart';
 import 'package:ohctech/pages/sickness_pdf_preview.dart';
 import 'package:animated_flip_card/animated_flip_card.dart';
+import 'package:ohctech/pages/unfit_pdf_preview.dart';
 
 void main() {
   runApp(PatientDetailsSickness());
@@ -24,10 +25,10 @@ class PatientDetailsSickness extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
-            icon:Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios),
             //replace with our own icon data.
           ),
           centerTitle: true,
@@ -39,11 +40,19 @@ class PatientDetailsSickness extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => SicknessPreview(patient: patient),
-              ),
-            );
+            if (patient.fitness_status != "APPROVED") {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SicknessPreviewUnfit(patient: patient),
+                ),
+              );
+            } else {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SicknessPreview(patient: patient),
+                ),
+              );
+            }
           },
           backgroundColor: Colors.green,
           child: const Icon(Icons.picture_as_pdf),
@@ -55,8 +64,7 @@ class PatientDetailsSickness extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 child: AnimatedFlipCard(
-                    front:
-                    Image.asset(
+                    front: Image.asset(
                       'assets/images/user.png',
                       width: 250,
                       fit: BoxFit.contain,
@@ -65,8 +73,7 @@ class PatientDetailsSickness extends StatelessWidget {
                       'assets/images/logo.jpeg',
                       width: 250,
                       fit: BoxFit.contain,
-                    )
-                ),
+                    )),
               ),
               Container(
                 decoration: new BoxDecoration(
@@ -85,12 +92,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -107,7 +113,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -116,7 +121,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -134,12 +138,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -156,7 +159,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -165,7 +167,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -183,12 +184,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -205,7 +205,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -231,12 +230,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:   Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -253,7 +251,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -279,12 +276,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -301,7 +297,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -310,8 +305,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -329,12 +322,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:   Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -351,7 +343,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -360,7 +351,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -378,12 +368,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -400,7 +389,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -409,7 +397,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -427,12 +414,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:   Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -443,13 +429,13 @@ class PatientDetailsSickness extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child: Text(patient.ailment_systems_new ?? "NA"),
+                                  child:
+                                      Text(patient.ailment_systems_new ?? "NA"),
                                 ),
                               ),
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -458,8 +444,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -477,12 +461,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:   Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -499,7 +482,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -525,12 +507,11 @@ class PatientDetailsSickness extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -547,7 +528,6 @@ class PatientDetailsSickness extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -556,7 +536,6 @@ class PatientDetailsSickness extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-
             ],
           ),
         ),

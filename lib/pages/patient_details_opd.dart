@@ -21,10 +21,10 @@ class PatientDetailsOpd extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
-            icon:Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios),
           ),
           centerTitle: true,
           title: Text(
@@ -67,6 +67,20 @@ class PatientDetailsOpd extends StatelessWidget {
 
 
               Container(
+                alignment: Alignment.center,
+                child: AnimatedFlipCard(
+                    front: Image.asset(
+                      'assets/images/user.png',
+                      width: 250,
+                      fit: BoxFit.contain,
+                    ),
+                    back: Image.asset(
+                      'assets/images/logo.jpeg',
+                      width: 250,
+                      fit: BoxFit.contain,
+                    )),
+              ),
+              Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -83,12 +97,11 @@ class PatientDetailsOpd extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -105,17 +118,14 @@ class PatientDetailsOpd extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
                 ),
               ),
-SizedBox(
-  height: 10,
-),
-
-
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -133,10 +143,9 @@ SizedBox(
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:Row(
+                        title: Row(
                           children: <Widget>[
                             Container(
                               child: Text(
@@ -145,7 +154,7 @@ SizedBox(
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB( 10, 0, 0, 0),
+                              padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Container(
                                 child: Text(patient.appointment_date ?? "NA"),
                               ),
@@ -160,8 +169,6 @@ SizedBox(
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -179,7 +186,6 @@ SizedBox(
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: Row(
@@ -206,8 +212,6 @@ SizedBox(
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -225,10 +229,9 @@ SizedBox(
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:Row(
+                        title: Row(
                           children: <Widget>[
                             Container(
                               child: Text(
@@ -239,7 +242,8 @@ SizedBox(
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Container(
-                                child: Text(patient.ailment_systems_new ?? "NA"),
+                                child:
+                                    Text(patient.ailment_systems_new ?? "NA"),
                               ),
                             ),
                           ],
@@ -249,13 +253,9 @@ SizedBox(
                   ],
                 ),
               ),
-
-
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -273,10 +273,9 @@ SizedBox(
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:  OrientationBuilder(
+                        title: OrientationBuilder(
                           builder: (context, orientation) => RichText(
                             text: TextSpan(
                               style: const TextStyle(
@@ -286,7 +285,8 @@ SizedBox(
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Complaints :',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
                                 TextSpan(text: patient.complaints ?? "NA"),
                               ],
                             ),
@@ -297,13 +297,9 @@ SizedBox(
                   ],
                 ),
               ),
-
-
-
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -321,10 +317,9 @@ SizedBox(
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:  Row(
+                        title: Row(
                           children: <Widget>[
                             Container(
                               child: Text(
@@ -345,14 +340,9 @@ SizedBox(
                   ],
                 ),
               ),
-
-
-
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -370,7 +360,6 @@ SizedBox(
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: OrientationBuilder(
@@ -383,8 +372,10 @@ SizedBox(
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Examination Findings :',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                                TextSpan(text: patient.examination_remarks ?? "NA"),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                TextSpan(
+                                    text: patient.examination_remarks ?? "NA"),
                               ],
                             ),
                           ),
@@ -394,15 +385,9 @@ SizedBox(
                   ],
                 ),
               ),
-
-
-
               SizedBox(
                 height: 50,
               ),
-
-
-
             ],
           ),
         ),

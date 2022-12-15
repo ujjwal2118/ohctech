@@ -50,6 +50,7 @@ class Patient {
   final String sickness_name;
   final String des;
   final String sickness_date;
+  final String sickness_time;
   final String approval_date;
   final String date_absent;
   final String date_absent_to;
@@ -153,6 +154,7 @@ class Patient {
   final String xray_findings;
   final String other_relevant_findings;
   final String remarks;
+  final String comments;
   final String dlc_b;
   final String drug_allergy;
   final String followup_to_opd;
@@ -162,6 +164,7 @@ class Patient {
   final String ans;
   final String employer_contractor;
   final String dept;
+  final String designation;
   final String spo2;
   final String cold_cough;
   final String general_weakness;
@@ -265,6 +268,7 @@ class Patient {
     this.sickness_name,
     this.des,
     this.sickness_date,
+    this.sickness_time,
     this.approval_date,
     this.date_absent,
     this.date_absent_to,
@@ -368,6 +372,7 @@ class Patient {
     this.xray_findings,
     this.other_relevant_findings,
     this.remarks,
+    this.comments,
     this.dlc_b,
     this.drug_allergy,
     this.followup_to_opd,
@@ -377,6 +382,7 @@ class Patient {
     this.ans,
     this.employer_contractor,
     this.dept,
+    this.designation,
     this.spo2,
     this.cold_cough,
     this.general_weakness,
@@ -481,6 +487,7 @@ class Patient {
     String sickness_name,
     String des,
     String sickness_date,
+    String sickness_time,
     String approval_date,
     String date_absent,
     String date_absent_to,
@@ -584,6 +591,7 @@ class Patient {
     String xray_findings,
     String other_relevant_findings,
     String remarks,
+    String comments,
     String dlc_b,
     String drug_allergy,
     String followup_to_opd,
@@ -593,6 +601,7 @@ class Patient {
     String ans,
     String employer_contractor,
     String dept,
+    String designation,
     String spo2,
     String cold_cough,
     String general_weakness,
@@ -699,6 +708,7 @@ class Patient {
       sickness_name: sickness_name ?? this.sickness_name,
       des: des ?? this.des,
       sickness_date: sickness_date ?? this.sickness_date,
+      sickness_time: sickness_time ?? this.sickness_time,
       approval_date: approval_date ?? this.approval_date,
       date_absent: date_absent ?? this.date_absent,
       date_absent_to: date_absent_to ?? this.date_absent_to,
@@ -809,6 +819,7 @@ class Patient {
       other_relevant_findings:
           other_relevant_findings ?? this.other_relevant_findings,
       remarks: remarks ?? this.remarks,
+      comments: comments ?? this.comments,
       dlc_b: dlc_b ?? this.dlc_b,
       drug_allergy: drug_allergy ?? this.drug_allergy,
       followup_to_opd: followup_to_opd ?? this.followup_to_opd,
@@ -818,6 +829,7 @@ class Patient {
       ans: ans ?? this.ans,
       employer_contractor: employer_contractor ?? this.employer_contractor,
       dept: dept ?? this.dept,
+      designation: designation ?? this.designation,
       spo2: spo2 ?? this.spo2,
       cold_cough: cold_cough ?? this.cold_cough,
       general_weakness: general_weakness ?? this.general_weakness,
@@ -922,6 +934,7 @@ class Patient {
       'sickness_name': sickness_name,
       'des': des,
       'sickness_date': sickness_date,
+      'sickness_time': sickness_time,
       'approval_date': approval_date,
       'date_absent': date_absent,
       'date_absent_to': date_absent_to,
@@ -1026,6 +1039,7 @@ class Patient {
       'xray_findings': xray_findings,
       'other_relevant_findings': other_relevant_findings,
       'remarks': remarks,
+      'comments': comments,
       'dlc_b': dlc_b,
       'drug_allergy': drug_allergy,
       'followup_to_opd': followup_to_opd,
@@ -1035,6 +1049,7 @@ class Patient {
       'ans': ans,
       'employer_contractor': employer_contractor,
       'dept': dept,
+      'designation': designation,
       'spo2': spo2,
       'cold_cough': cold_cough,
       'general_weakness': general_weakness,
@@ -1142,6 +1157,7 @@ class Patient {
         sickness_name: map['sickness_name'],
         des: map['des'],
         sickness_date: map['sickness_date'],
+        sickness_time: map['sickness_time'],
         approval_date: map['approval_date'],
         date_absent: map['date_absent'],
         date_absent_to: map['date_absent_to'],
@@ -1245,6 +1261,7 @@ class Patient {
         xray_findings: map['xray_findings'],
         other_relevant_findings: map['other_relevant_findings'],
         remarks: map['remarks'],
+        comments: map['comments'],
         dlc_b: map['dlc_b'],
         drug_allergy: map['drug_allergy'],
         followup_to_opd: map['followup_to_opd'],
@@ -1254,6 +1271,7 @@ class Patient {
         ans: map['ans'],
         employer_contractor: map['employer_contractor'],
         dept: map['dept'],
+        designation: map['designation'],
         spo2: map['SpO2'],
         cold_cough: map['cold_cough'],
         general_weakness: map['general_weakness'],
@@ -1321,7 +1339,7 @@ class Patient {
 
   @override
   String toString() {
-    return 'Patient(pending_opd_count: $pending_opd_count,pending_injury_count: $pending_injury_count,pending_sickness_count: $pending_sickness_count,pending_medical_count: $pending_medical_count,approved_opd_count: $approved_opd_count,approved_injury_count: $approved_injury_count,approved_sickness_count: $approved_sickness_count,approved_medical_count: $approved_medical_count,id: $id: $id,appointment_id: $appointment_id,item_id: $item_id,frequency_id: $frequency_id,for_days: $for_days,item_qty: $item_qty,issued_qty: $issued_qty,dosage: $dosage,dosage_category_id: $dosage_category_id,timing_id:$timing_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,peme_no: $peme_no,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_relevant_findings :$other_relevant_findings,remarks:$remarks,dlc_b:$dlc_b,drug_allergy:$drug_allergy,followup_to_opd:$followup_to_opd,followup:$followup,external_treatments:$external_treatments,dob:$dob,ans:$ans,employer_contractor:$employer_contractor,dept:$dept,spo2 : $spo2,cold_cough : $cold_cough,general_weakness : $general_weakness,smell : $smell,calcium : $calcium,st_line_walking : $st_line_walking,eac : $eac,near_with_right_eye : $near_with_right_eye,dis_with_right_eye : $dis_with_right_eye,dis_with_left_eye : $dis_with_left_eye,near_with_left_eye : $near_with_left_eye,color_vision : $color_vision,ln_v : $ln_v,ln_axis : $ln_axis,ln_dcyl: $ln_dcyl,=ln_dsph : $ln_dsph,ld_v : $ld_v,ld_axis : $ld_axis,ld_dcyl : $ld_dcyl,ld_dsph : $ld_dsph,rn_v : $rn_v,rn_axis : $rn_axis,rn_dcyl : $rn_dcyl,rn_dsph : $rn_dsph,rd_v : $rd_v,rd_axis : $rd_axis,rd_dcyl : $rd_dcyl,rd_dsph : $rd_dsph,lair_250 : $lair_250,lair_500 : $lair_500,lair_1000 : $lair_1000,lair_2000 : $lair_2000,lair_4000 : $lair_4000,lair_8000 : $lair_8000,lbone_250 : $lbone_250,lbone_500 : $lbone_500,lbone_1000 : $lbone_1000,lbone_2000 : $lbone_2000,lbone_4000 : $lbone_4000,lbone_8000 : $lbone_8000,rair_250 : $rair_250,rair_500 : $rair_500,rair_1000 : $rair_1000,rair_2000 : $rair_2000,rair_4000 : $rair_4000,rair_8000 : $rair_8000,rbone_250 : $rbone_250,rbone_500 : $rbone_500,rbone_1000 : $rbone_1000,rbone_2000 : $rbone_2000,rbone_4000 : $rbone_4000,rbone_8000 : $rbone_8000,bn_findings : $bn_findings,a : $a,cy : $cy,i : $i,cl : $cl,e: $e)';
+    return 'Patient(pending_opd_count: $pending_opd_count,pending_injury_count: $pending_injury_count,pending_sickness_count: $pending_sickness_count,pending_medical_count: $pending_medical_count,approved_opd_count: $approved_opd_count,approved_injury_count: $approved_injury_count,approved_sickness_count: $approved_sickness_count,approved_medical_count: $approved_medical_count,id: $id: $id,appointment_id: $appointment_id,item_id: $item_id,frequency_id: $frequency_id,for_days: $for_days,item_qty: $item_qty,issued_qty: $issued_qty,dosage: $dosage,dosage_category_id: $dosage_category_id,timing_id:$timing_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date,sickness_time: $sickness_time, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,peme_no: $peme_no,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_relevant_findings :$other_relevant_findings,remarks:$remarks,comments:$comments,dlc_b:$dlc_b,drug_allergy:$drug_allergy,followup_to_opd:$followup_to_opd,followup:$followup,external_treatments:$external_treatments,dob:$dob,ans:$ans,employer_contractor:$employer_contractor,dept:$dept,designation:$designation,spo2 : $spo2,cold_cough : $cold_cough,general_weakness : $general_weakness,smell : $smell,calcium : $calcium,st_line_walking : $st_line_walking,eac : $eac,near_with_right_eye : $near_with_right_eye,dis_with_right_eye : $dis_with_right_eye,dis_with_left_eye : $dis_with_left_eye,near_with_left_eye : $near_with_left_eye,color_vision : $color_vision,ln_v : $ln_v,ln_axis : $ln_axis,ln_dcyl: $ln_dcyl,=ln_dsph : $ln_dsph,ld_v : $ld_v,ld_axis : $ld_axis,ld_dcyl : $ld_dcyl,ld_dsph : $ld_dsph,rn_v : $rn_v,rn_axis : $rn_axis,rn_dcyl : $rn_dcyl,rn_dsph : $rn_dsph,rd_v : $rd_v,rd_axis : $rd_axis,rd_dcyl : $rd_dcyl,rd_dsph : $rd_dsph,lair_250 : $lair_250,lair_500 : $lair_500,lair_1000 : $lair_1000,lair_2000 : $lair_2000,lair_4000 : $lair_4000,lair_8000 : $lair_8000,lbone_250 : $lbone_250,lbone_500 : $lbone_500,lbone_1000 : $lbone_1000,lbone_2000 : $lbone_2000,lbone_4000 : $lbone_4000,lbone_8000 : $lbone_8000,rair_250 : $rair_250,rair_500 : $rair_500,rair_1000 : $rair_1000,rair_2000 : $rair_2000,rair_4000 : $rair_4000,rair_8000 : $rair_8000,rbone_250 : $rbone_250,rbone_500 : $rbone_500,rbone_1000 : $rbone_1000,rbone_2000 : $rbone_2000,rbone_4000 : $rbone_4000,rbone_8000 : $rbone_8000,bn_findings : $bn_findings,a : $a,cy : $cy,i : $i,cl : $cl,e: $e)';
   }
 
   @override
@@ -1372,6 +1390,7 @@ class Patient {
         o.sickness_name == sickness_name &&
         o.des == des &&
         o.sickness_date == sickness_date &&
+        o.sickness_time == sickness_time &&
         o.approval_date == approval_date &&
         o.date_absent == date_absent &&
         o.date_absent_to == date_absent_to &&
@@ -1475,6 +1494,7 @@ class Patient {
         o.xray_findings == xray_findings &&
         o.other_relevant_findings == other_relevant_findings &&
         o.remarks == remarks &&
+        o.comments == comments &&
         o.dlc_b == dlc_b &&
         o.drug_allergy == drug_allergy &&
         o.followup_to_opd == followup_to_opd &&
@@ -1484,6 +1504,7 @@ class Patient {
         o.ans == ans &&
         o.employer_contractor == employer_contractor &&
         o.dept == dept &&
+        o.designation == designation &&
         o.spo2 == spo2 &&
         o.cold_cough == cold_cough &&
         o.general_weakness == general_weakness &&
@@ -1589,6 +1610,7 @@ class Patient {
         sickness_name.hashCode ^
         des.hashCode ^
         sickness_date.hashCode ^
+        sickness_time.hashCode ^
         approval_date.hashCode ^
         date_absent.hashCode ^
         date_absent_to.hashCode ^
@@ -1692,6 +1714,7 @@ class Patient {
         xray_findings.hashCode ^
         other_relevant_findings.hashCode ^
         remarks.hashCode ^
+        comments.hashCode ^
         dlc_b.hashCode ^
         drug_allergy.hashCode ^
         followup_to_opd.hashCode ^
@@ -1701,6 +1724,7 @@ class Patient {
         ans.hashCode ^
         employer_contractor.hashCode ^
         dept.hashCode ^
+        designation.hashCode ^
         spo2.hashCode ^
         cold_cough.hashCode ^
         general_weakness.hashCode ^

@@ -240,8 +240,8 @@ class _SicknessPageState extends State<SicknessPage> {
           text: '',
         ),
       );
-    }else{
-     return Scaffold(
+    } else {
+      return Scaffold(
         appBar: AppBar(
           title: Text("Pending Sickness LIST"),
         ),
@@ -261,6 +261,7 @@ class _SicknessPageState extends State<SicknessPage> {
             ),
           ),
         ),
-      );}
+      );
+    }
   }
 }

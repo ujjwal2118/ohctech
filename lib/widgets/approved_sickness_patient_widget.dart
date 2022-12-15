@@ -69,7 +69,7 @@ class ApprovedSicknessWidget extends StatelessWidget {
                           builder: (context) =>
                               PatientDetailsSickness(patient: patient)));
                 },
-                icon: Icon(Icons.picture_as_pdf)),
+                icon: Icon(Icons.remove_red_eye_rounded)),
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:typed_data';
-
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +25,10 @@ class PatientDetailsInjury extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.pop(context);
             },
-            icon:Icon(Icons.arrow_back_ios),
+            icon: Icon(Icons.arrow_back_ios),
           ),
           centerTitle: true,
           title: Text(
@@ -56,8 +55,7 @@ class PatientDetailsInjury extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 child: AnimatedFlipCard(
-                    front:
-                    Image.asset(
+                    front: Image.asset(
                       'assets/images/user.png',
                       width: 250,
                       fit: BoxFit.contain,
@@ -66,10 +64,8 @@ class PatientDetailsInjury extends StatelessWidget {
                       'assets/images/logo.jpeg',
                       width: 250,
                       fit: BoxFit.contain,
-                    )
-                ),
+                    )),
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -87,12 +83,11 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -109,7 +104,6 @@ class PatientDetailsInjury extends StatelessWidget {
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -135,12 +129,11 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:   Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -151,13 +144,16 @@ class PatientDetailsInjury extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child: Text( patient.appointment_date == null || patient.appointment_date == "" ? "" : patient.appointment_date),
+                                  child: Text(
+                                      patient.appointment_date == null ||
+                                              patient.appointment_date == ""
+                                          ? ""
+                                          : patient.appointment_date),
                                 ),
                               ),
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -183,12 +179,11 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:   Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -199,13 +194,15 @@ class PatientDetailsInjury extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child: Text( patient.ticket_no == null || patient.ticket_no == "" ? "" : patient.ticket_no),
+                                  child: Text(patient.ticket_no == null ||
+                                          patient.ticket_no == ""
+                                      ? ""
+                                      : patient.ticket_no),
                                 ),
                               ),
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -214,7 +211,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -232,12 +228,11 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:     Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -248,13 +243,16 @@ class PatientDetailsInjury extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child: Text( patient.injury_parts_new == null || patient.injury_parts_new == "" ? "" : patient.injury_parts_new),
+                                  child: Text(
+                                      patient.injury_parts_new == null ||
+                                              patient.injury_parts_new == ""
+                                          ? ""
+                                          : patient.injury_parts_new),
                                 ),
                               ),
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -263,7 +261,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -281,12 +278,11 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:     Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -297,13 +293,16 @@ class PatientDetailsInjury extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child: Text( patient.injury_classes_new == null || patient.injury_classes_new == "" ? "" : patient.injury_classes_new),
+                                  child: Text(
+                                      patient.injury_classes_new == null ||
+                                              patient.injury_classes_new == ""
+                                          ? ""
+                                          : patient.injury_classes_new),
                                 ),
                               ),
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -312,7 +311,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -330,12 +328,11 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
                         title: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          child:    Row(
+                          child: Row(
                             children: <Widget>[
                               Container(
                                 child: Text(
@@ -346,13 +343,16 @@ class PatientDetailsInjury extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child: Text( patient.injury_types_new == null || patient.injury_types_new == "" ? "" : patient.injury_types_new),
+                                  child: Text(
+                                      patient.injury_types_new == null ||
+                                              patient.injury_types_new == ""
+                                          ? ""
+                                          : patient.injury_types_new),
                                 ),
                               ),
                             ],
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -361,7 +361,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -379,10 +378,9 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:    OrientationBuilder(
+                        title: OrientationBuilder(
                           builder: (context, orientation) => RichText(
                             text: TextSpan(
                               // Note: Styles for TextSpans must be explicitly defined.
@@ -394,8 +392,13 @@ class PatientDetailsInjury extends StatelessWidget {
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Incident Location: ',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                                TextSpan(text:  patient.incident_location == null || patient.incident_location == "" ? "" : patient.incident_location),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                TextSpan(
+                                    text: patient.incident_location == null ||
+                                            patient.incident_location == ""
+                                        ? ""
+                                        : patient.incident_location),
                               ],
                             ),
                           ),
@@ -408,10 +411,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -429,10 +428,9 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:     OrientationBuilder(
+                        title: OrientationBuilder(
                           builder: (context, orientation) => RichText(
                             text: TextSpan(
                               style: const TextStyle(
@@ -442,8 +440,13 @@ class PatientDetailsInjury extends StatelessWidget {
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Injury Procedure: ',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                                TextSpan(text: patient.injury_procedure == null || patient.injury_procedure == "" ? "" : patient.injury_procedure  ),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                TextSpan(
+                                    text: patient.injury_procedure == null ||
+                                            patient.injury_procedure == ""
+                                        ? ""
+                                        : patient.injury_procedure),
                               ],
                             ),
                           ),
@@ -456,9 +459,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -476,10 +476,9 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:    OrientationBuilder(
+                        title: OrientationBuilder(
                           builder: (context, orientation) => RichText(
                             text: TextSpan(
                               style: const TextStyle(
@@ -489,13 +488,17 @@ class PatientDetailsInjury extends StatelessWidget {
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Complaints :',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                                TextSpan(text: patient.complaints == null ||  patient.complaints == "" ? "" :  patient.complaints ),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                TextSpan(
+                                    text: patient.complaints == null ||
+                                            patient.complaints == ""
+                                        ? ""
+                                        : patient.complaints),
                               ],
                             ),
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -504,8 +507,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -523,11 +524,9 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:
-                        OrientationBuilder(
+                        title: OrientationBuilder(
                           builder: (context, orientation) => RichText(
                             text: TextSpan(
                               style: const TextStyle(
@@ -537,13 +536,17 @@ class PatientDetailsInjury extends StatelessWidget {
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Diagnosis : ',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                                TextSpan(text:patient.ailments_new == null || patient.ailments_new == "" ? "" : patient.ailments_new),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                TextSpan(
+                                    text: patient.ailments_new == null ||
+                                            patient.ailments_new == ""
+                                        ? ""
+                                        : patient.ailments_new),
                               ],
                             ),
                           ),
                         ),
-
                       ),
                     ),
                   ],
@@ -552,9 +555,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
-
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [
@@ -572,11 +572,9 @@ class PatientDetailsInjury extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-
                       elevation: 10.20,
                       child: ListTile(
-                        title:
-                        OrientationBuilder(
+                        title: OrientationBuilder(
                           builder: (context, orientation) => RichText(
                             text: TextSpan(
                               style: const TextStyle(
@@ -586,14 +584,17 @@ class PatientDetailsInjury extends StatelessWidget {
                               children: <TextSpan>[
                                 TextSpan(
                                     text: 'Examination Findings :',
-                                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                                TextSpan(text: patient.examination_remarks == null ||  patient.examination_remarks == '' ? "" :  patient.examination_remarks ),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold)),
+                                TextSpan(
+                                    text: patient.examination_remarks == null ||
+                                            patient.examination_remarks == ''
+                                        ? ""
+                                        : patient.examination_remarks),
                               ],
                             ),
                           ),
                         ),
-
-
                       ),
                     ),
                   ],
@@ -602,9 +603,6 @@ class PatientDetailsInjury extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
-
-
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 10),

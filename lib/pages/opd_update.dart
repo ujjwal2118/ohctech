@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:ohctech/pages/home.dart';
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -37,6 +38,8 @@ class _opdFormState extends State<opdForm> {
   TextEditingController examination_remarks = TextEditingController();
   TextEditingController remarks_rece = TextEditingController();
   TextEditingController appointment_date = TextEditingController();
+  TextEditingController duration = TextEditingController();
+  TextEditingController dose_qty = TextEditingController();
 
   bool error = false, dataloaded = false;
   var data;
@@ -46,6 +49,11 @@ class _opdFormState extends State<opdForm> {
   @override
   void initState() {
     loaddata();
+    getAllCategory();
+    getAllMedicines();
+    getAllFrequency();
+    getAllTimings();
+    getAllAdminroute();
     super.initState();
     Patient dm;
     dm = widget.patient;
@@ -130,7 +138,92 @@ class _opdFormState extends State<opdForm> {
         .toList();
   }
 
+  List categoryItemlist = [];
+
+  Future getAllCategory() async {
+    var baseUrl = "http://103.196.222.49:85/jsw/bodysystemapi.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        categoryItemlist = jsonData;
+      });
+    }
+  }
+
+  List medicinelist = [];
+
+  Future getAllMedicines() async {
+    var baseUrl = "http://103.196.222.49:85/jsw/medicines_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        medicinelist = jsonData;
+      });
+    }
+  }
+
+  List frequencylist = [];
+
+  Future getAllFrequency() async {
+    var baseUrl = "http://103.196.222.49:85/jsw/frequency_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        frequencylist = jsonData;
+      });
+    }
+  }
+
+  List timingslist = [];
+
+  Future getAllTimings() async {
+    var baseUrl = "http://103.196.222.49:85/jsw/timings_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        timingslist = jsonData;
+      });
+    }
+  }
+
+  List adminRoutelist = [];
+
+  Future getAllAdminroute() async {
+    var baseUrl = "http://103.196.222.49:85/jsw/adminroute_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      setState(() {
+        adminRoutelist = jsonData;
+      });
+    }
+  }
+
+  var dropdownvalue;
+  var dropdownValueMedicine;
+  var dropdownValueFrequency;
+  var dropdownValueTiming;
+  var dropdownValueAdminroute;
+
   String dropdownValue = 'Select Disease Type';
+  // String dropdownValueMedicine = 'Select Medicine';
+  // String dropdownValueFrequency = 'Select Frequency';
+  // String dropdownValueTiming = 'Select Timing';
+  // String dropdownValueAdminroute = 'Select Admin. Route';
   String caseTypeValue = 'Select Case Type';
   String bodySystemValue = 'Select Body System';
 
@@ -159,8 +252,13 @@ class _opdFormState extends State<opdForm> {
         animType: AnimType.rightSlide,
         title: 'Updated Successfully',
         btnOkOnPress: () {
-          Navigator.pop(context);
-          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()))
+              .then((_) {
+            // This block runs when you have come back to the 1st Page from 2nd.
+            setState(() {
+              // Call setState to refresh the page.
+            });
+          });
         },
       ).show();
     } else {
@@ -245,15 +343,13 @@ class _opdFormState extends State<opdForm> {
                 icon: Icon(Icons.event),
                 dateLabelText: 'Date',
                 timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
-
-                  return true;
-                },
-
+                // selectableDayPredicate: (date) {
+                //   // Disable weekend days to select from the calendar
+                //   if (date.weekday == 6 || date.weekday == 7) {
+                //     return false;
+                //   }
+                //   return true;
+                // },
                 validator: (val) {
                   return null;
                 },
@@ -292,24 +388,16 @@ class _opdFormState extends State<opdForm> {
                       ),
                     ],
                   ),
-                  items: bodySystem
-                      .map((iteams) => DropdownMenuItem<String>(
-                            value: iteams,
-                            child: Text(
-                              iteams,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ))
-                      .toList(),
-                  value: bodySystemValue,
-                  onChanged: (value) {
+                  items: categoryItemlist.map((item) {
+                    return DropdownMenuItem(
+                      value: item['ailment_sys_name'].toString(),
+                      child: Text(item['ailment_sys_name'].toString()),
+                    );
+                  }).toList(),
+                  value: dropdownvalue,
+                  onChanged: (newVal) {
                     setState(() {
-                      bodySystemValue = value as String;
+                      dropdownvalue = newVal;
                     });
                   },
                   icon: const Icon(
@@ -425,6 +513,377 @@ class _opdFormState extends State<opdForm> {
                     labelText: 'REMARKS:',
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ExpansionTile(
+                // backgroundColor: Color.fromARGB(255, 17, 171, 222),
+                title: Text(
+                  "\nMEDICINE\n",
+                  style: Theme.of(context).textTheme.headline6,
+                ), //header title
+                children: [
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children: const [
+                          Icon(
+                            Icons.list,
+                            size: 16,
+                            color: Color.fromARGB(255, 249, 248, 244),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Select Medicine',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 240, 240, 238),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: medicinelist.map((item) {
+                        return DropdownMenuItem(
+                          value: item['item_name'].toString(),
+                          child: Text(
+                            item['item_name'].toString(),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 240, 240, 238)),
+                          ),
+                        );
+                      }).toList(),
+                      value: dropdownValueMedicine,
+                      onChanged: (newVal) {
+                        setState(() {
+                          dropdownValueMedicine = newVal;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_circle_down_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.black,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 350,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.lightBlue,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      itemPadding: const EdgeInsets.only(left: 15, right: 14),
+                      dropdownMaxHeight: 100,
+                      dropdownWidth: 200,
+                      dropdownPadding: null,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                      offset: const Offset(10, 0),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children: const [
+                          Icon(
+                            Icons.list,
+                            size: 16,
+                            color: Color.fromARGB(255, 249, 248, 244),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Select Frequency',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 240, 240, 238),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: frequencylist.map((item) {
+                        return DropdownMenuItem(
+                          value: item['medicine_frequency'].toString(),
+                          child: Text(
+                            item['medicine_frequency'].toString(),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 240, 240, 238)),
+                          ),
+                        );
+                      }).toList(),
+                      value: dropdownValueFrequency,
+                      onChanged: (newVal) {
+                        setState(() {
+                          dropdownValueFrequency = newVal;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_circle_down_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.black,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 350,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Color.fromARGB(220, 233, 231, 231),
+                        ),
+                        color: Colors.lightBlue,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      itemPadding: const EdgeInsets.only(left: 15, right: 14),
+                      dropdownMaxHeight: 100,
+                      dropdownWidth: 200,
+                      dropdownPadding: null,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                      offset: const Offset(10, 0),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children: const [
+                          Icon(
+                            Icons.list,
+                            size: 16,
+                            color: Color.fromARGB(255, 249, 248, 244),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Select Timings',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 240, 240, 238),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: timingslist.map((item) {
+                        return DropdownMenuItem(
+                          value: item['medicine_timing'].toString(),
+                          child: Text(
+                            item['medicine_timing'].toString(),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 240, 240, 238)),
+                          ),
+                        );
+                      }).toList(),
+                      value: dropdownValueTiming,
+                      onChanged: (newVal) {
+                        setState(() {
+                          dropdownValueTiming = newVal;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_circle_down_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.black,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 350,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.lightBlue,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      itemPadding: const EdgeInsets.only(left: 15, right: 14),
+                      dropdownMaxHeight: 100,
+                      dropdownWidth: 200,
+                      dropdownPadding: null,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                      offset: const Offset(10, 0),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        children: const [
+                          Icon(
+                            Icons.list,
+                            size: 16,
+                            color: Color.fromARGB(255, 249, 248, 244),
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Select Admin. Route',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 240, 240, 238),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: adminRoutelist.map((item) {
+                        return DropdownMenuItem(
+                          value: item['dosage_category'].toString(),
+                          child: Text(
+                            item['dosage_category'].toString(),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 240, 240, 238)),
+                          ),
+                        );
+                      }).toList(),
+                      value: dropdownValueAdminroute,
+                      onChanged: (newVal) {
+                        setState(() {
+                          dropdownValueAdminroute = newVal;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_circle_down_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Colors.black,
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: 350,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: Colors.lightBlue,
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      itemPadding: const EdgeInsets.only(left: 15, right: 14),
+                      dropdownMaxHeight: 100,
+                      dropdownWidth: 200,
+                      dropdownPadding: null,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.lightBlueAccent,
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                      offset: const Offset(10, 0),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextField(
+                      controller: duration,
+                      // ignore: prefer_const_constructors
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 3,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 3,
+                              color: Color.fromARGB(255, 66, 125, 145)),
+                        ),
+                        icon: Icon(Icons.timelapse),
+                        labelText: 'DURATION:',
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextField(
+                      controller: dose_qty,
+                      // ignore: prefer_const_constructors
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 3,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: 3,
+                              color: Color.fromARGB(255, 66, 125, 145)),
+                        ),
+                        icon: Icon(Icons.production_quantity_limits),
+                        labelText: 'DOSE QTY.:',
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
               const Divider(),
