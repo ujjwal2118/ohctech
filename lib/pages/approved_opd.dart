@@ -20,7 +20,7 @@ class ApprovedOPD extends StatefulWidget {
 
 class _ApprovedOPDState extends State<ApprovedOPD> {
   Patient patient;
-  final _baseUrl = 'http://103.196.222.49:85/jsw/approved_opd_list.php';
+  final _baseUrl = 'http://192.168.0.107/jsw/approved_opd_list.php';
   int _page = 0;
 
   final int _limit = 10;

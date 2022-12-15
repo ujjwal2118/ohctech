@@ -1,8 +1,9 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:ohctech/models/patient.dart';
+import 'package:ohctech/models/injury_model.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -11,6 +12,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:ohctech/pages/home.dart';
+import 'package:intl/intl.dart';
+import 'package:get/get.dart';
+import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
 
 // import 'package:intl/intl.dart';
 
@@ -65,7 +69,7 @@ class _injuryFormState extends State<injuryForm> {
   TextEditingController patientName = TextEditingController();
   TextEditingController ticket_no = TextEditingController();
   TextEditingController complaints = TextEditingController();
-  TextEditingController ailments_new = TextEditingController();
+  TextEditingController diagnosis = TextEditingController();
   TextEditingController examination_remarks = TextEditingController();
   TextEditingController remarks_rece = TextEditingController();
   TextEditingController appointment_date = TextEditingController();
@@ -75,6 +79,10 @@ class _injuryFormState extends State<injuryForm> {
   TextEditingController injury_procedure = TextEditingController();
   TextEditingController branch_area = TextEditingController();
   // TextEditingController dept = TextEditingController();
+
+  final AppDataController controllerPart = Get.put(AppDataController());
+  final AppDataController controllerType = Get.put(AppDataController());
+  final AppDataController controllerClass = Get.put(AppDataController());
 
   @override
   void initState() {
@@ -86,7 +94,7 @@ class _injuryFormState extends State<injuryForm> {
     ticket_no.text = dm.ticket_no;
     patientName.text = dm.patient_name;
     complaints.text = dm.complaints;
-    ailments_new.text = dm.ailments_new;
+    diagnosis.text = dm.diagnosis;
     examination_remarks.text = dm.examination_remarks;
     remarks_rece.text = dm.remarks_rece;
     visitDate = dm.appointment_date;
@@ -99,97 +107,60 @@ class _injuryFormState extends State<injuryForm> {
     branch_area.text = dm.branch_area;
   }
 
-  static final List<injury_type> _injury_type = [
-    injury_type(id: 1, name: "Blunt"),
-    injury_type(id: 2, name: "Cut"),
-    injury_type(id: 3, name: "Sprain"),
-    injury_type(id: 4, name: "Fracture"),
-    injury_type(id: 5, name: "Abrasion"),
-    injury_type(id: 6, name: "Burn"),
-    injury_type(id: 7, name: "Electric burn"),
-    injury_type(id: 8, name: "Crush"),
-    injury_type(id: 9, name: "Bite"),
-    injury_type(id: 10, name: "Incision"),
-    injury_type(id: 11, name: "Contusion"),
-    injury_type(id: 12, name: "Puncture"),
-    injury_type(id: 13, name: "Amputation"),
-    injury_type(id: 14, name: "Avulsion"),
-    injury_type(id: 15, name: "Foreign body"),
-    injury_type(id: 16, name: "Polytrauma"),
-    injury_type(id: 17, name: "Chemical contact"),
-    injury_type(id: 18, name: "Laceration"),
-    injury_type(id: 19, name: "Gas inhalation"),
-    injury_type(id: 20, name: "Hypoxia"),
-  ];
-  final _items_injury_type = _injury_type
-      .map((type) => MultiSelectItem<injury_type>(type, type.name))
-      .toList();
-  //List<Animal> _selectedAnimals = [];
-  List<injury_type> _selectedinjury_type2 = [];
-  List<injury_type> _selectedinjury_type3 = [];
-  //List<Animal> _selectedAnimals4 = [];
-  List<injury_type> _selectedinjury_type5 = [];
+  // List injuryClasslist = [];
 
-  static final List<injury_part> _injury_part = [
-    injury_part(id: 1, name: "Head"),
-    injury_part(id: 2, name: "Face"),
-    injury_part(id: 3, name: "Ear"),
-    injury_part(id: 4, name: "Neck"),
-    injury_part(id: 5, name: "Shoulder"),
-    injury_part(id: 6, name: "Arm"),
-    injury_part(id: 7, name: "Forearm"),
-    injury_part(id: 8, name: "Hand"),
-    injury_part(id: 9, name: "Chest"),
-    injury_part(id: 10, name: "Abdomen"),
-    injury_part(id: 11, name: "Finger"),
-    injury_part(id: 12, name: "Back"),
-    injury_part(id: 13, name: "Thigh"),
-    injury_part(id: 14, name: "Neck"),
-    injury_part(id: 15, name: "Hand"),
-    injury_part(id: 16, name: "nose"),
-    injury_part(id: 17, name: "general"),
-    injury_part(id: 18, name: "tooth"),
-    injury_part(id: 19, name: "left ear"),
-    injury_part(id: 20, name: "left eye"),
-    injury_part(id: 21, name: "left ankle"),
-    injury_part(id: 22, name: "left hand"),
-    injury_part(id: 23, name: "LEFT INDEX FINGER"),
-    injury_part(id: 24, name: "STOMACH"),
-    injury_part(id: 25, name: "rt elbow"),
-    injury_part(id: 26, name: "ankle"),
-    injury_part(id: 27, name: "left knee"),
-    injury_part(id: 28, name: "LEFT SHOULDER"),
-    injury_part(id: 29, name: "PALM"),
-    injury_part(id: 30, name: "RT HAND"),
-    injury_part(id: 31, name: "LEFT LITTLE FINGER"),
-    injury_part(id: 32, name: "GSD"),
-    injury_part(id: 33, name: "SHOULDER"),
-    injury_part(id: 34, name: "FINGER"),
-    injury_part(id: 35, name: "TOE"),
-  ];
-  final _items_injury_part = _injury_part
-      .map((part) => MultiSelectItem<injury_part>(part, part.name))
-      .toList();
-  List<injury_part> _selectedinjury_part2 = [];
-  List<injury_part> _selectedinjury_part3 = [];
-  List<injury_part> _selectedinjury_part5 = [];
+  // Future getAllFrequency() async {
+  //   var baseUrl = "http://103.196.222.49:85/jsw/injury_class_api.php";
 
-  static final List<injury_class> _injury_class = [
-    injury_class(id: 1, name: "MTC"),
-    injury_class(id: 2, name: "RWC"),
-    injury_class(id: 3, name: "FIRST AID"),
-    injury_class(id: 4, name: "LTI"),
-    injury_class(id: 5, name: "MINOR"),
-  ];
-  final _items_injury_class = _injury_class
-      .map((inj_class) =>
-          MultiSelectItem<injury_class>(inj_class, inj_class.name))
-      .toList();
-  //List<Animal> _selectedAnimals = [];
-  List<injury_class> _selectedinjury_class2 = [];
-  List<injury_class> _selectedinjury_class3 = [];
-  //List<Animal> _selectedAnimals4 = [];
-  List<injury_class> _selectedinjury_class5 = [];
+  //   http.Response response = await http.get(Uri.parse(baseUrl));
+
+  //   if (response.statusCode == 200) {
+  //     var jsonData = json.decode(response.body);
+  //     setState(() {
+  //       injuryClasslist = jsonData;
+  //     });
+  //   }
+  // }
+
+  // List injuryPartlist = [];
+
+  // Future getAllTimings() async {
+  //   var baseUrl = "http://103.196.222.49:85/jsw/injury_part_api.php";
+
+  //   http.Response response = await http.get(Uri.parse(baseUrl));
+
+  //   if (response.statusCode == 200) {
+  //     var jsonData = json.decode(response.body);
+  //     setState(() {
+  //       injuryPartlist = jsonData;
+  //     });
+  //   }
+  // }
+
+  // List injuryTypelist = [];
+
+  // Future getAllAdminroute() async {
+  //   var baseUrl = "http://103.196.222.49:85/jsw/injury_type_api.php";
+
+  //   http.Response response = await http.get(Uri.parse(baseUrl));
+
+  //   if (response.statusCode == 200) {
+  //     var jsonData = json.decode(response.body);
+  //     setState(() {
+  //       injuryTypelist = jsonData;
+  //     });
+  //   }
+  // }
+
+  var dropdownValueInjuryPart;
+  var dropdownValueInjuryClass;
+  var dropdownValueInjuryType;
+  List injuryPartData = [];
+  List injuryClassData = [];
+  List injuryTypeData = [];
+  String injury_parts;
+  String injury_types;
+  String injury_classes;
 
   final _multiSelectKey = GlobalKey<FormFieldState>();
 
@@ -198,13 +169,18 @@ class _injuryFormState extends State<injuryForm> {
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
       "complaints": complaints.text,
-      "ailments_new": ailments_new.text,
+      "diagnosis": diagnosis.text,
       "examination_remarks": examination_remarks.text,
+      "injury_type": injury_types,
+      "injury_part": injury_parts,
+      "injury_class": injury_classes,
+      "injury_procedure": injury_procedure.text,
       "remarks_rece": remarks_rece.text,
       "appointment_date": appointment_date.text,
       "injury_time": injury_time.text,
       "injury_cause": injury_cause.text,
-      "branch_area": branch_area.text
+      "branch_area": branch_area.text,
+      "incident_location": incident_location.text,
     });
     var map;
     try {
@@ -241,6 +217,15 @@ class _injuryFormState extends State<injuryForm> {
   }
 
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controllerPart.getinjuryPartData();
+    });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controllerClass.getinjuryClassData();
+    });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      controllerType.getinjuryTypeData();
+    });
     var vdate;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -306,146 +291,230 @@ class _injuryFormState extends State<injuryForm> {
                 "\nAppointment Date\n",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: appointment_date,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                // selectableDayPredicate: (date) {
-                //   // Disable weekend days to select from the calendar
-                //   if (date.weekday == 6 || date.weekday == 7) {
-                //     return false;
-                //   }
+              Container(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                  child: TextField(
+                    controller:
+                        appointment_date, //editing controller of this TextField
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.calendar_today), //icon of text field
+                      // labelText: "Date of Return" //label text of field
+                    ),
+                    // readOnly:
+                    //     true, //set it true, so that user will not able to edit text
+                    onTap: () async {
+                      DateTime pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
 
-                //   return true;
-                // },
-                validator: (val) {
-                  return null;
-                },
-              ),
-              Text(
-                "\nInjury Time\n",
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: injury_time,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
 
-                  return true;
-                },
+                        setState(() {
+                          appointment_date.text =
+                              formattedDate; //set output date to TextField value.
+                        });
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  )),
+              // Text(
+              //   "\nInjury Time\n",
+              //   style: Theme.of(context).textTheme.headline6,
+              // ),
+              // DateTimePicker(
+              //   enableSuggestions: true, cursorColor: Colors.redAccent,
+              //   controller: injury_time,
+              //   type: DateTimePickerType.dateTimeSeparate,
+              //   dateMask: 'd MMM, yyyy',
+              //   firstDate: DateTime(2000),
+              //   lastDate: DateTime(2500),
+              //   // use24HourFormat: false,
+              //   icon: Icon(Icons.event),
+              //   dateLabelText: 'Date',
+              //   timeLabelText: "Time",
+              //   selectableDayPredicate: (date) {
+              //     // Disable weekend days to select from the calendar
+              //     if (date.weekday == 6 || date.weekday == 7) {
+              //       return false;
+              //     }
 
-                validator: (val) {
-                  return null;
-                },
-              ),
+              //     return true;
+              //   },
+
+              //   validator: (val) {
+              //     return null;
+              //   },
+              // ),
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),
-              MultiSelectBottomSheetField(
-                items: _items_injury_type,
-                searchable: true,
-                title: Text("Select Injury Type"),
-                selectedColor: Color.fromARGB(255, 42, 139, 218),
-                decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
-                  borderRadius: BorderRadius.all(Radius.circular(40)),
-                  border: Border.all(
-                    color: Colors.blue,
-                    width: 2,
+              GetBuilder<AppDataController>(builder: (controller) {
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: MultiSelectDialogField(
+                    dialogHeight: 200,
+                    items: controllerPart.dropDownData,
+                    title: const Text(
+                      "Select Injury Part",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    selectedColor: Colors.black,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      ),
+                    ),
+                    buttonIcon: const Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.blue,
+                    ),
+                    buttonText: const Text(
+                      "Select Injury parts",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                    onConfirm: (results) {
+                      // injuryPartData = [];
+                      injuryPartData.clear();
+                      for (var i = 0; i < results.length; i++) {
+                        Injury data = results[i] as Injury;
+                        print(data.injuryPartId);
+                        print(data.injuryPartName);
+
+                        injuryPartData.add(data.injuryPartId);
+                        injury_parts = injuryPartData
+                            .toString()
+                            .replaceAll('[', '')
+                            .replaceAll(']', '');
+                        // injuryPartData.clear();
+                      }
+
+                      print("data $injury_parts");
+
+                      //_selectedAnimals = results;
+                    },
                   ),
-                ),
-                buttonIcon: Icon(
-                  Icons.dangerous_sharp,
-                  color: Colors.blue,
-                ),
-                buttonText: Text(
-                  "Injury Type",
-                  style: TextStyle(
-                    color: Colors.blue[800],
-                    fontSize: 16,
+                );
+              }),
+              GetBuilder<AppDataController>(builder: (controller) {
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: MultiSelectDialogField(
+                    dialogHeight: 200,
+                    items: controllerType.dropDownDataType,
+                    title: const Text(
+                      "Select Injury Type",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    selectedColor: Colors.black,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      ),
+                    ),
+                    buttonIcon: const Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.blue,
+                    ),
+                    buttonText: const Text(
+                      "Select Injury type",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                    onConfirm: (results) {
+                      // injuryTypeData = [];
+                      injuryTypeData.clear();
+                      for (var i = 0; i < results.length; i++) {
+                        Injury data = results[i] as Injury;
+                        print(data.injuryTypeId);
+                        print(data.injuryTypeName);
+
+                        injuryTypeData.add(data.injuryTypeId);
+
+                        injury_types = injuryTypeData
+                            .toString()
+                            .replaceAll('[', '')
+                            .replaceAll(']', '');
+                      }
+                      print("data $injury_types");
+
+                      //_selectedAnimals = results;
+                    },
                   ),
-                ),
-                onConfirm: (results) {
-                  //_selectedAnimals = results;
-                },
-              ),
-              SizedBox(height: 30),
-              MultiSelectBottomSheetField(
-                items: _items_injury_part,
-                searchable: true,
-                title: Text("Select Injury Part"),
-                selectedColor: Color.fromARGB(255, 42, 139, 218),
-                decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
-                  borderRadius: BorderRadius.all(Radius.circular(40)),
-                  border: Border.all(
-                    color: Colors.blue,
-                    width: 2,
+                );
+              }),
+              GetBuilder<AppDataController>(builder: (controller) {
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: MultiSelectDialogField(
+                    dialogHeight: 200,
+                    items: controllerClass.dropDownDataClass,
+                    title: const Text(
+                      "Select Injury Class",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    selectedColor: Colors.black,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      ),
+                    ),
+                    buttonIcon: const Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.blue,
+                    ),
+                    buttonText: const Text(
+                      "Select Injury class",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                    onConfirm: (results) {
+                      // injuryClassData = [];
+                      injuryClassData.clear();
+                      for (var i = 0; i < results.length; i++) {
+                        Injury data = results[i] as Injury;
+                        print(data.injuryClassId);
+                        print(data.injuryClassName);
+
+                        injuryClassData.add(data.injuryClassId);
+                        injury_classes = injuryClassData
+                            .toString()
+                            .replaceAll('[', '')
+                            .replaceAll(']', '');
+                      }
+                      print("data $injury_classes");
+
+                      //_selectedAnimals = results;
+                    },
                   ),
-                ),
-                buttonIcon: Icon(
-                  Icons.dangerous_sharp,
-                  color: Colors.blue,
-                ),
-                buttonText: Text(
-                  "Injury Part",
-                  style: TextStyle(
-                    color: Colors.blue[800],
-                    fontSize: 16,
-                  ),
-                ),
-                onConfirm: (results) {
-                  //_selectedAnimals = results;
-                },
-              ),
-              SizedBox(height: 30),
-              MultiSelectBottomSheetField(
-                items: _items_injury_class,
-                searchable: true,
-                title: Text("Select Injury Class"),
-                selectedColor: Color.fromARGB(255, 42, 139, 218),
-                decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
-                  borderRadius: BorderRadius.all(Radius.circular(40)),
-                  border: Border.all(
-                    color: Colors.blue,
-                    width: 2,
-                  ),
-                ),
-                buttonIcon: Icon(
-                  Icons.dangerous_sharp,
-                  color: Colors.blue,
-                ),
-                buttonText: Text(
-                  "Injury Class",
-                  style: TextStyle(
-                    color: Colors.blue[800],
-                    fontSize: 16,
-                  ),
-                ),
-                onConfirm: (results) {
-                  //_selectedAnimals = results;
-                },
-              ),
+                );
+              }),
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
@@ -463,6 +532,26 @@ class _injuryFormState extends State<injuryForm> {
                     ),
                     icon: Icon(Icons.location_city),
                     labelText: 'INCIDENT LOCATION',
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: TextField(
+                  controller: injury_procedure,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Color.fromARGB(255, 66, 125, 145)),
+                    ),
+                    icon: Icon(Icons.medical_services),
+                    labelText: 'INJURY PROCEDURE',
                   ),
                 ),
               ),
@@ -529,7 +618,27 @@ class _injuryFormState extends State<injuryForm> {
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
-                  controller: ailments_new,
+                  controller: complaints,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Color.fromARGB(255, 66, 125, 145)),
+                    ),
+                    icon: Icon(Icons.medical_information),
+                    labelText: 'INJURY DESCRIPTION',
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: TextField(
+                  controller: diagnosis,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -661,5 +770,125 @@ class MySelectionItem extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(title),
     );
+  }
+}
+
+class AppDataController extends GetxController {
+  List<Injury> injuryPartData = [];
+  List<Injury> injuryClassData = [];
+  List<Injury> injuryTypeData = [];
+  List<MultiSelectItem> dropDownData = [];
+  List<MultiSelectItem> dropDownDataClass = [];
+  List<MultiSelectItem> dropDownDataType = [];
+
+  getinjuryPartData() async {
+    injuryPartData.clear();
+    dropDownData.clear();
+
+    var baseUrl = "http://103.196.222.49:85/jsw/injury_part_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    // if (response.statusCode == 200) {
+    var jsonData = json.decode(response.body);
+    // }
+
+    print(jsonData);
+
+    Map<String, dynamic> apiResponse = jsonData;
+
+    List<Injury> tempinjuryPartData = [];
+    apiResponse['data'].forEach(
+      (data) {
+        tempinjuryPartData.add(
+          Injury(
+            injuryPartId: data['part_id'],
+            injuryPartName: data['part_name'],
+          ),
+        );
+      },
+    );
+    print(tempinjuryPartData);
+    injuryPartData.addAll(tempinjuryPartData);
+
+    dropDownData = injuryPartData.map((injuryPartData) {
+      return MultiSelectItem(injuryPartData, injuryPartData.injuryPartName);
+    }).toList();
+
+    update();
+  }
+
+  getinjuryClassData() async {
+    injuryClassData.clear();
+    dropDownDataClass.clear();
+
+    var baseUrl = "http://103.196.222.49:85/jsw/injury_class_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    // if (response.statusCode == 200) {
+    var jsonData = json.decode(response.body);
+    // }
+
+    print(jsonData);
+
+    Map<String, dynamic> apiResponse = jsonData;
+
+    List<Injury> tempinjuryClassData = [];
+    apiResponse['data'].forEach(
+      (data) {
+        tempinjuryClassData.add(
+          Injury(
+            injuryClassId: data['class_id'],
+            injuryClassName: data['class_name'],
+          ),
+        );
+      },
+    );
+    print(tempinjuryClassData);
+    injuryClassData.addAll(tempinjuryClassData);
+
+    dropDownDataClass = injuryClassData.map((injuryClassData) {
+      return MultiSelectItem(injuryClassData, injuryClassData.injuryClassName);
+    }).toList();
+
+    update();
+  }
+
+  getinjuryTypeData() async {
+    injuryTypeData.clear();
+    dropDownDataType.clear();
+
+    var baseUrl = "http://103.196.222.49:85/jsw/injury_type_api.php";
+
+    http.Response response = await http.get(Uri.parse(baseUrl));
+
+    // if (response.statusCode == 200) {
+    var jsonData = json.decode(response.body);
+    // }
+
+    print(jsonData);
+
+    Map<String, dynamic> apiResponse = jsonData;
+
+    List<Injury> tempinjuryTypeData = [];
+    apiResponse['data'].forEach(
+      (data) {
+        tempinjuryTypeData.add(
+          Injury(
+            injuryTypeId: data['type_id'],
+            injuryTypeName: data['type_name'],
+          ),
+        );
+      },
+    );
+    print(tempinjuryTypeData);
+    injuryTypeData.addAll(tempinjuryTypeData);
+
+    dropDownDataType = injuryTypeData.map((injuryTypeData) {
+      return MultiSelectItem(injuryTypeData, injuryTypeData.injuryTypeName);
+    }).toList();
+
+    update();
   }
 }

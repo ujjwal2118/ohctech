@@ -127,8 +127,11 @@ class _sicknessEditState extends State<sicknessEdit> {
         .toList();
   }
 
-  String bodySystemValue = 'Select Ailment System';
-  String approvalStatus = "Select an option";
+  var dropdownvalue;
+  var approvalStatus;
+
+  // String bodySystemValue = 'Select Ailment System';
+  // String approvalStatus = "Select an option";
 
   Future<dynamic> insertOPD(BuildContext context) async {
     var url = 'http://103.196.222.49:85/jsw/sickness_update.php';
@@ -137,7 +140,7 @@ class _sicknessEditState extends State<sicknessEdit> {
       "name": patientName.text,
       "des": des.text,
       "ailment_name": ailment_name.text,
-      "ailment_name": bodySystemValue,
+      "ailment_name": dropdownvalue,
       "approval_status": approvalStatus,
       "agency": agency.text,
       // "approval_remarks": approval_remarks.text,
@@ -191,7 +194,6 @@ class _sicknessEditState extends State<sicknessEdit> {
     }
   }
 
-  var dropdownvalue;
   Widget build(BuildContext context) {
     var vdate;
     return MaterialApp(
@@ -557,7 +559,7 @@ class _sicknessEditState extends State<sicknessEdit> {
                       Icon(
                         Icons.list,
                         size: 16,
-                        color: Colors.yellow,
+                        color: Color.fromARGB(255, 243, 242, 238),
                       ),
                       SizedBox(
                         width: 4,

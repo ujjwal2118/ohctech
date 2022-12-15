@@ -99,7 +99,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       ),
                     ),
                     new TextSpan(
-                      text: patient.patient_name + ' ',
+                      text: patient.patient_name,
                     ),
                     new TextSpan(
                       text: 'P.No: ',
@@ -108,7 +108,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       ),
                     ),
                     new TextSpan(
-                      text: patient.emp_code + ' ',
+                      text: patient.emp_code,
                     ),
                     new TextSpan(
                       text: 'Design: ',
@@ -117,7 +117,7 @@ Future<Uint8List> Sickpdf(Patient patient) async {
                       ),
                     ),
                     new TextSpan(
-                      text: patient.designation + ' ',
+                      text: patient.designation,
                     ),
                     new TextSpan(
                       text: 'Dept: ',

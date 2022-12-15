@@ -32,9 +32,9 @@ class Patient {
   final String emp_code;
   final String ticket_no;
   final String appointment_date;
-  final String ailment_systems_new;
+  final String body_system;
   final String complaints;
-  final String ailments_new;
+  final String diagnosis;
   final String remarks_rece;
   final String examination_remarks;
   final String temperature;
@@ -55,6 +55,7 @@ class Patient {
   final String date_absent;
   final String date_absent_to;
   final String date_return;
+  final String date_rejoin;
   final String fitness_status;
   final String ailment_system;
   final String ailment_name;
@@ -250,11 +251,11 @@ class Patient {
     this.emp_code,
     this.ticket_no,
     this.appointment_date,
-    this.ailment_systems_new,
+    this.body_system,
     this.complaints,
     this.spo2_percent,
     this.temperature,
-    this.ailments_new,
+    this.diagnosis,
     this.remarks_rece,
     this.examination_remarks,
     this.injury_time,
@@ -273,6 +274,7 @@ class Patient {
     this.date_absent,
     this.date_absent_to,
     this.date_return,
+    this.date_rejoin,
     this.fitness_status,
     this.ailment_system,
     this.ailment_name,
@@ -469,11 +471,11 @@ class Patient {
     String emp_code,
     String ticket_no,
     String appointment_date,
-    String ailment_systems_new,
+    String body_system,
     String complaints,
     String temperature,
     String spo2_percent,
-    String ailments_new,
+    String diagnosis,
     String remarks_rece,
     String examination_remarks,
     String injury_time,
@@ -492,6 +494,7 @@ class Patient {
     String date_absent,
     String date_absent_to,
     String date_return,
+    String date_rejoin,
     String fitness_status,
     String ailment_system,
     String ailment_name,
@@ -691,10 +694,10 @@ class Patient {
       emp_code: emp_code ?? this.emp_code,
       ticket_no: ticket_no ?? this.ticket_no,
       appointment_date: appointment_date ?? this.appointment_date,
-      ailment_systems_new: ailment_systems_new ?? this.ailment_systems_new,
+      body_system: body_system ?? this.body_system,
       complaints: complaints ?? this.complaints,
       temperature: temperature ?? this.temperature,
-      ailments_new: ailments_new ?? this.ailments_new,
+      diagnosis: diagnosis ?? this.diagnosis,
       remarks_rece: remarks_rece ?? this.remarks_rece,
       examination_remarks: examination_remarks ?? this.examination_remarks,
       incident_location: incident_location ?? this.incident_location,
@@ -713,6 +716,7 @@ class Patient {
       date_absent: date_absent ?? this.date_absent,
       date_absent_to: date_absent_to ?? this.date_absent_to,
       date_return: date_return ?? this.date_return,
+      date_rejoin: date_rejoin ?? this.date_rejoin,
       fitness_status: fitness_status ?? this.fitness_status,
       ailment_system: ailment_system ?? this.ailment_system,
       ailment_name: ailment_name ?? this.ailment_name,
@@ -917,8 +921,8 @@ class Patient {
       'emp_code': emp_code,
       'ticket_no': ticket_no,
       'appointment_date': appointment_date,
-      'ailment_systems_new': ailment_systems_new,
-      'ailments_new': ailments_new,
+      'ailment_system': body_system,
+      'diagnosis': diagnosis,
       'complaints': complaints,
       'temperature': temperature,
       'remarks_rece': remarks_rece,
@@ -1139,8 +1143,8 @@ class Patient {
         emp_code: map['emp_code'],
         ticket_no: map['ticket_no'],
         appointment_date: map['appointment_date'],
-        ailment_systems_new: map['ailment_systems_new'],
-        ailments_new: map['ailments_new'],
+        body_system: map['ailment_system'],
+        diagnosis: map['diagnosis'],
         complaints: map['complaints'],
         temperature: map['temperature'],
         spo2_percent: map['spo2_percent'],
@@ -1339,7 +1343,7 @@ class Patient {
 
   @override
   String toString() {
-    return 'Patient(pending_opd_count: $pending_opd_count,pending_injury_count: $pending_injury_count,pending_sickness_count: $pending_sickness_count,pending_medical_count: $pending_medical_count,approved_opd_count: $approved_opd_count,approved_injury_count: $approved_injury_count,approved_sickness_count: $approved_sickness_count,approved_medical_count: $approved_medical_count,id: $id: $id,appointment_id: $appointment_id,item_id: $item_id,frequency_id: $frequency_id,for_days: $for_days,item_qty: $item_qty,issued_qty: $issued_qty,dosage: $dosage,dosage_category_id: $dosage_category_id,timing_id:$timing_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,ailment_systems_new: $ailment_systems_new,ailments_new: $ailments_new,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date,sickness_time: $sickness_time, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,peme_no: $peme_no,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_relevant_findings :$other_relevant_findings,remarks:$remarks,comments:$comments,dlc_b:$dlc_b,drug_allergy:$drug_allergy,followup_to_opd:$followup_to_opd,followup:$followup,external_treatments:$external_treatments,dob:$dob,ans:$ans,employer_contractor:$employer_contractor,dept:$dept,designation:$designation,spo2 : $spo2,cold_cough : $cold_cough,general_weakness : $general_weakness,smell : $smell,calcium : $calcium,st_line_walking : $st_line_walking,eac : $eac,near_with_right_eye : $near_with_right_eye,dis_with_right_eye : $dis_with_right_eye,dis_with_left_eye : $dis_with_left_eye,near_with_left_eye : $near_with_left_eye,color_vision : $color_vision,ln_v : $ln_v,ln_axis : $ln_axis,ln_dcyl: $ln_dcyl,=ln_dsph : $ln_dsph,ld_v : $ld_v,ld_axis : $ld_axis,ld_dcyl : $ld_dcyl,ld_dsph : $ld_dsph,rn_v : $rn_v,rn_axis : $rn_axis,rn_dcyl : $rn_dcyl,rn_dsph : $rn_dsph,rd_v : $rd_v,rd_axis : $rd_axis,rd_dcyl : $rd_dcyl,rd_dsph : $rd_dsph,lair_250 : $lair_250,lair_500 : $lair_500,lair_1000 : $lair_1000,lair_2000 : $lair_2000,lair_4000 : $lair_4000,lair_8000 : $lair_8000,lbone_250 : $lbone_250,lbone_500 : $lbone_500,lbone_1000 : $lbone_1000,lbone_2000 : $lbone_2000,lbone_4000 : $lbone_4000,lbone_8000 : $lbone_8000,rair_250 : $rair_250,rair_500 : $rair_500,rair_1000 : $rair_1000,rair_2000 : $rair_2000,rair_4000 : $rair_4000,rair_8000 : $rair_8000,rbone_250 : $rbone_250,rbone_500 : $rbone_500,rbone_1000 : $rbone_1000,rbone_2000 : $rbone_2000,rbone_4000 : $rbone_4000,rbone_8000 : $rbone_8000,bn_findings : $bn_findings,a : $a,cy : $cy,i : $i,cl : $cl,e: $e)';
+    return 'Patient(pending_opd_count: $pending_opd_count,pending_injury_count: $pending_injury_count,pending_sickness_count: $pending_sickness_count,pending_medical_count: $pending_medical_count,approved_opd_count: $approved_opd_count,approved_injury_count: $approved_injury_count,approved_sickness_count: $approved_sickness_count,approved_medical_count: $approved_medical_count,id: $id: $id,appointment_id: $appointment_id,item_id: $item_id,frequency_id: $frequency_id,for_days: $for_days,item_qty: $item_qty,issued_qty: $issued_qty,dosage: $dosage,dosage_category_id: $dosage_category_id,timing_id:$timing_id,medical_exam_id: $medical_exam_id,sickness_id: $sickness_id, name: $patient_name,gender: $gender ,emp_code: $emp_code,ticket_no: $ticket_no,appointment_date: $appointment_date,body_system: $body_system,diagnosis: $diagnosis,complaints: $complaints,temperature: $temperature,spo2_percent: $spo2_percent,remarks_rece: $remarks_rece,examination_remarks: $examination_remarks,incident_location: $incident_location,injury_procedure: $injury_procedure,injury_parts_new: $injury_parts_new,injury_classes_new: $injury_classes_new,injury_time: $injury_time,injury_cause: $injury_cause,branch_area: $branch_area, injury_types_new: $injury_types_new, sickness_name: $sickness_name, des: $des, sickness_date: $sickness_date,sickness_time: $sickness_time, approval_date: $approval_date, date_absent: $date_absent, date_absent_to: $date_absent_to, date_return: $date_return, fitness_status: $fitness_status, ailment_system: $ailment_system, ailment_name: $ailment_name,agency: $agency,medical_entry_date :$medical_entry_date,peme_no: $peme_no,height :$height,weight :$weight,bmi :$bmi,pulse :$pulse,bp :$bp,bp_sbp :$bp_sbp,bp_dbp :$bp_dbp,s1 :$s1,any_other_sound :$any_other_sound,ecg_findings :$ecg_findings,father_name :$father_name,designation_name :$designation_name,primary_phone :$primary_phone,email_id :$email_id,identi_mark :$identi_mark,village :$village,post :$post,tehsil :$tehsil,district :$district,state :$state,pin_code :$pin_code,chest :$chest,chest_in :$chest_in,chest_exp :$chest_exp,skin :$skin,musculo_skeletal :$musculo_skeletal,hb :$hb,tlc :$tlc,dlc_n :$dlc_n,dlc_l :$dlc_l,dlc_m :$dlc_m,dlc_e :$dlc_e,esr :$esr,blood_sugar_fbs :$blood_sugar_fbs,blood_sugar_rbs :$blood_sugar_rbs,uric_acid :$uric_acid,s_urea :$s_urea,s_creatinine :$s_creatinine,total_bilirubin :$total_bilirubin,sgop :$sgop,sgpt :$sgpt,total_cholestrol :$total_cholestrol,ldl :$ldl,triglycerides :$triglycerides,urine_re_me :$urine_re_me,urine_re_me_comments :$urine_re_me_comments,dis_without_right_eye :$dis_without_right_eye,dis_without_left_eye :$dis_without_left_eye,near_without_right_eye :$near_without_right_eye,near_without_left_eye :$near_without_left_eye,deformities :$deformities,cns :$cns,nose :$nose,throat :$throat,ear :$ear,audio_findings_left :$audio_findings_left,blood_sugar_ppbs :$blood_sugar_ppbs,hiv :$hiv,hcv :$hcv,hbsag :$hbsag,sodium :$sodium,potassium :$potassium,phosphate :$phosphate,hco3 :$hco3,conj :$conj,uniconj :$uniconj,alk_phosphatase :$alk_phosphatase,total_protein :$total_protein,albumin :$albumin,globulin :$globulin,vldl :$vldl,hdl :$hdl,speech :$speech,higher_function :$higher_function,motor_function :$motor_function,vertigo :$vertigo,reflexes :$reflexes,vibration_syndrome :$vibration_syndrome,conversational_hearing :$conversational_hearing,teeth_n_gum :$teeth_n_gum,spiro_remarks :$spiro_remarks,liver :$liver,speen :$speen,tenderness :$tenderness,any_other_abnormality :$any_other_abnormality,hernia_details :$hernia_details,hydrocele_details :$hydrocele_details,phimosis :$phimosis,piles :$piles,fistula :$fistula,xray_findings :$xray_findings,other_relevant_findings :$other_relevant_findings,remarks:$remarks,comments:$comments,dlc_b:$dlc_b,drug_allergy:$drug_allergy,followup_to_opd:$followup_to_opd,followup:$followup,external_treatments:$external_treatments,dob:$dob,ans:$ans,employer_contractor:$employer_contractor,dept:$dept,designation:$designation,spo2 : $spo2,cold_cough : $cold_cough,general_weakness : $general_weakness,smell : $smell,calcium : $calcium,st_line_walking : $st_line_walking,eac : $eac,near_with_right_eye : $near_with_right_eye,dis_with_right_eye : $dis_with_right_eye,dis_with_left_eye : $dis_with_left_eye,near_with_left_eye : $near_with_left_eye,color_vision : $color_vision,ln_v : $ln_v,ln_axis : $ln_axis,ln_dcyl: $ln_dcyl,=ln_dsph : $ln_dsph,ld_v : $ld_v,ld_axis : $ld_axis,ld_dcyl : $ld_dcyl,ld_dsph : $ld_dsph,rn_v : $rn_v,rn_axis : $rn_axis,rn_dcyl : $rn_dcyl,rn_dsph : $rn_dsph,rd_v : $rd_v,rd_axis : $rd_axis,rd_dcyl : $rd_dcyl,rd_dsph : $rd_dsph,lair_250 : $lair_250,lair_500 : $lair_500,lair_1000 : $lair_1000,lair_2000 : $lair_2000,lair_4000 : $lair_4000,lair_8000 : $lair_8000,lbone_250 : $lbone_250,lbone_500 : $lbone_500,lbone_1000 : $lbone_1000,lbone_2000 : $lbone_2000,lbone_4000 : $lbone_4000,lbone_8000 : $lbone_8000,rair_250 : $rair_250,rair_500 : $rair_500,rair_1000 : $rair_1000,rair_2000 : $rair_2000,rair_4000 : $rair_4000,rair_8000 : $rair_8000,rbone_250 : $rbone_250,rbone_500 : $rbone_500,rbone_1000 : $rbone_1000,rbone_2000 : $rbone_2000,rbone_4000 : $rbone_4000,rbone_8000 : $rbone_8000,bn_findings : $bn_findings,a : $a,cy : $cy,i : $i,cl : $cl,e: $e)';
   }
 
   @override
@@ -1372,8 +1376,8 @@ class Patient {
         o.emp_code == emp_code &&
         o.ticket_no == ticket_no &&
         o.appointment_date == appointment_date &&
-        o.ailment_systems_new == ailment_systems_new &&
-        o.ailments_new == ailments_new &&
+        o.body_system == body_system &&
+        o.diagnosis == diagnosis &&
         o.complaints == complaints &&
         o.temperature == temperature &&
         o.spo2_percent == spo2_percent &&
@@ -1592,8 +1596,8 @@ class Patient {
         emp_code.hashCode ^
         ticket_no.hashCode ^
         appointment_date.hashCode ^
-        ailment_systems_new.hashCode ^
-        ailments_new.hashCode ^
+        body_system.hashCode ^
+        diagnosis.hashCode ^
         complaints.hashCode ^
         temperature.hashCode ^
         spo2_percent.hashCode ^

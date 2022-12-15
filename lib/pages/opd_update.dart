@@ -10,6 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:ohctech/pages/home.dart';
+import 'package:intl/intl.dart';
 // import 'package:intl/intl.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class _opdFormState extends State<opdForm> {
   TextEditingController patientName = TextEditingController();
   TextEditingController ticket_no = TextEditingController();
   TextEditingController complaints = TextEditingController();
-  TextEditingController ailment_systems_new = TextEditingController();
+  TextEditingController diagnosis = TextEditingController();
   TextEditingController examination_remarks = TextEditingController();
   TextEditingController remarks_rece = TextEditingController();
   TextEditingController appointment_date = TextEditingController();
@@ -61,7 +62,7 @@ class _opdFormState extends State<opdForm> {
     ticket_no.text = dm.ticket_no;
     patientName.text = dm.patient_name;
     complaints.text = dm.complaints;
-    ailment_systems_new.text = dm.ailment_systems_new;
+    diagnosis.text = dm.diagnosis;
     examination_remarks.text = dm.examination_remarks;
     remarks_rece.text = dm.remarks_rece;
     visitDate = dm.appointment_date;
@@ -227,12 +228,12 @@ class _opdFormState extends State<opdForm> {
   String bodySystemValue = 'Select Body System';
 
   Future<dynamic> updateOPD(BuildContext context) async {
-    var url = 'http://103.196.222.49:85/jsw/opd_update.php';
+    var url = 'http://192.168.0.107/jsw/opd_update.php';
     http.Response response = await http.post(Uri.parse(url), body: {
       "ticket_no": ticket_no.text,
-      "ailments_new": bodySystemValue,
+      "body_system": dropdownvalue,
       "complaints": complaints.text,
-      "ailment_systems_new": ailment_systems_new.text,
+      "diagnosis": diagnosis.text,
       "examination_remarks": examination_remarks.text,
       "remarks_rece": remarks_rece.text,
       "appointment_date": appointment_date.text
@@ -331,28 +332,43 @@ class _opdFormState extends State<opdForm> {
                 "\nVisit Date\n",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: appointment_date,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                // selectableDayPredicate: (date) {
-                //   // Disable weekend days to select from the calendar
-                //   if (date.weekday == 6 || date.weekday == 7) {
-                //     return false;
-                //   }
-                //   return true;
-                // },
-                validator: (val) {
-                  return null;
-                },
-              ),
+              Container(
+                  padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                  child: TextField(
+                    controller:
+                        appointment_date, //editing controller of this TextField
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.calendar_today), //icon of text field
+                      // labelText: "Date of Return" //label text of field
+                    ),
+                    // readOnly:
+                    //     true, //set it true, so that user will not able to edit text
+                    onTap: () async {
+                      DateTime pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(
+                              2000), //DateTime.now() - not to allow to choose before today.
+                          lastDate: DateTime(2101));
+
+                      if (pickedDate != null) {
+                        print(
+                            pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(pickedDate);
+                        print(
+                            formattedDate); //formatted date output using intl package =>  2021-03-16
+                        //you can implement different kind of Date Format here according to your requirement
+
+                        setState(() {
+                          appointment_date.text =
+                              formattedDate; //set output date to TextField value.
+                        });
+                      } else {
+                        print("Date is not selected");
+                      }
+                    },
+                  )),
               const Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(
@@ -455,7 +471,7 @@ class _opdFormState extends State<opdForm> {
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
-                  controller: ailment_systems_new,
+                  controller: diagnosis,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(

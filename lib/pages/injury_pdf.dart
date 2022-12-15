@@ -249,12 +249,12 @@ Future<Uint8List> makeInjuryPDF(Patient patient) async {
                       padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 2.0),
                       child: Row(
                         children: [
-                          Text("Diagnosis:${patient.ailment_systems_new}",
+                          Text("Diagnosis:${patient.diagnosis}",
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           Spacer(
                             flex: 1,
                           ),
-                          Text("Ailment System:${patient.ailments_new}",
+                          Text("Ailment System:${patient.body_system}",
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ],
                       ),

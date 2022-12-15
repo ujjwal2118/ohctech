@@ -224,8 +224,7 @@ class PatientDetailsOpd extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Container(
-                                child:
-                                    Text(patient.ailment_systems_new ?? "NA"),
+                                child: Text(patient.body_system ?? "NA"),
                               ),
                             ),
                           ],
@@ -312,7 +311,7 @@ class PatientDetailsOpd extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                               child: Container(
-                                child: Text(patient.ailments_new ?? "NA"),
+                                child: Text(patient.diagnosis ?? "NA"),
                               ),
                             ),
                           ],
@@ -353,7 +352,7 @@ class PatientDetailsOpd extends StatelessWidget {
                               ),
                               children: <TextSpan>[
                                 TextSpan(
-                                    text: 'Examination Findings :',
+                                    text: 'Examination Findings :   ',
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold)),
                                 TextSpan(

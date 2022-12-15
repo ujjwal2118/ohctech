@@ -95,6 +95,13 @@ class _HomePageState extends State<HomePage> {
             "OHC TECH - Daily Statistics",
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+            elevation: 0.0,
+            child: Icon(Icons.refresh_outlined),
+            backgroundColor: Color.fromARGB(255, 3, 188, 255),
+            onPressed: () {
+              loadData();
+            }),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -145,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                                               color: Colors.white),
                                         ),
                                         subtitle: Text(
-                                            'Approved Case: (${patient.approved_opd_count})     Pending Case: (${patient.pending_opd_count}) ',
+                                            'Approved Case: (${patient.approved_opd_count})         Pending Case: (${patient.pending_opd_count}) ',
                                             style: TextStyle(
                                                 fontSize: 12.0.sp,
                                                 color: Color.fromARGB(
@@ -157,31 +164,41 @@ class _HomePageState extends State<HomePage> {
                                     child: CircularProgressIndicator(),
                                   ),
                             ButtonBar(
+                              alignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ElevatedButton(
-                                  child: Text('Approved ',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
+                                  style: ButtonStyle(
+                                    elevation: MaterialStatePropertyAll(10),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.cyan[300]),
+                                  ),
+                                  child: Text(
+                                    'Approved ',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                   onPressed: () {
-                                    print("Approved Click");
                                     moveToapprovedOpd(context);
                                   },
                                 ),
                                 ElevatedButton(
-                                  child: Text('Pending ',
+                                    style: ButtonStyle(
+                                      elevation: MaterialStatePropertyAll(10),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.amber),
+                                    ),
+                                    child: Text(
+                                      'Pending ',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
-                                  onPressed: () {
-                                    print("Pending Click");
-                                    moveToOpd(context);
-                                  },
-                                ),
+                                    ),
+                                    onPressed: () {
+                                      moveToOpd(context);
+                                    }),
                               ],
-                            ),
+                            ), // ButtonBar(
                           ],
                         ),
                       ),
@@ -244,28 +261,39 @@ class _HomePageState extends State<HomePage> {
                                     child: CircularProgressIndicator(),
                                   ),
                             ButtonBar(
+                              alignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ElevatedButton(
-                                  child: Text('Approved ',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
+                                  style: ButtonStyle(
+                                    elevation: MaterialStatePropertyAll(10),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.cyan[300]),
+                                  ),
+                                  child: Text(
+                                    'Approved ',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                   onPressed: () {
                                     moveToapprovedInjury(context);
                                   },
                                 ),
                                 ElevatedButton(
-                                  child: Text('Pending ',
+                                    style: ButtonStyle(
+                                      elevation: MaterialStatePropertyAll(10),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.amber),
+                                    ),
+                                    child: Text(
+                                      'Pending ',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
-                                  onPressed: () {
-                                    print("Pending Click");
-                                    moveToInjury(context);
-                                  },
-                                ),
+                                    ),
+                                    onPressed: () {
+                                      moveToInjury(context);
+                                    }),
                               ],
                             ),
                           ],
@@ -333,28 +361,39 @@ class _HomePageState extends State<HomePage> {
                               height: 2.h,
                             ),
                             ButtonBar(
+                              alignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ElevatedButton(
-                                  child: Text('Approved ',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
+                                  style: ButtonStyle(
+                                    elevation: MaterialStatePropertyAll(10),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.cyan[300]),
+                                  ),
+                                  child: Text(
+                                    'Approved ',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                   onPressed: () {
                                     moveToapprovedMedical(context);
                                   },
                                 ),
                                 ElevatedButton(
-                                  child: Text('Pending ',
+                                    style: ButtonStyle(
+                                      elevation: MaterialStatePropertyAll(10),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.amber),
+                                    ),
+                                    child: Text(
+                                      'Pending ',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
-                                  onPressed: () {
-                                    print("Pending Click");
-                                    moveToMedExam(context);
-                                  },
-                                ),
+                                    ),
+                                    onPressed: () {
+                                      moveToMedExam(context);
+                                    }),
                               ],
                             ),
                           ],
@@ -419,28 +458,39 @@ class _HomePageState extends State<HomePage> {
                                     child: CircularProgressIndicator(),
                                   ),
                             ButtonBar(
+                              alignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ElevatedButton(
-                                  child: Text('Approved ',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
+                                  style: ButtonStyle(
+                                    elevation: MaterialStatePropertyAll(10),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.cyan[300]),
+                                  ),
+                                  child: Text(
+                                    'Approved ',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                   onPressed: () {
                                     moveToapprovedSickness(context);
                                   },
                                 ),
                                 ElevatedButton(
-                                  child: Text('Pending ',
+                                    style: ButtonStyle(
+                                      elevation: MaterialStatePropertyAll(10),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.amber),
+                                    ),
+                                    child: Text(
+                                      'Pending ',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(
-                                              255, 239, 237, 237))),
-                                  onPressed: () {
-                                    print("Pending Click");
-                                    moveToSickness(context);
-                                  },
-                                ),
+                                    ),
+                                    onPressed: () {
+                                      moveToSickness(context);
+                                    }),
                               ],
                             ),
                           ],

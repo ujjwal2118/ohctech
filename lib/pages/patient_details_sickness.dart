@@ -40,7 +40,8 @@ class PatientDetailsSickness extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            if (patient.fitness_status != "APPROVED") {
+            if (patient.fitness_status != "APPROVED" &&
+                patient.fitness_status != "FIT") {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => SicknessPreviewUnfit(patient: patient),
@@ -429,8 +430,7 @@ class PatientDetailsSickness extends StatelessWidget {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 child: Container(
-                                  child:
-                                      Text(patient.ailment_systems_new ?? "NA"),
+                                  child: Text(patient.diagnosis ?? "NA"),
                                 ),
                               ),
                             ],

@@ -539,10 +539,10 @@ class PatientDetailsInjury extends StatelessWidget {
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold)),
                                 TextSpan(
-                                    text: patient.ailments_new == null ||
-                                            patient.ailments_new == ""
+                                    text: patient.diagnosis == null ||
+                                            patient.diagnosis == ""
                                         ? ""
-                                        : patient.ailments_new),
+                                        : patient.diagnosis),
                               ],
                             ),
                           ),
