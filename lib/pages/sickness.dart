@@ -11,6 +11,7 @@ import 'package:ohctech/pages/patient_details_opd.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_Sickness.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:animation_search_bar/animation_search_bar.dart';
 
 class SicknessPage extends StatefulWidget {
   @override
@@ -18,6 +19,8 @@ class SicknessPage extends StatefulWidget {
 }
 
 class _SicknessPageState extends State<SicknessPage> {
+      TextEditingController searchController = TextEditingController();
+
   Patient patient;
   final _baseUrl = 'http://103.196.222.49:85/jsw/pending_sickness_list.php';
   int _page = 0;
@@ -113,14 +116,49 @@ class _SicknessPageState extends State<SicknessPage> {
     _controller.removeListener(_loadMore);
     super.dispose();
   }
-
+ void _searchData(search) async {
+    try {
+      final res = await http.get(Uri.parse("$_baseUrl?_search=${search}"));
+      setState(() {
+        _posts = json.decode(res.body);
+        print(_posts);
+      });
+    } catch (err) {
+      if (kDebugMode) {
+        print('Something went wrong');
+      }
+    }
+    setState(() {
+      _isFirstLoadRunning = false;
+    });
+    PatientModel.patients = List.from(_posts)
+        .map<Patient>((patient) => Patient.fromMap(patient))
+        .toList();
+  }
   @override
   Widget build(BuildContext context) {
-    if (_posts.isNotEmpty) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text("SICKNESS LIST"),
-        ),
+        appBar: PreferredSize(
+            preferredSize: const Size(double.infinity, 65),
+            child: SafeArea(
+                child: Container(
+              decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5,
+                    spreadRadius: 0,
+                    offset: Offset(0, 5))
+              ]),
+              alignment: Alignment.center,
+              child: AnimationSearchBar(
+                  backIconColor: Colors.black,
+                  centerTitle: 'PENDING SICKNESS LIST',
+                  onChanged: (search) {
+                    _searchData(search);
+                  },
+                  searchTextEditingController: searchController,
+                  horizontalPadding: 5),
+            ))),
         body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: _isFirstLoadRunning
@@ -240,28 +278,6 @@ class _SicknessPageState extends State<SicknessPage> {
           text: '',
         ),
       );
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Pending Sickness LIST"),
-        ),
-        body: Center(
-          child: Shimmer.fromColors(
-            baseColor: Colors.blue,
-            highlightColor: Colors.red,
-            child: Center(
-              child: Text(
-                'Data Not Found',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-      );
-    }
+     
   }
 }

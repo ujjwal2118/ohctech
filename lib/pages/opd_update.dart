@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, unused_import, non_constant_identifier_names, unused_local_variable, prefer_const_constructors, duplicate_ignore, unnecessary_brace_in_string_interps, sort_child_properties_last, prefer_interpolation_to_compose_strings
+import 'package:intl/date_symbol_data_local.dart'; // ignore_for_file: use_build_context_synchronously, unused_import, non_constant_identifier_names, unused_local_variable, prefer_const_constructors, duplicate_ignore, unnecessary_brace_in_string_interps, sort_child_properties_last, prefer_interpolation_to_compose_strings
 import 'package:flutter/material.dart';
 import 'package:ohctech/models/medicine.dart';
 import 'package:ohctech/models/patient.dart';
@@ -33,11 +33,11 @@ class opdForm extends StatefulWidget {
 
 class _GroupControllers {
   TextEditingController duration = TextEditingController();
-  TextEditingController frequency = TextEditingController();
+  // TextEditingController frequency = TextEditingController();
   TextEditingController doseqty = TextEditingController();
   void dispose() {
     duration.dispose();
-    frequency.dispose();
+    // frequency.dispose();
     doseqty.dispose();
   }
 }
@@ -61,9 +61,15 @@ class _opdFormState extends State<opdForm> {
   List<dynamic> _FrequencyFieldsDrop = [];
   List<dynamic> _AdminRouteFieldsDrop = [];
   bool error = false, dataloaded = false;
+  List<String> medicinearray = [];
+  List<String> timingarray = [];
+  List<String> frequencyarray = [];
+  List<String> adminarray = [];
+  var i;
   var data;
+    var visitDate;
 
-  String dataurl = "http://103.196.222.49:85/jsw/pending_opd_list.php";
+  // String dataurl = "http://103.196.222.49:85/jsw/pending_opd_list.php";
   @override
   void dispose() {
     for (final controller in _groupControllers) {
@@ -75,7 +81,7 @@ class _opdFormState extends State<opdForm> {
 
   @override
   void initState() {
-    loaddata();
+    // loaddata();
     getAllCategory();
     getAllMedicines();
     getAllFrequency();
@@ -84,7 +90,6 @@ class _opdFormState extends State<opdForm> {
     super.initState();
     Patient dm;
     dm = widget.patient;
-    var visitDate;
     ticket_no.text = dm.ticket_no;
     patientName.text = dm.patient_name;
     complaints.text = dm.complaints;
@@ -92,32 +97,33 @@ class _opdFormState extends State<opdForm> {
     examination_remarks.text = dm.examination_remarks;
     remarks_rece.text = dm.remarks_rece;
     visitDate = dm.appointment_date;
+    // print(visitDate);
     appointment_date.text = visitDate;
   }
 
-  void loaddata() {
-    Future.delayed(Duration.zero, () async {
-      var res;
-      try {
-        res = await http.post(Uri.parse(dataurl));
-        if (res.statusCode == 200) {
-          setState(() {
-            data = json.decode(res.body);
-            dataloaded = true;
-          });
-        } else {
-          //there is error
-          setState(() {
-            error = true;
-          });
-        }
-      } catch (e) {
-        print(e);
-      }
-    });
-    // we use Future.delayed becuase there is
-    // async function inside it.
-  }
+  // void loaddata() {
+  //   Future.delayed(Duration.zero, () async {
+  //     var res;
+  //     try {
+  //       res = await http.post(Uri.parse(dataurl));
+  //       if (res.statusCode == 200) {
+  //         setState(() {
+  //           data = json.decode(res.body);
+  //           dataloaded = true;
+  //         });
+  //       } else {
+  //         //there is error
+  //         setState(() {
+  //           error = true;
+  //         });
+  //       }
+  //     } catch (e) {
+  //       print("${e} + Main Data");
+  //     }
+  //   });
+  //   // we use Future.delayed becuase there is
+  //   // async function inside it.
+  // }
 
   String gender;
   var iteams = [
@@ -361,8 +367,9 @@ class _opdFormState extends State<opdForm> {
               DateTimePicker(
                 enableSuggestions: true, cursorColor: Colors.redAccent,
                 controller: appointment_date,
+                // initialValue: visitDate,
                 type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
+                dateMask: 'd-MMM-yyyy',
                 firstDate: DateTime(2000),
                 lastDate: DateTime(2500),
                 // use24HourFormat: false,
@@ -499,9 +506,10 @@ class _opdFormState extends State<opdForm> {
                   ),
                 ),
               ),
-              _addTile(),
-              Expanded(child: _listView()),
-              _okButton(context),
+
+              // Expanded(child: _listView()),
+              //  _addTile(),
+              // _okButton(context),
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: TextField(
@@ -957,16 +965,15 @@ class _opdFormState extends State<opdForm> {
         final group = _GroupControllers();
 
         final DurationField = _generateTextField(group.duration, "Duration");
-        final frequencyField = _generateTextField(group.frequency, "Frequency");
         final DoseQTYField = _generateTextField(group.doseqty, "Dose QTY");
         final TimingDrop = _generateDropForTimingField(
-            'Timing', timingslist, 'medicine_timing');
-        final MedicineDrop =
-            _generateDropForTimingField('Medicine', medicinelist, 'item_name');
+            'Timing', timingslist, 'medicine_timing', timingarray);
+        final MedicineDrop = _generateDropForTimingField(
+            'Medicine', medicinelist, 'item_name', medicinearray);
         final FrequencyDrop = _generateDropForTimingField(
-            'Frequency', frequencylist, 'medicine_frequency');
+            'Frequency', frequencylist, 'medicine_frequency', frequencyarray);
         final AdminRouteDrop = _generateDropForTimingField(
-            'Admin Route', adminRoutelist, 'dosage_category');
+            'Admin Route', adminRoutelist, 'dosage_category', adminarray);
 
         setState(() {
           _groupControllers.add(group);
@@ -992,8 +999,8 @@ class _opdFormState extends State<opdForm> {
     );
   }
 
-  DropdownButton2 _generateDropForTimingField(
-      String titleDrop, List itemData, String itemValue) {
+  DropdownButton2 _generateDropForTimingField(String titleDrop, List itemData,
+      String itemValue, List<String> selectValueDrop) {
     return DropdownButton2(
       isExpanded: true,
       hint: Row(
@@ -1029,10 +1036,11 @@ class _opdFormState extends State<opdForm> {
           ),
         );
       }).toList(),
-      value: dropdownValueTiming,
+      // value: selectValueDrop.asMap() ,
       onChanged: (newVal) {
         setState(() {
-          dropdownValueTiming = newVal;
+          selectValueDrop.add(newVal);
+          print(selectValueDrop);
         });
       },
       icon: const Icon(
@@ -1071,7 +1079,7 @@ class _opdFormState extends State<opdForm> {
 
   Widget _listView() {
     final children = [
-      for (var i = 0; i < _groupControllers.length; i++)
+      for (i = 0; i < _groupControllers.length; i++)
         Container(
           margin: EdgeInsets.all(5),
           child: InputDecorator(
@@ -1133,9 +1141,7 @@ class _opdFormState extends State<opdForm> {
     final button = ElevatedButton(
       onPressed: () async {
         final index = int.parse(_okController.text);
-        String text = "Duration: ${_groupControllers[index].duration.text}\n" +
-            "Frequency: ${_groupControllers[index].frequency.text}\n" +
-            "Dose: ${_groupControllers[index].doseqty.text}\n";
+        String text = "Dose: ${_groupControllers[index].doseqty.text}\n";
         await print(text);
       },
       child: Text("OK"),
@@ -1145,6 +1151,11 @@ class _opdFormState extends State<opdForm> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
+        Container(
+          child: textField,
+          width: 100,
+          height: 50,
+        ),
         button,
       ],
     );

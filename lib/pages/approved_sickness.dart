@@ -12,6 +12,7 @@ import 'package:ohctech/widgets/approved_sickness_patient_widget.dart';
 import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_sickness.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:animation_search_bar/animation_search_bar.dart';
 
 class ApprovedSickness extends StatefulWidget {
   @override
@@ -19,6 +20,8 @@ class ApprovedSickness extends StatefulWidget {
 }
 
 class _ApprovedSicknessState extends State<ApprovedSickness> {
+      TextEditingController searchController = TextEditingController();
+
   Patient patient;
   final _baseUrl = 'http://103.196.222.49:85/jsw/approved_sickness_list.php';
   int _page = 0;
@@ -114,62 +117,49 @@ class _ApprovedSicknessState extends State<ApprovedSickness> {
     _controller.removeListener(_loadMore);
     super.dispose();
   }
-
+ void _searchData(search) async {
+    try {
+      final res = await http.get(Uri.parse("$_baseUrl?_search=${search}"));
+      setState(() {
+        _posts = json.decode(res.body);
+        print(_posts);
+      });
+    } catch (err) {
+      if (kDebugMode) {
+        print('Something went wrong');
+      }
+    }
+    setState(() {
+      _isFirstLoadRunning = false;
+    });
+    PatientModel.patients = List.from(_posts)
+        .map<Patient>((patient) => Patient.fromMap(patient))
+        .toList();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Approved Sickness LIST"),
-      ),
-
-      // body: _isFirstLoadRunning
-      //     ? const Center(
-      //         child: CircularProgressIndicator(),
-      //       )
-      //     : Column(
-      //         children: [
-      //           Expanded(
-      //             child: InkWell(
-      //               onTap: () => Navigator.push(
-      //                   context,
-      //                   MaterialPageRoute(
-      //                       builder: (context) =>
-      //                           PatientDetailsOpd(patient: patient))),
-      //               child: ListView.builder(
-      //                 controller: _controller,
-      //                 itemCount: _posts.length,
-      //                 itemBuilder: (_, index) => Card(
-      //                   margin: const EdgeInsets.symmetric(
-      //                       vertical: 8, horizontal: 10),
-      //                   child: ListTile(
-      //                     title: Text(_posts[index]['patient_name']),
-      //                     subtitle: Text(_posts[index]['emp_code']),
-      //                   ),
-      //                 ),
-      //               ),
-      //             ),
-      //           ),
-
-      //           // when the _loadMore function is running
-      //           if (_isLoadMoreRunning == true)
-      //             const Padding(
-      //               padding: EdgeInsets.only(top: 10, bottom: 40),
-      //               child: Center(
-      //                 child: CircularProgressIndicator(),
-      //               ),
-      //             ),
-
-      //           // When nothing else to load
-      //           if (_hasNextPage == false)
-      //             Container(
-      //               padding: const EdgeInsets.only(top: 30, bottom: 40),
-      //               color: Colors.amber,
-      //               child: const Center(
-      //                 child: Text('You have fetched all of the content'),
-      //               ),
-      //             ),
-      //         ],
-      //       ),
+      appBar: PreferredSize(
+            preferredSize: const Size(double.infinity, 65),
+            child: SafeArea(
+                child: Container(
+              decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5,
+                    spreadRadius: 0,
+                    offset: Offset(0, 5))
+              ]),
+              alignment: Alignment.center,
+              child: AnimationSearchBar(
+                  backIconColor: Colors.black,
+                  centerTitle: 'APPROVED SICKNESS LIST',
+                  onChanged: (search) {
+                    _searchData(search);
+                  },
+                  searchTextEditingController: searchController,
+                  horizontalPadding: 5),
+            ))),
 
       body: Padding(
           padding: const EdgeInsets.all(16.0),

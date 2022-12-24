@@ -13,6 +13,7 @@ import 'package:ohctech/widgets/drawer.dart';
 import 'package:ohctech/widgets/patient_widget_injury.dart';
 
 import 'package:shimmer/shimmer.dart';
+import 'package:animation_search_bar/animation_search_bar.dart';
 
 class ApprovedInjury extends StatefulWidget {
   @override
@@ -20,6 +21,8 @@ class ApprovedInjury extends StatefulWidget {
 }
 
 class _ApprovedInjuryState extends State<ApprovedInjury> {
+    TextEditingController searchController = TextEditingController();
+
   Patient patient;
   final _baseUrl = 'http://103.196.222.49:85/jsw/approved_injury_list_new.php';
   int _page = 0;
@@ -115,13 +118,49 @@ class _ApprovedInjuryState extends State<ApprovedInjury> {
     _controller.removeListener(_loadMore);
     super.dispose();
   }
-
+ void _searchData(search) async {
+    try {
+      final res = await http.get(Uri.parse("$_baseUrl?_search=${search}"));
+      setState(() {
+        _posts = json.decode(res.body);
+        print(_posts);
+      });
+    } catch (err) {
+      if (kDebugMode) {
+        print('Something went wrong');
+      }
+    }
+    setState(() {
+      _isFirstLoadRunning = false;
+    });
+    PatientModel.patients = List.from(_posts)
+        .map<Patient>((patient) => Patient.fromMap(patient))
+        .toList();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("APPROVED INJURY LIST"),
-      ),
+      appBar:  PreferredSize(
+            preferredSize: const Size(double.infinity, 65),
+            child: SafeArea(
+                child: Container(
+              decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 5,
+                    spreadRadius: 0,
+                    offset: Offset(0, 5))
+              ]),
+              alignment: Alignment.center,
+              child: AnimationSearchBar(
+                  backIconColor: Colors.black,
+                  centerTitle: 'APPROVED INJURY LIST',
+                  onChanged: (search) {
+                    _searchData(search);
+                  },
+                  searchTextEditingController: searchController,
+                  horizontalPadding: 5),
+            ))),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: _isFirstLoadRunning
