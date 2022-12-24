@@ -72,6 +72,8 @@ dependencies:
   shared_preferences: ^2.0.15
   animated_flip_card: ^1.0.2
   syncfusion_flutter_datagrid: ^20.3.61
+  anim_search_bar: ^2.0.3
+  animation_search_bar: ^0.0.10
 
 dev_dependencies:
   flutter_test:

@@ -3,3 +3,4 @@
 *.sha1
 *.bin
 *.dill
+.dart_tool/dartpad/web_plugin_registrant.dart
