@@ -11,8 +11,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:ohctech/pages/home.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:intl/intl.dart';
 
-// import 'package:intl/intl.dart';
 
 void main() {
   runApp(injuryForm(
@@ -306,57 +307,130 @@ class _injuryFormState extends State<injuryForm> {
                 "\nAppointment Date\n",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: appointment_date,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                // selectableDayPredicate: (date) {
-                //   // Disable weekend days to select from the calendar
-                //   if (date.weekday == 6 || date.weekday == 7) {
-                //     return false;
-                //   }
-
-                //   return true;
-                // },
-                validator: (val) {
-                  return null;
-                },
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: TextField(
+                   readOnly :true,
+                  controller: appointment_date,
+                  decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Color.fromARGB(255, 66, 125, 145)),
+                    ),
+                    icon: Icon(Icons.date_range),
+                    labelText: "Appointment Date",
+                  ),
+                ),
               ),
+
+
+                   ElevatedButton(
+                  child: const Text("SELECT VISIT DATE"),
+                  onPressed: () {
+                   DatePicker.showDateTimePicker(context,
+                        showTitleActions: true,
+                        minTime: DateTime(2000),
+                        maxTime: DateTime(2500), 
+                        onChanged: (date) {
+                      print('change $date');
+                    }, 
+                    onConfirm: (date) {
+                      String formattedDate = DateFormat('dd-mm-yyyy HH:mm:a').format(date);
+                      appointment_date.text = formattedDate;
+                    }, 
+                    currentTime: DateTime.now(),
+                     locale: LocaleType.en);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue,
+
+                    // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                ),
               Text(
                 "\nInjury Time\n",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: injury_time,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
 
-                  return true;
-                },
-
-                validator: (val) {
-                  return null;
-                },
+ Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: TextField(
+                   readOnly :true,
+                  controller: injury_time,
+                  decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Color.fromARGB(255, 66, 125, 145)),
+                    ),
+                    icon: Icon(Icons.date_range),
+                    labelText: "Injury Time",
+                  ),
+                ),
               ),
+
+  ElevatedButton(
+                  child: const Text("SELECT INJURY DATE"),
+                  onPressed: () {
+                   DatePicker.showDateTimePicker(context,
+                        showTitleActions: true,
+                        minTime: DateTime(2000),
+                        maxTime: DateTime(2500), 
+                        onChanged: (date) {
+                      print('change $date');
+                    }, 
+                    onConfirm: (date) {
+                      String formattedDate = DateFormat('dd-mm-yyyy HH:mm:a').format(date);
+                      injury_time.text = formattedDate;
+                    }, 
+                    currentTime: DateTime.now(),
+                     locale: LocaleType.en);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue,
+
+                    // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                ),
+              // DateTimePicker(
+              //   enableSuggestions: true, cursorColor: Colors.redAccent,
+              //   controller: injury_time,
+              //   type: DateTimePickerType.dateTimeSeparate,
+              //   dateMask: 'd MMM, yyyy',
+              //   firstDate: DateTime(2000),
+              //   lastDate: DateTime(2500),
+              //   // use24HourFormat: false,
+              //   icon: Icon(Icons.event),
+              //   dateLabelText: 'Date',
+              //   timeLabelText: "Time",
+              //   selectableDayPredicate: (date) {
+              //     // Disable weekend days to select from the calendar
+              //     if (date.weekday == 6 || date.weekday == 7) {
+              //       return false;
+              //     }
+
+              //     return true;
+              //   },
+
+              //   validator: (val) {
+              //     return null;
+              //   },
+              // ),
               const SizedBox(height: 10),
               const Divider(),
               const SizedBox(height: 10),

@@ -64,22 +64,6 @@ class PatientDetailsOpd extends StatelessWidget {
           )
       ),
     ),
-
-
-              Container(
-                alignment: Alignment.center,
-                child: AnimatedFlipCard(
-                    front: Image.asset(
-                      'assets/images/user.png',
-                      width: 250,
-                      fit: BoxFit.contain,
-                    ),
-                    back: Image.asset(
-                      'assets/images/logo.jpeg',
-                      width: 250,
-                      fit: BoxFit.contain,
-                    )),
-              ),
               Container(
                 decoration: new BoxDecoration(
                   boxShadow: [

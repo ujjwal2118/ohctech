@@ -11,6 +11,8 @@ import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:ohctech/pages/home.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(medicalUpdate());
@@ -639,30 +641,79 @@ class _medicalUpdateState extends State<medicalUpdate> {
                 "\n Medical Exam Date",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: medexamdate,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd MMM, yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                selectableDayPredicate: (date) {
-                  // Disable weekend days to select from the calendar
-                  if (date.weekday == 6 || date.weekday == 7) {
-                    return false;
-                  }
 
-                  return true;
-                },
-
-                validator: (val) {
-                  return null;
-                },
+ Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: TextField(
+                   readOnly :true,
+                  controller: medexamdate,
+                  decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Color.fromARGB(255, 66, 125, 145)),
+                    ),
+                    icon: Icon(Icons.date_range),
+                    labelText: "Medical Exam Date",
+                  ),
+                ),
               ),
+
+  ElevatedButton(
+                  child: const Text("SELECT Medical Exam Date"),
+                  onPressed: () {
+                   DatePicker.showDateTimePicker(context,
+                        showTitleActions: true,
+                        minTime: DateTime(2000),
+                        maxTime: DateTime(2500), 
+                        onChanged: (date) {
+                      print('change $date');
+                    }, 
+                    onConfirm: (date) {
+                      String formattedDate = DateFormat('dd-mm-yyyy HH:mm:a').format(date);
+                      medexamdate.text = formattedDate;
+                    }, 
+                    currentTime: DateTime.now(),
+                     locale: LocaleType.en);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue,
+
+                    // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                ),
+
+              // DateTimePicker(
+              //   enableSuggestions: true, cursorColor: Colors.redAccent,
+              //   controller: medexamdate,
+              //   type: DateTimePickerType.dateTimeSeparate,
+              //   dateMask: 'd MMM, yyyy',
+              //   firstDate: DateTime(2000),
+              //   lastDate: DateTime(2500),
+              //   // use24HourFormat: false,
+              //   icon: Icon(Icons.event),
+              //   dateLabelText: 'Date',
+              //   timeLabelText: "Time",
+              //   selectableDayPredicate: (date) {
+              //     // Disable weekend days to select from the calendar
+              //     if (date.weekday == 6 || date.weekday == 7) {
+              //       return false;
+              //     }
+
+              //     return true;
+              //   },
+
+              //   validator: (val) {
+              //     return null;
+              //   },
+              // ),
               Container(
                 padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
                 child: TextField(

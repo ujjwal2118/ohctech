@@ -10,8 +10,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:ohctech/pages/home.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 // import 'adddynamic.dart';
-// import 'package:intl/intl.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(opdForm(
@@ -67,7 +68,7 @@ class _opdFormState extends State<opdForm> {
   List<String> adminarray = [];
   var i;
   var data;
-    var visitDate;
+  String visitDate;
 
   // String dataurl = "http://103.196.222.49:85/jsw/pending_opd_list.php";
   @override
@@ -364,29 +365,56 @@ class _opdFormState extends State<opdForm> {
                 "\nVisit Date\n",
                 style: Theme.of(context).textTheme.headline6,
               ),
-              DateTimePicker(
-                enableSuggestions: true, cursorColor: Colors.redAccent,
-                controller: appointment_date,
-                // initialValue: visitDate,
-                type: DateTimePickerType.dateTimeSeparate,
-                dateMask: 'd-MMM-yyyy',
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2500),
-                // use24HourFormat: false,
-                icon: Icon(Icons.event),
-                dateLabelText: 'Date',
-                timeLabelText: "Time",
-                // selectableDayPredicate: (date) {
-                //   // Disable weekend days to select from the calendar
-                //   if (date.weekday == 6 || date.weekday == 7) {
-                //     return false;
-                //   }
-                //   return true;
-                // },
-                validator: (val) {
-                  return null;
-                },
+
+
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: TextField(
+                   readOnly :true,
+                  controller: appointment_date,
+                  decoration: const InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 3, color: Color.fromARGB(255, 66, 125, 145)),
+                    ),
+                    icon: Icon(Icons.date_range),
+                    labelText: "VISIT DATE",
+                  ),
+                ),
               ),
+
+
+                   ElevatedButton(
+                  child: const Text("SELECT VISIT DATE"),
+                  onPressed: () {
+                   DatePicker.showDateTimePicker(context,
+                        showTitleActions: true,
+                        minTime: DateTime(2000),
+                        maxTime: DateTime(2500), 
+                        onChanged: (date) {
+                      print('change $date');
+                    }, 
+                    onConfirm: (date) {
+                      String formattedDate = DateFormat('dd-mm-yyyy HH:mm:a').format(date);
+                      appointment_date.text = formattedDate;
+                    }, 
+                    currentTime: DateTime.now(),
+                     locale: LocaleType.en);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue,
+
+                    // padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                ),
               const Padding(
                 padding: EdgeInsets.only(left: 10.0),
                 child: Text(

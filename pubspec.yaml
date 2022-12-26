@@ -74,6 +74,7 @@ dependencies:
   syncfusion_flutter_datagrid: ^20.3.61
   anim_search_bar: ^2.0.3
   animation_search_bar: ^0.0.10
+  flutter_datetime_picker: ^1.5.1
 
 dev_dependencies:
   flutter_test:
